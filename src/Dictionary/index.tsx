@@ -183,33 +183,36 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       <Brand />
-      {/* Reserved-height box so fading the input never shifts the image below. */}
-      <div style={{ height: 140, overflow: "hidden" }}>
-        <div style={{ height: 40 }} />
+      {/* Top slot under the brand: the image lives here and appears in place,
+          while the input is overlaid on top and fades out to reveal it. */}
+      <div style={{ position: "relative" }}>
+        {word.image && (
+          <div style={{ padding: "40px 60px 0" }}>
+            <Img
+              src={staticFile(word.image)}
+              style={{
+                width: "100%",
+                height: 300,
+                objectFit: "cover",
+                borderRadius: 32,
+                opacity: headerSpring,
+              }}
+            />
+          </div>
+        )}
         <div
           style={{
+            position: "absolute",
+            top: 40,
+            left: 0,
+            right: 0,
             opacity: 1 - searchHide,
-            transform: `translateY(${interpolate(searchHide, [0, 1], [0, -24])}px)`,
+            transform: `translateY(${interpolate(searchHide, [0, 1], [0, -16])}px)`,
           }}
         >
           <SearchBar text={word.word} showCursor={false} />
         </div>
       </div>
-
-      {word.image && (
-        <div style={{ padding: "28px 60px 0" }}>
-          <Img
-            src={staticFile(word.image)}
-            style={{
-              width: "100%",
-              height: 300,
-              objectFit: "cover",
-              borderRadius: 32,
-              opacity: headerSpring,
-            }}
-          />
-        </div>
-      )}
 
       <div
         style={{
