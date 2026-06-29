@@ -86,5 +86,49 @@
       }
     ],
     "image": "words/how-are-you.jpg"
+  },
+  {
+    "slug": "abandoned-my-child",
+    "word": "Abandoned my child",
+    "phonetic": "[əˈbændən maɪ tʃaɪld]",
+    "partOfSpeech": "verb phrase",
+    "translation": "Бросила моего ребенка",
+    "examples": [
+      {
+        "en": "She abandoned her child at the playground.",
+        "ru": "Она бросила своего ребенка на игровой площадке."
+      },
+      {
+        "en": "Abandoning a child is a serious crime.",
+        "ru": "Бросить ребенка - это серьезное преступление."
+      },
+      {
+        "en": "He felt guilty for having abandoned his child years ago.",
+        "ru": "Он чувствовал вину за то, что бросил своего ребенка много лет назад."
+      }
+    ],
+    "image": "words/abandoned-my-child.jpg"
+  },
+  {
+    "slug": "say-it-louder",
+    "word": "Say it louder",
+    "phonetic": "[seɪ ɪt laʊdər]",
+    "partOfSpeech": "фраза",
+    "translation": "Скажи это громче.",
+    "examples": [
+      {
+        "en": "Can you say it louder so everyone can hear?",
+        "ru": "Можешь сказать это громче, чтобы все могли слышать?"
+      },
+      {
+        "en": "During the presentation, please say it louder for clarity.",
+        "ru": "Во время презентации, пожалуйста, скажи это громче для ясности."
+      },
+      {
+        "en": "I couldn't hear you; can you say it louder?",
+        "ru": "Я тебя не слышал; можешь сказать это громче?"
+      }
+    ],
+    "image": "words/say-it-louder.jpg"
   }
 ]

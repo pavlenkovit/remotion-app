@@ -145,6 +145,9 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   const headerSpring = spring({ frame: localFrame - 4, fps, config: { damping: 200 } });
   const headerY = interpolate(headerSpring, [0, 1], [50, 0]);
 
+  // Shrink long phrases so titles like "Abandoned my child" stay tidy.
+  const titleSize = word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
+
   // Button press: highlight around localFrame 150
   const pressStart = 150;
   const press = interpolate(localFrame, [pressStart, pressStart + 6, pressStart + 16], [1, 0.94, 1], {
@@ -196,13 +199,19 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
         }}
       >
         {/* word + phonetics */}
-        <div style={{ display: "flex", alignItems: "baseline", gap: 28 }}>
-          <span style={{ color: "white", fontSize: 96, fontWeight: 700 }}>{word.word}</span>
-          <span style={{ color: COLORS.accent, fontSize: 48 }}>{word.phonetic}</span>
-          <svg width="50" height="50" viewBox="0 0 24 24" fill={COLORS.muted}>
-            <path d="M3 9v6h4l5 5V4L7 9H3z" />
-            <path d="M16 8a5 5 0 010 8" stroke={COLORS.muted} strokeWidth="2" fill="none" />
-          </svg>
+        <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
+          <span style={{ color: "white", fontSize: titleSize, fontWeight: 700, lineHeight: 1.05 }}>
+            {word.word}
+          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+            <span style={{ color: COLORS.accent, fontSize: 44, whiteSpace: "nowrap" }}>
+              {word.phonetic}
+            </span>
+            <svg width="50" height="50" viewBox="0 0 24 24" fill={COLORS.muted}>
+              <path d="M3 9v6h4l5 5V4L7 9H3z" />
+              <path d="M16 8a5 5 0 010 8" stroke={COLORS.muted} strokeWidth="2" fill="none" />
+            </svg>
+          </div>
         </div>
         <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>{word.partOfSpeech}</div>
 
