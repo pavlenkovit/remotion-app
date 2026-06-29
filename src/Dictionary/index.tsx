@@ -15,12 +15,12 @@ import { words, type WordData } from "./schema";
 
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
 
-const TYPE_START = 6;
-const PER_CHAR = 2;
+const TYPE_START = 4;
+const PER_CHAR = 1.5;
 const WORD_SCENE_DURATION = 120;
 
 export const getDictionaryTiming = (word: WordData) => {
-  const typingEnd = TYPE_START + word.word.length * PER_CHAR;
+  const typingEnd = Math.ceil(TYPE_START + word.word.length * PER_CHAR);
   const transitionAt = typingEnd + 16;
   return {
     typeStart: TYPE_START,
