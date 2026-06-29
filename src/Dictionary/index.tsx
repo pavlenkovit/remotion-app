@@ -151,8 +151,8 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   const isPhrase = word.word.trim().includes(" ");
   const addedLabel = isPhrase ? "Фраза добавлена" : "Слово добавлено";
 
-  // After the word appears, the search input smoothly collapses upward.
-  const searchHide = interpolate(localFrame, [14, 30], [0, 1], {
+  // The search input fades out quickly so it doesn't linger over the image.
+  const searchHide = interpolate(localFrame, [4, 12], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.inOut(Easing.cubic),
