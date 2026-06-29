@@ -183,16 +183,17 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       <Brand />
-      <div
-        style={{
-          height: interpolate(searchHide, [0, 1], [140, 0]),
-          opacity: 1 - searchHide,
-          transform: `translateY(${interpolate(searchHide, [0, 1], [0, -60])}px)`,
-          overflow: "hidden",
-        }}
-      >
+      {/* Reserved-height box so fading the input never shifts the image below. */}
+      <div style={{ height: 140, overflow: "hidden" }}>
         <div style={{ height: 40 }} />
-        <SearchBar text={word.word} showCursor={false} />
+        <div
+          style={{
+            opacity: 1 - searchHide,
+            transform: `translateY(${interpolate(searchHide, [0, 1], [0, -24])}px)`,
+          }}
+        >
+          <SearchBar text={word.word} showCursor={false} />
+        </div>
       </div>
 
       {word.image && (
@@ -205,7 +206,6 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
               objectFit: "cover",
               borderRadius: 32,
               opacity: headerSpring,
-              transform: `translateY(${headerY}px)`,
             }}
           />
         </div>
