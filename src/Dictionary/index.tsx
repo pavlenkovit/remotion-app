@@ -118,7 +118,7 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timin
 const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, delay }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const appear = spring({ frame: frame - delay, fps, config: { damping: 200 } });
+  const appear = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 10 });
   const y = interpolate(appear, [0, 1], [40, 0]);
   return (
     <div
@@ -141,7 +141,7 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, 
 const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, localFrame }) => {
   const { fps } = useVideoConfig();
 
-  const headerSpring = spring({ frame: localFrame - 2, fps, config: { damping: 200 } });
+  const headerSpring = spring({ frame: localFrame, fps, config: { damping: 200 }, durationInFrames: 10 });
   const headerY = interpolate(headerSpring, [0, 1], [50, 0]);
 
   // Shrink long phrases so titles like "Abandoned my child" stay tidy.
@@ -234,7 +234,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
 
       <div style={{ padding: "0 60px" }}>
         {word.examples.map((ex, i) => (
-          <Example key={i} en={ex.en} ru={ex.ru} delay={10 + i * 6} />
+          <Example key={i} en={ex.en} ru={ex.ru} delay={5 + i * 4} />
         ))}
       </div>
 
@@ -340,23 +340,23 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
   const timing = getDictionaryTiming(word);
   const { transitionAt } = timing;
 
-  const scene1Opacity = interpolate(frame, [transitionAt - 8, transitionAt + 8], [1, 0], {
+  const scene1Opacity = interpolate(frame, [transitionAt - 5, transitionAt + 3], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const scene2Opacity = interpolate(frame, [transitionAt - 4, transitionAt + 12], [0, 1], {
+  const scene2Opacity = interpolate(frame, [transitionAt - 2, transitionAt + 6], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      {frame >= transitionAt - 12 && (
+      {frame >= transitionAt - 6 && (
         <AbsoluteFill style={{ opacity: scene2Opacity }}>
           <WordScene word={word} localFrame={frame - transitionAt} />
         </AbsoluteFill>
       )}
-      {frame < transitionAt + 10 && (
+      {frame < transitionAt + 5 && (
         <AbsoluteFill style={{ opacity: scene1Opacity }}>
           <SearchScene word={word} timing={timing} />
         </AbsoluteFill>
