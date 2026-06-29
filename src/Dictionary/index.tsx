@@ -15,8 +15,8 @@ import { words, type WordData } from "./schema";
 
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
 
-const TYPE_START = 18;
-const PER_CHAR = 10;
+const TYPE_START = 8;
+const PER_CHAR = 3;
 const WORD_SCENE_DURATION = 245;
 
 export const getDictionaryTiming = (word: WordData) => {
