@@ -17,7 +17,7 @@ import { words, type WordData } from "./schema";
 
 const TYPE_START = 6;
 const PER_CHAR = 2;
-const WORD_SCENE_DURATION = 175;
+const WORD_SCENE_DURATION = 120;
 
 export const getDictionaryTiming = (word: WordData) => {
   const typingEnd = TYPE_START + word.word.length * PER_CHAR;
