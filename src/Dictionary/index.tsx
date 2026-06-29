@@ -9,8 +9,27 @@ import {
 } from "remotion";
 import { COLORS, LanguageRow, SearchBar, StatusBar } from "./ui";
 import { Keyboard } from "./Keyboard";
+import { words, type WordData } from "./schema";
 
-const WORD = "Hello";
+// ---------- Timing (derived from the word so any word fits the scenario) ----------
+
+const TYPE_START = 18;
+const PER_CHAR = 10;
+const WORD_SCENE_DURATION = 245;
+
+export const getDictionaryTiming = (word: WordData) => {
+  const typingEnd = TYPE_START + word.word.length * PER_CHAR;
+  const transitionAt = typingEnd + 24;
+  return {
+    typeStart: TYPE_START,
+    perChar: PER_CHAR,
+    typingEnd,
+    transitionAt,
+    durationInFrames: transitionAt + WORD_SCENE_DURATION,
+  };
+};
+
+type Timing = ReturnType<typeof getDictionaryTiming>;
 
 // ---------- Scene 1: search + typing ----------
 
@@ -47,30 +66,30 @@ const Spinner: React.FC = () => {
   );
 };
 
-const SearchScene: React.FC = () => {
+const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timing }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const typeStart = 18;
-  const perChar = 12;
+  const text = word.word;
+  const { typeStart, perChar, typingEnd } = timing;
   const chars = Math.min(
-    WORD.length,
+    text.length,
     Math.max(0, Math.floor((frame - typeStart) / perChar)),
   );
-  const typed = WORD.slice(0, chars);
-  const doneTyping = frame > typeStart + WORD.length * perChar;
+  const typed = text.slice(0, chars);
+  const doneTyping = frame > typingEnd;
 
   // blinking cursor
   const cursorOn = Math.floor(frame / 15) % 2 === 0 || !doneTyping;
 
-  const spinnerOpacity = interpolate(frame, [85, 100], [0, 1], {
+  const spinnerOpacity = interpolate(frame, [typingEnd + 7, typingEnd + 22], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   // keyboard slides away once typing is done
   const kbOffset = doneTyping
-    ? interpolate(frame, [90, 110], [0, 900], {
+    ? interpolate(frame, [typingEnd + 12, typingEnd + 32], [0, 900], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
         easing: Easing.in(Easing.cubic),
@@ -118,7 +137,7 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, 
   );
 };
 
-const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
+const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, localFrame }) => {
   const { fps } = useVideoConfig();
 
   const headerSpring = spring({ frame: localFrame - 4, fps, config: { damping: 200 } });
@@ -149,7 +168,7 @@ const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       <StatusBar />
       <div style={{ height: 40 }} />
-      <SearchBar text={WORD} showCursor={false} />
+      <SearchBar text={word.word} showCursor={false} />
 
       <div
         style={{
@@ -160,14 +179,14 @@ const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
       >
         {/* word + phonetics */}
         <div style={{ display: "flex", alignItems: "baseline", gap: 28 }}>
-          <span style={{ color: "white", fontSize: 96, fontWeight: 700 }}>{WORD}</span>
-          <span style={{ color: COLORS.accent, fontSize: 48 }}>/həˈloʊ/</span>
+          <span style={{ color: "white", fontSize: 96, fontWeight: 700 }}>{word.word}</span>
+          <span style={{ color: COLORS.accent, fontSize: 48 }}>{word.phonetic}</span>
           <svg width="50" height="50" viewBox="0 0 24 24" fill={COLORS.muted}>
             <path d="M3 9v6h4l5 5V4L7 9H3z" />
             <path d="M16 8a5 5 0 010 8" stroke={COLORS.muted} strokeWidth="2" fill="none" />
           </svg>
         </div>
-        <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>междометие</div>
+        <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>{word.partOfSpeech}</div>
 
         <div
           style={{
@@ -178,7 +197,7 @@ const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
             marginBottom: 50,
           }}
         >
-          привет; здравствуйте
+          {word.translation}
         </div>
 
         <div style={{ color: COLORS.muted, fontSize: 36, marginBottom: 24, letterSpacing: 1 }}>
@@ -187,8 +206,9 @@ const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
       </div>
 
       <div style={{ padding: "0 60px" }}>
-        <Example en="Hello! How are you?" ru="Привет! Как дела?" delay={20} />
-        <Example en="Say hello to your family." ru="Передавай привет своей семье." delay={32} />
+        {word.examples.map((ex, i) => (
+          <Example key={i} en={ex.en} ru={ex.ru} delay={20 + i * 12} />
+        ))}
       </div>
 
       {/* Add to dictionary button */}
@@ -288,10 +308,11 @@ const WordScene: React.FC<{ localFrame: number }> = ({ localFrame }) => {
 
 // ---------- Root composition ----------
 
-export const Dictionary: React.FC = () => {
+export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
   const frame = useCurrentFrame();
+  const timing = getDictionaryTiming(word);
+  const { transitionAt } = timing;
 
-  const transitionAt = 115;
   const scene1Opacity = interpolate(frame, [transitionAt - 8, transitionAt + 8], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -305,14 +326,17 @@ export const Dictionary: React.FC = () => {
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       {frame >= transitionAt - 12 && (
         <AbsoluteFill style={{ opacity: scene2Opacity }}>
-          <WordScene localFrame={frame - transitionAt} />
+          <WordScene word={word} localFrame={frame - transitionAt} />
         </AbsoluteFill>
       )}
       {frame < transitionAt + 10 && (
         <AbsoluteFill style={{ opacity: scene1Opacity }}>
-          <SearchScene />
+          <SearchScene word={word} timing={timing} />
         </AbsoluteFill>
       )}
     </AbsoluteFill>
   );
 };
+
+// Default word used when the composition is rendered without explicit props.
+export const defaultWord: WordData = words[0];

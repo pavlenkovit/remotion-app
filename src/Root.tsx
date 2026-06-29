@@ -2,21 +2,29 @@ import "./index.css";
 import { Composition } from "remotion";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
-import { Dictionary } from "./Dictionary";
+import { Dictionary, getDictionaryTiming } from "./Dictionary";
+import { dictionarySchema, words } from "./Dictionary/schema";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition
-        id="Dictionary"
-        component={Dictionary}
-        durationInFrames={360}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
+      {/* One composition per word — same scenario, content comes from words.json.
+          Edit src/Dictionary/words.json (or the props panel in Studio) to add words. */}
+      {words.map((word) => (
+        <Composition
+          key={word.word}
+          id={`Dictionary-${word.word}`}
+          component={Dictionary}
+          durationInFrames={getDictionaryTiming(word).durationInFrames}
+          fps={30}
+          width={1080}
+          height={1920}
+          schema={dictionarySchema}
+          defaultProps={{ word }}
+        />
+      ))}
 
       <Composition
         // You can take the "id" to render a video:
