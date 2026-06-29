@@ -147,6 +147,10 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   // Shrink long phrases so titles like "Abandoned my child" stay tidy.
   const titleSize = word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
 
+  // Multi-word entries are phrases; single words are words.
+  const isPhrase = word.word.trim().includes(" ");
+  const addedLabel = isPhrase ? "Фраза добавлена" : "Слово добавлено";
+
   // Button press: a quick, snappy tap early on.
   const pressStart = 62;
   const press = interpolate(localFrame, [pressStart, pressStart + 2, pressStart + 6], [1, 0.9, 1], {
@@ -322,7 +326,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
                 lineHeight: 1.3,
               }}
             >
-              Слово добавлено
+              {addedLabel}
               <br />
               для изучения
             </div>
