@@ -15,13 +15,13 @@ import { words, type WordData } from "./schema";
 
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
 
-const TYPE_START = 8;
-const PER_CHAR = 3;
-const WORD_SCENE_DURATION = 245;
+const TYPE_START = 6;
+const PER_CHAR = 2;
+const WORD_SCENE_DURATION = 175;
 
 export const getDictionaryTiming = (word: WordData) => {
   const typingEnd = TYPE_START + word.word.length * PER_CHAR;
-  const transitionAt = typingEnd + 24;
+  const transitionAt = typingEnd + 16;
   return {
     typeStart: TYPE_START,
     perChar: PER_CHAR,
@@ -84,14 +84,14 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timin
   // blinking cursor
   const cursorOn = Math.floor(frame / 15) % 2 === 0 || !doneTyping;
 
-  const spinnerOpacity = interpolate(frame, [typingEnd + 7, typingEnd + 22], [0, 1], {
+  const spinnerOpacity = interpolate(frame, [typingEnd + 4, typingEnd + 12], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   // keyboard slides away once typing is done
   const kbOffset = doneTyping
-    ? interpolate(frame, [typingEnd + 12, typingEnd + 32], [0, 900], {
+    ? interpolate(frame, [typingEnd + 5, typingEnd + 20], [0, 900], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
         easing: Easing.in(Easing.cubic),
@@ -141,29 +141,30 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, 
 const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, localFrame }) => {
   const { fps } = useVideoConfig();
 
-  const headerSpring = spring({ frame: localFrame - 4, fps, config: { damping: 200 } });
+  const headerSpring = spring({ frame: localFrame - 2, fps, config: { damping: 200 } });
   const headerY = interpolate(headerSpring, [0, 1], [50, 0]);
 
   // Shrink long phrases so titles like "Abandoned my child" stay tidy.
   const titleSize = word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
 
-  // Button press: highlight around localFrame 150
-  const pressStart = 150;
-  const press = interpolate(localFrame, [pressStart, pressStart + 6, pressStart + 16], [1, 0.94, 1], {
+  // Button press: a quick, snappy tap early on.
+  const pressStart = 62;
+  const press = interpolate(localFrame, [pressStart, pressStart + 4, pressStart + 11], [1, 0.91, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // Toast appears after the press
-  const toastStart = pressStart + 14;
+  // Toast pops in right after the press with a punchy overshoot.
+  const toastStart = pressStart + 10;
   const toastSpring = spring({
     frame: localFrame - toastStart,
     fps,
-    config: { damping: 14, stiffness: 120 },
+    config: { damping: 10, stiffness: 200 },
   });
   const toastVisible = localFrame > toastStart - 2;
-  const toastScale = interpolate(toastSpring, [0, 1], [0.6, 1]);
-  const overlayOpacity = interpolate(localFrame, [toastStart, toastStart + 10], [0, 0.55], {
+  // Let the spring overshoot past 1 for an energetic pop.
+  const toastScale = 0.5 + 0.5 * toastSpring;
+  const overlayOpacity = interpolate(localFrame, [toastStart, toastStart + 7], [0, 0.55], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -233,7 +234,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
 
       <div style={{ padding: "0 60px" }}>
         {word.examples.map((ex, i) => (
-          <Example key={i} en={ex.en} ru={ex.ru} delay={20 + i * 12} />
+          <Example key={i} en={ex.en} ru={ex.ru} delay={10 + i * 6} />
         ))}
       </div>
 
