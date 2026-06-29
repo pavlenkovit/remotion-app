@@ -1,42 +1,6 @@
 [
-  {
-    "word": "Hello",
-    "phonetic": "/həˈloʊ/",
-    "partOfSpeech": "междометие",
-    "translation": "привет; здравствуйте",
-    "examples": [
-      { "en": "Hello! How are you?", "ru": "Привет! Как дела?" },
-      { "en": "Say hello to your family.", "ru": "Передавай привет своей семье." }
-    ]
-  },
-  {
-    "word": "Apple",
-    "phonetic": "/ˈæp.əl/",
-    "partOfSpeech": "существительное",
-    "translation": "яблоко",
-    "examples": [
-      { "en": "She ate a green apple.", "ru": "Она съела зелёное яблоко." },
-      { "en": "An apple a day keeps the doctor away.", "ru": "Яблоко в день — и доктор не нужен." }
-    ]
-  },
-  {
-    "word": "Run",
-    "phonetic": "/rʌn/",
-    "partOfSpeech": "глагол",
-    "translation": "бежать; бегать",
-    "examples": [
-      { "en": "I run every morning.", "ru": "Я бегаю каждое утро." },
-      { "en": "They had to run for the bus.", "ru": "Им пришлось бежать на автобус." }
-    ]
-  },
-  {
-    "word": "Freedom",
-    "phonetic": "/ˈfriː.dəm/",
-    "partOfSpeech": "существительное",
-    "translation": "свобода",
-    "examples": [
-      { "en": "Freedom of speech is a basic right.", "ru": "Свобода слова — основное право." },
-      { "en": "They fought for their freedom.", "ru": "Они боролись за свою свободу." }
-    ]
-  }
+  "freedom",
+  "apple",
+  "run",
+  "how-are-you"
 ]

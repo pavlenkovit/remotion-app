@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "freedom",
+    "word": "Freedom",
+    "phonetic": "[ˈfriːdəm]",
+    "partOfSpeech": "существительное",
+    "translation": "Свобода",
+    "examples": [
+      {
+        "en": "We must fight for freedom and justice.",
+        "ru": "Мы должны бороться за свободу и справедливость."
+      },
+      {
+        "en": "Freedom of speech is a fundamental right.",
+        "ru": "Свобода слова – это основополагающее право."
+      },
+      {
+        "en": "She dreamed of a life of freedom and independence.",
+        "ru": "Она мечтала о жизни свободы и независимости."
+      }
+    ],
+    "image": "words/freedom.jpg"
+  },
+  {
+    "slug": "apple",
+    "word": "Apple",
+    "phonetic": "[ˈæpl]",
+    "partOfSpeech": "существительное",
+    "translation": "Яблоко",
+    "examples": [
+      {
+        "en": "I ate an apple for breakfast this morning.",
+        "ru": "Я съел яблоко на завтрак сегодня."
+      },
+      {
+        "en": "The apple pie was delicious and warm.",
+        "ru": "Пирог с яблоками был вкусным и теплым."
+      },
+      {
+        "en": "He dropped the apple, and it rolled across the floor.",
+        "ru": "Он уронил яблоко, и оно покатилось по полу."
+      }
+    ],
+    "image": "words/apple.jpg"
+  },
+  {
+    "slug": "run",
+    "word": "Run",
+    "phonetic": "[rʌn]",
+    "partOfSpeech": "глагол",
+    "translation": "бегать",
+    "examples": [
+      {
+        "en": "I like to run in the park every morning.",
+        "ru": "Я люблю бегать в парке каждое утро."
+      },
+      {
+        "en": "She ran quickly to catch the bus.",
+        "ru": "Она быстро побежала, чтобы поймать автобус."
+      },
+      {
+        "en": "The dog loves to run and play fetch.",
+        "ru": "Собака любит бегать и играть в приносить мячик."
+      }
+    ],
+    "image": "words/run.jpg"
+  },
+  {
+    "slug": "how-are-you",
+    "word": "How are you",
+    "phonetic": "[haʊ æə juː]",
+    "partOfSpeech": "междометие",
+    "translation": "Как вы",
+    "examples": [
+      {
+        "en": "How are you doing today?",
+        "ru": "Как вы сегодня делаете?"
+      },
+      {
+        "en": "I'm just wondering how are you feeling?",
+        "ru": "Я просто думаю, как вы себя чувствуете?"
+      },
+      {
+        "en": "How are you planning to approach this problem?",
+        "ru": "Как вы планируете подойти к этой проблеме?"
+      }
+    ],
+    "image": "words/how-are-you.jpg"
+  }
+]

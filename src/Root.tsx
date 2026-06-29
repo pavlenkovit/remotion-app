@@ -10,12 +10,12 @@ import { dictionarySchema, words } from "./Dictionary/schema";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      {/* One composition per word — same scenario, content comes from words.json.
-          Edit src/Dictionary/words.json (or the props panel in Studio) to add words. */}
+      {/* One composition per word — same scenario, content fetched from vibeling.app.
+          Add a slug to src/Dictionary/words.json, then run `npm run fetch-words`. */}
       {words.map((word) => (
         <Composition
-          key={word.word}
-          id={`Dictionary-${word.word}`}
+          key={word.slug}
+          id={`Dictionary-${word.slug}`}
           component={Dictionary}
           durationInFrames={getDictionaryTiming(word).durationInFrames}
           fps={30}

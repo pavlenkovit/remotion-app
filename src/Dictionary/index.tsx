@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
   Easing,
@@ -126,8 +128,8 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, 
         transform: `translateY(${y}px)`,
         backgroundColor: COLORS.card,
         borderRadius: 28,
-        padding: "32px 36px",
-        marginBottom: 26,
+        padding: "24px 34px",
+        marginBottom: 18,
         borderLeft: `6px solid ${COLORS.accent}`,
       }}
     >
@@ -170,9 +172,25 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
       <div style={{ height: 40 }} />
       <SearchBar text={word.word} showCursor={false} />
 
+      {word.image && (
+        <div style={{ padding: "28px 60px 0" }}>
+          <Img
+            src={staticFile(word.image)}
+            style={{
+              width: "100%",
+              height: 300,
+              objectFit: "cover",
+              borderRadius: 32,
+              opacity: headerSpring,
+              transform: `translateY(${headerY}px)`,
+            }}
+          />
+        </div>
+      )}
+
       <div
         style={{
-          padding: "60px 60px 0",
+          padding: "26px 60px 0",
           transform: `translateY(${headerY}px)`,
           opacity: headerSpring,
         }}
@@ -193,14 +211,14 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
             color: "white",
             fontSize: 54,
             fontWeight: 500,
-            marginTop: 36,
-            marginBottom: 50,
+            marginTop: 24,
+            marginBottom: 30,
           }}
         >
           {word.translation}
         </div>
 
-        <div style={{ color: COLORS.muted, fontSize: 36, marginBottom: 24, letterSpacing: 1 }}>
+        <div style={{ color: COLORS.muted, fontSize: 36, marginBottom: 16, letterSpacing: 1 }}>
           ПРИМЕРЫ
         </div>
       </div>
