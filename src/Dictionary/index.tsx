@@ -151,6 +151,13 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   const isPhrase = word.word.trim().includes(" ");
   const addedLabel = isPhrase ? "Фраза добавлена" : "Слово добавлено";
 
+  // After the word appears, the search input smoothly collapses upward.
+  const searchHide = interpolate(localFrame, [14, 30], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.inOut(Easing.cubic),
+  });
+
   // Button press: a quick, snappy tap early on.
   const pressStart = 62;
   const press = interpolate(localFrame, [pressStart, pressStart + 2, pressStart + 6], [1, 0.9, 1], {
@@ -176,8 +183,17 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       <Brand />
-      <div style={{ height: 40 }} />
-      <SearchBar text={word.word} showCursor={false} />
+      <div
+        style={{
+          height: interpolate(searchHide, [0, 1], [140, 0]),
+          opacity: 1 - searchHide,
+          transform: `translateY(${interpolate(searchHide, [0, 1], [0, -60])}px)`,
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ height: 40 }} />
+        <SearchBar text={word.word} showCursor={false} />
+      </div>
 
       {word.image && (
         <div style={{ padding: "28px 60px 0" }}>
