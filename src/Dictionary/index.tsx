@@ -149,13 +149,13 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
 
   // Button press: a quick, snappy tap early on.
   const pressStart = 62;
-  const press = interpolate(localFrame, [pressStart, pressStart + 4, pressStart + 11], [1, 0.91, 1], {
+  const press = interpolate(localFrame, [pressStart, pressStart + 2, pressStart + 6], [1, 0.9, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   // Toast pops in right after the press with a punchy overshoot.
-  const toastStart = pressStart + 10;
+  const toastStart = pressStart + 6;
   const toastSpring = spring({
     frame: localFrame - toastStart,
     fps,
