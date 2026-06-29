@@ -255,7 +255,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
         <div
           style={{
             height: 120,
-            borderRadius: 30,
+            borderRadius: 999,
             background: `linear-gradient(135deg, ${COLORS.accent}, #6d28d9)`,
             display: "flex",
             alignItems: "center",
