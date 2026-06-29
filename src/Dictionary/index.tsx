@@ -9,7 +9,7 @@ import {
   useVideoConfig,
   Easing,
 } from "remotion";
-import { COLORS, LanguageRow, SearchBar, StatusBar } from "./ui";
+import { Brand, COLORS, SearchBar } from "./ui";
 import { Keyboard } from "./Keyboard";
 import { words, type WordData } from "./schema";
 
@@ -100,10 +100,9 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timin
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      <StatusBar />
+      <Brand />
       <div style={{ height: 40 }} />
       <SearchBar text={typed} showCursor={cursorOn} />
-      <LanguageRow />
       <div style={{ opacity: spinnerOpacity }}>
         <Spinner />
       </div>
@@ -171,7 +170,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      <StatusBar />
+      <Brand />
       <div style={{ height: 40 }} />
       <SearchBar text={word.word} showCursor={false} />
 
