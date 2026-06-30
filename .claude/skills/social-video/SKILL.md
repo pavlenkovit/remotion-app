@@ -91,8 +91,9 @@ NOT "out" artifacts — they belong in `public/mockups/<slug>.mp4` (see below).
 
 ## Scenario (sequence of the produced video)
 
-1. **First pass — plain clip.** Play the clip start to finish, with the branding caption
-   **"Учим английский по фильмам"** under the video (no subtitles yet).
+1. **First pass — plain clip.** Play the clip start to finish, no subtitles. Show
+   **"Учим английский по фильмам"** (bold) in the black band **above** the video, and
+   **"Первый раз смотрим без субтитров"** (calmer, smaller) in the band **below** it.
 2. **Pause + swipe.** Freeze the clip on its last frame, then a swipe/wipe transition.
 3. **Second pass — subtitled clip.** Play the same clip again with the English subtitles
    in the band under the video.
@@ -102,7 +103,8 @@ NOT "out" artifacts — they belong in `public/mockups/<slug>.mp4` (see below).
    - a **phone mockup** slides/fades in showing the mockup video of adding that phrase,
    - once that mockup video finishes playing, the clip **resumes**.
    - Repeat for every highlighted phrase, in order.
-5. **Outro.** Show `public/video/vibeling.png` as a still for **2 seconds** (60 frames at 30fps).
+5. **Outro.** Show `public/video/vibeling.png` **full-screen** (`objectFit: cover`, fills the
+   whole 1080×1920 frame) for **2 seconds** (60 frames at 30fps).
 
 ## One recipe, many videos (data-driven)
 
@@ -135,12 +137,19 @@ Reference format: "Английский по фильмам" shorts
   not over it. Its Y is computed from the clip's real aspect ratio (`dimensions` read via
   `parseMedia` in `calculateMetadata`, passed as `clipAspect`), so it hugs the video for
   any aspect.
-- **First pass caption.** Show the fixed branding line **"Учим английский по фильмам"**
-  (constant `INTRO_CAPTION`) under the video for the whole plain pass; gentle fade-in.
+- **First pass captions.** Bold branding **"Учим английский по фильмам"** (`INTRO_CAPTION`)
+  in the band **above** the video; a calmer, smaller **"Первый раз смотрим без субтитров"**
+  (`INTRO_SUBCAPTION`) in the band **below** it. Both fade in. The subcaption is deliberately
+  less flashy (smaller, lighter weight, dimmer) than the top line.
 - **Subtitles (second pass).** One cue at a time, **centered, bold white, soft drop
   shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
   each cue's edges. Keep them legible against the black band — clean, not cramped over the
   footage.
+- **Outro full-screen.** The promo image fills the entire frame (`objectFit: cover`), no bars.
+- **Sounds** (`public/sounds/`): `swipe.mp3` plays in the swipe `<Sequence>` (the wipe between
+  passes); `click.mp3` is **baked into each Dictionary mockup** at the button tap (see below),
+  so it plays in sync when the social video shows that mockup. Use `<Html5Audio>` (not the
+  deprecated `<Audio>`).
 
 ## Conventions
 
@@ -160,7 +169,11 @@ Reference format: "Английский по фильмам" shorts
   `getDictionaryTiming(word)`.
 - **Phone frame:** pure CSS (dark rounded bezel) — the mockup is already 1080×1920 (9:16).
 - **Swipe:** a skewed purple (`COLORS.accent`) panel sweeping left→right over the frozen last
-  frame, `swipeFrames` long (config; default 18).
+  frame, `swipeFrames` long (config; default 18). `swipe.mp3` plays in this `<Sequence>`.
+- **Click sound:** baked into the `Dictionary` composition itself — an `<Html5Audio>` of
+  `sounds/click.mp3` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
+  the rendered `public/mockups/<slug>.mp4`, the social video plays it in sync automatically.
+  **After changing the click sound or `PRESS_AT`, re-render the mockups** so it's re-baked.
 
 ## Tuning (mostly automatic)
 

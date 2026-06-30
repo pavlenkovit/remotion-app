@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Html5Audio,
   Freeze,
   Img,
   interpolate,
@@ -32,19 +33,24 @@ const COMP_W = 1080;
 const COMP_H = 1920;
 /** Fallback clip aspect (w/h) when the file's real dimensions aren't available. */
 const DEFAULT_ASPECT = 16 / 9;
-/** Branding caption shown under the video during the FIRST (plain) pass. */
+/** First (plain) pass: bold branding ABOVE the video; calmer line BELOW it. */
 const INTRO_CAPTION = "Учим английский по фильмам";
+const INTRO_SUBCAPTION = "Первый раз смотрим без субтитров";
 /** Shared text font stack. */
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /**
  * The clip is shown FULL WIDTH and centered, never cropped — letterboxed with
- * black bars. This returns the Y (px) of the bottom edge of the displayed
- * video, so captions/subtitles sit in the black band right under it.
+ * black bars. These return the Y (px) of the bottom / top edges of the
+ * displayed video, so text sits in the black bands just under / over it.
  */
 const videoBottomY = (aspect: number): number => {
   const displayedH = Math.min(COMP_W / aspect, COMP_H); // full width → derived height
   return (COMP_H + displayedH) / 2;
+};
+const videoTopY = (aspect: number): number => {
+  const displayedH = Math.min(COMP_W / aspect, COMP_H);
+  return (COMP_H - displayedH) / 2;
 };
 
 // ============================================================================
@@ -163,25 +169,58 @@ const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
  * both the first-pass branding caption and the second-pass subtitles, so they
  * always land in the same, clean place.
  */
+/** Text band in the black area directly BELOW the letterboxed video. */
 const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.ReactNode }> = ({
   aspect,
   opacity = 1,
   children,
 }) => (
-  <AbsoluteFill
+  <div
     style={{
+      position: "absolute",
+      left: 0,
+      right: 0,
       top: videoBottomY(aspect),
+      bottom: 0,
       paddingTop: 48,
       paddingLeft: 80,
       paddingRight: 80,
-      alignItems: "center",
-      justifyContent: "flex-start",
+      display: "flex",
+      alignItems: "flex-start",
+      justifyContent: "center",
       textAlign: "center",
       opacity,
     }}
   >
     {children}
-  </AbsoluteFill>
+  </div>
+);
+
+/** Text band in the black area directly ABOVE the letterboxed video. */
+const UpperBand: React.FC<{ aspect: number; opacity?: number; children: React.ReactNode }> = ({
+  aspect,
+  opacity = 1,
+  children,
+}) => (
+  <div
+    style={{
+      position: "absolute",
+      left: 0,
+      right: 0,
+      top: 0,
+      height: videoTopY(aspect),
+      paddingBottom: 48,
+      paddingLeft: 80,
+      paddingRight: 80,
+      display: "flex",
+      alignItems: "flex-end",
+      justifyContent: "center",
+      textAlign: "center",
+      opacity,
+    }}
+  >
+    {children}
+  </div>
 );
 
 /** Second-pass subtitles: one cue at a time, centered under the video, with a soft fade. */
@@ -224,31 +263,52 @@ const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: n
   );
 };
 
-/** First-pass branding caption shown under the video for the whole plain pass. */
-const IntroCaption: React.FC<{ aspect: number }> = ({ aspect }) => {
+/**
+ * First-pass captions: the bold branding above the video, and a calmer
+ * "watch without subtitles" line below it. Both fade in together.
+ */
+const IntroCaptions: React.FC<{ aspect: number }> = ({ aspect }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const opacity = interpolate(frame, [0, Math.round(fps * 0.5)], [0, 1], {
     extrapolateRight: "clamp",
   });
   return (
-    <LowerBand aspect={aspect} opacity={opacity}>
-      <span
-        style={{
-          display: "inline-block",
-          maxWidth: 960,
-          color: "white",
-          fontFamily: FONT,
-          fontSize: 66,
-          fontWeight: 800,
-          lineHeight: 1.15,
-          letterSpacing: -1,
-          textShadow: "0 2px 14px rgba(0,0,0,0.9)",
-        }}
-      >
-        {INTRO_CAPTION}
-      </span>
-    </LowerBand>
+    <>
+      <UpperBand aspect={aspect} opacity={opacity}>
+        <span
+          style={{
+            display: "inline-block",
+            maxWidth: 960,
+            color: "white",
+            fontFamily: FONT,
+            fontSize: 66,
+            fontWeight: 800,
+            lineHeight: 1.15,
+            letterSpacing: -1,
+            textShadow: "0 2px 14px rgba(0,0,0,0.9)",
+          }}
+        >
+          {INTRO_CAPTION}
+        </span>
+      </UpperBand>
+      <LowerBand aspect={aspect} opacity={opacity}>
+        <span
+          style={{
+            display: "inline-block",
+            maxWidth: 880,
+            color: "rgba(255,255,255,0.82)",
+            fontFamily: FONT,
+            fontSize: 40,
+            fontWeight: 400,
+            lineHeight: 1.3,
+            textShadow: "0 2px 10px rgba(0,0,0,0.9)",
+          }}
+        >
+          {INTRO_SUBCAPTION}
+        </span>
+      </LowerBand>
+    </>
   );
 };
 
@@ -299,9 +359,10 @@ const PhoneMockup: React.FC<{ src: string }> = ({ src }) => {
   );
 };
 
+/** Outro: the promo image fills the whole screen. */
 const Outro: React.FC = () => (
-  <AbsoluteFill style={{ backgroundColor: COLORS.bg, alignItems: "center", justifyContent: "center" }}>
-    <Img src={staticFile("video/vibeling.png")} style={{ width: "70%", objectFit: "contain" }} />
+  <AbsoluteFill style={{ backgroundColor: "#000" }}>
+    <Img src={staticFile("video/vibeling.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
   </AbsoluteFill>
 );
 
@@ -323,16 +384,17 @@ export const SocialVideo: React.FC<{
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Pass 1 — plain clip + branding caption under the video */}
+      {/* Pass 1 — plain clip + branding above and a calmer line below */}
       <Sequence durationInFrames={t.clipLen}>
         <ClipSlice clip={clip} from={t.clipStart} to={t.clipStart + t.clipLen} />
-        <IntroCaption aspect={aspect} />
+        <IntroCaptions aspect={aspect} />
       </Sequence>
 
-      {/* Pause on the last frame + swipe */}
+      {/* Pause on the last frame + swipe (with swipe sound) */}
       <Sequence from={t.swipeFrom} durationInFrames={t.swipeFrames}>
         <ClipFreeze clip={clip} at={t.clipStart + t.clipLen - 1} />
         <Swipe swipeFrames={t.swipeFrames} />
+        <Html5Audio src={staticFile("sounds/swipe.mp3")} />
       </Sequence>
 
       {/* Pass 2 — subtitled clip, pausing on each highlight to show its mockup */}

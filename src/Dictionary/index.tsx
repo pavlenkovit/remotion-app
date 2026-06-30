@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Html5Audio,
   Img,
   interpolate,
+  Sequence,
   spring,
   staticFile,
   useCurrentFrame,
@@ -18,6 +20,8 @@ import { words, type WordData } from "./schema";
 const TYPE_START = 4;
 const PER_CHAR = 1.5;
 const WORD_SCENE_DURATION = 120;
+/** Scene-2 local frame where the "Добавить в словарь" button is tapped. */
+const PRESS_AT = 62;
 
 export const getDictionaryTiming = (word: WordData) => {
   const typingEnd = Math.ceil(TYPE_START + word.word.length * PER_CHAR);
@@ -159,7 +163,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   });
 
   // Button press: a quick, snappy tap early on.
-  const pressStart = 62;
+  const pressStart = PRESS_AT;
   const press = interpolate(localFrame, [pressStart, pressStart + 2, pressStart + 6], [1, 0.9, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -384,6 +388,12 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
           <SearchScene word={word} timing={timing} />
         </AbsoluteFill>
       )}
+
+      {/* Click sound exactly when the "Добавить в словарь" button is tapped.
+          Baked into the mockup render so the social video plays it in sync. */}
+      <Sequence from={transitionAt + PRESS_AT}>
+        <Html5Audio src={staticFile("sounds/click.mp3")} />
+      </Sequence>
     </AbsoluteFill>
   );
 };
