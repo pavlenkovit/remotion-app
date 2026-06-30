@@ -1,9 +1,12 @@
 import "./index.css";
-import { Composition } from "remotion";
+import { Composition, staticFile } from "remotion";
+import { parseMedia } from "@remotion/media-parser";
 import { Dictionary, getDictionaryTiming } from "./Dictionary";
 import { dictionarySchema, words } from "./Dictionary/schema";
 import { SocialVideo, getSocialTiming } from "./SocialVideo";
 import { videos, socialCompSchema } from "./SocialVideo/schema";
+
+const FPS = 30;
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -17,12 +20,23 @@ export const RemotionRoot: React.FC = () => {
           key={config.slug}
           id={`Social-${config.slug}`}
           component={SocialVideo}
-          durationInFrames={getSocialTiming(30, config).durationInFrames}
-          fps={30}
+          fps={FPS}
           width={1080}
           height={1920}
           schema={socialCompSchema}
           defaultProps={{ config }}
+          // The clip plays in full — read its length from the file and derive
+          // the whole video's duration from it. No start/end to configure.
+          calculateMetadata={async ({ props }) => {
+            const { slowDurationInSeconds } = await parseMedia({
+              src: staticFile(props.config.clip),
+              fields: { slowDurationInSeconds: true },
+              acknowledgeRemotionLicense: true,
+            });
+            const clipDurationInFrames = Math.round(slowDurationInSeconds * FPS);
+            const { durationInFrames } = getSocialTiming(FPS, props.config, clipDurationInFrames);
+            return { durationInFrames, fps: FPS, props: { ...props, clipDurationInFrames } };
+          }}
         />
       ))}
 

@@ -8,12 +8,12 @@ import { z } from "zod";
 export const highlightSchema = z.object({
   /** Dictionary slug; the mockup video is mockups/<slug>.mp4 (rendered earlier). */
   slug: z.string(),
-  /** Clip-local seconds (0 = cut start) where the phrase finishes being spoken. */
+  /** Clip seconds (0 = clip start) where the phrase finishes being spoken. */
   atSec: z.number(),
 });
 
 export const subtitleSchema = z.object({
-  /** Clip-local seconds (0 = cut start). */
+  /** Clip seconds (0 = clip start). */
   from: z.number(),
   to: z.number(),
   text: z.string(),
@@ -22,10 +22,9 @@ export const subtitleSchema = z.object({
 export const socialVideoSchema = z.object({
   /** Names the composition (`Social-<slug>`) and the render (`out/final/<slug>.mp4`). */
   slug: z.string(),
-  /** Source clip path relative to public/, e.g. "clips/<name>.mp4" (a symlink). */
+  /** Source clip path relative to public/, e.g. "clips/<name>.mp4" (a symlink).
+      The clip plays in full — its length is read automatically from the file. */
   clip: z.string(),
-  /** [startSec, endSec] window cut out of the source clip. */
-  cut: z.tuple([z.number(), z.number()]),
   /** Phrases to pause on during the subtitled pass, in order. */
   highlights: z.array(highlightSchema),
   /** English subtitles for the second pass. */
@@ -36,8 +35,14 @@ export const socialVideoSchema = z.object({
   outroSec: z.number().optional(),
 });
 
-/** Composition-level props schema (mirrors Dictionary's dictionarySchema). */
-export const socialCompSchema = z.object({ config: socialVideoSchema });
+/**
+ * Composition-level props. `clipDurationInFrames` is filled in by
+ * `calculateMetadata` in Root.tsx (read from the clip file), not by the JSON.
+ */
+export const socialCompSchema = z.object({
+  config: socialVideoSchema,
+  clipDurationInFrames: z.number().optional(),
+});
 
 export type Highlight = z.infer<typeof highlightSchema>;
 export type Subtitle = z.infer<typeof subtitleSchema>;

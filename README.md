@@ -103,6 +103,10 @@ A second composition, `SocialVideo`, turns a movie-scene clip into a vertical
 English subtitles, and pauses on chosen phrases to show a phone mockup of adding
 them to the dictionary.
 
+The clip is played **in full** — pre-trim it to the scene you want before staging
+it; the video's total length is read from the file automatically (no start/end and
+no duration to configure).
+
 Like the word videos, the **recipe is shared** (one component) and each video is
 just **data**: one JSON file per video in `src/SocialVideo/videos/`. You never
 copy a new `index.tsx` per video.
@@ -145,7 +149,6 @@ Create `src/SocialVideo/videos/<slug>.json`:
 {
   "slug": "my-scene",
   "clip": "clips/my-scene.mp4",
-  "cut": [120, 165],
   "highlights": [
     { "slug": "im-the-danger", "atSec": 12 },
     { "slug": "knock-knock", "atSec": 28 }
@@ -157,10 +160,10 @@ Create `src/SocialVideo/videos/<slug>.json`:
 }
 ```
 
-- `cut: [startSec, endSec]` — the window cut out of the source clip (seconds).
-- `highlights[].atSec` — clip-local second (0 = start of `cut`) where the phrase
-  finishes; that's where the clip pauses to show `mockups/<slug>.mp4`.
-- `subtitles` — `from`/`to`/`text`, also in clip-local seconds.
+- `clip` plays in full; its length is read from the file (no `cut`/duration).
+- `highlights[].atSec` — clip second where the phrase finishes; that's where the
+  clip pauses to show `mockups/<slug>.mp4`.
+- `subtitles` — `from`/`to`/`text` in clip seconds.
 - Optional: `swipeFrames` (default 18), `outroSec` (default 2).
 
 #### 4. Register it

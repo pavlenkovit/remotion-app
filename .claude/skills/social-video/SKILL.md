@@ -16,7 +16,8 @@ This is a Remotion project — read `.claude/skills/remotion-best-practices` and
 
 The skill is invoked with:
 
-- **`clip`** — path to the original video clip (a scene from a film). Required.
+- **`clip`** — path to the video clip, already trimmed to the scene you want (it plays in
+  full — there is no in-app trimming). Required.
 - **`highlights`** — the phrases/words to highlight, given in advance. For each one the user
   provides the phrase text and a **mockup video path** — a screen recording of adding that
   phrase to the dictionary (shown inside a phone mockup).
@@ -92,13 +93,15 @@ There is **one** component for ALL videos — do NOT make a new `index.tsx` per 
 The component is the reusable recipe; each video is just data:
 
 - **Component (recipe):** `src/SocialVideo/index.tsx`. Takes a `config` prop
-  (`SocialVideoData`); timing is derived in `getSocialTiming(fps, config)`.
+  (`SocialVideoData`); timing is derived in `getSocialTiming(fps, config, clipLen)`.
 - **Data (per video):** one JSON file in `src/SocialVideo/videos/<slug>.json` with
-  `{ slug, clip, cut: [startSec, endSec], highlights, subtitles, swipeFrames?, outroSec? }`.
+  `{ slug, clip, highlights, subtitles, swipeFrames?, outroSec? }`.
   `highlights` are `{ slug, atSec }` (the mockup is `mockups/<slug>.mp4`); `subtitles`
-  are `{ from, to, text }` in clip-local seconds.
+  are `{ from, to, text }` in clip seconds. **No `cut`/duration** — the clip is played
+  in full and its length is read from the file.
 - **Registry:** `src/SocialVideo/schema.ts` validates each JSON (zod) and exports `videos`.
-  `src/Root.tsx` maps `videos` → a `Social-<slug>` composition each.
+  `src/Root.tsx` maps `videos` → a `Social-<slug>` composition each, reading the clip's
+  length in `calculateMetadata` (via `parseMedia`) to set the total duration.
 
 **To add a new video:** drop a `videos/<slug>.json`, import it in `schema.ts` and add it
 to `sources`. That's it — no component changes, no new file per video.
@@ -111,8 +114,10 @@ to `sources`. That's it — no component changes, no new file per video.
 
 ## Implementation notes (decided)
 
-- **Trimming:** the full clip stays in `public/clips/`; the cut window is played with
-  `OffthreadVideo` `trimBefore`/`trimAfter` (frames = seconds × fps). No ffmpeg needed.
+- **Whole clip, no trimming:** the clip plays start to finish. Stage a pre-trimmed scene
+  under `public/clips/` (symlink); `calculateMetadata` reads its length so there is no
+  `cut` window or duration to configure. (`OffthreadVideo` `trimBefore`/`trimAfter` is
+  still used internally to split the second pass at each highlight.)
 - **Highlight pauses:** the second pass is split into `<Sequence>`s; at each highlight a
   `<Freeze>`d source frame sits under a dimmed overlay while the mockup `<OffthreadVideo>`
   slides up inside a **CSS phone frame** (no asset). Mockup length comes from
@@ -125,7 +130,7 @@ to `sources`. That's it — no component changes, no new file per video.
 
 (All per-video, in `src/SocialVideo/videos/<slug>.json`.)
 
-- **`highlights[].atSec`** — clip-local seconds where each phrase is spoken (drives the pause).
-- **`subtitles`** — the real transcript + per-line timing of the cut window.
+- **`highlights[].atSec`** — clip seconds where each phrase is spoken (drives the pause).
+- **`subtitles`** — the real transcript + per-line timing across the clip.
 - **Audio handling** — currently the clip's own audio plays; ducking during mockups / a music
   bed is not yet defined.

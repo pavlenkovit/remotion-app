@@ -38,10 +38,8 @@ type Seg =
   | { type: "play"; from: number; duration: number; srcFrom: number; srcTo: number; clipOffset: number }
   | { type: "mockup"; from: number; duration: number; freezeAt: number; mockup: string; slug: string };
 
-export const getSocialTiming = (fps: number, config: SocialVideoData) => {
-  const [startSec, endSec] = config.cut;
-  const clipStart = Math.round(startSec * fps);
-  const clipLen = Math.round((endSec - startSec) * fps);
+export const getSocialTiming = (fps: number, config: SocialVideoData, clipLen: number) => {
+  const clipStart = 0; // the clip plays in full — no trimming
   const swipeFrames = config.swipeFrames ?? DEFAULT_SWIPE_FRAMES;
   const outro = Math.round((config.outroSec ?? DEFAULT_OUTRO_SEC) * fps);
 
@@ -214,9 +212,14 @@ const Outro: React.FC = () => (
 // Composition
 // ============================================================================
 
-export const SocialVideo: React.FC<{ config: SocialVideoData }> = ({ config }) => {
-  const { fps } = useVideoConfig();
-  const t = getSocialTiming(fps, config);
+export const SocialVideo: React.FC<{ config: SocialVideoData; clipDurationInFrames?: number }> = ({
+  config,
+  clipDurationInFrames,
+}) => {
+  const { fps, durationInFrames } = useVideoConfig();
+  // clipDurationInFrames is injected by calculateMetadata (read from the file);
+  // fall back to the composition length so the component never divides by zero.
+  const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames);
   const { clip, subtitles } = config;
 
   return (
