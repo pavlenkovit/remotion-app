@@ -2,11 +2,30 @@
   "slug": "say-my-name-breaking-bad",
   "clip": "clips/say-my-name-breaking-bad.mov",
   "highlights": [
-    { "slug": "say-my-name", "atSec": 6 },
-    { "slug": "god-damn-right", "atSec": 12 }
+    {
+      "slug": "say-my-name",
+      "atSec": 2.08
+    },
+    {
+      "slug": "god-damn-right",
+      "atSec": 13.38
+    }
   ],
   "subtitles": [
-    { "from": 5, "to": 7, "text": "Say my name." },
-    { "from": 11, "to": 13, "text": "You're goddamn right." }
+    {
+      "from": 0.58,
+      "to": 2.08,
+      "text": "Say my name."
+    },
+    {
+      "from": 2.64,
+      "to": 9.34,
+      "text": "Heisenberg."
+    },
+    {
+      "from": 9.52,
+      "to": 13.38,
+      "text": "You're goddamn right."
+    }
   ]
 }

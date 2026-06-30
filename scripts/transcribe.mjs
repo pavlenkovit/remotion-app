@@ -11,7 +11,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { installWhisperCpp, downloadWhisperModel, transcribe } from "@remotion/install-whisper-cpp";
+import { installWhisperCpp, downloadWhisperModel, transcribe, toCaptions } from "@remotion/install-whisper-cpp";
 
 const WHISPER_VERSION = "1.5.5";
 const MODEL = "small.en"; // accurate enough for clear movie dialogue
@@ -54,10 +54,48 @@ const out = await transcribe({
   language: "en",
 });
 
-// 4) Build subtitles from speech segments and write them back.
-const segments = out.transcription
-  .map((s) => ({ from: round(s.offsets.from / 1000), to: round(s.offsets.to / 1000), text: s.text.trim() }))
-  .filter((s) => s.text);
+// 4) Rebuild clean words from the word-level captions, then group into subtitle
+//    lines (one per sentence / speaker turn).
+const { captions } = toCaptions({ whisperCppOutput: out });
+
+const words = [];
+for (const c of captions) {
+  const piece = c.text.trim();
+  if (!piece) continue;
+  const isDash = piece === "-" || piece === "–";
+  const isPunct = !isDash && /^[^A-Za-z0-9]+$/.test(piece);
+  const startsWord = isDash || ((c.text.startsWith(" ") && !isPunct) || words.length === 0);
+  if (isPunct && words.length) {
+    // Attach trailing punctuation to the previous word.
+    const w = words[words.length - 1];
+    w.text += piece;
+    w.to = c.endMs;
+  } else if (startsWord) {
+    words.push({ text: piece, from: c.startMs, to: c.endMs });
+  } else {
+    const w = words[words.length - 1];
+    w.text += piece;
+    w.to = c.endMs;
+  }
+}
+
+const segments = [];
+let cur = null;
+const flush = () => {
+  if (cur && cur.text.trim()) segments.push({ from: round(cur.from / 1000), to: round(cur.to / 1000), text: cur.text.trim() });
+  cur = null;
+};
+for (const w of words) {
+  if (w.text === "-" || w.text === "–") {
+    flush(); // speaker change / new line
+    continue;
+  }
+  if (!cur) cur = { from: w.from, to: w.to, text: "" };
+  cur.text += (cur.text ? " " : "") + w.text;
+  cur.to = w.to;
+  if (/[.!?]$/.test(w.text)) flush(); // sentence end
+}
+flush();
 
 video.subtitles = segments;
 
