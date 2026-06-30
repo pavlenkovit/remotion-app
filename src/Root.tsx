@@ -4,12 +4,22 @@ import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 import { Dictionary, getDictionaryTiming } from "./Dictionary";
 import { dictionarySchema, words } from "./Dictionary/schema";
+import { SocialVideo, getSocialTiming } from "./SocialVideo";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="SocialVideo"
+        component={SocialVideo}
+        durationInFrames={getSocialTiming(30).durationInFrames}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
       {/* One composition per word — same scenario, content fetched from vibeling.app.
           Add a slug to src/Dictionary/words.json, then run `npm run fetch-words`. */}
       {words.map((word) => (

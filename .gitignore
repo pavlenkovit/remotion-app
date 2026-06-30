@@ -5,3 +5,7 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# Generation folders: staged source clips and rendered phone mockups.
+public/clips
+public/mockups

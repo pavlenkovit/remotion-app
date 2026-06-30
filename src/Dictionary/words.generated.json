@@ -92,7 +92,7 @@
     "word": "Abandoned my child",
     "phonetic": "[əˈbændən maɪ tʃaɪld]",
     "partOfSpeech": "verb phrase",
-    "translation": "Бросил своего ребенка",
+    "translation": "Бросила моего ребенка",
     "examples": [
       {
         "en": "She abandoned her child at the playground.",
@@ -130,5 +130,49 @@
       }
     ],
     "image": "words/say-it-louder.jpg"
+  },
+  {
+    "slug": "say-my-name",
+    "word": "Say my name",
+    "phonetic": "[seɪ maɪ neɪm]",
+    "partOfSpeech": "фраза",
+    "translation": "Назови моё имя",
+    "examples": [
+      {
+        "en": "When you see me, remember to say my name.",
+        "ru": "Когда ты меня увидишь, не забудь назвать моё имя."
+      },
+      {
+        "en": "In the movie, the main character asks everyone to say his name.",
+        "ru": "В фильме главный герой просит всех назвать его имя."
+      },
+      {
+        "en": "If you want to get my attention, just say my name.",
+        "ru": "Если ты хочешь привлечь моё внимание, просто назови моё имя."
+      }
+    ],
+    "image": "words/say-my-name.jpg"
+  },
+  {
+    "slug": "cook",
+    "word": "Cook",
+    "phonetic": "[kʊk]",
+    "partOfSpeech": "глагол",
+    "translation": "Варить",
+    "examples": [
+      {
+        "en": "I need to cook dinner tonight.",
+        "ru": "Мне нужно приготовить ужин сегодня."
+      },
+      {
+        "en": "She's a fantastic cook and always makes delicious meals.",
+        "ru": "Она отличный повар и всегда готовит вкусные блюда."
+      },
+      {
+        "en": "Could you cook the chicken for me, please?",
+        "ru": "Не могли бы вы пожарить курицу для меня, пожалуйста?"
+      }
+    ],
+    "image": "words/cook.jpg"
   }
 ]
