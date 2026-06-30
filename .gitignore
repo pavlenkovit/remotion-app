@@ -9,3 +9,6 @@ out
 # Generation folders: staged source clips and rendered phone mockups.
 public/clips
 public/mockups
+
+# Whisper.cpp install + model (downloaded by npm run transcribe)
+whisper.cpp
