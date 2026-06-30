@@ -1,19 +1,21 @@
-// Stages an EXTERNAL source clip into public/clips/ as a SYMLINK so Remotion's
-// staticFile()/Studio dev-server can read it — without copying the (heavy)
-// original into the project. The original stays wherever it lives on disk.
+// Stages a source clip into public/clips/ so Remotion's staticFile()/dev-server
+// can read it. It COPIES the file: Remotion's bundler and static server don't
+// handle symlinked media (webpack hashing crashes, and the server 404s on a
+// symlink). public/clips is git-ignored, so the copy is never committed — the
+// original stays wherever it lives on disk.
 //
 // Usage:
-//   npm run stage-clip -- /abs/path/to/original.mp4 [name-in-clips.mp4]
+//   npm run stage-clip -- /abs/path/to/original.mov [name-in-clips.mov]
 //
-// The second arg is optional; defaults to the original's basename. The value
-// you pass to CLIP_SRC in src/SocialVideo/index.tsx is `clips/<that name>`.
-import { symlinkSync, mkdirSync, existsSync, rmSync, lstatSync } from "node:fs";
+// The second arg is optional; defaults to the original's basename. Use that name
+// (under "clips/") as the "clip" field in src/SocialVideo/videos/<slug>.json.
+import { copyFileSync, mkdirSync, existsSync, rmSync, lstatSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve, basename } from "node:path";
 
 const [, , srcArg, nameArg] = process.argv;
 if (!srcArg) {
-  console.error("Usage: npm run stage-clip -- /abs/path/to/original.mp4 [name.mp4]");
+  console.error("Usage: npm run stage-clip -- /abs/path/to/original.mov [name.mov]");
   process.exit(1);
 }
 
@@ -28,13 +30,13 @@ const clipsDir = join(root, "public/clips");
 mkdirSync(clipsDir, { recursive: true });
 
 const name = nameArg ?? basename(original);
-const linkPath = join(clipsDir, name);
+const dest = join(clipsDir, name);
 
-// Replace any existing symlink/file at the target so re-staging is idempotent.
-if (existsSync(linkPath) || lstatSync(linkPath, { throwIfNoEntry: false })) {
-  rmSync(linkPath);
+// Replace anything already at the target so re-staging is idempotent.
+if (lstatSync(dest, { throwIfNoEntry: false })) {
+  rmSync(dest);
 }
-symlinkSync(original, linkPath);
+copyFileSync(original, dest);
 
-console.log(`Linked public/clips/${name} → ${original}`);
-console.log(`Set CLIP_SRC = "clips/${name}" in src/SocialVideo/index.tsx`);
+console.log(`Copied ${original} → public/clips/${name}`);
+console.log(`Set "clip": "clips/${name}" in src/SocialVideo/videos/<slug>.json`);

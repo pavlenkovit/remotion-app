@@ -118,17 +118,17 @@ copy a new `index.tsx` per video.
 
 ### Make a new social video — step by step
 
-#### 1. Stage the source clip (symlink, not a copy)
+#### 1. Stage the source clip
 
-The heavy original stays on disk; only a symlink lands in the project (Remotion
-can read files under `public/` only):
+Remotion can only read files under `public/`, so copy the clip there:
 
 ```console
-npm run stage-clip -- /path/to/original.mp4 my-scene.mp4
+npm run stage-clip -- /path/to/original.mov my-scene.mov
 ```
 
-This creates `public/clips/my-scene.mp4 → /path/to/original.mp4`
-(`public/clips` is git-ignored).
+This copies it to `public/clips/my-scene.mov`. It has to be a real copy, not a
+symlink (Remotion's bundler/static server don't handle symlinked media). The copy
+is never committed (`public/clips` is git-ignored) and your original stays put.
 
 #### 2. Build the phone mockups for the highlighted phrases
 

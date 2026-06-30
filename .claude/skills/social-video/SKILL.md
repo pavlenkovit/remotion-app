@@ -25,17 +25,17 @@ The skill is invoked with:
 
 Ask the user for anything not supplied.
 
-**Do NOT copy the heavy source clip into the project.** Remotion can only read files
-under `public/`, so stage the EXTERNAL original as a symlink instead of a copy:
+**Stage the clip into `public/clips/`** (Remotion can only read files under `public/`):
 
 ```
-npm run stage-clip -- /abs/path/to/original.mp4
+npm run stage-clip -- /abs/path/to/original.mov
 ```
 
-This creates `public/clips/<name>` as a symlink to the original (which stays wherever
-it lives on disk; `public/clips` is git-ignored anyway). Then set `"clip": "clips/<name>"`
-in the video's JSON (`src/SocialVideo/videos/<slug>.json`). Mockups still live as real
-files under `public/mockups/` since the pipeline generates them.
+This **copies** the file to `public/clips/<name>`. It must be a real copy, not a symlink:
+Remotion's webpack bundler crashes on symlinked media and its static server 404s on them.
+`public/clips` is git-ignored, so the copy is never committed and the original stays wherever
+it lives on disk. Then set `"clip": "clips/<name>"` in the video's JSON
+(`src/SocialVideo/videos/<slug>.json`). Mockups also live under `public/mockups/`.
 
 ## Generating the phrase mockups (do this first)
 
@@ -135,7 +135,7 @@ Reference format: "Английский по фильмам" shorts
 ## Implementation notes (decided)
 
 - **Whole clip, no trimming:** the clip plays start to finish. Stage a pre-trimmed scene
-  under `public/clips/` (symlink); `calculateMetadata` reads its length so there is no
+  under `public/clips/` (copied via `stage-clip`); `calculateMetadata` reads its length so there is no
   `cut` window or duration to configure. (`OffthreadVideo` `trimBefore`/`trimAfter` is
   still used internally to split the second pass at each highlight.)
 - **Highlight pauses:** the second pass is split into `<Sequence>`s; at each highlight a

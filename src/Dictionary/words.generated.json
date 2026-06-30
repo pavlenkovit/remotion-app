@@ -174,5 +174,27 @@
       }
     ],
     "image": "words/cook.jpg"
+  },
+  {
+    "slug": "god-damn-right",
+    "word": "God damn right",
+    "phonetic": "[gɒd dæm raɪt]",
+    "partOfSpeech": "фраза",
+    "translation": "Черт возьми, это точно!",
+    "examples": [
+      {
+        "en": "God damn right, I finished the project on time.",
+        "ru": "Черт возьми, это точно, я закончил проект вовремя."
+      },
+      {
+        "en": "When she said she would help, I thought, 'God damn right she will.'",
+        "ru": "Когда она сказала, что поможет, я подумал: 'Черт возьми, это точно, она поможет.'"
+      },
+      {
+        "en": "He's a great player, and God damn right, he deserves the praise.",
+        "ru": "Он отличный игрок, и черт возьми, это точно, он заслуживает похвалы."
+      }
+    ],
+    "image": "words/god-damn-right.jpg"
   }
 ]

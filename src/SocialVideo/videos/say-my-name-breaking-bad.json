@@ -1,12 +1,12 @@
 {
   "slug": "say-my-name-breaking-bad",
-  "clip": "clips/say-my-name-breaking-bad.mp4",
+  "clip": "clips/say-my-name-breaking-bad.mov",
   "highlights": [
-    { "slug": "say-my-name", "atSec": 18 },
-    { "slug": "cook", "atSec": 31 }
+    { "slug": "say-my-name", "atSec": 5 },
+    { "slug": "god-damn-right", "atSec": 11 }
   ],
   "subtitles": [
-    { "from": 16, "to": 19, "text": "Say my name." },
-    { "from": 29, "to": 33, "text": "I'm the cook." }
+    { "from": 4, "to": 6, "text": "Say my name." },
+    { "from": 10, "to": 12, "text": "You're goddamn right." }
   ]
 }
