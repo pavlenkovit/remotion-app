@@ -153,22 +153,19 @@ Create `src/SocialVideo/videos/<slug>.json`:
 ```json
 {
   "slug": "my-scene",
-  "clip": "clips/my-scene.mp4",
+  "clip": "clips/my-scene.mov",
   "highlights": [
-    { "slug": "im-the-danger", "atSec": 12 },
-    { "slug": "knock-knock", "atSec": 28 }
+    { "slug": "im-the-danger", "atSec": 0 },
+    { "slug": "knock-knock", "atSec": 0 }
   ],
-  "subtitles": [
-    { "from": 10, "to": 14, "text": "I am the danger." },
-    { "from": 26, "to": 30, "text": "Knock knock." }
-  ]
+  "subtitles": []
 }
 ```
 
 - `clip` plays in full; its length is read from the file (no `cut`/duration).
-- `highlights[].atSec` — clip second where the phrase finishes; that's where the
-  clip pauses to show `mockups/<slug>.mp4`.
-- `subtitles` — `from`/`to`/`text` in clip seconds.
+- `highlights[].slug` — which phrases to pause on (the only thing you pick by hand).
+  `atSec` is filled in by the transcription step below.
+- `subtitles` are generated in the next step — leave the array empty.
 - Optional: `swipeFrames` (default 18), `outroSec` (default 2).
 
 #### 4. Register it
@@ -185,16 +182,28 @@ const sources: unknown[] = [sayMyName, myScene];
 The JSON is validated (Zod) on load, and `src/Root.tsx` automatically registers a
 `Social-<slug>` composition.
 
-#### 5. Tune the timing in the studio
+#### 5. Generate subtitles from the audio
+
+```console
+npm run transcribe -- my-scene
+```
+
+Extracts the clip's audio (bundled ffmpeg), runs whisper.cpp (`small.en`), and writes
+the `subtitles` (one line per spoken sentence, with real timings) plus each highlight's
+`atSec` into the JSON. **Don't hand-write subtitles** — they'll be mistimed. First run
+installs whisper.cpp + the model (cached afterwards).
+
+#### 6. Check / fine-tune (optional)
 
 ```console
 npm run dev
 ```
 
-Open `Social-my-scene`, scrub it, and adjust `atSec` and the subtitle timings in
-the JSON until they match the clip. The studio re-reads the JSON live.
+Open `Social-my-scene` and scrub. Usually you only fix a misheard word (e.g. whisper
+writes "Eisenberg" for "Heisenberg") or nudge a stray timing in the JSON. The studio
+re-reads it live.
 
-#### 6. Render
+#### 7. Render
 
 ```console
 npm run render:final -- my-scene     # one video → out/final/my-scene.mp4
