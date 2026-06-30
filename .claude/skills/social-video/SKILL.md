@@ -75,10 +75,11 @@ NOT "out" artifacts — they belong in `public/mockups/<slug>.mp4` (see below).
 
 ## Scenario (sequence of the produced video)
 
-1. **First pass — plain clip.** Play the original clip start to finish with no overlays.
+1. **First pass — plain clip.** Play the clip start to finish, with the branding caption
+   **"Учим английский по фильмам"** under the video (no subtitles yet).
 2. **Pause + swipe.** Freeze the clip on its last frame, then a swipe/wipe transition.
-3. **Second pass — subtitled clip.** Play the same clip again, this time with the English
-   subtitles overlaid at the top.
+3. **Second pass — subtitled clip.** Play the same clip again with the English subtitles
+   in the band under the video.
 4. **Highlight stops.** During the second pass, each time playback reaches a highlighted
    phrase:
    - the clip **pauses** (freeze frame),
@@ -105,6 +106,25 @@ The component is the reusable recipe; each video is just data:
 
 **To add a new video:** drop a `videos/<slug>.json`, import it in `schema.ts` and add it
 to `sources`. That's it — no component changes, no new file per video.
+
+## Look & feel — house rules (identical for EVERY video)
+
+Reference format: "Английский по фильмам" shorts
+(e.g. https://www.youtube.com/shorts/8g8zp0AUpLo). These rules are enforced in
+`src/SocialVideo/index.tsx` — keep code and this list in sync.
+
+- **Letterbox, never crop.** The clip is shown **full width, centered, with black bars**
+  top/bottom (`objectFit: contain`). Do NOT crop/zoom it to fill the 9:16 frame.
+- **Caption/subtitle band.** Text lives in the black area **directly under the video**,
+  not over it. Its Y is computed from the clip's real aspect ratio (`dimensions` read via
+  `parseMedia` in `calculateMetadata`, passed as `clipAspect`), so it hugs the video for
+  any aspect.
+- **First pass caption.** Show the fixed branding line **"Учим английский по фильмам"**
+  (constant `INTRO_CAPTION`) under the video for the whole plain pass; gentle fade-in.
+- **Subtitles (second pass).** One cue at a time, **centered, bold white, soft drop
+  shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
+  each cue's edges. Keep them legible against the black band — clean, not cramped over the
+  footage.
 
 ## Conventions
 

@@ -25,6 +25,28 @@ import type { SocialVideoData, Subtitle } from "./schema";
 const DEFAULT_SWIPE_FRAMES = 18; // pause + wipe between the plain and subtitled passes
 const DEFAULT_OUTRO_SEC = 2; // vibeling.png held at the end
 
+// ----------------------------------------------------------------------------
+// House rules — identical for EVERY social video (keep in sync with the skill).
+// ----------------------------------------------------------------------------
+const COMP_W = 1080;
+const COMP_H = 1920;
+/** Fallback clip aspect (w/h) when the file's real dimensions aren't available. */
+const DEFAULT_ASPECT = 16 / 9;
+/** Branding caption shown under the video during the FIRST (plain) pass. */
+const INTRO_CAPTION = "Учим английский по фильмам";
+/** Shared text font stack. */
+const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+
+/**
+ * The clip is shown FULL WIDTH and centered, never cropped — letterboxed with
+ * black bars. This returns the Y (px) of the bottom edge of the displayed
+ * video, so captions/subtitles sit in the black band right under it.
+ */
+const videoBottomY = (aspect: number): number => {
+  const displayedH = Math.min(COMP_W / aspect, COMP_H); // full width → derived height
+  return (COMP_H + displayedH) / 2;
+};
+
 // ============================================================================
 // Timing — derived from the config so a different clip/highlights just works.
 // ============================================================================
@@ -110,48 +132,123 @@ export const getSocialTiming = (fps: number, config: SocialVideoData, clipLen: n
 // Pieces
 // ============================================================================
 
+/** The scene clip: FULL WIDTH, centered, letterboxed (black bars) — never cropped. */
+const clipVideo: React.CSSProperties = {
+  width: "100%",
+  height: "100%",
+  objectFit: "contain",
+};
+
+/** The phone mockup fills its (already 9:16) frame. */
 const fillVideo: React.CSSProperties = {
   width: "100%",
   height: "100%",
   objectFit: "cover",
 };
 
-/** A trimmed slice of the source clip, filling the frame. */
+/** A trimmed slice of the source clip, letterboxed full-width. */
 const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip, from, to }) => (
-  <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={fillVideo} />
+  <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={clipVideo} />
 );
 
 /** A single frozen source frame (used as the still background behind a mockup / swipe). */
 const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
   <Freeze frame={at}>
-    <OffthreadVideo src={staticFile(clip)} style={fillVideo} />
+    <OffthreadVideo src={staticFile(clip)} style={clipVideo} />
   </Freeze>
 );
 
-const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number }> = ({ subtitles, clipOffset }) => {
+/**
+ * Text band in the black area directly below the letterboxed video. Used for
+ * both the first-pass branding caption and the second-pass subtitles, so they
+ * always land in the same, clean place.
+ */
+const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.ReactNode }> = ({
+  aspect,
+  opacity = 1,
+  children,
+}) => (
+  <AbsoluteFill
+    style={{
+      top: videoBottomY(aspect),
+      paddingTop: 48,
+      paddingLeft: 80,
+      paddingRight: 80,
+      alignItems: "center",
+      justifyContent: "flex-start",
+      textAlign: "center",
+      opacity,
+    }}
+  >
+    {children}
+  </AbsoluteFill>
+);
+
+/** Second-pass subtitles: one cue at a time, centered under the video, with a soft fade. */
+const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: number }> = ({
+  subtitles,
+  clipOffset,
+  aspect,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sec = (clipOffset + frame) / fps;
   const cue = subtitles.find((c) => sec >= c.from && sec < c.to);
   if (!cue) return null;
+
+  // Fade in/out over ~5 frames at each cue's edges so lines don't pop.
+  const fade = 5 / fps;
+  const opacity = interpolate(sec, [cue.from, cue.from + fade, cue.to - fade, cue.to], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", padding: "180px 80px 0" }}>
+    <LowerBand aspect={aspect} opacity={opacity}>
       <span
         style={{
+          display: "inline-block",
+          maxWidth: 920,
           color: "white",
-          fontSize: 64,
+          fontFamily: FONT,
+          fontSize: 60,
           fontWeight: 700,
-          textAlign: "center",
           lineHeight: 1.25,
-          textShadow: "0 4px 24px rgba(0,0,0,0.9)",
-          backgroundColor: "rgba(0,0,0,0.45)",
-          borderRadius: 20,
-          padding: "16px 32px",
+          textWrap: "balance",
+          textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 0 4px rgba(0,0,0,0.9)",
         }}
       >
         {cue.text}
       </span>
-    </AbsoluteFill>
+    </LowerBand>
+  );
+};
+
+/** First-pass branding caption shown under the video for the whole plain pass. */
+const IntroCaption: React.FC<{ aspect: number }> = ({ aspect }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const opacity = interpolate(frame, [0, Math.round(fps * 0.5)], [0, 1], {
+    extrapolateRight: "clamp",
+  });
+  return (
+    <LowerBand aspect={aspect} opacity={opacity}>
+      <span
+        style={{
+          display: "inline-block",
+          maxWidth: 960,
+          color: "white",
+          fontFamily: FONT,
+          fontSize: 66,
+          fontWeight: 800,
+          lineHeight: 1.15,
+          letterSpacing: -1,
+          textShadow: "0 2px 14px rgba(0,0,0,0.9)",
+        }}
+      >
+        {INTRO_CAPTION}
+      </span>
+    </LowerBand>
   );
 };
 
@@ -212,21 +309,24 @@ const Outro: React.FC = () => (
 // Composition
 // ============================================================================
 
-export const SocialVideo: React.FC<{ config: SocialVideoData; clipDurationInFrames?: number }> = ({
-  config,
-  clipDurationInFrames,
-}) => {
+export const SocialVideo: React.FC<{
+  config: SocialVideoData;
+  clipDurationInFrames?: number;
+  clipAspect?: number;
+}> = ({ config, clipDurationInFrames, clipAspect }) => {
   const { fps, durationInFrames } = useVideoConfig();
-  // clipDurationInFrames is injected by calculateMetadata (read from the file);
-  // fall back to the composition length so the component never divides by zero.
+  // clipDurationInFrames / clipAspect are injected by calculateMetadata (read
+  // from the file); fall back so the component never breaks in isolation.
   const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames);
+  const aspect = clipAspect ?? DEFAULT_ASPECT;
   const { clip, subtitles } = config;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Pass 1 — plain clip */}
+      {/* Pass 1 — plain clip + branding caption under the video */}
       <Sequence durationInFrames={t.clipLen}>
         <ClipSlice clip={clip} from={t.clipStart} to={t.clipStart + t.clipLen} />
+        <IntroCaption aspect={aspect} />
       </Sequence>
 
       {/* Pause on the last frame + swipe */}
@@ -240,7 +340,7 @@ export const SocialVideo: React.FC<{ config: SocialVideoData; clipDurationInFram
         s.type === "play" ? (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
             <ClipSlice clip={clip} from={s.srcFrom} to={s.srcTo} />
-            <Subtitles subtitles={subtitles} clipOffset={s.clipOffset} />
+            <Subtitles subtitles={subtitles} clipOffset={s.clipOffset} aspect={aspect} />
           </Sequence>
         ) : (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>

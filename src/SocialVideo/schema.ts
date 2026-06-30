@@ -36,12 +36,13 @@ export const socialVideoSchema = z.object({
 });
 
 /**
- * Composition-level props. `clipDurationInFrames` is filled in by
- * `calculateMetadata` in Root.tsx (read from the clip file), not by the JSON.
+ * Composition-level props. `clipDurationInFrames` and `clipAspect` are filled
+ * in by `calculateMetadata` in Root.tsx (read from the clip file), not the JSON.
  */
 export const socialCompSchema = z.object({
   config: socialVideoSchema,
   clipDurationInFrames: z.number().optional(),
+  clipAspect: z.number().optional(),
 });
 
 export type Highlight = z.infer<typeof highlightSchema>;

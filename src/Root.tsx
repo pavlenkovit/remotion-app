@@ -13,6 +13,7 @@ const FPS = 30;
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+
       {/* One composition per video — same recipe, data from ./SocialVideo/videos/*.json.
           Add a JSON there and register it in ./SocialVideo/schema.ts. */}
       {videos.map((config) => (
@@ -28,14 +29,15 @@ export const RemotionRoot: React.FC = () => {
           // The clip plays in full — read its length from the file and derive
           // the whole video's duration from it. No start/end to configure.
           calculateMetadata={async ({ props }) => {
-            const { slowDurationInSeconds } = await parseMedia({
+            const { slowDurationInSeconds, dimensions } = await parseMedia({
               src: staticFile(props.config.clip),
-              fields: { slowDurationInSeconds: true },
+              fields: { slowDurationInSeconds: true, dimensions: true },
               acknowledgeRemotionLicense: true,
             });
             const clipDurationInFrames = Math.round(slowDurationInSeconds * FPS);
+            const clipAspect = dimensions ? dimensions.width / dimensions.height : undefined;
             const { durationInFrames } = getSocialTiming(FPS, props.config, clipDurationInFrames);
-            return { durationInFrames, fps: FPS, props: { ...props, clipDurationInFrames } };
+            return { durationInFrames, fps: FPS, props: { ...props, clipDurationInFrames, clipAspect } };
           }}
         />
       ))}

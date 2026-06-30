@@ -107,6 +107,11 @@ The clip is played **in full** — pre-trim it to the scene you want before stag
 it; the video's total length is read from the file automatically (no start/end and
 no duration to configure).
 
+House look (same for every video): the clip is shown **full width, centered, with
+black bars** (never cropped). Captions live in the black band **under** the video —
+the first pass shows the branding line "Учим английский по фильмам", the second pass
+shows the subtitles. These rules are baked into `src/SocialVideo/index.tsx`.
+
 Like the word videos, the **recipe is shared** (one component) and each video is
 just **data**: one JSON file per video in `src/SocialVideo/videos/`. You never
 copy a new `index.tsx` per video.
