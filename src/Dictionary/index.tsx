@@ -53,7 +53,12 @@ const Spinner: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <svg width="90" height="90" viewBox="0 0 50 50" style={{ transform: `rotate(${rotation}deg)` }}>
+      <svg
+        width="90"
+        height="90"
+        viewBox="0 0 50 50"
+        style={{ transform: `rotate(${rotation}deg)` }}
+      >
         {Array.from({ length: 12 }).map((_, i) => (
           <rect
             key={i}
@@ -72,7 +77,10 @@ const Spinner: React.FC = () => {
   );
 };
 
-const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timing }) => {
+const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
+  word,
+  timing,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -88,10 +96,15 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timin
   // blinking cursor
   const cursorOn = Math.floor(frame / 15) % 2 === 0 || !doneTyping;
 
-  const spinnerOpacity = interpolate(frame, [typingEnd + 4, typingEnd + 12], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const spinnerOpacity = interpolate(
+    frame,
+    [typingEnd + 4, typingEnd + 12],
+    [0, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
   // keyboard slides away once typing is done
   const kbOffset = doneTyping
@@ -119,10 +132,19 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({ word, timin
 
 // ---------- Scene 2: word detail ----------
 
-const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, delay }) => {
+const Example: React.FC<{ en: string; ru: string; delay: number }> = ({
+  en,
+  ru,
+  delay,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const appear = spring({ frame: frame - delay, fps, config: { damping: 200 }, durationInFrames: 10 });
+  const appear = spring({
+    frame: frame - delay,
+    fps,
+    config: { damping: 200 },
+    durationInFrames: 10,
+  });
   const y = interpolate(appear, [0, 1], [40, 0]);
   return (
     <div
@@ -136,20 +158,38 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({ en, ru, 
         borderLeft: `6px solid ${COLORS.accent}`,
       }}
     >
-      <div style={{ color: "white", fontSize: 40, fontWeight: 500, marginBottom: 12 }}>{en}</div>
+      <div
+        style={{
+          color: "white",
+          fontSize: 40,
+          fontWeight: 500,
+          marginBottom: 12,
+        }}
+      >
+        {en}
+      </div>
       <div style={{ color: COLORS.muted, fontSize: 36 }}>{ru}</div>
     </div>
   );
 };
 
-const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, localFrame }) => {
+const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
+  word,
+  localFrame,
+}) => {
   const { fps } = useVideoConfig();
 
-  const headerSpring = spring({ frame: localFrame, fps, config: { damping: 200 }, durationInFrames: 10 });
+  const headerSpring = spring({
+    frame: localFrame,
+    fps,
+    config: { damping: 200 },
+    durationInFrames: 10,
+  });
   const headerY = interpolate(headerSpring, [0, 1], [50, 0]);
 
   // Shrink long phrases so titles like "Abandoned my child" stay tidy.
-  const titleSize = word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
+  const titleSize =
+    word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
 
   // Multi-word entries are phrases; single words are words.
   const isPhrase = word.word.trim().includes(" ");
@@ -164,10 +204,15 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
 
   // Button press: a quick, snappy tap early on.
   const pressStart = PRESS_AT;
-  const press = interpolate(localFrame, [pressStart, pressStart + 2, pressStart + 6], [1, 0.9, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const press = interpolate(
+    localFrame,
+    [pressStart, pressStart + 2, pressStart + 6],
+    [1, 0.9, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
   // Toast pops in right after the press with a punchy overshoot.
   const toastStart = pressStart + 6;
@@ -179,10 +224,15 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
   const toastVisible = localFrame > toastStart - 2;
   // Let the spring overshoot past 1 for an energetic pop.
   const toastScale = 0.5 + 0.5 * toastSpring;
-  const overlayOpacity = interpolate(localFrame, [toastStart, toastStart + 7], [0, 0.55], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const overlayOpacity = interpolate(
+    localFrame,
+    [toastStart, toastStart + 7],
+    [0, 0.55],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
@@ -226,21 +276,48 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
         }}
       >
         {/* word + phonetics */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-          <span style={{ color: "white", fontSize: titleSize, fontWeight: 700, lineHeight: 1.05 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 24,
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              color: "white",
+              fontSize: titleSize,
+              fontWeight: 700,
+              lineHeight: 1.05,
+            }}
+          >
             {word.word}
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <span style={{ color: COLORS.accent, fontSize: 44, whiteSpace: "nowrap" }}>
+            <span
+              style={{
+                color: COLORS.accent,
+                fontSize: 44,
+                whiteSpace: "nowrap",
+              }}
+            >
               {word.phonetic}
             </span>
             <svg width="50" height="50" viewBox="0 0 24 24" fill={COLORS.muted}>
               <path d="M3 9v6h4l5 5V4L7 9H3z" />
-              <path d="M16 8a5 5 0 010 8" stroke={COLORS.muted} strokeWidth="2" fill="none" />
+              <path
+                d="M16 8a5 5 0 010 8"
+                stroke={COLORS.muted}
+                strokeWidth="2"
+                fill="none"
+              />
             </svg>
           </div>
         </div>
-        <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>{word.partOfSpeech}</div>
+        <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>
+          {word.partOfSpeech}
+        </div>
 
         <div
           style={{
@@ -254,7 +331,14 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
           {word.translation}
         </div>
 
-        <div style={{ color: COLORS.muted, fontSize: 36, marginBottom: 16, letterSpacing: 1 }}>
+        <div
+          style={{
+            color: COLORS.muted,
+            fontSize: 36,
+            marginBottom: 16,
+            letterSpacing: 1,
+          }}
+        >
           ПРИМЕРЫ
         </div>
       </div>
@@ -288,9 +372,16 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({ word, loc
           }}
         >
           <svg width="46" height="46" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12h14" stroke="white" strokeWidth="3" strokeLinecap="round" />
+            <path
+              d="M12 5v14M5 12h14"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
           </svg>
-          <span style={{ color: "white", fontSize: 48, fontWeight: 600 }}>Добавить в словарь</span>
+          <span style={{ color: "white", fontSize: 48, fontWeight: 600 }}>
+            Добавить в словарь
+          </span>
         </div>
       </div>
 
@@ -367,14 +458,24 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
   const timing = getDictionaryTiming(word);
   const { transitionAt } = timing;
 
-  const scene1Opacity = interpolate(frame, [transitionAt - 5, transitionAt + 3], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const scene2Opacity = interpolate(frame, [transitionAt - 2, transitionAt + 6], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const scene1Opacity = interpolate(
+    frame,
+    [transitionAt - 5, transitionAt + 3],
+    [1, 0],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
+  const scene2Opacity = interpolate(
+    frame,
+    [transitionAt - 2, transitionAt + 6],
+    [0, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
@@ -392,7 +493,7 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
       {/* Click sound exactly when the "Добавить в словарь" button is tapped.
           Baked into the mockup render so the social video plays it in sync. */}
       <Sequence from={transitionAt + PRESS_AT}>
-        <Html5Audio src={staticFile("sounds/click.mp3")} />
+        <Html5Audio src={staticFile("sounds/click.wav")} />
       </Sequence>
     </AbsoluteFill>
   );

@@ -147,7 +147,7 @@ Reference format: "Английский по фильмам" shorts
   footage.
 - **Outro full-screen.** The promo image fills the entire frame (`objectFit: cover`), no bars.
 - **Sounds** (`public/sounds/`): `swipe.mp3` plays in the swipe `<Sequence>` (the wipe between
-  passes); `click.mp3` is **baked into each Dictionary mockup** at the button tap (see below),
+  passes); `click.wav` is **baked into each Dictionary mockup** at the button tap (see below),
   so it plays in sync when the social video shows that mockup. Use `<Html5Audio>` (not the
   deprecated `<Audio>`).
 
@@ -171,7 +171,7 @@ Reference format: "Английский по фильмам" shorts
 - **Swipe:** a skewed purple (`COLORS.accent`) panel sweeping left→right over the frozen last
   frame, `swipeFrames` long (config; default 18). `swipe.mp3` plays in this `<Sequence>`.
 - **Click sound:** baked into the `Dictionary` composition itself — an `<Html5Audio>` of
-  `sounds/click.mp3` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
+  `sounds/click.wav` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
   the rendered `public/mockups/<slug>.mp4`, the social video plays it in sync automatically.
   **After changing the click sound or `PRESS_AT`, re-render the mockups** so it's re-baked.
 
