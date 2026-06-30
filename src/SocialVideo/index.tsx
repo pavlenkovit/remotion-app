@@ -15,45 +15,15 @@ import {
 import { COLORS } from "../Dictionary/ui";
 import { getDictionaryTiming } from "../Dictionary";
 import { words } from "../Dictionary/schema";
+import type { SocialVideoData, Subtitle } from "./schema";
 
 // ============================================================================
-// CONFIG — everything that describes THIS particular video lives up here.
+// This is the reusable RECIPE. Everything describing a particular video comes
+// in as `config` (a SocialVideoData) — see ./schema.ts and ./videos/*.json.
 // ============================================================================
 
-/** The original scene, staged under public/. */
-const CLIP_SRC = "clips/say-my-name-breaking-bad.mp4";
-
-/** Cut only this window out of the source (Breaking Bad "Say My Name"). */
-const CLIP_START_SEC = 4 * 60 + 1; // 4:01
-const CLIP_END_SEC = 4 * 60 + 47; // 4:47
-
-const SWIPE_FRAMES = 18; // pause + wipe between the plain and subtitled passes
-const OUTRO_SEC = 2; // vibeling.png held at the end
-
-/**
- * Phrases to highlight, with the mockup video rendered from the Dictionary
- * composition (see the social-video skill: words.json → fetch-words → render).
- *
- * `atSec` is the clip-local time (0 = CLIP_START_SEC) at which the phrase
- * finishes being spoken, i.e. where the second pass pauses to show the mockup.
- *
- * TODO(user): scrub the clip in Remotion Studio and set `atSec` to the real
- * moments — these are placeholders.
- */
-export const HIGHLIGHTS = [
-  { slug: "say-my-name", atSec: 18, mockup: "mockups/say-my-name.mp4" },
-  { slug: "cook", atSec: 31, mockup: "mockups/cook.mp4" },
-];
-
-/**
- * English subtitles for the second pass, in clip-local seconds (0 = CLIP_START_SEC).
- *
- * TODO(user): replace with the real transcript + timing of 4:01–4:47.
- */
-const SUBTITLES: { fromSec: number; toSec: number; text: string }[] = [
-  { fromSec: 16, toSec: 19, text: "Say my name." },
-  { fromSec: 29, toSec: 33, text: "I'm the cook." },
-];
+const DEFAULT_SWIPE_FRAMES = 18; // pause + wipe between the plain and subtitled passes
+const DEFAULT_OUTRO_SEC = 2; // vibeling.png held at the end
 
 // ============================================================================
 // Timing — derived from the config so a different clip/highlights just works.
@@ -68,18 +38,23 @@ type Seg =
   | { type: "play"; from: number; duration: number; srcFrom: number; srcTo: number; clipOffset: number }
   | { type: "mockup"; from: number; duration: number; freezeAt: number; mockup: string; slug: string };
 
-export const getSocialTiming = (fps: number) => {
-  const clipStart = Math.round(CLIP_START_SEC * fps);
-  const clipLen = Math.round((CLIP_END_SEC - CLIP_START_SEC) * fps);
-  const outro = Math.round(OUTRO_SEC * fps);
+export const getSocialTiming = (fps: number, config: SocialVideoData) => {
+  const [startSec, endSec] = config.cut;
+  const clipStart = Math.round(startSec * fps);
+  const clipLen = Math.round((endSec - startSec) * fps);
+  const swipeFrames = config.swipeFrames ?? DEFAULT_SWIPE_FRAMES;
+  const outro = Math.round((config.outroSec ?? DEFAULT_OUTRO_SEC) * fps);
 
-  const highlights = HIGHLIGHTS.map((h) => ({
-    ...h,
-    localFrame: Math.round(h.atSec * fps),
-    mockupLen: mockupFrames(h.slug),
-  })).sort((a, b) => a.localFrame - b.localFrame);
+  const highlights = config.highlights
+    .map((h) => ({
+      ...h,
+      mockup: `mockups/${h.slug}.mp4`,
+      localFrame: Math.round(h.atSec * fps),
+      mockupLen: mockupFrames(h.slug),
+    }))
+    .sort((a, b) => a.localFrame - b.localFrame);
 
-  const pass2From = clipLen + SWIPE_FRAMES;
+  const pass2From = clipLen + swipeFrames;
 
   const segs: Seg[] = [];
   let prevLocal = 0;
@@ -124,6 +99,7 @@ export const getSocialTiming = (fps: number) => {
   return {
     clipStart,
     clipLen,
+    swipeFrames,
     swipeFrom: clipLen,
     pass2From,
     segs,
@@ -143,22 +119,22 @@ const fillVideo: React.CSSProperties = {
 };
 
 /** A trimmed slice of the source clip, filling the frame. */
-const ClipSlice: React.FC<{ from: number; to: number }> = ({ from, to }) => (
-  <OffthreadVideo src={staticFile(CLIP_SRC)} trimBefore={from} trimAfter={to} style={fillVideo} />
+const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip, from, to }) => (
+  <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={fillVideo} />
 );
 
 /** A single frozen source frame (used as the still background behind a mockup / swipe). */
-const ClipFreeze: React.FC<{ at: number }> = ({ at }) => (
+const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
   <Freeze frame={at}>
-    <OffthreadVideo src={staticFile(CLIP_SRC)} style={fillVideo} />
+    <OffthreadVideo src={staticFile(clip)} style={fillVideo} />
   </Freeze>
 );
 
-const Subtitles: React.FC<{ clipOffset: number }> = ({ clipOffset }) => {
+const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number }> = ({ subtitles, clipOffset }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sec = (clipOffset + frame) / fps;
-  const cue = SUBTITLES.find((c) => sec >= c.fromSec && sec < c.toSec);
+  const cue = subtitles.find((c) => sec >= c.from && sec < c.to);
   if (!cue) return null;
   return (
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", padding: "180px 80px 0" }}>
@@ -182,10 +158,10 @@ const Subtitles: React.FC<{ clipOffset: number }> = ({ clipOffset }) => {
 };
 
 /** Purple wipe sweeping across the screen. */
-const Swipe: React.FC = () => {
+const Swipe: React.FC<{ swipeFrames: number }> = ({ swipeFrames }) => {
   const frame = useCurrentFrame();
   const { width } = useVideoConfig();
-  const x = interpolate(frame, [0, SWIPE_FRAMES], [-width, width], {
+  const x = interpolate(frame, [0, swipeFrames], [-width, width], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.inOut(Easing.cubic),
@@ -238,33 +214,34 @@ const Outro: React.FC = () => (
 // Composition
 // ============================================================================
 
-export const SocialVideo: React.FC = () => {
+export const SocialVideo: React.FC<{ config: SocialVideoData }> = ({ config }) => {
   const { fps } = useVideoConfig();
-  const t = getSocialTiming(fps);
+  const t = getSocialTiming(fps, config);
+  const { clip, subtitles } = config;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       {/* Pass 1 — plain clip */}
       <Sequence durationInFrames={t.clipLen}>
-        <ClipSlice from={t.clipStart} to={t.clipStart + t.clipLen} />
+        <ClipSlice clip={clip} from={t.clipStart} to={t.clipStart + t.clipLen} />
       </Sequence>
 
       {/* Pause on the last frame + swipe */}
-      <Sequence from={t.swipeFrom} durationInFrames={SWIPE_FRAMES}>
-        <ClipFreeze at={t.clipStart + t.clipLen - 1} />
-        <Swipe />
+      <Sequence from={t.swipeFrom} durationInFrames={t.swipeFrames}>
+        <ClipFreeze clip={clip} at={t.clipStart + t.clipLen - 1} />
+        <Swipe swipeFrames={t.swipeFrames} />
       </Sequence>
 
       {/* Pass 2 — subtitled clip, pausing on each highlight to show its mockup */}
       {t.segs.map((s, i) =>
         s.type === "play" ? (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
-            <ClipSlice from={s.srcFrom} to={s.srcTo} />
-            <Subtitles clipOffset={s.clipOffset} />
+            <ClipSlice clip={clip} from={s.srcFrom} to={s.srcTo} />
+            <Subtitles subtitles={subtitles} clipOffset={s.clipOffset} />
           </Sequence>
         ) : (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
-            <ClipFreeze at={s.freezeAt} />
+            <ClipFreeze clip={clip} at={s.freezeAt} />
             <AbsoluteFill style={{ backgroundColor: "rgba(0,0,0,0.55)" }} />
             <PhoneMockup src={s.mockup} />
           </Sequence>

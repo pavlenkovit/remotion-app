@@ -22,8 +22,19 @@ The skill is invoked with:
   phrase to the dictionary (shown inside a phone mockup).
 - (subtitle text for the scene — English subtitles to overlay on the replay).
 
-Ask the user for anything not supplied. Store clips/mockups under `public/` and reference them
-with `staticFile()`.
+Ask the user for anything not supplied.
+
+**Do NOT copy the heavy source clip into the project.** Remotion can only read files
+under `public/`, so stage the EXTERNAL original as a symlink instead of a copy:
+
+```
+npm run stage-clip -- /abs/path/to/original.mp4
+```
+
+This creates `public/clips/<name>` as a symlink to the original (which stays wherever
+it lives on disk; `public/clips` is git-ignored anyway). Then set `"clip": "clips/<name>"`
+in the video's JSON (`src/SocialVideo/videos/<slug>.json`). Mockups still live as real
+files under `public/mockups/` since the pipeline generates them.
 
 ## Generating the phrase mockups (do this first)
 
@@ -46,6 +57,21 @@ generate them:
 
 The social-video composition then references `public/mockups/<slug>.mp4` for each highlight.
 
+## Output locations (keep `out/` tidy)
+
+`out/` is git-ignored and split into three folders — never dump files at its root:
+
+- **`out/images/`** — screenshots / verification stills (PNG).
+- **`out/renders/`** — scratch Remotion video renders (e.g. a `Dictionary-<slug>`
+  preview). Use `npm run render:preview <composition-id>`.
+- **`out/final/`** — the finished social videos, one per scene, named by the
+  video's `slug` (e.g. `say-my-name-breaking-bad.mp4`), **never** `social-video.mp4`.
+  Render with `npm run render:final` (all videos) or
+  `npm run render:final -- <slug>` (one).
+
+Note: the phone-mockup videos that the composition plays via `staticFile()` are
+NOT "out" artifacts — they belong in `public/mockups/<slug>.mp4` (see below).
+
 ## Scenario (sequence of the produced video)
 
 1. **First pass — plain clip.** Play the original clip start to finish with no overlays.
@@ -60,20 +86,31 @@ The social-video composition then references `public/mockups/<slug>.mp4` for eac
    - Repeat for every highlighted phrase, in order.
 5. **Outro.** Show `public/video/vibeling.png` as a still for **2 seconds** (60 frames at 30fps).
 
+## One recipe, many videos (data-driven)
+
+There is **one** component for ALL videos — do NOT make a new `index.tsx` per video.
+The component is the reusable recipe; each video is just data:
+
+- **Component (recipe):** `src/SocialVideo/index.tsx`. Takes a `config` prop
+  (`SocialVideoData`); timing is derived in `getSocialTiming(fps, config)`.
+- **Data (per video):** one JSON file in `src/SocialVideo/videos/<slug>.json` with
+  `{ slug, clip, cut: [startSec, endSec], highlights, subtitles, swipeFrames?, outroSec? }`.
+  `highlights` are `{ slug, atSec }` (the mockup is `mockups/<slug>.mp4`); `subtitles`
+  are `{ from, to, text }` in clip-local seconds.
+- **Registry:** `src/SocialVideo/schema.ts` validates each JSON (zod) and exports `videos`.
+  `src/Root.tsx` maps `videos` → a `Social-<slug>` composition each.
+
+**To add a new video:** drop a `videos/<slug>.json`, import it in `schema.ts` and add it
+to `sources`. That's it — no component changes, no new file per video.
+
 ## Conventions
 
 - Format: 1080×1920 vertical, fps 30. Match `src/Dictionary` for fonts/colors.
-- Register the composition in `src/Root.tsx`, computing `durationInFrames` from the clip
-  length + transitions + mockup videos + the 2s outro (mirror `getDictionaryTiming`'s
-  derived-timing pattern).
 - Use `<OffthreadVideo>` for clip/mockup playback; freeze frames via `<Freeze>`.
 - Keep timing data-derived so a different clip + highlights just works.
 
 ## Implementation notes (decided)
 
-- **Composition:** `src/SocialVideo/index.tsx`, registered in `src/Root.tsx` as `SocialVideo`.
-  All per-video settings (clip path, cut window, highlights, subtitles) live in the CONFIG
-  block at the top of that file; timing is derived in `getSocialTiming(fps)`.
 - **Trimming:** the full clip stays in `public/clips/`; the cut window is played with
   `OffthreadVideo` `trimBefore`/`trimAfter` (frames = seconds × fps). No ffmpeg needed.
 - **Highlight pauses:** the second pass is split into `<Sequence>`s; at each highlight a
@@ -82,11 +119,13 @@ The social-video composition then references `public/mockups/<slug>.mp4` for eac
   `getDictionaryTiming(word)`.
 - **Phone frame:** pure CSS (dark rounded bezel) — the mockup is already 1080×1920 (9:16).
 - **Swipe:** a skewed purple (`COLORS.accent`) panel sweeping left→right over the frozen last
-  frame, `SWIPE_FRAMES` long.
+  frame, `swipeFrames` long (config; default 18).
 
 ## Still placeholder — the user must tune in Studio
 
-- **`HIGHLIGHTS[].atSec`** — clip-local seconds where each phrase is spoken (drives the pause).
-- **`SUBTITLES`** — the real transcript + per-line timing of the cut window.
+(All per-video, in `src/SocialVideo/videos/<slug>.json`.)
+
+- **`highlights[].atSec`** — clip-local seconds where each phrase is spoken (drives the pause).
+- **`subtitles`** — the real transcript + per-line timing of the cut window.
 - **Audio handling** — currently the clip's own audio plays; ducking during mockups / a music
   bed is not yet defined.

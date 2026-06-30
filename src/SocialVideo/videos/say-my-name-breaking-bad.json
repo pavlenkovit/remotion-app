@@ -1,0 +1,13 @@
+{
+  "slug": "say-my-name-breaking-bad",
+  "clip": "clips/say-my-name-breaking-bad.mp4",
+  "cut": [241, 287],
+  "highlights": [
+    { "slug": "say-my-name", "atSec": 18 },
+    { "slug": "cook", "atSec": 31 }
+  ],
+  "subtitles": [
+    { "from": 16, "to": 19, "text": "Say my name." },
+    { "from": 29, "to": 33, "text": "I'm the cook." }
+  ]
+}
