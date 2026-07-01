@@ -1,200 +1,420 @@
-[
-  {
-    "slug": "freedom",
-    "word": "Freedom",
-    "phonetic": "[ˈfriːdəm]",
-    "partOfSpeech": "существительное",
-    "translation": "Свобода",
-    "examples": [
-      {
-        "en": "We must fight for freedom and justice.",
-        "ru": "Мы должны бороться за свободу и справедливость."
-      },
-      {
-        "en": "Freedom of speech is a fundamental right.",
-        "ru": "Свобода слова – это основополагающее право."
-      },
-      {
-        "en": "She dreamed of a life of freedom and independence.",
-        "ru": "Она мечтала о жизни свободы и независимости."
-      }
-    ],
-    "image": "words/freedom.jpg"
-  },
-  {
-    "slug": "apple",
-    "word": "Apple",
-    "phonetic": "[ˈæpl]",
-    "partOfSpeech": "существительное",
-    "translation": "Яблоко",
-    "examples": [
-      {
-        "en": "I ate an apple for breakfast this morning.",
-        "ru": "Я съел яблоко на завтрак сегодня."
-      },
-      {
-        "en": "The apple pie was delicious and warm.",
-        "ru": "Пирог с яблоками был вкусным и теплым."
-      },
-      {
-        "en": "He dropped the apple, and it rolled across the floor.",
-        "ru": "Он уронил яблоко, и оно покатилось по полу."
-      }
-    ],
-    "image": "words/apple.jpg"
-  },
-  {
-    "slug": "run",
-    "word": "Run",
-    "phonetic": "[rʌn]",
-    "partOfSpeech": "глагол",
-    "translation": "бегать",
-    "examples": [
-      {
-        "en": "I like to run in the park every morning.",
-        "ru": "Я люблю бегать в парке каждое утро."
-      },
-      {
-        "en": "She ran quickly to catch the bus.",
-        "ru": "Она быстро побежала, чтобы поймать автобус."
-      },
-      {
-        "en": "The dog loves to run and play fetch.",
-        "ru": "Собака любит бегать и играть в приносить мячик."
-      }
-    ],
-    "image": "words/run.jpg"
-  },
-  {
-    "slug": "how-are-you",
-    "word": "How are you",
-    "phonetic": "[haʊ æə juː]",
-    "partOfSpeech": "междометие",
-    "translation": "Как вы",
-    "examples": [
-      {
-        "en": "How are you doing today?",
-        "ru": "Как вы сегодня делаете?"
-      },
-      {
-        "en": "I'm just wondering how are you feeling?",
-        "ru": "Я просто думаю, как вы себя чувствуете?"
-      },
-      {
-        "en": "How are you planning to approach this problem?",
-        "ru": "Как вы планируете подойти к этой проблеме?"
-      }
-    ],
-    "image": "words/how-are-you.jpg"
-  },
-  {
-    "slug": "abandoned-my-child",
-    "word": "Abandoned my child",
-    "phonetic": "[əˈbændən maɪ tʃaɪld]",
-    "partOfSpeech": "verb phrase",
-    "translation": "Бросила моего ребенка",
-    "examples": [
-      {
-        "en": "She abandoned her child at the playground.",
-        "ru": "Она бросила своего ребенка на игровой площадке."
-      },
-      {
-        "en": "Abandoning a child is a serious crime.",
-        "ru": "Бросить ребенка - это серьезное преступление."
-      },
-      {
-        "en": "He felt guilty for having abandoned his child years ago.",
-        "ru": "Он чувствовал вину за то, что бросил своего ребенка много лет назад."
-      }
-    ],
-    "image": "words/abandoned-my-child.jpg"
-  },
-  {
-    "slug": "say-it-louder",
-    "word": "Say it louder",
-    "phonetic": "[seɪ ɪt laʊdər]",
-    "partOfSpeech": "фраза",
-    "translation": "Скажи это громче.",
-    "examples": [
-      {
-        "en": "Can you say it louder so everyone can hear?",
-        "ru": "Можешь сказать это громче, чтобы все могли слышать?"
-      },
-      {
-        "en": "During the presentation, please say it louder for clarity.",
-        "ru": "Во время презентации, пожалуйста, скажи это громче для ясности."
-      },
-      {
-        "en": "I couldn't hear you; can you say it louder?",
-        "ru": "Я тебя не слышал; можешь сказать это громче?"
-      }
-    ],
-    "image": "words/say-it-louder.jpg"
-  },
-  {
-    "slug": "say-my-name",
-    "word": "Say my name",
-    "phonetic": "[seɪ maɪ neɪm]",
-    "partOfSpeech": "фраза",
-    "translation": "Назови моё имя",
-    "examples": [
-      {
-        "en": "When you see me, remember to say my name.",
-        "ru": "Когда ты меня увидишь, не забудь назвать моё имя."
-      },
-      {
-        "en": "In the movie, the main character asks everyone to say his name.",
-        "ru": "В фильме главный герой просит всех назвать его имя."
-      },
-      {
-        "en": "If you want to get my attention, just say my name.",
-        "ru": "Если ты хочешь привлечь моё внимание, просто назови моё имя."
-      }
-    ],
-    "image": "words/say-my-name.jpg"
-  },
-  {
-    "slug": "cook",
-    "word": "Cook",
-    "phonetic": "[kʊk]",
-    "partOfSpeech": "глагол",
-    "translation": "Варить",
-    "examples": [
-      {
-        "en": "I need to cook dinner tonight.",
-        "ru": "Мне нужно приготовить ужин сегодня."
-      },
-      {
-        "en": "She's a fantastic cook and always makes delicious meals.",
-        "ru": "Она отличный повар и всегда готовит вкусные блюда."
-      },
-      {
-        "en": "Could you cook the chicken for me, please?",
-        "ru": "Не могли бы вы пожарить курицу для меня, пожалуйста?"
-      }
-    ],
-    "image": "words/cook.jpg"
-  },
-  {
-    "slug": "goddamn-right",
-    "word": "Goddamn right",
-    "phonetic": "[ɡɑːˈdæm raɪt]",
-    "partOfSpeech": "фраза",
-    "translation": "Черт возьми, это точно!",
-    "examples": [
-      {
-        "en": "You were right to stand up for yourself; goddamn right!",
-        "ru": "Ты был прав, что за себя постоял; черт возьми, это точно!"
-      },
-      {
-        "en": "When he said he would win the game, I thought, 'Goddamn right he will!'",
-        "ru": "Когда он сказал, что выиграет игру, я подумал: 'Черт возьми, он действительно выиграет!'"
-      },
-      {
-        "en": "She won the award for her performance, and everyone said, 'Goddamn right she did!'",
-        "ru": "Она выиграла награду за свое выступление, и все сказали: 'Черт возьми, она и правда выиграла!'"
-      }
-    ],
-    "image": "words/goddamn-right.jpg"
-  }
-]
+{
+  "ru": [
+    {
+      "slug": "freedom",
+      "lang": "ru",
+      "word": "Freedom",
+      "phonetic": "[ˈfriːdəm]",
+      "partOfSpeech": "noun",
+      "translation": "Свобода",
+      "image": "words/freedom.jpg",
+      "examples": [
+        {
+          "original": "We must fight for freedom and justice.",
+          "translation": "Мы должны бороться за свободу и справедливость."
+        },
+        {
+          "original": "Freedom of speech is a fundamental right.",
+          "translation": "Свобода слова – это основополагающее право."
+        },
+        {
+          "original": "She dreamed of a life of freedom and independence.",
+          "translation": "Она мечтала о жизни свободы и независимости."
+        }
+      ]
+    },
+    {
+      "slug": "apple",
+      "lang": "ru",
+      "word": "Apple",
+      "phonetic": "[ˈæpl]",
+      "partOfSpeech": "noun",
+      "translation": "Яблоко",
+      "image": "words/apple.jpg",
+      "examples": [
+        {
+          "original": "I ate an apple for breakfast this morning.",
+          "translation": "Я съел яблоко на завтрак сегодня."
+        },
+        {
+          "original": "The apple pie was delicious and warm.",
+          "translation": "Пирог с яблоками был вкусным и теплым."
+        },
+        {
+          "original": "He dropped the apple, and it rolled across the floor.",
+          "translation": "Он уронил яблоко, и оно покатилось по полу."
+        }
+      ]
+    },
+    {
+      "slug": "run",
+      "lang": "ru",
+      "word": "Run",
+      "phonetic": "[rʌn]",
+      "partOfSpeech": "verb",
+      "translation": "Бегать",
+      "image": "words/run.jpg",
+      "examples": [
+        {
+          "original": "I like to run in the park every morning.",
+          "translation": "Я люблю бегать в парке каждое утро."
+        },
+        {
+          "original": "She ran quickly to catch the bus.",
+          "translation": "Она быстро побежала, чтобы поймать автобус."
+        },
+        {
+          "original": "The dog loves to run and play fetch.",
+          "translation": "Собака любит бегать и играть в приносить мячик."
+        }
+      ]
+    },
+    {
+      "slug": "how-are-you",
+      "lang": "ru",
+      "word": "How are you",
+      "phonetic": "[haʊ æə juː]",
+      "partOfSpeech": "interjection",
+      "translation": "Как вы",
+      "image": "words/how-are-you.jpg",
+      "examples": [
+        {
+          "original": "How are you doing today?",
+          "translation": "Как вы сегодня делаете?"
+        },
+        {
+          "original": "I'm just wondering how are you feeling?",
+          "translation": "Я просто думаю, как вы себя чувствуете?"
+        },
+        {
+          "original": "How are you planning to approach this problem?",
+          "translation": "Как вы планируете подойти к этой проблеме?"
+        }
+      ]
+    },
+    {
+      "slug": "abandoned-my-child",
+      "lang": "ru",
+      "word": "Abandoned my child",
+      "phonetic": "[əˈbændənd maɪ tʃaɪld]",
+      "partOfSpeech": "verb phrase",
+      "translation": "Бросила своего ребенка",
+      "image": "words/abandoned-my-child.jpg",
+      "examples": [
+        {
+          "original": "She abandoned her child in a park.",
+          "translation": "Она бросила своего ребенка в парке."
+        },
+        {
+          "original": "The mother abandoned her child, leaving him alone.",
+          "translation": "Мать бросила своего ребенка, оставив его одного."
+        },
+        {
+          "original": "It is heartbreaking to hear stories of parents who abandon their children.",
+          "translation": "Ужасно слышать истории о родителях, которые бросают своих детей."
+        }
+      ]
+    },
+    {
+      "slug": "say-it-louder",
+      "lang": "ru",
+      "word": "Say it louder",
+      "phonetic": "[seɪ ɪt ˈlaʊdər]",
+      "partOfSpeech": "phrase",
+      "translation": "Скажи это громче",
+      "image": "words/say-it-louder.jpg",
+      "examples": [
+        {
+          "original": "Can you say it louder? I can't hear you.",
+          "translation": "Можешь сказать это громче? Я тебя не слышу."
+        },
+        {
+          "original": "During the presentation, I had to say it louder to get everyone's attention.",
+          "translation": "Во время презентации мне нужно было сказать это громче, чтобы привлечь внимание всех."
+        },
+        {
+          "original": "She always tells me to say it louder when I mumble.",
+          "translation": "Она всегда говорит мне говорить это громче, когда я бормочу."
+        }
+      ]
+    },
+    {
+      "slug": "say-my-name",
+      "lang": "ru",
+      "word": "Say my name",
+      "phonetic": "[seɪ maɪ neɪm]",
+      "partOfSpeech": "phrase",
+      "translation": "Назови моё имя",
+      "image": "words/say-my-name.jpg",
+      "examples": [
+        {
+          "original": "When you see me, remember to say my name.",
+          "translation": "Когда ты меня увидишь, не забудь назвать моё имя."
+        },
+        {
+          "original": "In the movie, the main character asks everyone to say his name.",
+          "translation": "В фильме главный герой просит всех назвать его имя."
+        },
+        {
+          "original": "If you want to get my attention, just say my name.",
+          "translation": "Если ты хочешь привлечь моё внимание, просто назови моё имя."
+        }
+      ]
+    },
+    {
+      "slug": "cook",
+      "lang": "ru",
+      "word": "Cook",
+      "phonetic": "[kʊk]",
+      "partOfSpeech": "verb",
+      "translation": "Готовить",
+      "image": "words/cook.jpg",
+      "examples": [
+        {
+          "original": "I love to cook Italian food on the weekends.",
+          "translation": "Я люблю готовить итальянскую еду по выходным."
+        },
+        {
+          "original": "She learned how to cook from her grandmother.",
+          "translation": "Она научилась готовить у своей бабушки."
+        },
+        {
+          "original": "Do you want to cook dinner together tonight?",
+          "translation": "Ты хочешь готовить ужин вместе сегодня вечером?"
+        }
+      ]
+    },
+    {
+      "slug": "goddamn-right",
+      "lang": "ru",
+      "word": "Goddamn right",
+      "phonetic": "[ɡɑːˈdæm raɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "Черт возьми, это точно!",
+      "image": "words/goddamn-right.jpg",
+      "examples": [
+        {
+          "original": "You were right to stand up for yourself; goddamn right!",
+          "translation": "Ты был прав, что за себя постоял; черт возьми, это точно!"
+        },
+        {
+          "original": "When he said he would win the game, I thought, 'Goddamn right he will!'",
+          "translation": "Когда он сказал, что выиграет игру, я подумал: 'Черт возьми, он действительно выиграет!'"
+        },
+        {
+          "original": "She won the award for her performance, and everyone said, 'Goddamn right she did!'",
+          "translation": "Она выиграла награду за свое выступление, и все сказали: 'Черт возьми, она и правда выиграла!'"
+        }
+      ]
+    }
+  ],
+  "es": [
+    {
+      "slug": "freedom",
+      "lang": "es",
+      "word": "Freedom",
+      "phonetic": "[fri:dəm]",
+      "partOfSpeech": "noun",
+      "translation": "Libertad",
+      "image": "words/freedom.jpg",
+      "examples": [
+        {
+          "original": "Freedom of speech is a fundamental right.",
+          "translation": "La libertad de expresión es un derecho fundamental."
+        },
+        {
+          "original": "Many people fought for the freedom we enjoy today.",
+          "translation": "Muchas personas lucharon por la libertad que disfrutamos hoy."
+        },
+        {
+          "original": "He values his freedom more than anything else.",
+          "translation": "Valora su libertad más que cualquier otra cosa."
+        }
+      ]
+    },
+    {
+      "slug": "apple",
+      "lang": "es",
+      "word": "Apple",
+      "phonetic": "[ˈæpl]",
+      "partOfSpeech": "noun",
+      "translation": "Manzana",
+      "image": "words/apple.jpg",
+      "examples": [
+        {
+          "original": "I ate an apple for a snack.",
+          "translation": "Comí una manzana como refrigerio."
+        },
+        {
+          "original": "She always has an apple in her lunchbox.",
+          "translation": "Ella siempre tiene una manzana en su almuerzo."
+        },
+        {
+          "original": "The apple pie smelled delicious.",
+          "translation": "La tarta de manzana olía delicioso."
+        }
+      ]
+    },
+    {
+      "slug": "run",
+      "lang": "es",
+      "word": "Run",
+      "phonetic": "[rʌn]",
+      "partOfSpeech": "verb",
+      "translation": "Correr",
+      "image": "words/run.jpg",
+      "examples": [
+        {
+          "original": "I love to run in the park every morning.",
+          "translation": "Me encanta correr en el parque cada mañana."
+        },
+        {
+          "original": "He plans to run a marathon next year.",
+          "translation": "Él planea correr un maratón el próximo año."
+        },
+        {
+          "original": "Can you run a mile without stopping?",
+          "translation": "¿Puedes correr una milla sin detenerte?"
+        }
+      ]
+    },
+    {
+      "slug": "how-are-you",
+      "lang": "es",
+      "word": "How are you",
+      "phonetic": "[ha ə roo ju]",
+      "partOfSpeech": "interjection",
+      "translation": "Cómo estás",
+      "image": "words/how-are-you.jpg",
+      "examples": [
+        {
+          "original": "How are you doing today?",
+          "translation": "¿Cómo estás hoy?"
+        },
+        {
+          "original": "Are you alright? How are you feeling?",
+          "translation": "¿Estás bien? ¿Cómo te sientes?"
+        },
+        {
+          "original": "Just checking in, how are you?",
+          "translation": "Solo voy a preguntar, ¿cómo estás?"
+        }
+      ]
+    },
+    {
+      "slug": "abandoned-my-child",
+      "lang": "es",
+      "word": "Abandoned my child",
+      "phonetic": "[əˈbændənd maɪ tʃaɪld]",
+      "partOfSpeech": "phrase",
+      "translation": "Abandoné a mi hijo",
+      "image": "words/abandoned-my-child.jpg",
+      "examples": [
+        {
+          "original": "He abandoned my child when things got tough.",
+          "translation": "Él abandonó a mi hijo cuando las cosas se pusieron difíciles."
+        },
+        {
+          "original": "She felt guilty for abandoning her child.",
+          "translation": "Ella se sintió culpable por abandonar a su hijo."
+        },
+        {
+          "original": "It is heartbreaking to see a parent abandon their child.",
+          "translation": "Es desgarrador ver a un padre abandonar a su hijo."
+        }
+      ]
+    },
+    {
+      "slug": "say-it-louder",
+      "lang": "es",
+      "word": "Say it louder",
+      "phonetic": "[seɪ ɪt laʊdər]",
+      "partOfSpeech": "phrase",
+      "translation": "Dilo más alto",
+      "image": "words/say-it-louder.jpg",
+      "examples": [
+        {
+          "original": "Please, can you say it louder so everyone can hear?",
+          "translation": "Por favor, ¿puedes decirlo más alto para que todos escuchen?"
+        },
+        {
+          "original": "I didn't catch what you said; can you say it louder this time?",
+          "translation": "No escuché lo que dijiste; ¿puedes decirlo más alto esta vez?"
+        },
+        {
+          "original": "When you're in a crowded room, it's important to say it louder.",
+          "translation": "Cuando estás en una sala llena, es importante decirlo más alto."
+        }
+      ]
+    },
+    {
+      "slug": "say-my-name",
+      "lang": "es",
+      "word": "Say my name",
+      "phonetic": "[seɪ maɪ neɪm]",
+      "partOfSpeech": "phrase",
+      "translation": "Di mi nombre",
+      "image": "words/say-my-name.jpg",
+      "examples": [
+        {
+          "original": "When I walk into the room, I want everyone to say my name.",
+          "translation": "Cuando entro en la habitación, quiero que todos digan mi nombre."
+        },
+        {
+          "original": "The teacher asked the students to say my name when they answered the question.",
+          "translation": "El profesor pidió a los estudiantes que dijeran mi nombre cuando respondieran a la pregunta."
+        },
+        {
+          "original": "In the song, the singer repeatedly asks the lover to say my name.",
+          "translation": "En la canción, el cantante pide repetidamente a su amante que diga mi nombre."
+        }
+      ]
+    },
+    {
+      "slug": "cook",
+      "lang": "es",
+      "word": "Cook",
+      "phonetic": "[kʊk]",
+      "partOfSpeech": "verb",
+      "translation": "Cocinar",
+      "image": "words/cook.jpg",
+      "examples": [
+        {
+          "original": "I love to cook on the weekends.",
+          "translation": "Me encanta cocinar los fines de semana."
+        },
+        {
+          "original": "She decided to cook a new recipe for dinner.",
+          "translation": "Ella decidió cocinar una nueva receta para cenar."
+        },
+        {
+          "original": "Can you show me how to cook this dish?",
+          "translation": "¿Puedes enseñarme a cocinar este plato?"
+        }
+      ]
+    },
+    {
+      "slug": "goddamn-right",
+      "lang": "es",
+      "word": "Goddamn right",
+      "phonetic": "[ɡɑdˈdæm raɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "¡Por Dios!",
+      "image": "words/goddamn-right.jpg",
+      "examples": [
+        {
+          "original": "I knew he would agree with me, goddamn right!",
+          "translation": "¡Sabía que estaría de acuerdo conmigo, por Dios!"
+        },
+        {
+          "original": "When she said she was getting the promotion, I thought, goddamn right!",
+          "translation": "Cuando ella dijo que iba a obtener la promoción, pensé, ¡por Dios!"
+        },
+        {
+          "original": "If anyone deserves the award, it's him, goddamn right!",
+          "translation": "Si alguien merece el premio, es él, ¡por Dios!"
+        }
+      ]
+    }
+  ]
+}

@@ -1,25 +1,30 @@
 import { z } from "zod";
 import wordsData from "./words.generated.json";
+import type { NativeLang } from "../i18n";
 
 export const exampleSchema = z.object({
-  en: z.string(),
-  ru: z.string(),
+  /** The example sentence in English (the language being learned). */
+  original: z.string(),
+  /** Its translation in the native language. */
+  translation: z.string(),
 });
 
 export const wordSchema = z.object({
-  /** URL key on vibeling.app, e.g. "freedom" or "how-are-you". */
+  /** English key, e.g. "freedom" or "say-my-name". */
   slug: z.string(),
-  /** The word/phrase being looked up, e.g. "Freedom". */
+  /** Native (audience) language this entry is localized for, e.g. "ru" | "es". */
+  lang: z.string(),
+  /** The English word/phrase being looked up, e.g. "Say my name". */
   word: z.string(),
-  /** Phonetic transcription, e.g. "[ˈfriːdəm]". */
+  /** Phonetic transcription, e.g. "[seɪ maɪ neɪm]". */
   phonetic: z.string(),
-  /** Part of speech in Russian, e.g. "существительное". */
+  /** Part of speech as returned by the API (English), localized at render time. */
   partOfSpeech: z.string(),
-  /** Translation, e.g. "Свобода". */
+  /** Translation in the native language, e.g. "Назови моё имя" / "Di mi nombre". */
   translation: z.string(),
   /** Path (relative to public/) of the downloaded illustration, for staticFile(). */
   image: z.string(),
-  /** Usage examples (English + Russian). */
+  /** Usage examples (English + native translation). */
   examples: z.array(exampleSchema),
 });
 
@@ -28,11 +33,17 @@ export const dictionarySchema = z.object({
 });
 
 export type Example = z.infer<typeof exampleSchema>;
-export type WordData = z.infer<typeof wordSchema>;
+export type WordData = z.infer<typeof wordSchema> & { lang: NativeLang };
 
 /**
- * All words available for rendering. Generated from src/Dictionary/words.json
- * (the slug list) by `npm run fetch-words`, which pulls content from
- * vibeling.app. Do not edit words.generated.json by hand.
+ * All words, flattened across languages. Generated from src/Dictionary/words.json
+ * by `npm run fetch-words` (which calls the vibeling backend API for every target
+ * language). Do not edit words.generated.json by hand. Each entry becomes a
+ * `Dictionary-<lang>-<slug>` composition (see src/Root.tsx).
  */
-export const words: WordData[] = wordsData;
+const byLang = wordsData as Record<string, WordData[]>;
+export const words: WordData[] = Object.values(byLang).flat();
+
+/** Look up a single localized entry. */
+export const findWord = (lang: string, slug: string): WordData | undefined =>
+  words.find((w) => w.lang === lang && w.slug === slug);

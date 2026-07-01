@@ -1,14 +1,18 @@
-// Fetches word data from vibeling.app by slug and generates the data the
-// Dictionary video reads. The only thing you edit by hand is the slug list in
-// src/Dictionary/words.json (e.g. "freedom", "apple", "how-are-you").
+// Fetches word data from the real vibeling backend API and generates the data
+// the Dictionary video reads — for EVERY target (native) language, so we can
+// render one video per audience. The only thing you edit by hand is the English
+// slug list in src/Dictionary/words.json (e.g. "freedom", "say-my-name").
 //
-// For each slug it pulls https://vibeling.app/ru/dictionary/english/<slug>,
-// parses the page, downloads the word image into public/words/, and writes the
-// full data to src/Dictionary/words.generated.json.
+// For each slug × language it:
+//   1. POST /translate  (en -> lang)   → the native translation of the phrase
+//   2. POST /word        (enrichWord)  → transcription, part of speech, examples
+//   3. downloads the illustration once per slug into public/words/
+// and writes src/Dictionary/words.generated.json as { [lang]: WordData[] }.
 //
 // Run with:  npm run fetch-words
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -18,114 +22,93 @@ const SLUGS_FILE = join(ROOT, "src/Dictionary/words.json");
 const OUT_FILE = join(ROOT, "src/Dictionary/words.generated.json");
 const IMG_DIR = join(ROOT, "public/words");
 
-const SOURCE = (slug) => `https://vibeling.app/ru/dictionary/english/${slug}`;
+// Native languages to generate. Keep in sync with NATIVE_LANGS in src/i18n.ts.
+const TARGET_LANGS = ["ru", "es"];
+const LEARN_LANG = "en"; // the clips are English
 
-// ---------- tiny HTML helpers (no deps) ----------
+const BASE_URL = "https://api.vibeling.app";
+const APP_SECRET = "gEASDeP8Wfi1UHTtQD23DgApbAoJ21RPovK";
+const META = { version: "1.0.0", os: "iOS", uid: "vbl_render_bot" };
 
-const decodeEntities = (s) =>
-  s
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&laquo;/g, "«")
-    .replace(/&raquo;/g, "»")
-    .replace(/&mdash;/g, "—")
-    .replace(/&ndash;/g, "–")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
-
-const stripTags = (s) => decodeEntities(s.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
-
-// Match `cls` as a whole class token (so "dict-translation" does NOT match
-// "dict-translation-label"). Hyphens count as token boundaries here.
-const classToken = (cls) => `class="[^"]*(?<![\\w-])${cls}(?![\\w-])[^"]*"`;
-
-// Inner text of the first element carrying class token `cls`.
-const byClass = (html, cls) => {
-  const re = new RegExp(`${classToken(cls)}[^>]*>([\\s\\S]*?)<\\/`, "");
-  const m = html.match(re);
-  return m ? stripTags(m[1]) : "";
-};
-
-const allByClass = (html, cls) => {
-  const re = new RegExp(`${classToken(cls)}[^>]*>([\\s\\S]*?)<\\/`, "g");
-  const out = [];
-  let m;
-  while ((m = re.exec(html))) out.push(stripTags(m[1]));
-  return out;
+const api = async (path, body) => {
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method: "POST",
+    headers: { "X-App-Secret": APP_SECRET, "Content-Type": "application/json" },
+    body: JSON.stringify({ ...body, meta: META }),
+  });
+  if (!res.ok) throw new Error(`${path} -> HTTP ${res.status} ${res.statusText}`);
+  return res.json();
 };
 
 const capitalize = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
-
-// ---------- parsing ----------
-
-const parseWord = (html, slug) => {
-  // The visible word is in the gradient highlight span; fall back to the slug.
-  const highlight = html.match(/class="[^"]*dict-word-highlight[^"]*"[^>]*>([^<]+)</);
-  const word = capitalize(
-    highlight ? decodeEntities(highlight[1]).trim() : slug.split("-").join(" "),
-  );
-
-  // Transcription element contains an <svg> icon followed by the [..] text.
-  const transBlock = html.match(/class="[^"]*dict-transcription[^"]*"[^>]*>([\s\S]*?)<\/p>/);
-  const transStripped = transBlock ? stripTags(transBlock[1]) : "";
-  const bracket = transStripped.match(/\[[^\]]+\]/);
-  const phonetic = bracket ? bracket[0] : transStripped;
-
-  const partOfSpeech = byClass(html, "dict-pos");
-  const translation = byClass(html, "dict-translation");
-
-  const targets = allByClass(html, "dict-example-target");
-  const glosses = allByClass(html, "dict-example-gloss");
-  const examples = targets.map((en, i) => ({ en, ru: glosses[i] ?? "" }));
-
-  const imgMatch = html.match(/class="[^"]*dict-image[^"]*"[^>]*src="([^"]+)"/);
-  const imageUrl = imgMatch ? imgMatch[1] : "";
-
-  return { slug, word, phonetic, partOfSpeech, translation, examples, imageUrl };
-};
-
-// ---------- image download ----------
+const phraseFromSlug = (slug) => slug.split("-").join(" ");
 
 const downloadImage = async (url, slug) => {
   if (!url) return "";
   const ext = (url.match(/\.(jpg|jpeg|png|webp)(?:\?|$)/i)?.[1] ?? "jpg").toLowerCase();
   const file = `${slug}.${ext}`;
+  const dest = join(IMG_DIR, file);
+  if (existsSync(dest)) return `words/${file}`; // image is language-independent
   const res = await fetch(url);
   if (!res.ok) throw new Error(`image ${url} -> HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  await writeFile(join(IMG_DIR, file), buf);
-  return `words/${file}`; // path relative to public/ for Remotion staticFile()
+  await writeFile(dest, Buffer.from(await res.arrayBuffer()));
+  return `words/${file}`;
 };
-
-// ---------- main ----------
 
 const main = async () => {
   const slugs = JSON.parse(await readFile(SLUGS_FILE, "utf-8"));
   await mkdir(IMG_DIR, { recursive: true });
 
-  const result = [];
+  const byLang = Object.fromEntries(TARGET_LANGS.map((l) => [l, []]));
+
   for (const slug of slugs) {
-    process.stdout.write(`• ${slug} … `);
-    const res = await fetch(SOURCE(slug));
-    if (!res.ok) {
-      console.log(`SKIP (HTTP ${res.status})`);
-      continue;
+    const enPhrase = phraseFromSlug(slug);
+    let image = "";
+    for (const lang of TARGET_LANGS) {
+      process.stdout.write(`• ${slug} [${lang}] … `);
+      try {
+        const { translations } = await api("/translate", {
+          words: [enPhrase],
+          sourceLanguage: LEARN_LANG,
+          targetLanguage: lang,
+        });
+        const toWord = translations?.[0] ?? enPhrase;
+        const w = await api("/word", {
+          fromWord: enPhrase,
+          toWord,
+          fromLanguage: LEARN_LANG,
+          toLanguage: lang,
+        });
+        // Download the illustration once per slug (shared across languages).
+        if (!image) {
+          image = await downloadImage(w.imageUrl, slug).catch((e) => {
+            process.stdout.write(`(image failed: ${e.message}) `);
+            return "";
+          });
+        }
+        byLang[lang].push({
+          slug,
+          lang,
+          word: capitalize(w.fromWord || enPhrase),
+          phonetic: w.transcription ? `[${w.transcription}]` : "",
+          partOfSpeech: w.partOfSpeech ?? "",
+          translation: capitalize(w.toWord || toWord),
+          image,
+          examples: (w.examples ?? []).map((e) => ({
+            original: e.original,
+            translation: e.translation,
+          })),
+        });
+        console.log(`ok — "${w.fromWord}" → "${w.toWord}", ${(w.examples ?? []).length} examples`);
+      } catch (e) {
+        console.log(`FAIL: ${e.message}`);
+      }
     }
-    const html = await res.text();
-    const { imageUrl, ...data } = parseWord(html, slug);
-    const image = await downloadImage(imageUrl, slug).catch((e) => {
-      console.log(`(image failed: ${e.message}) `);
-      return "";
-    });
-    result.push({ ...data, image });
-    console.log(`ok — "${data.word}" → "${data.translation}", ${data.examples.length} examples`);
   }
 
-  await writeFile(OUT_FILE, JSON.stringify(result, null, 2) + "\n");
-  console.log(`\nWrote ${result.length} words to ${OUT_FILE.replace(ROOT + "/", "")}`);
+  await writeFile(OUT_FILE, JSON.stringify(byLang, null, 2) + "\n");
+  const counts = TARGET_LANGS.map((l) => `${l}:${byLang[l].length}`).join(", ");
+  console.log(`\nWrote ${OUT_FILE.replace(ROOT + "/", "")} (${counts})`);
 };
 
 main().catch((e) => {

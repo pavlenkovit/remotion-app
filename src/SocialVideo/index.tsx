@@ -15,8 +15,9 @@ import {
 } from "remotion";
 import { COLORS } from "../Dictionary/ui";
 import { getDictionaryTiming } from "../Dictionary";
-import { words } from "../Dictionary/schema";
+import { words, findWord } from "../Dictionary/schema";
 import type { SocialVideoData, Subtitle } from "./schema";
+import { STRINGS, type NativeLang } from "../i18n";
 
 // ============================================================================
 // This is the reusable RECIPE. Everything describing a particular video comes
@@ -33,9 +34,8 @@ const COMP_W = 1080;
 const COMP_H = 1920;
 /** Fallback clip aspect (w/h) when the file's real dimensions aren't available. */
 const DEFAULT_ASPECT = 16 / 9;
-/** First (plain) pass: bold branding ABOVE the video; calmer line BELOW it. */
-const INTRO_CAPTION = "Учим английский по фильмам";
-const INTRO_SUBCAPTION = "Первый раз смотрим без субтитров";
+/** First (plain) pass: bold branding ABOVE the video; calmer line BELOW it —
+    text comes from ./i18n.ts per the audience's native language. */
 /** Shared text font stack. */
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
@@ -57,8 +57,8 @@ const videoTopY = (aspect: number): number => {
 // Timing — derived from the config so a different clip/highlights just works.
 // ============================================================================
 
-const mockupFrames = (slug: string): number => {
-  const word = words.find((w) => w.slug === slug);
+const mockupFrames = (slug: string, lang: NativeLang): number => {
+  const word = findWord(lang, slug) ?? words.find((w) => w.slug === slug);
   return word ? getDictionaryTiming(word).durationInFrames : 150;
 };
 
@@ -66,7 +66,12 @@ type Seg =
   | { type: "play"; from: number; duration: number; srcFrom: number; srcTo: number; clipOffset: number }
   | { type: "mockup"; from: number; duration: number; freezeAt: number; mockup: string; slug: string };
 
-export const getSocialTiming = (fps: number, config: SocialVideoData, clipLen: number) => {
+export const getSocialTiming = (
+  fps: number,
+  config: SocialVideoData,
+  clipLen: number,
+  lang: NativeLang = "ru",
+) => {
   const clipStart = 0; // the clip plays in full — no trimming
   const swipeFrames = config.swipeFrames ?? DEFAULT_SWIPE_FRAMES;
   const outro = Math.round((config.outroSec ?? DEFAULT_OUTRO_SEC) * fps);
@@ -74,9 +79,9 @@ export const getSocialTiming = (fps: number, config: SocialVideoData, clipLen: n
   const highlights = config.highlights
     .map((h) => ({
       ...h,
-      mockup: `mockups/${h.slug}.mp4`,
+      mockup: `mockups/${lang}/${h.slug}.mp4`,
       localFrame: Math.round(h.atSec * fps),
-      mockupLen: mockupFrames(h.slug),
+      mockupLen: mockupFrames(h.slug, lang),
     }))
     .sort((a, b) => a.localFrame - b.localFrame);
 
@@ -268,7 +273,11 @@ const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: n
  * First-pass captions: the bold branding above the video, and a calmer
  * "watch without subtitles" line below it. Both fade in together.
  */
-const IntroCaptions: React.FC<{ aspect: number }> = ({ aspect }) => {
+const IntroCaptions: React.FC<{ aspect: number; intro: string; sub: string }> = ({
+  aspect,
+  intro,
+  sub,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const opacity = interpolate(frame, [0, Math.round(fps * 0.5)], [0, 1], {
@@ -290,7 +299,7 @@ const IntroCaptions: React.FC<{ aspect: number }> = ({ aspect }) => {
             textShadow: "0 2px 14px rgba(0,0,0,0.9)",
           }}
         >
-          {INTRO_CAPTION}
+          {intro}
         </span>
       </UpperBand>
       <LowerBand aspect={aspect} opacity={opacity}>
@@ -306,7 +315,7 @@ const IntroCaptions: React.FC<{ aspect: number }> = ({ aspect }) => {
             textShadow: "0 2px 10px rgba(0,0,0,0.9)",
           }}
         >
-          {INTRO_SUBCAPTION}
+          {sub}
         </span>
       </LowerBand>
     </>
@@ -373,14 +382,16 @@ const Outro: React.FC = () => (
 
 export const SocialVideo: React.FC<{
   config: SocialVideoData;
+  lang?: NativeLang;
   clipDurationInFrames?: number;
   clipAspect?: number;
-}> = ({ config, clipDurationInFrames, clipAspect }) => {
+}> = ({ config, lang = "ru", clipDurationInFrames, clipAspect }) => {
   const { fps, durationInFrames } = useVideoConfig();
   // clipDurationInFrames / clipAspect are injected by calculateMetadata (read
   // from the file); fall back so the component never breaks in isolation.
-  const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames);
+  const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames, lang);
   const aspect = clipAspect ?? DEFAULT_ASPECT;
+  const s = STRINGS[lang];
   const { clip, subtitles } = config;
 
   return (
@@ -388,7 +399,7 @@ export const SocialVideo: React.FC<{
       {/* Pass 1 — plain clip + branding above and a calmer line below */}
       <Sequence durationInFrames={t.clipLen}>
         <ClipSlice clip={clip} from={t.clipStart} to={t.clipStart + t.clipLen} />
-        <IntroCaptions aspect={aspect} />
+        <IntroCaptions aspect={aspect} intro={s.intro} sub={s.sub} />
       </Sequence>
 
       {/* Pause on the last frame + swipe (with swipe sound) */}

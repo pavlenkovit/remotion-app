@@ -34,9 +34,10 @@ export const Brand: React.FC = () => {
 
 export const SearchBar: React.FC<{
   text: string;
+  cancel: string;
   showCursor?: boolean;
   showClear?: boolean;
-}> = ({ text, showCursor = false, showClear = true }) => {
+}> = ({ text, cancel, showCursor = false, showClear = true }) => {
   return (
     <div style={{ display: "flex", alignItems: "center", padding: "0 40px", gap: 24 }}>
       <div
@@ -87,7 +88,7 @@ export const SearchBar: React.FC<{
           </div>
         )}
       </div>
-      <span style={{ color: COLORS.accent, fontSize: 40, fontWeight: 500 }}>Отмена</span>
+      <span style={{ color: COLORS.accent, fontSize: 40, fontWeight: 500 }}>{cancel}</span>
     </div>
   );
 };

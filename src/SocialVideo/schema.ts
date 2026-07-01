@@ -41,6 +41,8 @@ export const socialVideoSchema = z.object({
  */
 export const socialCompSchema = z.object({
   config: socialVideoSchema,
+  /** Audience's native language ("ru" | "es") — drives branding + mockups. */
+  lang: z.enum(["ru", "es"]).optional(),
   clipDurationInFrames: z.number().optional(),
   clipAspect: z.number().optional(),
 });

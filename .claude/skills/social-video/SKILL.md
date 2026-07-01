@@ -37,26 +37,31 @@ Remotion's webpack bundler crashes on symlinked media and its static server 404s
 it lives on disk. Then set `"clip": "clips/<name>"` in the video's JSON
 (`src/SocialVideo/videos/<slug>.json`). Mockups also live under `public/mockups/`.
 
+## Multiple languages from one English clip
+
+One English clip produces **one video per audience language** (`NATIVE_LANGS` in
+`src/i18n.ts`, currently `ru` + `es`). The clip and English subtitles stay the same; what
+changes per language is the branding captions, the mockup card content, and the mockup UI
+labels — all localized via `src/i18n.ts`. Compositions are `Social-<lang>-<slug>` and
+`Dictionary-<lang>-<slug>`; finals are `out/final/<slug>-<lang>.mp4`.
+
+**To add a language:** add it to `NATIVE_LANGS` + `STRINGS` in `src/i18n.ts` and to
+`TARGET_LANGS` in `scripts/fetch-words.mjs`, then re-run the pipeline below.
+
 ## Generating the phrase mockups (do this first)
 
 The phone-mockup "adding the phrase" videos are **rendered from this project's `Dictionary`
-composition** — one per highlighted phrase. Do NOT expect the user to supply them as files;
-generate them:
+composition** — one per (highlighted phrase × language). Generate them:
 
-1. **Add slugs to the config.** Append each phrase's vibeling.app slug to
-   `src/Dictionary/words.json`. Slugs are lowercase, hyphenated, apostrophes/punctuation
-   dropped (e.g. `say my name` → `say-my-name`). Verify the page exists first:
-   `curl -s -o /dev/null -w "%{http_code}" https://vibeling.app/ru/dictionary/english/<slug>`
-   — a `200` means it's there, `404` means the phrase has no page yet (flag it to the user;
-   the pipeline can only pull pages that already exist on vibeling.app).
-2. **Pull the data.** Run `npm run fetch-words`. This scrapes each page, downloads the
-   illustration into `public/words/`, and writes `src/Dictionary/words.generated.json`. Each
-   slug becomes a `Dictionary-<slug>` composition in the Studio (see `src/Root.tsx`).
-3. **Render the mockup video** for each phrase:
-   `npx remotion render Dictionary-<slug> public/mockups/<slug>.mp4`
-   These rendered files are the mockup videos the social video plays inside the phone frame.
-
-The social-video composition then references `public/mockups/<slug>.mp4` for each highlight.
+1. **Add slugs to the config.** Append each phrase's English slug to
+   `src/Dictionary/words.json` (lowercase, hyphenated, e.g. `say my name` → `say-my-name`).
+2. **Pull the data from the real backend API.** Run `npm run fetch-words`. For every slug ×
+   language it calls the vibeling API (`POST https://api.vibeling.app/translate` then `/word`
+   with header `X-App-Secret`), downloads the illustration into `public/words/`, and writes
+   `src/Dictionary/words.generated.json` as `{ [lang]: WordData[] }`. (No more HTML scraping.)
+   Each entry becomes a `Dictionary-<lang>-<slug>` composition.
+3. **Render the mockups:** `npm run render:mockups` — renders every highlight × language into
+   `public/mockups/<lang>/<slug>.mp4` (the files the social video plays inside the phone frame).
 
 ## Subtitles & highlight timing — transcribe, don't guess
 
@@ -79,15 +84,15 @@ nouns** (e.g. whisper writes "Eisenberg" for "Heisenberg") and nudge if needed.
 `out/` is git-ignored and split into three folders — never dump files at its root:
 
 - **`out/images/`** — screenshots / verification stills (PNG).
-- **`out/renders/`** — scratch Remotion video renders (e.g. a `Dictionary-<slug>`
+- **`out/renders/`** — scratch Remotion video renders (e.g. a `Dictionary-<lang>-<slug>`
   preview). Use `npm run render:preview <composition-id>`.
-- **`out/final/`** — the finished social videos, one per scene, named by the
-  video's `slug` (e.g. `say-my-name-breaking-bad.mp4`), **never** `social-video.mp4`.
-  Render with `npm run render:final` (all videos) or
-  `npm run render:final -- <slug>` (one).
+- **`out/final/`** — the finished social videos, one per (scene × language), named
+  `<slug>-<lang>.mp4` (e.g. `say-my-name-breaking-bad-es.mp4`), **never** `social-video.mp4`.
+  Render with `npm run render:final` (all), `npm run render:final -- <slug>` (one scene, all
+  languages), or `npm run render:final -- <slug> <lang>` (one).
 
 Note: the phone-mockup videos that the composition plays via `staticFile()` are
-NOT "out" artifacts — they belong in `public/mockups/<slug>.mp4` (see below).
+NOT "out" artifacts — they belong in `public/mockups/<lang>/<slug>.mp4` (see below).
 
 ## Scenario (sequence of the produced video)
 
@@ -115,12 +120,13 @@ The component is the reusable recipe; each video is just data:
   (`SocialVideoData`); timing is derived in `getSocialTiming(fps, config, clipLen)`.
 - **Data (per video):** one JSON file in `src/SocialVideo/videos/<slug>.json` with
   `{ slug, clip, highlights, subtitles, swipeFrames?, outroSec? }`.
-  `highlights` are `{ slug, atSec }` (the mockup is `mockups/<slug>.mp4`); `subtitles`
+  `highlights` are `{ slug, atSec }` (the mockup is `mockups/<lang>/<slug>.mp4`); `subtitles`
   are `{ from, to, text }` in clip seconds. **No `cut`/duration** — the clip is played
-  in full and its length is read from the file.
+  in full and its length is read from the file. The JSON is language-agnostic; the
+  per-language strings come from `src/i18n.ts`.
 - **Registry:** `src/SocialVideo/schema.ts` validates each JSON (zod) and exports `videos`.
-  `src/Root.tsx` maps `videos` → a `Social-<slug>` composition each, reading the clip's
-  length in `calculateMetadata` (via `parseMedia`) to set the total duration.
+  `src/Root.tsx` maps `videos × NATIVE_LANGS` → a `Social-<lang>-<slug>` composition each,
+  reading the clip's length in `calculateMetadata` (via `parseMedia`) for the total duration.
 
 **To add a new video:** drop a `videos/<slug>.json`, import it in `schema.ts` and add it
 to `sources`. That's it — no component changes, no new file per video.
@@ -137,9 +143,10 @@ Reference format: "Английский по фильмам" shorts
   not over it. Its Y is computed from the clip's real aspect ratio (`dimensions` read via
   `parseMedia` in `calculateMetadata`, passed as `clipAspect`), so it hugs the video for
   any aspect.
-- **First pass captions.** Bold branding **"Учим английский по фильмам"** (`INTRO_CAPTION`)
-  in the band **above** the video; a calmer, smaller **"Первый раз смотрим без субтитров"**
-  (`INTRO_SUBCAPTION`) in the band **below** it. Both fade in. The subcaption is deliberately
+- **First pass captions.** Bold branding (`STRINGS[lang].intro`, e.g. "Учим английский по
+  фильмам" / "Aprende inglés con películas") in the band **above** the video; a calmer,
+  smaller subcaption (`STRINGS[lang].sub`) in the band **below** it. Both fade in. The
+  subcaption is deliberately
   less flashy (smaller, lighter weight, dimmer) than the top line.
 - **Subtitles (second pass).** One cue at a time, **centered, bold white, soft drop
   shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
@@ -180,7 +187,7 @@ Reference format: "Английский по фильмам" shorts
   frame, `swipeFrames` long (config; default 18). `swipe-soft.wav` plays in this `<Sequence>`.
 - **Click sound:** baked into the `Dictionary` composition itself — an `<Html5Audio>` of
   `sounds/click-soft.wav` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
-  the rendered `public/mockups/<slug>.mp4`, the social video plays it in sync automatically.
+  the rendered `public/mockups/<lang>/<slug>.mp4`, the social video plays it in sync automatically.
   **After changing the click sound or `PRESS_AT`, re-render the mockups** so it's re-baked.
 
 ## Tuning (mostly automatic)

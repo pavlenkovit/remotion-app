@@ -14,6 +14,7 @@ import {
 import { Brand, COLORS, SearchBar } from "./ui";
 import { Keyboard } from "./Keyboard";
 import { words, type WordData } from "./schema";
+import { STRINGS, localizePos } from "../i18n";
 
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
 
@@ -119,7 +120,7 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
       <Brand />
       <div style={{ height: 40 }} />
-      <SearchBar text={typed} showCursor={cursorOn} />
+      <SearchBar text={typed} cancel={STRINGS[word.lang].cancel} showCursor={cursorOn} />
       <div style={{ opacity: spinnerOpacity }}>
         <Spinner />
       </div>
@@ -132,9 +133,9 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
 
 // ---------- Scene 2: word detail ----------
 
-const Example: React.FC<{ en: string; ru: string; delay: number }> = ({
-  en,
-  ru,
+const Example: React.FC<{ original: string; translation: string; delay: number }> = ({
+  original,
+  translation,
   delay,
 }) => {
   const frame = useCurrentFrame();
@@ -166,9 +167,9 @@ const Example: React.FC<{ en: string; ru: string; delay: number }> = ({
           marginBottom: 12,
         }}
       >
-        {en}
+        {original}
       </div>
-      <div style={{ color: COLORS.muted, fontSize: 36 }}>{ru}</div>
+      <div style={{ color: COLORS.muted, fontSize: 36 }}>{translation}</div>
     </div>
   );
 };
@@ -178,6 +179,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
   localFrame,
 }) => {
   const { fps } = useVideoConfig();
+  const s = STRINGS[word.lang];
 
   const headerSpring = spring({
     frame: localFrame,
@@ -193,7 +195,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
 
   // Multi-word entries are phrases; single words are words.
   const isPhrase = word.word.trim().includes(" ");
-  const addedLabel = isPhrase ? "Фраза добавлена" : "Слово добавлено";
+  const addedLabel = isPhrase ? s.addedPhrase : s.addedWord;
 
   // The search input fades out quickly so it doesn't linger over the image.
   const searchHide = interpolate(localFrame, [1, 5], [0, 1], {
@@ -264,7 +266,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             transform: `translateY(${interpolate(searchHide, [0, 1], [0, -16])}px)`,
           }}
         >
-          <SearchBar text={word.word} showCursor={false} />
+          <SearchBar text={word.word} cancel={s.cancel} showCursor={false} />
         </div>
       </div>
 
@@ -316,7 +318,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
           </div>
         </div>
         <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>
-          {word.partOfSpeech}
+          {localizePos(word.lang, word.partOfSpeech)}
         </div>
 
         <div
@@ -339,13 +341,13 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             letterSpacing: 1,
           }}
         >
-          ПРИМЕРЫ
+          {s.examples}
         </div>
       </div>
 
       <div style={{ padding: "0 60px" }}>
         {word.examples.map((ex, i) => (
-          <Example key={i} en={ex.en} ru={ex.ru} delay={5 + i * 4} />
+          <Example key={i} original={ex.original} translation={ex.translation} delay={5 + i * 4} />
         ))}
       </div>
 
@@ -380,7 +382,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             />
           </svg>
           <span style={{ color: "white", fontSize: 48, fontWeight: 600 }}>
-            Добавить в словарь
+            {s.addToDict}
           </span>
         </div>
       </div>
@@ -442,7 +444,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             >
               {addedLabel}
               <br />
-              для изучения
+              {s.forLearning}
             </div>
           </div>
         </AbsoluteFill>

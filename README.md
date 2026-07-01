@@ -42,16 +42,16 @@ of **slugs** — the part of the vibeling.app URL after `…/english/`:
 npm run fetch-words
 ```
 
-This reads the slug list and for each word:
+This reads the slug list and, for each word **× each target language** (`ru`, `es` —
+see `TARGET_LANGS` in the script), calls the real vibeling backend API:
 
-- downloads the page `https://vibeling.app/ru/dictionary/english/<slug>`,
-- parses the translation, transcription, part of speech and examples,
-- saves the illustration into `public/words/<slug>.jpg`,
-- writes everything to `src/Dictionary/words.generated.json`.
+- `POST https://api.vibeling.app/translate` — the native translation of the phrase,
+- `POST https://api.vibeling.app/word` — transcription, part of speech, examples,
+- saves the illustration into `public/words/<slug>.jpg` (shared across languages),
+- writes everything to `src/Dictionary/words.generated.json` as `{ [lang]: WordData[] }`.
 
 > `words.generated.json` and the images in `public/words/` are generated — don't
-> edit them by hand. Re-run `npm run fetch-words` whenever you change the slug
-> list.
+> edit them by hand. Re-run `npm run fetch-words` whenever you change the slug list.
 
 ### 3. Preview in the studio
 
@@ -59,42 +59,42 @@ This reads the slug list and for each word:
 npm run dev
 ```
 
-Each word becomes its own composition in the sidebar, named
-`Dictionary-<slug>` (e.g. `Dictionary-freedom`, `Dictionary-how-are-you`).
-Click one to preview and scrub it.
+Each word × language becomes its own composition, named `Dictionary-<lang>-<slug>`
+(e.g. `Dictionary-ru-freedom`, `Dictionary-es-how-are-you`). Click one to preview.
 
 ### 4. Render the video
 
 Render one word by its composition id:
 
 ```console
-npx remotion render Dictionary-freedom out/freedom.mp4
+npx remotion render Dictionary-ru-freedom out/renders/freedom-ru.mp4
 ```
 
-The file lands in `out/` (git-ignored). Swap the id for any other word.
+The file lands in `out/` (git-ignored). Swap the id for any other word × language.
 
 ## How it fits together
 
 | File | Role |
 | --- | --- |
-| `src/Dictionary/words.json` | **The only file you edit** — the list of slugs. |
-| `scripts/fetch-words.mjs` | Parser: slug list → content + images. Run via `npm run fetch-words`. |
-| `src/Dictionary/words.generated.json` | Generated content for every word. |
+| `src/Dictionary/words.json` | **The only file you edit** — the list of English slugs. |
+| `scripts/fetch-words.mjs` | Calls the vibeling API per slug × language → content + images. |
+| `src/Dictionary/words.generated.json` | Generated content, keyed by language. |
 | `public/words/*.jpg` | Generated illustrations (served via Remotion `staticFile`). |
+| `src/i18n.ts` | `NATIVE_LANGS` + all fixed UI strings, per language. |
 | `src/Dictionary/schema.ts` | The word data shape (Zod schema) + loads the generated data. |
 | `src/Dictionary/index.tsx` | The shared scenario: search/typing scene + word-detail scene. |
 | `src/Dictionary/ui.tsx`, `Keyboard.tsx` | Reusable UI pieces (status bar, search bar, keyboard…). |
-| `src/Root.tsx` | Registers one `Dictionary-<slug>` composition per word. |
+| `src/Root.tsx` | Registers a `Dictionary-<lang>-<slug>` composition per word × language. |
 
 Timing (typing speed, scene transition, total length) is derived from the word
 length in `getDictionaryTiming`, so short words and long phrases both fit.
 
 ## Why content is fetched at build time (not during render)
 
-Remotion renders inside a headless browser, where a live cross-origin request to
-vibeling.app would be blocked by CORS, and remote images are less reliable than
-local ones. Fetching once with `npm run fetch-words` keeps renders fast,
-reproducible and offline-friendly.
+Remotion renders inside a headless browser, where live cross-origin API calls
+would be blocked by CORS and remote images are less reliable than local ones.
+Fetching once with `npm run fetch-words` keeps renders fast, reproducible and
+offline-friendly.
 
 ## Social videos (movie-scene → reels)
 
@@ -108,13 +108,17 @@ it; the video's total length is read from the file automatically (no start/end a
 no duration to configure).
 
 House look (same for every video): the clip is shown **full width, centered, with
-black bars** (never cropped). Captions live in the black band **under** the video —
-the first pass shows the branding line "Учим английский по фильмам", the second pass
-shows the subtitles. These rules are baked into `src/SocialVideo/index.tsx`.
+black bars** (never cropped). The branding line sits **above** the video and the
+subtitles/subcaption **below** it. These rules are baked into `src/SocialVideo/index.tsx`.
+
+**One English clip → one video per audience language.** The clip and English
+subtitles are the same; the branding, the mockup card, and the mockup UI labels are
+localized per language via `src/i18n.ts` (`NATIVE_LANGS`, currently `ru` + `es`).
+Compositions are `Social-<lang>-<slug>`; finals are `out/final/<slug>-<lang>.mp4`.
 
 Like the word videos, the **recipe is shared** (one component) and each video is
-just **data**: one JSON file per video in `src/SocialVideo/videos/`. You never
-copy a new `index.tsx` per video.
+just **data**: one JSON file per video in `src/SocialVideo/videos/` (language-agnostic).
+You never copy a new `index.tsx` per video.
 
 ### Make a new social video — step by step
 
@@ -132,19 +136,19 @@ is never committed (`public/clips` is git-ignored) and your original stays put.
 
 #### 2. Build the phone mockups for the highlighted phrases
 
-Each highlighted phrase needs a mockup video, rendered from the `Dictionary`
-composition. For every phrase:
+Each highlighted phrase needs a mockup video per language, rendered from the
+`Dictionary` composition:
 
 1. add its slug to [`src/Dictionary/words.json`](src/Dictionary/words.json) and
    run `npm run fetch-words` (see the word-video steps above), then
-2. render the mockup into `public/mockups/<slug>.mp4`:
+2. render all needed mockups (every highlight × language) into
+   `public/mockups/<lang>/<slug>.mp4`:
 
    ```console
-   npx remotion render Dictionary-<slug> public/mockups/<slug>.mp4
+   npm run render:mockups
    ```
 
-   The mockup filename must equal the phrase slug — the composition looks up
-   `mockups/<slug>.mp4` automatically.
+   The social video looks up `mockups/<lang>/<slug>.mp4` automatically.
 
 #### 3. Write the video's JSON
 
@@ -199,15 +203,16 @@ installs whisper.cpp + the model (cached afterwards).
 npm run dev
 ```
 
-Open `Social-my-scene` and scrub. Usually you only fix a misheard word (e.g. whisper
-writes "Eisenberg" for "Heisenberg") or nudge a stray timing in the JSON. The studio
-re-reads it live.
+Open `Social-<lang>-my-scene` and scrub. Usually you only fix a misheard word (e.g.
+whisper writes "Eisenberg" for "Heisenberg") or nudge a stray timing in the JSON. The
+studio re-reads it live.
 
 #### 7. Render
 
 ```console
-npm run render:final -- my-scene     # one video → out/final/my-scene.mp4
-npm run render:final                 # render every video in src/SocialVideo/videos/
+npm run render:final -- my-scene        # one scene, every language → out/final/my-scene-<lang>.mp4
+npm run render:final -- my-scene es     # one scene, one language
+npm run render:final                    # every scene × every language
 ```
 
 ### Where renders go
@@ -216,8 +221,8 @@ npm run render:final                 # render every video in src/SocialVideo/vid
 
 | Folder | What | Command |
 | --- | --- | --- |
-| `out/final/` | finished social videos, named by slug | `npm run render:final [-- <slug>]` |
-| `out/renders/` | scratch composition renders (e.g. a `Dictionary-<slug>` preview) | `npm run render:preview <id>` |
+| `out/final/` | finished social videos, named `<slug>-<lang>` | `npm run render:final [-- <slug> [<lang>]]` |
+| `out/renders/` | scratch composition renders (e.g. a `Dictionary-<lang>-<slug>` preview) | `npm run render:preview <id>` |
 | `out/images/` | screenshots / verification stills | — |
 
 ## Other commands
