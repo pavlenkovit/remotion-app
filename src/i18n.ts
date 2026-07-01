@@ -73,3 +73,30 @@ export const STRINGS: Record<NativeLang, Strings> = {
 /** Localize a part-of-speech value from the API (English), falling back to raw. */
 export const localizePos = (lang: NativeLang, pos: string): string =>
   STRINGS[lang].pos[pos.toLowerCase().trim()] ?? pos;
+
+// ---------------------------------------------------------------------------
+// Per-language variant — makes each language's render visually/audibly distinct
+// so TikTok/Reels don't flag the ru/es cuts of the same clip as duplicates.
+// Applied automatically to EVERY social video (see src/SocialVideo/index.tsx).
+// Keep one language as the "clean" baseline and nudge the other(s).
+// ---------------------------------------------------------------------------
+export type LangVariant = {
+  /** Mirror the film footage horizontally. Subtitles / mockups / outro stay normal. */
+  flip: boolean;
+  /** Clip playback rate (1 = normal). A small change also shifts the audio fingerprint. */
+  speed: number;
+  /** Subtitle look, so the two variants read differently on screen. The
+      subtitles sit on the black band, so COLOR (not a box) is the visible knob. */
+  subtitle: {
+    fontSize: number;
+    color: string;
+  };
+};
+
+export const VARIANTS: Record<NativeLang, LangVariant> = {
+  // ru = clean baseline: no flip, normal speed, white subtitles.
+  ru: { flip: false, speed: 1, subtitle: { fontSize: 60, color: "#ffffff" } },
+  // es = differentiated: mirrored footage, +2% speed, slightly smaller subtitles
+  // in a warm cinematic yellow.
+  es: { flip: true, speed: 1.02, subtitle: { fontSize: 54, color: "#f2d06b" } },
+};

@@ -38,7 +38,7 @@ export const RemotionRoot: React.FC = () => {
               });
               const clipDurationInFrames = Math.round(slowDurationInSeconds * FPS);
               const clipAspect = dimensions ? dimensions.width / dimensions.height : undefined;
-              const { durationInFrames } = getSocialTiming(FPS, props.config, clipDurationInFrames);
+              const { durationInFrames } = getSocialTiming(FPS, props.config, clipDurationInFrames, props.lang);
               return { durationInFrames, fps: FPS, props: { ...props, clipDurationInFrames, clipAspect } };
             }}
           />

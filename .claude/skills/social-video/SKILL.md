@@ -72,12 +72,34 @@ it lives on disk. Then set `"clip": "clips/<name>"` in the video's JSON
 
 One English clip produces **one video per audience language** (`NATIVE_LANGS` in
 `src/i18n.ts`, currently `ru` + `es`). The clip and English subtitles stay the same; what
-changes per language is the branding captions, the mockup card content, and the mockup UI
-labels — all localized via `src/i18n.ts`. Compositions are `Social-<lang>-<slug>` and
-`Dictionary-<lang>-<slug>`; finals are `out/final/<slug>-<lang>.mp4`.
+changes per language is the branding captions, the mockup card content, the mockup UI
+labels, the **outro image**, and the **variant differentiation** (below) — all driven by
+`src/i18n.ts`. Compositions are `Social-<lang>-<slug>` and `Dictionary-<lang>-<slug>`;
+finals are `out/final/<slug>-<lang>.mp4`.
 
-**To add a language:** add it to `NATIVE_LANGS` + `STRINGS` in `src/i18n.ts` and to
-`TARGET_LANGS` in `scripts/fetch-words.mjs`, then re-run the pipeline below.
+**To add a language:** add it to `NATIVE_LANGS` + `STRINGS` + `VARIANTS` in `src/i18n.ts`
+and to `TARGET_LANGS` in `scripts/fetch-words.mjs`, add a `public/video/vibeling-<lang>.png`
+outro, then re-run the pipeline below.
+
+### Per-language differentiation (anti-duplicate)
+
+Because every language reuses the **same film clip + audio**, TikTok/Reels can flag the
+cuts as duplicates. To avoid that, each language has a **`VARIANTS[lang]`** entry in
+`src/i18n.ts` that is applied automatically to EVERY social video:
+
+- **`flip`** — mirror the footage horizontally (`scaleX(-1)`); subtitles / mockups / outro
+  stay un-mirrored. Only use it when the scene has no readable on-screen text.
+- **`speed`** — clip playback rate (e.g. `1.02`). Also shifts the audio fingerprint. The
+  timing (`getSocialTiming`) divides each play segment's on-screen length by `speed`, and
+  `Subtitles` maps composition frames back to clip seconds with it — so a different speed
+  just works.
+- **`subtitle`** — `{ fontSize, color }`. Subtitles sit on the black band, so **color** is
+  the visible knob (a box would be invisible). Keep one language the clean baseline (`ru`:
+  no flip, `speed:1`, white) and differentiate the other(s) (`es`: flip, `1.02`, warm
+  yellow). The **outro** is also per-language (`video/vibeling-<lang>.png`).
+
+Keep changes subtle enough to still look intentional. When adding a language, give it a
+distinct `VARIANTS` entry.
 
 ## Generating the phrase mockups (do this first)
 
@@ -125,6 +147,12 @@ nouns** (e.g. whisper writes "Eisenberg" for "Heisenberg") and nudge if needed.
 Note: the phone-mockup videos that the composition plays via `staticFile()` are
 NOT "out" artifacts — they belong in `public/mockups/<lang>/<slug>.mp4` (see below).
 
+**Render/bundle crashing with `wasm-hash.js … Cannot read properties of undefined
+(reading 'length')`?** That's webpack's persistent cache going stale (Node 22), not your
+code — it can also flap intermittently under memory pressure. Clear it and re-run:
+`rm -rf node_modules/.cache/webpack` (or `mv` it aside). A one-off transient failure on a
+single mockup usually just needs a retry.
+
 ## Scenario (sequence of the produced video)
 
 There is **no plain first pass and no swipe** — the video starts straight on the subtitled clip.
@@ -136,8 +164,9 @@ There is **no plain first pass and no swipe** — the video starts straight on t
    - a **phone mockup** slides/fades in showing the mockup video of adding that phrase,
    - once that mockup video finishes playing, the clip **resumes**.
    - Repeat for every highlighted phrase, in order.
-3. **Outro.** Show `public/video/vibeling.png` **full-screen** (`objectFit: cover`, fills the
-   whole 1080×1920 frame) for **2 seconds** (60 frames at 30fps).
+3. **Outro.** Show the **localized** promo image `public/video/vibeling-<lang>.png`
+   **full-screen** (`objectFit: cover`, fills the whole 1080×1920 frame) for **2 seconds**
+   (60 frames at 30fps).
 
 ## One recipe, many videos (data-driven)
 
@@ -178,7 +207,8 @@ Reference format: "Английский по фильмам" shorts
   shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
   each cue's edges. Keep them legible against the black band — clean, not cramped over the
   footage.
-- **Outro full-screen.** The promo image fills the entire frame (`objectFit: cover`), no bars.
+- **Outro full-screen.** The localized promo image (`video/vibeling-<lang>.png`) fills the
+  entire frame (`objectFit: cover`), no bars.
 - **Sounds** (`public/sounds/`): `click.wav` (`click-soft.wav`) is **baked into each Dictionary
   mockup** at the button tap (see below), so it plays in sync when the social video shows that
   mockup. Use `<Html5Audio>` (not `<Audio>`).

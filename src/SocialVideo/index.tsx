@@ -14,7 +14,7 @@ import {
 import { getDictionaryTiming } from "../Dictionary";
 import { words, findWord } from "../Dictionary/schema";
 import type { SocialVideoData, Subtitle } from "./schema";
-import { type NativeLang } from "../i18n";
+import { VARIANTS, type NativeLang, type LangVariant } from "../i18n";
 
 // ============================================================================
 // This is the reusable RECIPE. Everything describing a particular video comes
@@ -64,6 +64,11 @@ export const getSocialTiming = (
 ) => {
   const clipStart = 0; // the clip plays in full — no trimming
   const outro = Math.round((config.outroSec ?? DEFAULT_OUTRO_SEC) * fps);
+  // Per-language variant: `speed` compresses the clip's on-screen duration
+  // (playback rate is applied to the video; a play segment covering `n` clip
+  // frames therefore occupies `n / speed` composition frames). Mockups play at
+  // 1× regardless, so their length is unaffected.
+  const { speed } = VARIANTS[lang];
 
   const highlights = config.highlights
     .map((h) => ({
@@ -78,17 +83,17 @@ export const getSocialTiming = (
   let prevLocal = 0;
   let cursor = 0; // the subtitled pass starts immediately — no plain first pass
   for (const h of highlights) {
-    const segDur = h.localFrame - prevLocal;
-    if (segDur > 0) {
+    const clipFrames = h.localFrame - prevLocal;
+    if (clipFrames > 0) {
       segs.push({
         type: "play",
         from: cursor,
-        duration: segDur,
+        duration: Math.round(clipFrames / speed),
         srcFrom: clipStart + prevLocal,
         srcTo: clipStart + h.localFrame,
         clipOffset: prevLocal,
       });
-      cursor += segDur;
+      cursor += Math.round(clipFrames / speed);
     }
     segs.push({
       type: "mockup",
@@ -101,22 +106,23 @@ export const getSocialTiming = (
     cursor += h.mockupLen;
     prevLocal = h.localFrame;
   }
-  const lastDur = clipLen - prevLocal;
-  if (lastDur > 0) {
+  const lastClipFrames = clipLen - prevLocal;
+  if (lastClipFrames > 0) {
     segs.push({
       type: "play",
       from: cursor,
-      duration: lastDur,
+      duration: Math.round(lastClipFrames / speed),
       srcFrom: clipStart + prevLocal,
       srcTo: clipStart + clipLen,
       clipOffset: prevLocal,
     });
-    cursor += lastDur;
+    cursor += Math.round(lastClipFrames / speed);
   }
 
   return {
     clipStart,
     clipLen,
+    speed,
     segs,
     outroFrom: cursor,
     durationInFrames: cursor + outro,
@@ -141,9 +147,26 @@ const fillVideo: React.CSSProperties = {
   objectFit: "cover",
 };
 
-/** A trimmed slice of the source clip, letterboxed full-width. */
-const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip, from, to }) => (
-  <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={clipVideo} />
+/** Mirror transform for the footage (per-language variant differentiation). */
+const flipStyle = (flip: boolean): React.CSSProperties =>
+  flip ? { ...clipVideo, transform: "scaleX(-1)" } : clipVideo;
+
+/** A trimmed slice of the source clip, letterboxed full-width. `speed` is the
+    per-language playback rate; `flip` mirrors the footage horizontally. */
+const ClipSlice: React.FC<{ clip: string; from: number; to: number; speed: number; flip: boolean }> = ({
+  clip,
+  from,
+  to,
+  speed,
+  flip,
+}) => (
+  <OffthreadVideo
+    src={staticFile(clip)}
+    trimBefore={from}
+    trimAfter={to}
+    playbackRate={speed}
+    style={flipStyle(flip)}
+  />
 );
 
 /** A single frozen source frame (used as the still background behind a mockup).
@@ -153,9 +176,9 @@ const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip,
     enclosing Sequence's `from`, so `frame={at}` on a late mockup would push the
     internal frame past the composition duration and extract the wrong frame.
     Freezing at local 0 keeps it in range; `trimBefore` does the seeking. */
-const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
+const ClipFreeze: React.FC<{ clip: string; at: number; flip: boolean }> = ({ clip, at, flip }) => (
   <Freeze frame={0}>
-    <OffthreadVideo src={staticFile(clip)} trimBefore={at} style={clipVideo} muted />
+    <OffthreadVideo src={staticFile(clip)} trimBefore={at} style={flipStyle(flip)} muted />
   </Freeze>
 );
 
@@ -187,15 +210,19 @@ const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.Re
   </div>
 );
 
-/** Subtitles: one cue at a time, centered under the video, with a soft fade. */
-const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: number }> = ({
-  subtitles,
-  clipOffset,
-  aspect,
-}) => {
+/** Subtitles: one cue at a time, centered under the video, with a soft fade.
+    `speed` maps composition frames back to clip seconds (the clip may play at a
+    per-language rate); `style` is the per-language subtitle look. */
+const Subtitles: React.FC<{
+  subtitles: Subtitle[];
+  clipOffset: number;
+  aspect: number;
+  speed: number;
+  style: LangVariant["subtitle"];
+}> = ({ subtitles, clipOffset, aspect, speed, style }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const sec = (clipOffset + frame) / fps;
+  const sec = (clipOffset + frame * speed) / fps;
   const cue = subtitles.find((c) => sec >= c.from && sec < c.to);
   if (!cue) return null;
 
@@ -212,9 +239,9 @@ const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: n
         style={{
           display: "inline-block",
           maxWidth: 920,
-          color: "white",
+          color: style.color,
           fontFamily: FONT,
-          fontSize: 60,
+          fontSize: style.fontSize,
           fontWeight: 700,
           lineHeight: 1.25,
           textWrap: "balance",
@@ -258,10 +285,14 @@ const PhoneMockup: React.FC<{ src: string }> = ({ src }) => {
   );
 };
 
-/** Outro: the promo image fills the whole screen. */
-const Outro: React.FC = () => (
+/** Outro: the promo image fills the whole screen. Localized per audience
+    language (`video/vibeling-<lang>.png`) so each variant ends differently. */
+const Outro: React.FC<{ lang: NativeLang }> = ({ lang }) => (
   <AbsoluteFill style={{ backgroundColor: "#000" }}>
-    <Img src={staticFile("video/vibeling.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+    <Img
+      src={staticFile(`video/vibeling-${lang}.png`)}
+      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+    />
   </AbsoluteFill>
 );
 
@@ -281,6 +312,7 @@ export const SocialVideo: React.FC<{
   const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames, lang);
   const aspect = clipAspect ?? DEFAULT_ASPECT;
   const { clip, subtitles } = config;
+  const variant = VARIANTS[lang];
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
@@ -288,12 +320,18 @@ export const SocialVideo: React.FC<{
       {t.segs.map((s, i) =>
         s.type === "play" ? (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
-            <ClipSlice clip={clip} from={s.srcFrom} to={s.srcTo} />
-            <Subtitles subtitles={subtitles} clipOffset={s.clipOffset} aspect={aspect} />
+            <ClipSlice clip={clip} from={s.srcFrom} to={s.srcTo} speed={t.speed} flip={variant.flip} />
+            <Subtitles
+              subtitles={subtitles}
+              clipOffset={s.clipOffset}
+              aspect={aspect}
+              speed={t.speed}
+              style={variant.subtitle}
+            />
           </Sequence>
         ) : (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
-            <ClipFreeze clip={clip} at={s.freezeAt} />
+            <ClipFreeze clip={clip} at={s.freezeAt} flip={variant.flip} />
             <AbsoluteFill style={{ backgroundColor: "rgba(0,0,0,0.55)" }} />
             <PhoneMockup src={s.mockup} />
           </Sequence>
@@ -302,7 +340,7 @@ export const SocialVideo: React.FC<{
 
       {/* Outro — vibeling.png for 2s */}
       <Sequence from={t.outroFrom} durationInFrames={t.durationInFrames - t.outroFrom}>
-        <Outro />
+        <Outro lang={lang} />
       </Sequence>
     </AbsoluteFill>
   );

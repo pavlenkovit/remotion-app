@@ -5,75 +5,80 @@
   "highlights": [
     {
       "slug": "goes-belly-up",
-      "atSec": 25.04
+      "atSec": 13.68
     },
     {
       "slug": "clue-you-in",
-      "atSec": 32.08
+      "atSec": 22.16
     },
     {
       "slug": "i-am-the-danger",
-      "atSec": 36.18
+      "atSec": 26.8
     },
     {
       "slug": "i-am-the-one-who-knocks",
-      "atSec": 42.48
+      "atSec": 39.84
     }
   ],
   "subtitles": [
     {
-      "from": 0.07,
-      "to": 2.26,
-      "text": "Who are you talking to right now?"
-    },
-    {
-      "from": 2.26,
-      "to": 6.9,
-      "text": "Who is it you think you see?"
-    },
-    {
-      "from": 6.9,
-      "to": 12.52,
+      "from": 0.56,
+      "to": 3.04,
       "text": "Do you know how much I make a year?"
     },
     {
-      "from": 12.52,
-      "to": 15.56,
+      "from": 3.04,
+      "to": 5.2,
       "text": "I mean, even if I told you, you wouldn't believe it."
     },
     {
-      "from": 15.56,
-      "to": 19.32,
+      "from": 5.2,
+      "to": 9.2,
       "text": "Do you know what would happen if I suddenly decided to stop going into work?"
     },
     {
-      "from": 19.32,
-      "to": 25.04,
-      "text": "A business big enough that it could be listed on the NASDAQ goes belly up, disappears."
+      "from": 9.2,
+      "to": 13.68,
+      "text": "A business big enough that it could be listed on the NASDAQ goes belly up."
     },
     {
-      "from": 25.04,
-      "to": 27.2,
+      "from": 13.68,
+      "to": 15.68,
+      "text": "Disappears."
+    },
+    {
+      "from": 15.68,
+      "to": 17.92,
       "text": "It ceases to exist without me."
     },
     {
-      "from": 27.22,
-      "to": 32.08,
-      "text": "No, you clearly don't know who you're talking to, so let me clue you in."
+      "from": 17.92,
+      "to": 21.12,
+      "text": "No, you clearly don't know who you're talking to."
     },
     {
-      "from": 32.08,
-      "to": 36.18,
-      "text": "I am not in danger, Skyler, I am the danger."
+      "from": 21.12,
+      "to": 22.16,
+      "text": "So let me clue you in."
     },
     {
-      "from": 36.18,
-      "to": 39.28,
-      "text": "A guy opens his door and gets shot, and you think that of me."
+      "from": 22.16,
+      "to": 25.04,
+      "text": "I am not in danger, Skyler."
     },
     {
-      "from": 39.28,
-      "to": 42.48,
+      "from": 25.04,
+      "to": 26.8,
+      "text": "I am the danger."
+    },
+    {
+      "from": 26.8,
+      "to": 29.44,
+      "text": "A guy opens his door and gets shot and you think that of me."
+    },
+    {
+      "from": 30,
+      "to": 39.84,
       "text": "No, I am the one who knocks."
     }
   ]
