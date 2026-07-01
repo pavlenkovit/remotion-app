@@ -215,6 +215,12 @@ npm run render:final -- my-scene es     # one scene, one language
 npm run render:final                    # every scene × every language
 ```
 
+#### 8. Captions for upload
+
+The **`video-description`** skill writes upload-ready titles, captions and hashtags
+(TikTok / YouTube Shorts / Instagram) — one `out/final/<slug>-<lang>.md` per language,
+with the film name (from the JSON's `film` field) in every title.
+
 ### Where renders go
 
 `out/` is git-ignored and split into three folders:

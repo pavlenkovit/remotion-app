@@ -25,6 +25,9 @@ export const socialVideoSchema = z.object({
   /** Source clip path relative to public/, e.g. "clips/<name>.mp4" (a symlink).
       The clip plays in full — its length is read automatically from the file. */
   clip: z.string(),
+  /** The film/show the scene is from, e.g. "Breaking Bad". Used by the
+      video-description skill to put the title in the caption/name. */
+  film: z.string().optional(),
   /** Phrases to pause on during the subtitled pass, in order. */
   highlights: z.array(highlightSchema),
   /** English subtitles for the second pass. */
