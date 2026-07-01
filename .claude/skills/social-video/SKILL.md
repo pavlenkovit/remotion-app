@@ -146,10 +146,17 @@ Reference format: "Английский по фильмам" shorts
   each cue's edges. Keep them legible against the black band — clean, not cramped over the
   footage.
 - **Outro full-screen.** The promo image fills the entire frame (`objectFit: cover`), no bars.
-- **Sounds** (`public/sounds/`): `swipe.mp3` plays in the swipe `<Sequence>` (the wipe between
-  passes); `click.wav` is **baked into each Dictionary mockup** at the button tap (see below),
-  so it plays in sync when the social video shows that mockup. Use `<Html5Audio>` (not the
-  deprecated `<Audio>`).
+- **Sounds** (`public/sounds/`): the swipe sound plays in the swipe `<Sequence>`; `click.wav`
+  is **baked into each Dictionary mockup** at the button tap (see below), so it plays in sync
+  when the social video shows that mockup. Use `<Html5Audio>` (not the deprecated `<Audio>`).
+  ⚠️ **`Html5Audio`'s `volume` prop is IGNORED during render**, and this project's bundled
+  ffmpeg has no working `volume`/`volumedetect` filter. To set a sound's level, **pre-bake the
+  gain into the file**: decode to wav (`remotion ffmpeg -i x.mp3 -c:a pcm_s16le`), parse the
+  RIFF `data` chunk, scale the int16 samples in Node, write a canonical 44-byte-header wav.
+  That's why the swipe uses `swipe-soft.wav` (= `swipe.mp3` at half gain). The frozen clip under
+  the swipe/mockups is `muted` so only these sounds play. (Also note: `-ac 1` downmix and
+  reading a wav at a fixed offset 44 both give false peak readings — always parse the data
+  chunk and measure per-channel when verifying audio levels.)
 
 ## Conventions
 
@@ -169,7 +176,7 @@ Reference format: "Английский по фильмам" shorts
   `getDictionaryTiming(word)`.
 - **Phone frame:** pure CSS (dark rounded bezel) — the mockup is already 1080×1920 (9:16).
 - **Swipe:** a skewed purple (`COLORS.accent`) panel sweeping left→right over the frozen last
-  frame, `swipeFrames` long (config; default 18). `swipe.mp3` plays in this `<Sequence>`.
+  frame, `swipeFrames` long (config; default 18). `swipe-soft.wav` plays in this `<Sequence>`.
 - **Click sound:** baked into the `Dictionary` composition itself — an `<Html5Audio>` of
   `sounds/click.wav` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
   the rendered `public/mockups/<slug>.mp4`, the social video plays it in sync automatically.

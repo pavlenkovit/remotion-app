@@ -157,10 +157,11 @@ const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip,
   <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={clipVideo} />
 );
 
-/** A single frozen source frame (used as the still background behind a mockup / swipe). */
+/** A single frozen source frame (used as the still background behind a mockup / swipe).
+    Muted — while the clip is frozen only the swipe/mockup sounds should play. */
 const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
   <Freeze frame={at}>
-    <OffthreadVideo src={staticFile(clip)} style={clipVideo} />
+    <OffthreadVideo src={staticFile(clip)} style={clipVideo} muted />
   </Freeze>
 );
 
@@ -394,7 +395,9 @@ export const SocialVideo: React.FC<{
       <Sequence from={t.swipeFrom} durationInFrames={t.swipeFrames}>
         <ClipFreeze clip={clip} at={t.clipStart + t.clipLen - 1} />
         <Swipe swipeFrames={t.swipeFrames} />
-        <Html5Audio src={staticFile("sounds/swipe.mp3")} />
+        {/* swipe-soft.wav is swipe.mp3 baked at half gain: Html5Audio's `volume`
+            prop is ignored during render, so the level is pre-applied to the file. */}
+        <Html5Audio src={staticFile("sounds/swipe-soft.wav")} />
       </Sequence>
 
       {/* Pass 2 — subtitled clip, pausing on each highlight to show its mockup */}
