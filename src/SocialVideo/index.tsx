@@ -1,7 +1,6 @@
 import React from "react";
 import {
   AbsoluteFill,
-  Html5Audio,
   Freeze,
   Img,
   interpolate,
@@ -11,20 +10,17 @@ import {
   staticFile,
   useCurrentFrame,
   useVideoConfig,
-  Easing,
 } from "remotion";
-import { COLORS } from "../Dictionary/ui";
 import { getDictionaryTiming } from "../Dictionary";
 import { words, findWord } from "../Dictionary/schema";
 import type { SocialVideoData, Subtitle } from "./schema";
-import { STRINGS, type NativeLang } from "../i18n";
+import { type NativeLang } from "../i18n";
 
 // ============================================================================
 // This is the reusable RECIPE. Everything describing a particular video comes
 // in as `config` (a SocialVideoData) — see ./schema.ts and ./videos/*.json.
 // ============================================================================
 
-const DEFAULT_SWIPE_FRAMES = 18; // pause + wipe between the plain and subtitled passes
 const DEFAULT_OUTRO_SEC = 2; // vibeling.png held at the end
 
 // ----------------------------------------------------------------------------
@@ -34,23 +30,17 @@ const COMP_W = 1080;
 const COMP_H = 1920;
 /** Fallback clip aspect (w/h) when the file's real dimensions aren't available. */
 const DEFAULT_ASPECT = 16 / 9;
-/** First (plain) pass: bold branding ABOVE the video; calmer line BELOW it —
-    text comes from ./i18n.ts per the audience's native language. */
 /** Shared text font stack. */
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /**
  * The clip is shown FULL WIDTH and centered, never cropped — letterboxed with
- * black bars. These return the Y (px) of the bottom / top edges of the
- * displayed video, so text sits in the black bands just under / over it.
+ * black bars. Returns the Y (px) of the bottom edge of the displayed video, so
+ * the subtitles sit in the black band just under it.
  */
 const videoBottomY = (aspect: number): number => {
   const displayedH = Math.min(COMP_W / aspect, COMP_H); // full width → derived height
   return (COMP_H + displayedH) / 2;
-};
-const videoTopY = (aspect: number): number => {
-  const displayedH = Math.min(COMP_W / aspect, COMP_H);
-  return (COMP_H - displayedH) / 2;
 };
 
 // ============================================================================
@@ -73,7 +63,6 @@ export const getSocialTiming = (
   lang: NativeLang = "ru",
 ) => {
   const clipStart = 0; // the clip plays in full — no trimming
-  const swipeFrames = config.swipeFrames ?? DEFAULT_SWIPE_FRAMES;
   const outro = Math.round((config.outroSec ?? DEFAULT_OUTRO_SEC) * fps);
 
   const highlights = config.highlights
@@ -85,11 +74,9 @@ export const getSocialTiming = (
     }))
     .sort((a, b) => a.localFrame - b.localFrame);
 
-  const pass2From = clipLen + swipeFrames;
-
   const segs: Seg[] = [];
   let prevLocal = 0;
-  let cursor = pass2From;
+  let cursor = 0; // the subtitled pass starts immediately — no plain first pass
   for (const h of highlights) {
     const segDur = h.localFrame - prevLocal;
     if (segDur > 0) {
@@ -130,9 +117,6 @@ export const getSocialTiming = (
   return {
     clipStart,
     clipLen,
-    swipeFrames,
-    swipeFrom: clipLen,
-    pass2From,
     segs,
     outroFrom: cursor,
     durationInFrames: cursor + outro,
@@ -162,20 +146,21 @@ const ClipSlice: React.FC<{ clip: string; from: number; to: number }> = ({ clip,
   <OffthreadVideo src={staticFile(clip)} trimBefore={from} trimAfter={to} style={clipVideo} />
 );
 
-/** A single frozen source frame (used as the still background behind a mockup / swipe).
-    Muted — while the clip is frozen only the swipe/mockup sounds should play. */
+/** A single frozen source frame (used as the still background behind a mockup).
+    Muted — while the clip is frozen only the mockup's baked sounds should play.
+    The source frame is picked with `trimBefore` and held with `Freeze frame={0}`
+    (NOT `Freeze frame={at}`): `<Freeze>` offsets the frozen timeline by the
+    enclosing Sequence's `from`, so `frame={at}` on a late mockup would push the
+    internal frame past the composition duration and extract the wrong frame.
+    Freezing at local 0 keeps it in range; `trimBefore` does the seeking. */
 const ClipFreeze: React.FC<{ clip: string; at: number }> = ({ clip, at }) => (
-  <Freeze frame={at}>
-    <OffthreadVideo src={staticFile(clip)} style={clipVideo} muted />
+  <Freeze frame={0}>
+    <OffthreadVideo src={staticFile(clip)} trimBefore={at} style={clipVideo} muted />
   </Freeze>
 );
 
-/**
- * Text band in the black area directly below the letterboxed video. Used for
- * both the first-pass branding caption and the second-pass subtitles, so they
- * always land in the same, clean place.
- */
-/** Text band in the black area directly BELOW the letterboxed video. */
+/** Text band in the black area directly BELOW the letterboxed video, where the
+    subtitles sit — clean, in the black bar, never over the footage. */
 const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.ReactNode }> = ({
   aspect,
   opacity = 1,
@@ -202,34 +187,7 @@ const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.Re
   </div>
 );
 
-/** Text band in the black area directly ABOVE the letterboxed video. */
-const UpperBand: React.FC<{ aspect: number; opacity?: number; children: React.ReactNode }> = ({
-  aspect,
-  opacity = 1,
-  children,
-}) => (
-  <div
-    style={{
-      position: "absolute",
-      left: 0,
-      right: 0,
-      top: 0,
-      height: videoTopY(aspect),
-      paddingBottom: 48,
-      paddingLeft: 80,
-      paddingRight: 80,
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "center",
-      textAlign: "center",
-      opacity,
-    }}
-  >
-    {children}
-  </div>
-);
-
-/** Second-pass subtitles: one cue at a time, centered under the video, with a soft fade. */
+/** Subtitles: one cue at a time, centered under the video, with a soft fade. */
 const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: number }> = ({
   subtitles,
   clipOffset,
@@ -266,75 +224,6 @@ const Subtitles: React.FC<{ subtitles: Subtitle[]; clipOffset: number; aspect: n
         {cue.text}
       </span>
     </LowerBand>
-  );
-};
-
-/**
- * First-pass captions: the bold branding above the video, and a calmer
- * "watch without subtitles" line below it. Both fade in together.
- */
-const IntroCaptions: React.FC<{ aspect: number; intro: string; sub: string }> = ({
-  aspect,
-  intro,
-  sub,
-}) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const opacity = interpolate(frame, [0, Math.round(fps * 0.5)], [0, 1], {
-    extrapolateRight: "clamp",
-  });
-  return (
-    <>
-      <UpperBand aspect={aspect} opacity={opacity}>
-        <span
-          style={{
-            display: "inline-block",
-            maxWidth: 960,
-            color: "white",
-            fontFamily: FONT,
-            fontSize: 66,
-            fontWeight: 800,
-            lineHeight: 1.15,
-            letterSpacing: -1,
-            textShadow: "0 2px 14px rgba(0,0,0,0.9)",
-          }}
-        >
-          {intro}
-        </span>
-      </UpperBand>
-      <LowerBand aspect={aspect} opacity={opacity}>
-        <span
-          style={{
-            display: "inline-block",
-            maxWidth: 880,
-            color: "rgba(255,255,255,0.82)",
-            fontFamily: FONT,
-            fontSize: 40,
-            fontWeight: 400,
-            lineHeight: 1.3,
-            textShadow: "0 2px 10px rgba(0,0,0,0.9)",
-          }}
-        >
-          {sub}
-        </span>
-      </LowerBand>
-    </>
-  );
-};
-
-/** Purple wipe sweeping across the screen. */
-const Swipe: React.FC<{ swipeFrames: number }> = ({ swipeFrames }) => {
-  const frame = useCurrentFrame();
-  const { width } = useVideoConfig();
-  const x = interpolate(frame, [0, swipeFrames], [-width, width], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.inOut(Easing.cubic),
-  });
-  return (
-    <AbsoluteFill style={{ transform: `translateX(${x}px) skewX(-12deg)` }}>
-      <AbsoluteFill style={{ backgroundColor: COLORS.accent }} />
-    </AbsoluteFill>
   );
 };
 
@@ -391,27 +280,11 @@ export const SocialVideo: React.FC<{
   // from the file); fall back so the component never breaks in isolation.
   const t = getSocialTiming(fps, config, clipDurationInFrames ?? durationInFrames, lang);
   const aspect = clipAspect ?? DEFAULT_ASPECT;
-  const s = STRINGS[lang];
   const { clip, subtitles } = config;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Pass 1 — plain clip + branding above and a calmer line below */}
-      <Sequence durationInFrames={t.clipLen}>
-        <ClipSlice clip={clip} from={t.clipStart} to={t.clipStart + t.clipLen} />
-        <IntroCaptions aspect={aspect} intro={s.intro} sub={s.sub} />
-      </Sequence>
-
-      {/* Pause on the last frame + swipe (with swipe sound) */}
-      <Sequence from={t.swipeFrom} durationInFrames={t.swipeFrames}>
-        <ClipFreeze clip={clip} at={t.clipStart + t.clipLen - 1} />
-        <Swipe swipeFrames={t.swipeFrames} />
-        {/* swipe-soft.wav is swipe.mp3 baked at half gain: Html5Audio's `volume`
-            prop is ignored during render, so the level is pre-applied to the file. */}
-        <Html5Audio src={staticFile("sounds/swipe-soft.wav")} />
-      </Sequence>
-
-      {/* Pass 2 — subtitled clip, pausing on each highlight to show its mockup */}
+      {/* Subtitled clip from the start, pausing on each highlight to show its mockup */}
       {t.segs.map((s, i) =>
         s.type === "play" ? (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>

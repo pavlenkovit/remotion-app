@@ -118,7 +118,7 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      <Brand />
+      <Brand lang={word.lang} />
       <div style={{ height: 40 }} />
       <SearchBar text={typed} cancel={STRINGS[word.lang].cancel} showCursor={cursorOn} />
       <div style={{ opacity: spinnerOpacity }}>
@@ -238,7 +238,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      <Brand />
+      <Brand lang={word.lang} />
       {/* Top slot under the brand: the image lives here and appears in place,
           while the input is overlaid on top and fades out to reveal it. */}
       <div style={{ position: "relative" }}>

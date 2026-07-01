@@ -1,4 +1,5 @@
 import React from "react";
+import { STRINGS, type NativeLang } from "../i18n";
 
 export const COLORS = {
   bg: "#0a0e1a",
@@ -10,9 +11,9 @@ export const COLORS = {
   muted: "#8a93a6",
 };
 
-export const Brand: React.FC = () => {
+export const Brand: React.FC<{ lang: NativeLang }> = ({ lang }) => {
   return (
-    <div style={{ padding: "44px 56px 0" }}>
+    <div style={{ padding: "44px 56px 0", display: "flex", alignItems: "center", gap: 24 }}>
       <div
         style={{
           display: "inline-flex",
@@ -28,6 +29,9 @@ export const Brand: React.FC = () => {
       >
         VibeLing
       </div>
+      <span style={{ color: COLORS.muted, fontSize: 34, fontWeight: 500 }}>
+        {STRINGS[lang].tagline}
+      </span>
     </div>
   );
 };

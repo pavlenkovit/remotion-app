@@ -8,10 +8,8 @@ export type NativeLang = "ru" | "es";
 export const NATIVE_LANGS: NativeLang[] = ["ru", "es"];
 
 type Strings = {
-  /** Bold branding line above the video (first pass). */
-  intro: string;
-  /** Calmer line below the video (first pass). */
-  sub: string;
+  /** Tagline shown next to the "VibeLing" pill in the app mockup. */
+  tagline: string;
   /** Search bar "cancel" affordance. */
   cancel: string;
   /** "Add to dictionary" button. */
@@ -29,8 +27,7 @@ type Strings = {
 
 export const STRINGS: Record<NativeLang, Strings> = {
   ru: {
-    intro: "Учим английский по фильмам",
-    sub: "Первый раз смотрим без субтитров",
+    tagline: "Учим английский язык",
     cancel: "Отмена",
     addToDict: "Добавить в словарь",
     addedPhrase: "Фраза добавлена",
@@ -51,8 +48,7 @@ export const STRINGS: Record<NativeLang, Strings> = {
     },
   },
   es: {
-    intro: "Aprende inglés con películas",
-    sub: "La primera vez, míralo sin subtítulos",
+    tagline: "Aprende inglés",
     cancel: "Cancelar",
     addToDict: "Añadir al diccionario",
     addedPhrase: "Frase añadida",

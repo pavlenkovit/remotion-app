@@ -1,12 +1,12 @@
 ---
 name: social-video
-description: Build a social-media video (Remotion) from a movie-scene clip — play it, swipe, replay with English subtitles, and pause on highlighted phrases to show a phone mockup of adding that phrase to the dictionary. Use when the user asks to make a social/reels video from a film clip.
+description: Build a social-media video (Remotion) from a movie-scene clip — play it with English subtitles, pausing on highlighted phrases to show a phone mockup of adding that phrase to the dictionary. Use when the user asks to make a social/reels video from a film clip.
 ---
 
 # Social Video
 
 Builds a vertical (1080×1920, 30fps) Remotion video for social media out of a movie-scene
-clip. The video teaches English vocabulary: it shows a scene, replays it with subtitles, and
+clip. The video teaches English vocabulary: it plays a scene with English subtitles and
 pauses on chosen phrases to demo adding them to the dictionary app.
 
 This is a Remotion project — read `.claude/skills/remotion-best-practices` and the existing
@@ -21,7 +21,7 @@ The skill is invoked with:
 - **`highlights`** — the phrases/words to highlight, given in advance. For each one the user
   provides the phrase text and a **mockup video path** — a screen recording of adding that
   phrase to the dictionary (shown inside a phone mockup).
-- (subtitle text for the scene — English subtitles to overlay on the replay).
+- (subtitle text for the scene — English subtitles to overlay on the clip).
 
 Ask the user for anything not supplied.
 
@@ -96,19 +96,16 @@ NOT "out" artifacts — they belong in `public/mockups/<lang>/<slug>.mp4` (see b
 
 ## Scenario (sequence of the produced video)
 
-1. **First pass — plain clip.** Play the clip start to finish, no subtitles. Show
-   **"Учим английский по фильмам"** (bold) in the black band **above** the video, and
-   **"Первый раз смотрим без субтитров"** (calmer, smaller) in the band **below** it.
-2. **Pause + swipe.** Freeze the clip on its last frame, then a swipe/wipe transition.
-3. **Second pass — subtitled clip.** Play the same clip again with the English subtitles
-   in the band under the video.
-4. **Highlight stops.** During the second pass, each time playback reaches a highlighted
-   phrase:
+There is **no plain first pass and no swipe** — the video starts straight on the subtitled clip.
+
+1. **Subtitled clip.** Play the clip start to finish with the English subtitles in the band
+   under the video.
+2. **Highlight stops.** Each time playback reaches a highlighted phrase:
    - the clip **pauses** (freeze frame),
    - a **phone mockup** slides/fades in showing the mockup video of adding that phrase,
    - once that mockup video finishes playing, the clip **resumes**.
    - Repeat for every highlighted phrase, in order.
-5. **Outro.** Show `public/video/vibeling.png` **full-screen** (`objectFit: cover`, fills the
+3. **Outro.** Show `public/video/vibeling.png` **full-screen** (`objectFit: cover`, fills the
    whole 1080×1920 frame) for **2 seconds** (60 frames at 30fps).
 
 ## One recipe, many videos (data-driven)
@@ -119,7 +116,7 @@ The component is the reusable recipe; each video is just data:
 - **Component (recipe):** `src/SocialVideo/index.tsx`. Takes a `config` prop
   (`SocialVideoData`); timing is derived in `getSocialTiming(fps, config, clipLen)`.
 - **Data (per video):** one JSON file in `src/SocialVideo/videos/<slug>.json` with
-  `{ slug, clip, highlights, subtitles, swipeFrames?, outroSec? }`.
+  `{ slug, clip, highlights, subtitles, outroSec? }`.
   `highlights` are `{ slug, atSec }` (the mockup is `mockups/<lang>/<slug>.mp4`); `subtitles`
   are `{ from, to, text }` in clip seconds. **No `cut`/duration** — the clip is played
   in full and its length is read from the file. The JSON is language-agnostic; the
@@ -143,26 +140,24 @@ Reference format: "Английский по фильмам" shorts
   not over it. Its Y is computed from the clip's real aspect ratio (`dimensions` read via
   `parseMedia` in `calculateMetadata`, passed as `clipAspect`), so it hugs the video for
   any aspect.
-- **First pass captions.** Bold branding (`STRINGS[lang].intro`, e.g. "Учим английский по
-  фильмам" / "Aprende inglés con películas") in the band **above** the video; a calmer,
-  smaller subcaption (`STRINGS[lang].sub`) in the band **below** it. Both fade in. The
-  subcaption is deliberately
-  less flashy (smaller, lighter weight, dimmer) than the top line.
-- **Subtitles (second pass).** One cue at a time, **centered, bold white, soft drop
+- **App tagline.** In the phone mockup, next to the **"VibeLing"** pill sits a localized
+  tagline (`STRINGS[lang].tagline`, e.g. "Учим английский язык" / "Aprende inglés") — muted,
+  smaller than the pill.
+- **Subtitles.** One cue at a time, **centered, bold white, soft drop
   shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
   each cue's edges. Keep them legible against the black band — clean, not cramped over the
   footage.
 - **Outro full-screen.** The promo image fills the entire frame (`objectFit: cover`), no bars.
-- **Sounds** (`public/sounds/`): the swipe sound plays in the swipe `<Sequence>`; `click.wav`
-  (`click-soft.wav`) is **baked into each Dictionary mockup** at the button tap (see below), so
-  it plays in sync when the social video shows that mockup. Use `<Html5Audio>` (not `<Audio>`).
+- **Sounds** (`public/sounds/`): `click.wav` (`click-soft.wav`) is **baked into each Dictionary
+  mockup** at the button tap (see below), so it plays in sync when the social video shows that
+  mockup. Use `<Html5Audio>` (not `<Audio>`).
   ⚠️ **`Html5Audio`'s `volume` prop is IGNORED during render**, and this project's bundled
   ffmpeg has no working `volume`/`volumedetect` filter. To set a sound's level, **pre-bake the
   gain into the file** with `node scripts/soften-audio.mjs <in> <out.wav> <gain>` (it decodes to
-  wav, scales the int16 PCM in Node, writes a canonical wav). That's why the swipe uses
-  `swipe-soft.wav` and the click uses `click-soft.wav` (both at 0.5 gain). After changing a
+  wav, scales the int16 PCM in Node, writes a canonical wav). That's why the click uses
+  `click-soft.wav` (at 0.5 gain). After changing a
   baked sound, **re-render the mockups** (for the click) / the final. The frozen clip under the
-  swipe/mockups is `muted` so only these sounds play. (Also note: `-ac 1` downmix and
+  mockups is `muted` so only these sounds play. (Also note: `-ac 1` downmix and
   reading a wav at a fixed offset 44 both give false peak readings — always parse the data
   chunk and measure per-channel when verifying audio levels.)
 
@@ -177,14 +172,20 @@ Reference format: "Английский по фильмам" shorts
 - **Whole clip, no trimming:** the clip plays start to finish. Stage a pre-trimmed scene
   under `public/clips/` (copied via `stage-clip`); `calculateMetadata` reads its length so there is no
   `cut` window or duration to configure. (`OffthreadVideo` `trimBefore`/`trimAfter` is
-  still used internally to split the second pass at each highlight.)
-- **Highlight pauses:** the second pass is split into `<Sequence>`s; at each highlight a
+  still used internally to split the clip at each highlight.)
+- **Highlight pauses:** the subtitled clip is split into `<Sequence>`s; at each highlight a
   `<Freeze>`d source frame sits under a dimmed overlay while the mockup `<OffthreadVideo>`
   slides up inside a **CSS phone frame** (no asset). Mockup length comes from
-  `getDictionaryTiming(word)`.
+  `getDictionaryTiming(word)`. The frozen frame is the exact clip frame that was showing
+  right before the pause, so playback stops and later resumes on the same frame.
+  ⚠️ **Freeze correctly:** pick the source frame with `trimBefore={freezeAt}` and hold it
+  with `<Freeze frame={0}>` — **not** `<Freeze frame={freezeAt}>`. `<Freeze>` offsets the
+  frozen timeline by the enclosing `<Sequence>`'s `from`, so `frame={freezeAt}` on a late
+  mockup pushes the internal frame past the composition duration and extracts the wrong
+  frame (the bug where "the 2nd word froze on the wrong background frame").
 - **Phone frame:** pure CSS (dark rounded bezel) — the mockup is already 1080×1920 (9:16).
-- **Swipe:** a skewed purple (`COLORS.accent`) panel sweeping left→right over the frozen last
-  frame, `swipeFrames` long (config; default 18). `swipe-soft.wav` plays in this `<Sequence>`.
+- **No first pass / no swipe:** the video opens directly on the subtitled clip (timing
+  `cursor` starts at 0). There is no plain playthrough and no wipe transition.
 - **Click sound:** baked into the `Dictionary` composition itself — an `<Html5Audio>` of
   `sounds/click-soft.wav` at scene-2 local frame `PRESS_AT` (the button tap). Because it's part of
   the rendered `public/mockups/<lang>/<slug>.mp4`, the social video plays it in sync automatically.

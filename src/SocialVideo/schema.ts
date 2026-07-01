@@ -30,10 +30,8 @@ export const socialVideoSchema = z.object({
   film: z.string().optional(),
   /** Phrases to pause on during the subtitled pass, in order. */
   highlights: z.array(highlightSchema),
-  /** English subtitles for the second pass. */
+  /** English subtitles overlaid on the clip. */
   subtitles: z.array(subtitleSchema),
-  /** Pause + wipe length between the plain and subtitled passes. Default 18. */
-  swipeFrames: z.number().optional(),
   /** Seconds the vibeling.png outro is held. Default 2. */
   outroSec: z.number().optional(),
 });
