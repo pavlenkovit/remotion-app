@@ -12,18 +12,49 @@ pauses on chosen phrases to demo adding them to the dictionary app.
 This is a Remotion project — read `.claude/skills/remotion-best-practices` and the existing
 `src/Dictionary` composition for the house style (colors, springs, `interpolate`, `staticFile`).
 
-## Inputs
+## Inputs — the user just drops an original clip; do the rest yourself
 
-The skill is invoked with:
+The default invocation is **only a path to an original clip** (e.g. `~/Desktop/original
+video/0702.mov`). Do NOT ask the user to supply highlights, subtitles, film name, mockups, or
+a slug — **decide all of it yourself** and run the whole pipeline end to end without pausing
+for confirmation. Only ask if something is genuinely ambiguous (e.g. the clip isn't a
+recognizable film scene and no film can be inferred).
 
-- **`clip`** — path to the video clip, already trimmed to the scene you want (it plays in
-  full — there is no in-app trimming). Required.
-- **`highlights`** — the phrases/words to highlight, given in advance. For each one the user
-  provides the phrase text and a **mockup video path** — a screen recording of adding that
-  phrase to the dictionary (shown inside a phone mockup).
-- (subtitle text for the scene — English subtitles to overlay on the clip).
+Given just the clip, do this in order (details in the sections below):
 
-Ask the user for anything not supplied.
+1. **Identify the scene.** Extract a frame or two (`ffmpeg -ss … -frames:v 1`) and recognize
+   the film/show → set `film` and a descriptive `slug` (`<memorable-line>-<film>`, e.g.
+   `i-am-the-danger-breaking-bad`).
+2. **Stage** the clip into `public/clips/` (below).
+3. **Trim trailing dead air.** Clips often have several seconds of silence / reaction shots /
+   panting at the end. Extract tail frames, find where the meaningful audio ends, and
+   re-encode a tight cut (`ffmpeg -t <sec> -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac`)
+   over the staged copy. End on a punchy beat, not dead air.
+4. **Create the video JSON** (`src/SocialVideo/videos/<slug>.json`) with `slug`, `clip`,
+   `film`, `highlights: []`, `subtitles: []`, and register it in `schema.ts`.
+5. **Pick 3–4 highlights yourself** (see "Choosing highlights" below), add them to the JSON.
+6. **Transcribe** (`npm run transcribe -- <slug>`) to fill subtitles + set each `atSec`, then
+   **delete any trailing hallucinated lines** (whisper invents "Thank you." / "[silence]" over
+   panting/quiet tails — remove them so subtitles stop with the last real line).
+7. **Generate the mockups:** add the slugs to `src/Dictionary/words.json`, `npm run
+   fetch-words`, `npm run render:mockups`.
+8. **Render finals:** `npm run render:final -- <slug>`.
+9. **Write the descriptions:** run the `video-description` skill for the slug.
+
+### Choosing highlights (you pick them)
+
+Pick **3–4** phrases from the transcribed dialogue that make good teaching material AND drive
+engagement. Good mix: **1–2 genuinely useful idioms/expressions** (e.g. "goes belly up",
+"clue you in") + **the iconic/quotable lines** of the scene (e.g. "I am the danger", "I am the
+one who knocks"). Rules:
+
+- Each highlight's **`slug` must be the spoken words hyphenated** (e.g. `goes-belly-up`) —
+  `transcribe` locates it by collapsing the slug to `[a-z0-9]` and finding the segment whose
+  text contains it, then sets `atSec` to that segment's end. If a phrase can't be matched this
+  way, pick a different chunk.
+- **Space them out** across the clip so pauses don't bunch up (each mockup adds ~5s).
+- Prefer phrases that are real, reusable English — not filler. Iconic lines are fine because
+  they're memorable, but include at least one broadly-useful expression.
 
 **Stage the clip into `public/clips/`** (Remotion can only read files under `public/`):
 

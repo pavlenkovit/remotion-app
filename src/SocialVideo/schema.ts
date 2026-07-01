@@ -58,7 +58,8 @@ export type SocialVideoData = z.infer<typeof socialVideoSchema>;
 // Studio immediately) and gets a `Social-<slug>` composition via Root.tsx.
 // ---------------------------------------------------------------------------
 import sayMyName from "./videos/say-my-name-breaking-bad.json";
+import iAmTheDanger from "./videos/i-am-the-danger-breaking-bad.json";
 
-const sources: unknown[] = [sayMyName];
+const sources: unknown[] = [sayMyName, iAmTheDanger];
 
 export const videos: SocialVideoData[] = sources.map((v) => socialVideoSchema.parse(v));

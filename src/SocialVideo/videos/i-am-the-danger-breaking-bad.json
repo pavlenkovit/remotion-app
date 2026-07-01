@@ -1,0 +1,80 @@
+{
+  "slug": "i-am-the-danger-breaking-bad",
+  "clip": "clips/0702.mov",
+  "film": "Breaking Bad",
+  "highlights": [
+    {
+      "slug": "goes-belly-up",
+      "atSec": 25.04
+    },
+    {
+      "slug": "clue-you-in",
+      "atSec": 32.08
+    },
+    {
+      "slug": "i-am-the-danger",
+      "atSec": 36.18
+    },
+    {
+      "slug": "i-am-the-one-who-knocks",
+      "atSec": 42.48
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0.07,
+      "to": 2.26,
+      "text": "Who are you talking to right now?"
+    },
+    {
+      "from": 2.26,
+      "to": 6.9,
+      "text": "Who is it you think you see?"
+    },
+    {
+      "from": 6.9,
+      "to": 12.52,
+      "text": "Do you know how much I make a year?"
+    },
+    {
+      "from": 12.52,
+      "to": 15.56,
+      "text": "I mean, even if I told you, you wouldn't believe it."
+    },
+    {
+      "from": 15.56,
+      "to": 19.32,
+      "text": "Do you know what would happen if I suddenly decided to stop going into work?"
+    },
+    {
+      "from": 19.32,
+      "to": 25.04,
+      "text": "A business big enough that it could be listed on the NASDAQ goes belly up, disappears."
+    },
+    {
+      "from": 25.04,
+      "to": 27.2,
+      "text": "It ceases to exist without me."
+    },
+    {
+      "from": 27.22,
+      "to": 32.08,
+      "text": "No, you clearly don't know who you're talking to, so let me clue you in."
+    },
+    {
+      "from": 32.08,
+      "to": 36.18,
+      "text": "I am not in danger, Skyler, I am the danger."
+    },
+    {
+      "from": 36.18,
+      "to": 39.28,
+      "text": "A guy opens his door and gets shot, and you think that of me."
+    },
+    {
+      "from": 39.28,
+      "to": 42.48,
+      "text": "No, I am the one who knocks."
+    }
+  ]
+}
