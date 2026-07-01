@@ -493,7 +493,7 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
       {/* Click sound exactly when the "Добавить в словарь" button is tapped.
           Baked into the mockup render so the social video plays it in sync. */}
       <Sequence from={transitionAt + PRESS_AT}>
-        <Html5Audio src={staticFile("sounds/click.wav")} />
+        <Html5Audio src={staticFile("sounds/click-soft.wav")} />
       </Sequence>
     </AbsoluteFill>
   );
