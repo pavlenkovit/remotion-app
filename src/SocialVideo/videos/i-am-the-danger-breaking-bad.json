@@ -24,62 +24,110 @@
     {
       "from": 0.56,
       "to": 3.04,
-      "text": "Do you know how much I make a year?"
+      "text": "Do you know how much I make a year?",
+      "tr": {
+        "ru": "Вы знаете, сколько я зарабатываю в год?",
+        "es": "¿Sabes cuánto gano al año?"
+      }
     },
     {
       "from": 3.04,
       "to": 5.2,
-      "text": "I mean, even if I told you, you wouldn't believe it."
+      "text": "I mean, even if I told you, you wouldn't believe it.",
+      "tr": {
+        "ru": "Даже если бы я вам сказал, вы бы не поверили.",
+        "es": "Es decir, aunque te lo contara, no me creerías."
+      }
     },
     {
       "from": 5.2,
       "to": 9.2,
-      "text": "Do you know what would happen if I suddenly decided to stop going into work?"
+      "text": "Do you know what would happen if I suddenly decided to stop going into work?",
+      "tr": {
+        "ru": "Вы представляете, что произойдет, если я вдруг решу перестать ходить на работу?",
+        "es": "¿Sabes qué pasaría si de repente decidiera dejar de ir a trabajar?"
+      }
     },
     {
       "from": 9.2,
       "to": 13.68,
-      "text": "A business big enough that it could be listed on the NASDAQ goes belly up."
+      "text": "A business big enough that it could be listed on the NASDAQ goes belly up.",
+      "tr": {
+        "ru": "Компания, достаточно крупная, чтобы разместить свои акции на NASDAQ, обанкротилась.",
+        "es": "Una empresa lo suficientemente grande como para cotizar en el NASDAQ quiebra."
+      }
     },
     {
       "from": 13.68,
       "to": 15.68,
-      "text": "Disappears."
+      "text": "Disappears.",
+      "tr": {
+        "ru": "Исчезает.",
+        "es": "Desaparece."
+      }
     },
     {
       "from": 15.68,
       "to": 17.92,
-      "text": "It ceases to exist without me."
+      "text": "It ceases to exist without me.",
+      "tr": {
+        "ru": "Оно перестаёт существовать без меня.",
+        "es": "Deja de existir sin mí."
+      }
     },
     {
       "from": 17.92,
       "to": 21.12,
-      "text": "No, you clearly don't know who you're talking to."
+      "text": "No, you clearly don't know who you're talking to.",
+      "tr": {
+        "ru": "Нет, вы явно не знаете, с кем разговариваете.",
+        "es": "No, claramente no sabes con quién estás hablando."
+      }
     },
     {
       "from": 21.12,
       "to": 22.16,
-      "text": "So let me clue you in."
+      "text": "So let me clue you in.",
+      "tr": {
+        "ru": "Позвольте мне вас разъяснить.",
+        "es": "Así que déjenme ponerlos al tanto."
+      }
     },
     {
       "from": 22.16,
       "to": 25.04,
-      "text": "I am not in danger, Skyler."
+      "text": "I am not in danger, Skyler.",
+      "tr": {
+        "ru": "Мне ничего не угрожает, Скайлер.",
+        "es": "No estoy en peligro, Skyler."
+      }
     },
     {
       "from": 25.04,
       "to": 26.8,
-      "text": "I am the danger."
+      "text": "I am the danger.",
+      "tr": {
+        "ru": "Я представляю опасность.",
+        "es": "Yo soy el peligro."
+      }
     },
     {
       "from": 26.8,
       "to": 29.44,
-      "text": "A guy opens his door and gets shot and you think that of me."
+      "text": "A guy opens his door and gets shot and you think that of me.",
+      "tr": {
+        "ru": "Парень открывает дверь, и в него стреляют, а вы думаете, что такое может случиться со мной?",
+        "es": "Un tipo abre la puerta y le disparan, ¿y tú piensas eso de mí?"
+      }
     },
     {
       "from": 30,
       "to": 39.84,
-      "text": "No, I am the one who knocks."
+      "text": "No, I am the one who knocks.",
+      "tr": {
+        "ru": "Нет, это я стучу.",
+        "es": "No, yo soy quien llama a la puerta."
+      }
     }
   ]
 }

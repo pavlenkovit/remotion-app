@@ -93,10 +93,12 @@ cuts as duplicates. To avoid that, each language has a **`VARIANTS[lang]`** entr
   timing (`getSocialTiming`) divides each play segment's on-screen length by `speed`, and
   `Subtitles` maps composition frames back to clip seconds with it — so a different speed
   just works.
-- **`subtitle`** — `{ fontSize, color }`. Subtitles sit on the black band, so **color** is
-  the visible knob (a box would be invisible). Keep one language the clean baseline (`ru`:
-  no flip, `speed:1`, white) and differentiate the other(s) (`es`: flip, `1.02`, warm
-  yellow). The **outro** is also per-language (`video/vibeling-<lang>.png`).
+- **`subtitle`** — `{ fontSize, color, trFontSize, trColor }` (English line + translation
+  line). Subtitles sit on the black band, so **color** is the visible knob (a box would be
+  invisible). Keep one language the clean baseline (`ru`: no flip, `speed:1`, white English +
+  cool-grey translation) and differentiate the other(s) (`es`: flip, `1.02`, warm-yellow
+  English + warm-pale translation). The **outro** is also per-language
+  (`video/vibeling-<lang>.png`).
 
 Keep changes subtle enough to still look intentional. When adding a language, give it a
 distinct `VARIANTS` entry.
@@ -128,9 +130,17 @@ npm run transcribe -- <slug>
 This extracts the clip's audio (Remotion's bundled ffmpeg), runs whisper.cpp (`small.en`),
 and writes `subtitles` (one line per spoken sentence, real `from`/`to`) into
 `src/SocialVideo/videos/<slug>.json` — and sets each highlight's `atSec` to where its phrase
-is actually spoken (collapsed substring match; warns if a phrase isn't found). First run
-installs whisper.cpp + the model (cached afterward). Then only **correct misheard proper
-nouns** (e.g. whisper writes "Eisenberg" for "Heisenberg") and nudge if needed.
+is actually spoken (collapsed substring match; warns if a phrase isn't found). It then
+**translates every subtitle line into each native language** via the vibeling `/translate`
+API and stores them as `subtitle.tr = { ru, es }`. First run installs whisper.cpp + the model
+(cached afterward). Then only **correct misheard proper nouns** (e.g. whisper writes
+"Eisenberg" for "Heisenberg") and nudge if needed — if you edit an English line by hand,
+re-run transcribe (or re-translate) so its `tr` stays in sync.
+
+**Every subtitle shows English + the native translation** (always, both lines). The English
+line is the hero; the translation sits under it in a smaller, per-language style (see
+`VARIANTS[lang].subtitle` — `fontSize`/`color` for English, `trFontSize`/`trColor` for the
+translation). A cue with no `tr[lang]` just shows English.
 
 ## Output locations (keep `out/` tidy)
 
@@ -148,10 +158,11 @@ Note: the phone-mockup videos that the composition plays via `staticFile()` are
 NOT "out" artifacts — they belong in `public/mockups/<lang>/<slug>.mp4` (see below).
 
 **Render/bundle crashing with `wasm-hash.js … Cannot read properties of undefined
-(reading 'length')`?** That's webpack's persistent cache going stale (Node 22), not your
-code — it can also flap intermittently under memory pressure. Clear it and re-run:
-`rm -rf node_modules/.cache/webpack` (or `mv` it aside). A one-off transient failure on a
-single mockup usually just needs a retry.
+(reading 'length')`?** That's webpack's persistent FILESYSTEM cache corrupting under Node 22.
+`remotion.config.ts` already forces an in-memory webpack cache (`cache: { type: "memory" }`)
+to stop it recurring. If you still hit it (e.g. a stale on-disk cache), clear it once with
+`rm -rf node_modules/.cache/webpack`. A one-off transient failure on a single mockup usually
+just needs a retry.
 
 ## Scenario (sequence of the produced video)
 
@@ -203,10 +214,11 @@ Reference format: "Английский по фильмам" shorts
 - **App tagline.** In the phone mockup, next to the **"VibeLing"** pill sits a localized
   tagline (`STRINGS[lang].tagline`, e.g. "Учим английский язык" / "Aprende inglés") — muted,
   smaller than the pill.
-- **Subtitles.** One cue at a time, **centered, bold white, soft drop
-  shadow, no background box**, max ~920px wide, balanced wrapping, ~5-frame fade in/out at
-  each cue's edges. Keep them legible against the black band — clean, not cramped over the
-  footage.
+- **Subtitles.** One cue at a time, **centered, bold, soft drop shadow, no background box**,
+  ~940px wide, balanced wrapping, ~5-frame fade in/out at each cue's edges. **English on top +
+  the native translation underneath** (always), the translation smaller/dimmer per
+  `VARIANTS[lang].subtitle`. Keep them legible against the black band — clean, not cramped
+  over the footage.
 - **Outro full-screen.** The localized promo image (`video/vibeling-<lang>.png`) fills the
   entire frame (`objectFit: cover`), no bars.
 - **Sounds** (`public/sounds/`): `click.wav` (`click-soft.wav`) is **baked into each Dictionary

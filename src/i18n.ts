@@ -86,17 +86,29 @@ export type LangVariant = {
   /** Clip playback rate (1 = normal). A small change also shifts the audio fingerprint. */
   speed: number;
   /** Subtitle look, so the two variants read differently on screen. The
-      subtitles sit on the black band, so COLOR (not a box) is the visible knob. */
+      subtitles sit on the black band, so COLOR (not a box) is the visible knob.
+      Each cue shows the English line (`fontSize`/`color`) with the native
+      translation under it (`trFontSize`/`trColor`). */
   subtitle: {
     fontSize: number;
     color: string;
+    trFontSize: number;
+    trColor: string;
   };
 };
 
 export const VARIANTS: Record<NativeLang, LangVariant> = {
-  // ru = clean baseline: no flip, normal speed, white subtitles.
-  ru: { flip: false, speed: 1, subtitle: { fontSize: 60, color: "#ffffff" } },
-  // es = differentiated: mirrored footage, +2% speed, slightly smaller subtitles
-  // in a warm cinematic yellow.
-  es: { flip: true, speed: 1.02, subtitle: { fontSize: 54, color: "#f2d06b" } },
+  // ru = clean baseline: no flip, normal speed, white English + cool-grey translation.
+  ru: {
+    flip: false,
+    speed: 1,
+    subtitle: { fontSize: 58, color: "#ffffff", trFontSize: 44, trColor: "#aeb8c8" },
+  },
+  // es = differentiated: mirrored footage, +2% speed, warm yellow English +
+  // warm-pale translation, slightly smaller.
+  es: {
+    flip: true,
+    speed: 1.02,
+    subtitle: { fontSize: 52, color: "#f2d06b", trFontSize: 40, trColor: "#e7d7ac" },
+  },
 };

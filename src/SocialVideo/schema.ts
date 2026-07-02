@@ -16,7 +16,11 @@ export const subtitleSchema = z.object({
   /** Clip seconds (0 = clip start). */
   from: z.number(),
   to: z.number(),
+  /** English (spoken) line. */
   text: z.string(),
+  /** Native translations per language ({ ru, es }), filled by `transcribe`.
+      Shown under the English line in that language's variant. */
+  tr: z.record(z.string(), z.string()).optional(),
 });
 
 export const socialVideoSchema = z.object({

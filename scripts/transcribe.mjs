@@ -16,6 +16,24 @@ import { installWhisperCpp, downloadWhisperModel, transcribe, toCaptions } from 
 const WHISPER_VERSION = "1.5.5";
 const MODEL = "small.en"; // accurate enough for clear movie dialogue
 
+// Native languages to translate the subtitles into (keep in sync with
+// NATIVE_LANGS in src/i18n.ts). Each subtitle shows English + these.
+const TARGET_LANGS = ["ru", "es"];
+const VIBELING_URL = "https://api.vibeling.app";
+const VIBELING_SECRET = "gEASDeP8Wfi1UHTtQD23DgApbAoJ21RPovK";
+const VIBELING_META = { version: "1.0.0", os: "iOS", uid: "vbl_render_bot" };
+
+/** Translate a batch of English lines into `lang` via the vibeling API. */
+const translateLines = async (lines, lang) => {
+  const res = await fetch(`${VIBELING_URL}/translate`, {
+    method: "POST",
+    headers: { "X-App-Secret": VIBELING_SECRET, "Content-Type": "application/json" },
+    body: JSON.stringify({ words: lines, sourceLanguage: "en", targetLanguage: lang, meta: VIBELING_META }),
+  });
+  if (!res.ok) throw new Error(`/translate (${lang}) -> HTTP ${res.status} ${res.statusText}`);
+  return (await res.json()).translations ?? [];
+};
+
 const slug = process.argv[2];
 if (!slug) {
   console.error("Usage: npm run transcribe -- <slug>");
@@ -109,6 +127,24 @@ for (const h of video.highlights ?? []) {
     console.log(`  highlight "${h.slug}" -> atSec ${seg.to} ("${seg.text}")`);
   } else {
     console.warn(`  highlight "${h.slug}" NOT found in transcript — kept atSec ${h.atSec}`);
+  }
+}
+
+// Translate every subtitle line into each native language (English + translation
+// are shown together). One batched request per language.
+if (segments.length) {
+  const texts = segments.map((s) => s.text);
+  for (const lang of TARGET_LANGS) {
+    try {
+      const translations = await translateLines(texts, lang);
+      segments.forEach((s, i) => {
+        s.tr = s.tr ?? {};
+        s.tr[lang] = translations[i] ?? "";
+      });
+      console.log(`  translated ${translations.length} lines -> ${lang}`);
+    } catch (err) {
+      console.warn(`  translation to ${lang} failed (${err.message}) — subtitles kept English-only`);
+    }
   }
 }
 

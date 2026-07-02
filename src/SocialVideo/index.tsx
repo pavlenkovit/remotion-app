@@ -211,6 +211,7 @@ const LowerBand: React.FC<{ aspect: number; opacity?: number; children: React.Re
 );
 
 /** Subtitles: one cue at a time, centered under the video, with a soft fade.
+    Shows the English line plus its native translation (from `cue.tr[lang]`).
     `speed` maps composition frames back to clip seconds (the clip may play at a
     per-language rate); `style` is the per-language subtitle look. */
 const Subtitles: React.FC<{
@@ -218,13 +219,17 @@ const Subtitles: React.FC<{
   clipOffset: number;
   aspect: number;
   speed: number;
+  lang: NativeLang;
   style: LangVariant["subtitle"];
-}> = ({ subtitles, clipOffset, aspect, speed, style }) => {
+}> = ({ subtitles, clipOffset, aspect, speed, lang, style }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sec = (clipOffset + frame * speed) / fps;
   const cue = subtitles.find((c) => sec >= c.from && sec < c.to);
   if (!cue) return null;
+
+  const translation = cue.tr?.[lang];
+  const shadow = "0 2px 12px rgba(0,0,0,0.95), 0 0 4px rgba(0,0,0,0.9)";
 
   // Fade in/out over ~5 frames at each cue's edges so lines don't pop.
   const fade = 5 / fps;
@@ -235,21 +240,38 @@ const Subtitles: React.FC<{
 
   return (
     <LowerBand aspect={aspect} opacity={opacity}>
-      <span
-        style={{
-          display: "inline-block",
-          maxWidth: 920,
-          color: style.color,
-          fontFamily: FONT,
-          fontSize: style.fontSize,
-          fontWeight: 700,
-          lineHeight: 1.25,
-          textWrap: "balance",
-          textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 0 4px rgba(0,0,0,0.9)",
-        }}
-      >
-        {cue.text}
-      </span>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, maxWidth: 940 }}>
+        <span
+          style={{
+            display: "inline-block",
+            color: style.color,
+            fontFamily: FONT,
+            fontSize: style.fontSize,
+            fontWeight: 700,
+            lineHeight: 1.22,
+            textWrap: "balance",
+            textShadow: shadow,
+          }}
+        >
+          {cue.text}
+        </span>
+        {translation && (
+          <span
+            style={{
+              display: "inline-block",
+              color: style.trColor,
+              fontFamily: FONT,
+              fontSize: style.trFontSize,
+              fontWeight: 500,
+              lineHeight: 1.25,
+              textWrap: "balance",
+              textShadow: shadow,
+            }}
+          >
+            {translation}
+          </span>
+        )}
+      </div>
     </LowerBand>
   );
 };
@@ -326,6 +348,7 @@ export const SocialVideo: React.FC<{
               clipOffset={s.clipOffset}
               aspect={aspect}
               speed={t.speed}
+              lang={lang}
               style={variant.subtitle}
             />
           </Sequence>
