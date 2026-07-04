@@ -67,6 +67,9 @@ import butlicker from "./videos/butlicker-the-office.json";
 import carIntoLake from "./videos/car-into-lake-the-office.json";
 import theresAChance from "./videos/theres-a-chance-the-office.json";
 import knockKnock from "./videos/knock-knock-the-office.json";
+import turtles from "./videos/turtles-the-office.json";
+import jimothy from "./videos/jimothy-the-office.json";
+import bushiestBeaver from "./videos/bushiest-beaver-the-office.json";
 
 const sources: unknown[] = [
   sayMyName,
@@ -75,6 +78,9 @@ const sources: unknown[] = [
   carIntoLake,
   theresAChance,
   knockKnock,
+  turtles,
+  jimothy,
+  bushiestBeaver,
 ];
 
 export const videos: SocialVideoData[] = sources.map((v) => socialVideoSchema.parse(v));

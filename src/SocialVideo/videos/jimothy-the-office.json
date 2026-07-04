@@ -1,0 +1,120 @@
+{
+  "slug": "jimothy-the-office",
+  "clip": "clips/jimothy-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "right-back-at-you",
+      "atSec": 9.8
+    },
+    {
+      "slug": "whats-your-daughters-name-again",
+      "atSec": 13.72
+    },
+    {
+      "slug": "to-be-fair",
+      "atSec": 21.78
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 2.84,
+      "text": "- Oh, I get it, everybody knows about the ultimatum.",
+      "tr": {
+        "ru": "— А, я понял, все знают об ультиматуме.",
+        "es": "- Ah, ya entiendo, todo el mundo sabe lo del ultimátum."
+      }
+    },
+    {
+      "from": 2.84,
+      "to": 4.8,
+      "text": "- Yes, I told everyone.",
+      "tr": {
+        "ru": "— Да, я всем рассказал.",
+        "es": "- Sí, se lo dije a todo el mundo."
+      }
+    },
+    {
+      "from": 6.64,
+      "to": 9.8,
+      "text": "- Hey, right back at you, bitch.",
+      "tr": {
+        "ru": "— Эй, тебе того же, сучка.",
+        "es": "- ¡Oye, lo mismo digo, perra!"
+      }
+    },
+    {
+      "from": 9.8,
+      "to": 13.72,
+      "text": "- What's your daughter's name again, Pee Pee?",
+      "tr": {
+        "ru": "— Как зовут твою дочь, Пи-Пи?",
+        "es": "- ¿Cómo se llama tu hija, Pee Pee?"
+      }
+    },
+    {
+      "from": 13.72,
+      "to": 14.88,
+      "text": "- Pee Buh.",
+      "tr": {
+        "ru": "- Пи Бух.",
+        "es": "- Pee Buh."
+      }
+    },
+    {
+      "from": 14.88,
+      "to": 15.98,
+      "text": "- Pee Buh, how is she?",
+      "tr": {
+        "ru": "— Пи Бу, как она поживает?",
+        "es": "- Pee Buh, ¿cómo está?"
+      }
+    },
+    {
+      "from": 15.98,
+      "to": 17.72,
+      "text": "- Great. - Great.",
+      "tr": {
+        "ru": "— Отлично. — Отлично.",
+        "es": "- Genial. - Genial."
+      }
+    },
+    {
+      "from": 17.72,
+      "to": 21.78,
+      "text": "- Well, to be fair, Jim, James,",
+      "tr": {
+        "ru": "— Ну, если быть честным, Джим, Джеймс,",
+        "es": "- Bueno, para ser justos, Jim, James,"
+      }
+    },
+    {
+      "from": 21.78,
+      "to": 26.32,
+      "text": "Jimmathey, to be fair, Jimmathey, that sounds weird.",
+      "tr": {
+        "ru": "Джиммати, честно говоря, Джиммати, это звучит странно.",
+        "es": "Jimmathey, para ser justos, Jimmathey, eso suena raro."
+      }
+    },
+    {
+      "from": 26.32,
+      "to": 27.56,
+      "text": "Are you okay with being called Jim?",
+      "tr": {
+        "ru": "Вы не против, если вас будут называть Джимом?",
+        "es": "¿Te parece bien que te llamen Jim?"
+      }
+    },
+    {
+      "from": 27.56,
+      "to": 28.7,
+      "text": "- I am. - All right.",
+      "tr": {
+        "ru": "— Я согласен. — Хорошо.",
+        "es": "- Lo soy. - De acuerdo."
+      }
+    }
+  ]
+}

@@ -574,6 +574,213 @@
           "translation": "Раньше мне нравились шутки 'тук-тук', но теперь нет."
         }
       ]
+    },
+    {
+      "slug": "give-it-back",
+      "lang": "ru",
+      "word": "Give it back",
+      "phonetic": "[gɪv ɪt bæk]",
+      "partOfSpeech": "phrase",
+      "translation": "Верните это",
+      "image": "words/give-it-back.jpg",
+      "examples": [
+        {
+          "original": "Please give it back to me when you're done.",
+          "translation": "Пожалуйста, верните это мне, когда закончите."
+        },
+        {
+          "original": "I want you to give it back without any arguments.",
+          "translation": "Я хочу, чтобы вы вернули это без каких-либо споров."
+        },
+        {
+          "original": "He forgot to give it back after borrowing it.",
+          "translation": "Он забыл вернуть это после того, как занял."
+        }
+      ]
+    },
+    {
+      "slug": "call-us-a-cab",
+      "lang": "ru",
+      "word": "Call us a cab",
+      "phonetic": "[kɔl ʌs ə kæb]",
+      "partOfSpeech": "phrase",
+      "translation": "Вызвать нам такси",
+      "image": "words/call-us-a-cab.jpg",
+      "examples": [
+        {
+          "original": "Can you call us a cab for the airport?",
+          "translation": "Вы можете вызвать нам такси в аэропорт?"
+        },
+        {
+          "original": "After dinner, we should call us a cab to get home.",
+          "translation": "После ужина нам стоит вызвать такси, чтобы доехать домой."
+        },
+        {
+          "original": "If it's late, I will call us a cab to avoid walking.",
+          "translation": "Если будет поздно, я вызову нам такси, чтобы избежать прогулки."
+        }
+      ]
+    },
+    {
+      "slug": "where-are-the-turtles",
+      "lang": "ru",
+      "word": "Where are the turtles",
+      "phonetic": "[wɛr ɑr ðə tɜrtlz]",
+      "partOfSpeech": "phrase",
+      "translation": "Где черепахи?",
+      "image": "words/where-are-the-turtles.jpg",
+      "examples": [
+        {
+          "original": "Where are the turtles hiding?",
+          "translation": "Где прячутся черепахи?"
+        },
+        {
+          "original": "I wonder where the turtles go during winter.",
+          "translation": "Мне интересно, куда уходят черепахи зимой."
+        },
+        {
+          "original": "Have you seen where the turtles are swimming?",
+          "translation": "Ты видел, где плавают черепахи?"
+        }
+      ]
+    },
+    {
+      "slug": "right-back-at-you",
+      "lang": "ru",
+      "word": "Right back at you",
+      "phonetic": "[raɪt bæk æt ju]",
+      "partOfSpeech": "phrase",
+      "translation": "И тебе того же",
+      "image": "words/right-back-at-you.jpg",
+      "examples": [
+        {
+          "original": "When you send me a compliment, I say, right back at you!",
+          "translation": "Когда ты говоришь мне комплимент, я отвечаю: и тебе того же!"
+        },
+        {
+          "original": "Thanks for the birthday wishes, and right back at you for your special day!",
+          "translation": "Спасибо за пожелания ко дню рождения, и тебе того же в твой особенный день!"
+        },
+        {
+          "original": "If you believe in me, then right back at you for always supporting me.",
+          "translation": "Если ты веришь в меня, то и тебе того же за то, что всегда поддерживаешь меня."
+        }
+      ]
+    },
+    {
+      "slug": "whats-your-daughters-name-again",
+      "lang": "ru",
+      "word": "Whats your daughters name again",
+      "phonetic": "[wʌts jʊr ˈdɔtərz neɪm əˈɡɛn]",
+      "partOfSpeech": "phrase",
+      "translation": "Как зовут вашу дочь?",
+      "image": "words/whats-your-daughters-name-again.jpg",
+      "examples": [
+        {
+          "original": "What's your daughter's name again? I keep forgetting.",
+          "translation": "Как зовут вашу дочь снова? Я все время забываю."
+        },
+        {
+          "original": "Could you remind me what your daughter's name is again?",
+          "translation": "Не могли бы вы напомнить, как зовут вашу дочь?"
+        },
+        {
+          "original": "I met your daughter last week, but I can't recall her name right now.",
+          "translation": "Я встретил вашу дочь на прошлой неделе, но сейчас не могу вспомнить, как ее зовут."
+        }
+      ]
+    },
+    {
+      "slug": "to-be-fair",
+      "lang": "ru",
+      "word": "To be fair",
+      "phonetic": "[tə bi fɛr]",
+      "partOfSpeech": "phrase",
+      "translation": "Справедливости ради",
+      "image": "words/to-be-fair.jpg",
+      "examples": [
+        {
+          "original": "To be fair, everyone makes mistakes sometimes.",
+          "translation": "Справедливости ради, все иногда совершают ошибки."
+        },
+        {
+          "original": "To be fair, he did try his best in the project.",
+          "translation": "Справедливости ради, он действительно старался в проекте."
+        },
+        {
+          "original": "To be fair, the weather was unpredictable during our trip.",
+          "translation": "Справедливости ради, погода была непредсказуемой во время нашей поездки."
+        }
+      ]
+    },
+    {
+      "slug": "way-to-go",
+      "lang": "ru",
+      "word": "Way to go",
+      "phonetic": "[weɪ tə goʊ]",
+      "partOfSpeech": "phrase",
+      "translation": "Молодец!",
+      "image": "words/way-to-go.jpg",
+      "examples": [
+        {
+          "original": "You finished the project ahead of schedule? Way to go!",
+          "translation": "Ты закончил проект раньше срока? Молодец!"
+        },
+        {
+          "original": "I heard you got an A on your exam, way to go!",
+          "translation": "Я слышал, ты получил пятерку на экзамене, молодец!"
+        },
+        {
+          "original": "Way to go for helping that charity fundraiser; you really made a difference!",
+          "translation": "Молодец, что помог организовать сбор средств для благотворительности; ты действительно сделал разницу!"
+        }
+      ]
+    },
+    {
+      "slug": "that-doesnt-seem-fair",
+      "lang": "ru",
+      "word": "That doesnt seem fair",
+      "phonetic": "[ðæt ˈdʌzənt siːm fɛr]",
+      "partOfSpeech": "phrase",
+      "translation": "Это кажется несправедливым.",
+      "image": "words/that-doesnt-seem-fair.jpg",
+      "examples": [
+        {
+          "original": "It doesn't seem fair that she gets to leave early.",
+          "translation": "Не кажется справедливым, что она уходит рано."
+        },
+        {
+          "original": "This situation doesn't seem fair to anyone involved.",
+          "translation": "Эта ситуация кажется несправедливой для всех участников."
+        },
+        {
+          "original": "He felt that the decision was unjust and didn't seem fair.",
+          "translation": "Он чувствовал, что решение было несправедливым и казалось нечестным."
+        }
+      ]
+    },
+    {
+      "slug": "i-am-a-victim-of-a-hate-crime",
+      "lang": "ru",
+      "word": "I am a victim of a hate crime",
+      "phonetic": "[aɪ æm ə ˈvɪk.tɪm əv ə heɪt kraɪm]",
+      "partOfSpeech": "phrase",
+      "translation": "Я стала жертвой преступления на почве ненависти.",
+      "image": "words/i-am-a-victim-of-a-hate-crime.jpg",
+      "examples": [
+        {
+          "original": "I am a victim of a hate crime that occurred last year.",
+          "translation": "Я стала жертвой преступления на почве ненависти, которое произошло в прошлом году."
+        },
+        {
+          "original": "Being a victim of a hate crime can have long-lasting effects on a person.",
+          "translation": "Стать жертвой преступления на почве ненависти может иметь длительные последствия для человека."
+        },
+        {
+          "original": "I reported the hate crime to the authorities as soon as it happened.",
+          "translation": "Я сообщила о преступлении на почве ненависти в власти, как только это произошло."
+        }
+      ]
     }
   ],
   "es": [
@@ -1149,6 +1356,213 @@
         {
           "original": "Can we please move on from knock knock jokes? They're not funny anymore.",
           "translation": "¿Podemos por favor pasar de los chistes de toc toc? Ya no son graciosos."
+        }
+      ]
+    },
+    {
+      "slug": "give-it-back",
+      "lang": "es",
+      "word": "Give it back",
+      "phonetic": "[gɪv ɪt bæk]",
+      "partOfSpeech": "phrase",
+      "translation": "Devuélvelo",
+      "image": "words/give-it-back.jpg",
+      "examples": [
+        {
+          "original": "Please give it back to me when you're done.",
+          "translation": "Por favor, devuélvelo cuando termines."
+        },
+        {
+          "original": "I want you to give it back right now.",
+          "translation": "Quiero que me lo devuelvas ahora mismo."
+        },
+        {
+          "original": "If you take something, you should give it back.",
+          "translation": "Si tomas algo, debes devolverlo."
+        }
+      ]
+    },
+    {
+      "slug": "call-us-a-cab",
+      "lang": "es",
+      "word": "Call us a cab",
+      "phonetic": "[kɔl ʌs ə kæb]",
+      "partOfSpeech": "phrase",
+      "translation": "Llámenos y pida un taxi.",
+      "image": "words/call-us-a-cab.jpg",
+      "examples": [
+        {
+          "original": "You should call us a cab when you're ready to leave.",
+          "translation": "Deberías llámanos un taxi cuando estés listo para irte."
+        },
+        {
+          "original": "If you need a ride, just call us a cab.",
+          "translation": "Si necesitas un viaje, solo llámanos un taxi."
+        },
+        {
+          "original": "She decided to call us a cab after the meeting.",
+          "translation": "Ella decidió llamarnos un taxi después de la reunión."
+        }
+      ]
+    },
+    {
+      "slug": "where-are-the-turtles",
+      "lang": "es",
+      "word": "Where are the turtles",
+      "phonetic": "[wɛr ɑr ðə tɜrtlz]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Dónde están las tortugas?",
+      "image": "words/where-are-the-turtles.jpg",
+      "examples": [
+        {
+          "original": "Where are the turtles usually found?",
+          "translation": "¿Dónde se suelen encontrar las tortugas?"
+        },
+        {
+          "original": "I wonder where the turtles go during the winter.",
+          "translation": "Me pregunto dónde van las tortugas durante el invierno."
+        },
+        {
+          "original": "Can you tell me where the turtles are located in the museum?",
+          "translation": "¿Puedes decirme dónde están las tortugas en el museo?"
+        }
+      ]
+    },
+    {
+      "slug": "right-back-at-you",
+      "lang": "es",
+      "word": "Right back at you",
+      "phonetic": "[raɪt bæk æt ju]",
+      "partOfSpeech": "phrase",
+      "translation": "Te lo devuelvo",
+      "image": "words/right-back-at-you.jpg",
+      "examples": [
+        {
+          "original": "When someone compliments you, a great response is to say, 'Right back at you!'",
+          "translation": "Cuando alguien te hace un cumplido, una gran respuesta es decir: '¡Te lo devuelvo!'"
+        },
+        {
+          "original": "She smiled and said, 'Right back at you!' after he wished her good luck.",
+          "translation": "Ella sonrió y dijo: '¡Te lo devuelvo!' después de que él le deseó buena suerte."
+        },
+        {
+          "original": "If your friend gives you a gift, don't forget to say, 'Right back at you!'",
+          "translation": "Si tu amigo te da un regalo, no olvides decir: '¡Te lo devuelvo!'"
+        }
+      ]
+    },
+    {
+      "slug": "whats-your-daughters-name-again",
+      "lang": "es",
+      "word": "Whats your daughters name again",
+      "phonetic": "[wɑts jʊər ˈdɔtərz neɪm əˈɡɛn]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Cómo se llama tu hija otra vez?",
+      "image": "words/whats-your-daughters-name-again.jpg",
+      "examples": [
+        {
+          "original": "What's your daughter's name again? I forgot.",
+          "translation": "¿Cómo se llama tu hija otra vez? Olvidé."
+        },
+        {
+          "original": "Could you remind me what your daughter's name is again?",
+          "translation": "¿Podrías recordarme cómo se llama tu hija otra vez?"
+        },
+        {
+          "original": "I met your daughter last week, but what's her name again?",
+          "translation": "Conocí a tu hija la semana pasada, pero ¿cómo se llama otra vez?"
+        }
+      ]
+    },
+    {
+      "slug": "to-be-fair",
+      "lang": "es",
+      "word": "To be fair",
+      "phonetic": "[tə bi fɛr]",
+      "partOfSpeech": "phrase",
+      "translation": "Para ser justos",
+      "image": "words/to-be-fair.jpg",
+      "examples": [
+        {
+          "original": "To be fair, I think they did a good job.",
+          "translation": "Para ser justos, creo que hicieron un buen trabajo."
+        },
+        {
+          "original": "To be fair, we all have our strengths and weaknesses.",
+          "translation": "Para ser justos, todos tenemos nuestras fortalezas y debilidades."
+        },
+        {
+          "original": "To be fair, she had a lot on her plate at that time.",
+          "translation": "Para ser justos, ella tenía muchas cosas que manejar en ese momento."
+        }
+      ]
+    },
+    {
+      "slug": "way-to-go",
+      "lang": "es",
+      "word": "Way to go",
+      "phonetic": "[weɪ tə ɡoʊ]",
+      "partOfSpeech": "phrase",
+      "translation": "¡Bien hecho!",
+      "image": "words/way-to-go.jpg",
+      "examples": [
+        {
+          "original": "You completed the project ahead of schedule, way to go!",
+          "translation": "¡Completaste el proyecto antes de lo previsto, bien hecho!"
+        },
+        {
+          "original": "After winning the game, everyone cheered, 'Way to go!'",
+          "translation": "Después de ganar el juego, todos vitorearon, '¡Bien hecho!'"
+        },
+        {
+          "original": "I heard you aced your exams, way to go!",
+          "translation": "Escuché que sacaste excelentes notas en tus exámenes, ¡bien hecho!"
+        }
+      ]
+    },
+    {
+      "slug": "that-doesnt-seem-fair",
+      "lang": "es",
+      "word": "That doesnt seem fair",
+      "phonetic": "[ðæt ˈdʌzənt siːm fɛr]",
+      "partOfSpeech": "phrase",
+      "translation": "Eso no parece justo.",
+      "image": "words/that-doesnt-seem-fair.jpg",
+      "examples": [
+        {
+          "original": "That doesn't seem fair to me.",
+          "translation": "Eso no me parece justo."
+        },
+        {
+          "original": "I think that doesn't seem fair in this situation.",
+          "translation": "Creo que eso no parece justo en esta situación."
+        },
+        {
+          "original": "When I heard the rules, I thought that doesn't seem fair.",
+          "translation": "Cuando escuché las reglas, pensé que eso no parecía justo."
+        }
+      ]
+    },
+    {
+      "slug": "i-am-a-victim-of-a-hate-crime",
+      "lang": "es",
+      "word": "I am a victim of a hate crime",
+      "phonetic": "[aɪ æm ə ˈvɪktɪm əv ə heɪt kraɪm]",
+      "partOfSpeech": "noun",
+      "translation": "Soy víctima de un delito de odio.",
+      "image": "words/i-am-a-victim-of-a-hate-crime.jpg",
+      "examples": [
+        {
+          "original": "I am a victim of a hate crime and I want my voice to be heard.",
+          "translation": "Soy víctima de un delito de odio y quiero que se escuche mi voz."
+        },
+        {
+          "original": "Being a victim of a hate crime can have lasting effects on a person.",
+          "translation": "Ser víctima de un delito de odio puede tener efectos duraderos en una persona."
+        },
+        {
+          "original": "As a victim of a hate crime, I believe it's important to speak out against discrimination.",
+          "translation": "Como víctima de un delito de odio, creo que es importante alzar la voz contra la discriminación."
         }
       ]
     }

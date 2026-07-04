@@ -1,0 +1,237 @@
+{
+  "slug": "bushiest-beaver-the-office",
+  "clip": "clips/bushiest-beaver-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "way-to-go",
+      "atSec": 9.52
+    },
+    {
+      "slug": "that-doesnt-seem-fair",
+      "atSec": 26.98
+    },
+    {
+      "slug": "i-am-a-victim-of-a-hate-crime",
+      "atSec": 42.32
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 4.24,
+      "text": "The busiest beaver award goes to Phyllis Lappin!",
+      "tr": {
+        "ru": "Награда самому трудолюбивому бобру достается Филлис Лаппин!",
+        "es": "¡El premio al castor más trabajador es para Phyllis Lappin!"
+      }
+    },
+    {
+      "from": 4.24,
+      "to": 5.08,
+      "text": "Yeah!",
+      "tr": {
+        "ru": "Ага!",
+        "es": "¡Sí!"
+      }
+    },
+    {
+      "from": 5.08,
+      "to": 9.52,
+      "text": "Way to go, Phyllis, nice work, per usual.",
+      "tr": {
+        "ru": "Молодец, Филлис, как всегда, отличная работа.",
+        "es": "¡Bien hecho, Phyllis! Buen trabajo, como siempre."
+      }
+    },
+    {
+      "from": 9.52,
+      "to": 11.52,
+      "text": "- This says bushiest beaver.",
+      "tr": {
+        "ru": "— Здесь написано «самый пушистый бобр».",
+        "es": "- Esto dice castor más peludo."
+      }
+    },
+    {
+      "from": 11.52,
+      "to": 14.52,
+      "text": "- I told them busiest idiots.",
+      "tr": {
+        "ru": "— Я им сказал, самым занятым идиотам.",
+        "es": "- Les dije que eran unos idiotas muy ocupados."
+      }
+    },
+    {
+      "from": 14.52,
+      "to": 15.52,
+      "text": "- It's fine.",
+      "tr": {
+        "ru": "— Всё в порядке.",
+        "es": "- Está bien."
+      }
+    },
+    {
+      "from": 15.52,
+      "to": 16.36,
+      "text": "- But we can fix it.",
+      "tr": {
+        "ru": "— Но мы можем это исправить.",
+        "es": "- Pero podemos solucionarlo."
+      }
+    },
+    {
+      "from": 16.36,
+      "to": 17.18,
+      "text": "We'll fix it up.",
+      "tr": {
+        "ru": "Мы это исправим.",
+        "es": "Lo arreglaremos."
+      }
+    },
+    {
+      "from": 17.18,
+      "to": 18.36,
+      "text": "You don't have to display that.",
+      "tr": {
+        "ru": "Выводить это необязательно.",
+        "es": "No tienes que mostrar eso."
+      }
+    },
+    {
+      "from": 18.36,
+      "to": 19.94,
+      "text": "- You know what?",
+      "tr": {
+        "ru": "- Знаешь что?",
+        "es": "- ¿Sabes que?"
+      }
+    },
+    {
+      "from": 19.94,
+      "to": 23.68,
+      "text": "Today is not a good day for a sales contest.",
+      "tr": {
+        "ru": "Сегодня не лучший день для конкурса продаж.",
+        "es": "Hoy no es un buen día para un concurso de ventas."
+      }
+    },
+    {
+      "from": 23.68,
+      "to": 25.72,
+      "text": "We're not doing this today.",
+      "tr": {
+        "ru": "Сегодня мы этим заниматься не будем.",
+        "es": "Hoy no vamos a hacer esto."
+      }
+    },
+    {
+      "from": 25.72,
+      "to": 26.98,
+      "text": "- That doesn't seem fair.",
+      "tr": {
+        "ru": "— Это кажется несправедливым.",
+        "es": "- Eso no parece justo."
+      }
+    },
+    {
+      "from": 26.98,
+      "to": 28.52,
+      "text": "- You wanna talk about fair.",
+      "tr": {
+        "ru": "— Ты хочешь поговорить о справедливости?",
+        "es": "- Quieres hablar de justicia."
+      }
+    },
+    {
+      "from": 28.52,
+      "to": 31.2,
+      "text": "Does anyone need to smell my old carpet?",
+      "tr": {
+        "ru": "Кому-нибудь нужно понюхать мой старый ковер?",
+        "es": "¿Alguien necesita oler mi vieja alfombra?"
+      }
+    },
+    {
+      "from": 31.2,
+      "to": 32.66,
+      "text": "You explained to me how that was fair,",
+      "tr": {
+        "ru": "Вы объяснили мне, почему это справедливо.",
+        "es": "Me explicaste cómo eso era justo,"
+      }
+    },
+    {
+      "from": 32.66,
+      "to": 34.66,
+      "text": "and I'll explain to you how this is fair.",
+      "tr": {
+        "ru": "И я объясню вам, почему это справедливо.",
+        "es": "y te explicaré por qué esto es justo."
+      }
+    },
+    {
+      "from": 34.66,
+      "to": 37.28,
+      "text": "Plus, I just, I think that picking today",
+      "tr": {
+        "ru": "Кроме того, я просто думаю, что выбор сегодня...",
+        "es": "Además, creo que elegir hoy"
+      }
+    },
+    {
+      "from": 37.28,
+      "to": 38.36,
+      "text": "was sort of taking advantage.",
+      "tr": {
+        "ru": "в некотором смысле воспользовался ситуацией.",
+        "es": "Se estaba aprovechando de la situación."
+      }
+    },
+    {
+      "from": 38.36,
+      "to": 39.28,
+      "text": "- But you're the one who picked today.",
+      "tr": {
+        "ru": "— Но ведь это ты выбрал сегодняшний день.",
+        "es": "- Pero fuiste tú quien eligió hoy."
+      }
+    },
+    {
+      "from": 39.28,
+      "to": 42.32,
+      "text": "- I am a victim of a hate crime.",
+      "tr": {
+        "ru": "— Я стал жертвой преступления на почве ненависти.",
+        "es": "- Soy víctima de un crimen de odio."
+      }
+    },
+    {
+      "from": 42.32,
+      "to": 44.84,
+      "text": "Stanley knows what I'm talking about.",
+      "tr": {
+        "ru": "Стэнли знает, о чём я говорю.",
+        "es": "Stanley sabe de lo que estoy hablando."
+      }
+    },
+    {
+      "from": 44.84,
+      "to": 46.68,
+      "text": "- That's not what a hate crime is.",
+      "tr": {
+        "ru": "— Это не то, что считается преступлением на почве ненависти.",
+        "es": "- Eso no es un crimen de odio."
+      }
+    },
+    {
+      "from": 46.68,
+      "to": 49.2,
+      "text": "- Well, I hated it a lot, okay?",
+      "tr": {
+        "ru": "— Ну, мне это ужасно не понравилось, понятно?",
+        "es": "- Bueno, lo odié mucho, ¿de acuerdo?"
+      }
+    }
+  ]
+}
