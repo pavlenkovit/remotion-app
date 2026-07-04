@@ -1,7 +1,7 @@
 import "./index.css";
 import { Composition, staticFile } from "remotion";
 import { parseMedia } from "@remotion/media-parser";
-import { Dictionary, getDictionaryTiming } from "./Dictionary";
+import { Dictionary, getDictionaryTiming, MOCKUP_WIDTH, MOCKUP_HEIGHT } from "./Dictionary";
 import { dictionarySchema, words } from "./Dictionary/schema";
 import { SocialVideo, getSocialTiming } from "./SocialVideo";
 import { videos, socialCompSchema } from "./SocialVideo/schema";
@@ -54,8 +54,8 @@ export const RemotionRoot: React.FC = () => {
           component={Dictionary}
           durationInFrames={getDictionaryTiming(word).durationInFrames}
           fps={FPS}
-          width={1080}
-          height={1920}
+          width={MOCKUP_WIDTH}
+          height={MOCKUP_HEIGHT}
           schema={dictionarySchema}
           defaultProps={{ word }}
         />

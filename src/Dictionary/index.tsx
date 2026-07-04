@@ -16,6 +16,16 @@ import { Keyboard } from "./Keyboard";
 import { words, type WordData } from "./schema";
 import { STRINGS, localizePos } from "../i18n";
 
+// Mockup canvas size. Taller-than-16:9 so the phone frame in the social video
+// reads like a real phone (slimmer). Shared with Root.tsx (composition size) and
+// SocialVideo's PhoneMockup (frame aspect) so they never drift apart.
+export const MOCKUP_WIDTH = 1080;
+export const MOCKUP_HEIGHT = 2160;
+
+/** How many usage examples to show on the word card (kept short so the card fits
+    the slimmer phone). */
+const MAX_EXAMPLES = 2;
+
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
 
 const TYPE_START = 4;
@@ -162,14 +172,14 @@ const Example: React.FC<{ original: string; translation: string; delay: number }
       <div
         style={{
           color: "white",
-          fontSize: 40,
+          fontSize: 42,
           fontWeight: 500,
           marginBottom: 12,
         }}
       >
         {original}
       </div>
-      <div style={{ color: COLORS.muted, fontSize: 36 }}>{translation}</div>
+      <div style={{ color: COLORS.muted, fontSize: 38 }}>{translation}</div>
     </div>
   );
 };
@@ -191,7 +201,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
 
   // Shrink long phrases so titles like "Abandoned my child" stay tidy.
   const titleSize =
-    word.word.length > 16 ? 64 : word.word.length > 10 ? 78 : 96;
+    word.word.length > 16 ? 66 : word.word.length > 10 ? 80 : 98;
 
   // Multi-word entries are phrases; single words are words.
   const isPhrase = word.word.trim().includes(" ");
@@ -248,7 +258,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
               src={staticFile(word.image)}
               style={{
                 width: "100%",
-                height: 300,
+                height: 620,
                 objectFit: "cover",
                 borderRadius: 32,
                 opacity: headerSpring,
@@ -300,7 +310,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             <span
               style={{
                 color: COLORS.accent,
-                fontSize: 44,
+                fontSize: 46,
                 whiteSpace: "nowrap",
               }}
             >
@@ -317,14 +327,14 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             </svg>
           </div>
         </div>
-        <div style={{ color: COLORS.muted, fontSize: 38, marginTop: 8 }}>
+        <div style={{ color: COLORS.muted, fontSize: 40, marginTop: 8 }}>
           {localizePos(word.lang, word.partOfSpeech)}
         </div>
 
         <div
           style={{
             color: "white",
-            fontSize: 54,
+            fontSize: 56,
             fontWeight: 500,
             marginTop: 24,
             marginBottom: 30,
@@ -336,7 +346,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
         <div
           style={{
             color: COLORS.muted,
-            fontSize: 36,
+            fontSize: 38,
             marginBottom: 16,
             letterSpacing: 1,
           }}
@@ -346,7 +356,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
       </div>
 
       <div style={{ padding: "0 60px" }}>
-        {word.examples.map((ex, i) => (
+        {word.examples.slice(0, MAX_EXAMPLES).map((ex, i) => (
           <Example key={i} original={ex.original} translation={ex.translation} delay={5 + i * 4} />
         ))}
       </div>
@@ -381,7 +391,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
               strokeLinecap="round"
             />
           </svg>
-          <span style={{ color: "white", fontSize: 48, fontWeight: 600 }}>
+          <span style={{ color: "white", fontSize: 50, fontWeight: 600 }}>
             {s.addToDict}
           </span>
         </div>
@@ -436,7 +446,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             <div
               style={{
                 color: "white",
-                fontSize: 56,
+                fontSize: 58,
                 fontWeight: 600,
                 textAlign: "center",
                 lineHeight: 1.3,

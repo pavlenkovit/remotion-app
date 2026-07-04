@@ -11,10 +11,10 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { getDictionaryTiming } from "../Dictionary";
+import { getDictionaryTiming, MOCKUP_WIDTH, MOCKUP_HEIGHT } from "../Dictionary";
 import { words, findWord } from "../Dictionary/schema";
 import type { SocialVideoData, Subtitle } from "./schema";
-import { VARIANTS, type NativeLang, type LangVariant } from "../i18n";
+import { STRINGS, VARIANTS, type NativeLang, type LangVariant } from "../i18n";
 
 // ============================================================================
 // This is the reusable RECIPE. Everything describing a particular video comes
@@ -41,6 +41,13 @@ const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const videoBottomY = (aspect: number): number => {
   const displayedH = Math.min(COMP_W / aspect, COMP_H); // full width → derived height
   return (COMP_H + displayedH) / 2;
+};
+
+/** Y (px) of the TOP edge of the displayed video — the top black bar spans
+    [0, videoTopY], where the fixed header banner lives. */
+const videoTopY = (aspect: number): number => {
+  const displayedH = Math.min(COMP_W / aspect, COMP_H);
+  return (COMP_H - displayedH) / 2;
 };
 
 // ============================================================================
@@ -231,15 +238,9 @@ const Subtitles: React.FC<{
   const translation = cue.tr?.[lang];
   const shadow = "0 2px 12px rgba(0,0,0,0.95), 0 0 4px rgba(0,0,0,0.9)";
 
-  // Fade in/out over ~5 frames at each cue's edges so lines don't pop.
-  const fade = 5 / fps;
-  const opacity = interpolate(sec, [cue.from, cue.from + fade, cue.to - fade, cue.to], [0, 1, 1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
+  // No fade — cues switch instantly (hard cut), one straight after another.
   return (
-    <LowerBand aspect={aspect} opacity={opacity}>
+    <LowerBand aspect={aspect} opacity={1}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, maxWidth: 940 }}>
         <span
           style={{
@@ -283,8 +284,10 @@ const PhoneMockup: React.FC<{ src: string }> = ({ src }) => {
   const appear = spring({ frame, fps, config: { damping: 18, stiffness: 120 } });
   const y = interpolate(appear, [0, 1], [height, 0]);
 
-  const phoneH = 1480;
-  const phoneW = phoneH * (9 / 16);
+  // Phone frame matches the mockup's real aspect (slim, real-phone-like) so the
+  // content is shown without cropping. A slimmer frame → taller phone.
+  const phoneH = 1560;
+  const phoneW = phoneH * (MOCKUP_WIDTH / MOCKUP_HEIGHT);
 
   return (
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", transform: `translateY(${y}px)` }}>
@@ -306,6 +309,62 @@ const PhoneMockup: React.FC<{ src: string }> = ({ src }) => {
     </AbsoluteFill>
   );
 };
+
+/** Fixed top banner shown above the letterboxed clip on every video: a localized
+    headline, and under it the app logo + "VibeLing" on one line. Sits centered in
+    the top black bar so it never covers the footage. */
+const TopHeader: React.FC<{ aspect: number; lang: NativeLang }> = ({ aspect, lang }) => (
+  <div
+    style={{
+      position: "absolute",
+      left: 0,
+      right: 0,
+      top: 0,
+      height: videoTopY(aspect),
+      paddingLeft: 70,
+      paddingRight: 70,
+      paddingBottom: 24,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      gap: 16,
+      textAlign: "center",
+    }}
+  >
+    <span
+      style={{
+        color: "#ffffff",
+        fontFamily: FONT,
+        fontSize: 46,
+        fontWeight: 800,
+        lineHeight: 1.16,
+        textWrap: "balance",
+        maxWidth: 940,
+        textShadow: "0 2px 10px rgba(0,0,0,0.6)",
+      }}
+    >
+      {STRINGS[lang].header}
+    </span>
+    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <Img
+        src={staticFile("video/app-icon.png")}
+        style={{ width: 64, height: 64, borderRadius: 15, display: "block" }}
+      />
+      <span
+        style={{
+          color: "#ffffff",
+          fontFamily: FONT,
+          fontSize: 52,
+          fontWeight: 800,
+          letterSpacing: 0.5,
+        }}
+      >
+        VibeLing
+      </span>
+    </div>
+  </div>
+);
 
 /** Outro: the promo image fills the whole screen. Localized per audience
     language (`video/vibeling-<lang>.png`) so each variant ends differently. */
@@ -351,6 +410,7 @@ export const SocialVideo: React.FC<{
               lang={lang}
               style={variant.subtitle}
             />
+            <TopHeader aspect={aspect} lang={lang} />
           </Sequence>
         ) : (
           <Sequence key={i} from={s.from} durationInFrames={s.duration}>
