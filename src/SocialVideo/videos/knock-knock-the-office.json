@@ -1,0 +1,606 @@
+{
+  "slug": "knock-knock-the-office",
+  "clip": "clips/knock-knock-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "fax-it-over",
+      "atSec": 4.94
+    },
+    {
+      "slug": "i-got-a-knock-knock-joke",
+      "atSec": 38.38
+    },
+    {
+      "slug": "no-more-knock-knock-jokes",
+      "atSec": 59.34
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 1.66,
+      "text": "- BAM, knock, knock.",
+      "tr": {
+        "ru": "— БАМ, тук-тук.",
+        "es": "- ¡BAM!, toc, toc."
+      }
+    },
+    {
+      "from": 1.66,
+      "to": 2.5,
+      "text": "- I'm on the phone.",
+      "tr": {
+        "ru": "— Я говорю по телефону.",
+        "es": "- Estoy al teléfono."
+      }
+    },
+    {
+      "from": 2.5,
+      "to": 3.32,
+      "text": "- I know you are, knock, knock.",
+      "tr": {
+        "ru": "— Я знаю, что ты здесь, тук-тук.",
+        "es": "- Sé que lo eres, toc, toc."
+      }
+    },
+    {
+      "from": 3.32,
+      "to": 4.94,
+      "text": "- You can fax it over.",
+      "tr": {
+        "ru": "— Вы можете отправить его по факсу.",
+        "es": "- Puedes enviarlo por fax."
+      }
+    },
+    {
+      "from": 4.94,
+      "to": 7.02,
+      "text": "Yeah, five, seven, zero.",
+      "tr": {
+        "ru": "Да, пять, семь, ноль.",
+        "es": "Sí, cinco, siete, cero."
+      }
+    },
+    {
+      "from": 7.02,
+      "to": 7.86,
+      "text": "Five, five, five.",
+      "tr": {
+        "ru": "Пять, пять, пять.",
+        "es": "Cinco, cinco, cinco."
+      }
+    },
+    {
+      "from": 7.86,
+      "to": 9.1,
+      "text": "- Four, five, nine, one.",
+      "tr": {
+        "ru": "— Четыре, пять, девять, один.",
+        "es": "- Cuatro, cinco, nueve, uno."
+      }
+    },
+    {
+      "from": 9.1,
+      "to": 9.94,
+      "text": "- Zero, one.",
+      "tr": {
+        "ru": "- Ноль, один.",
+        "es": "- Cero, uno."
+      }
+    },
+    {
+      "from": 9.94,
+      "to": 10.76,
+      "text": "- Seven, four.",
+      "tr": {
+        "ru": "— Семь, четыре.",
+        "es": "- Siete, cuatro."
+      }
+    },
+    {
+      "from": 10.76,
+      "to": 12.66,
+      "text": "- Five-ling.",
+      "tr": {
+        "ru": "- Пятилинг.",
+        "es": "- Cinco-ling."
+      }
+    },
+    {
+      "from": 12.66,
+      "to": 14.46,
+      "text": "- Zero, one, seven, five.",
+      "tr": {
+        "ru": "— Ноль, один, семь, пять.",
+        "es": "- Cero, uno, siete, cinco."
+      }
+    },
+    {
+      "from": 14.46,
+      "to": 15.5,
+      "text": "Thank you.",
+      "tr": {
+        "ru": "Спасибо.",
+        "es": "Gracias."
+      }
+    },
+    {
+      "from": 15.5,
+      "to": 16.34,
+      "text": "Bye-bye.",
+      "tr": {
+        "ru": "Пока-пока.",
+        "es": "Adiós."
+      }
+    },
+    {
+      "from": 16.34,
+      "to": 19.06,
+      "text": "- That really makes us look unprofessional.",
+      "tr": {
+        "ru": "— Это действительно выставляет нас в непрофессиональном свете.",
+        "es": "Eso nos hace parecer poco profesionales."
+      }
+    },
+    {
+      "from": 19.06,
+      "to": 20.42,
+      "text": "- They would never know it was me doing it.",
+      "tr": {
+        "ru": "— Они никогда не узнают, что это сделал я.",
+        "es": "- Jamás sabrían que fui yo quien lo hizo."
+      }
+    },
+    {
+      "from": 20.42,
+      "to": 21.66,
+      "text": "Here we go, knock, knock.",
+      "tr": {
+        "ru": "Ну вот, тук-тук.",
+        "es": "Aquí vamos, toc, toc."
+      }
+    },
+    {
+      "from": 21.66,
+      "to": 24.74,
+      "text": "- Who's there?",
+      "tr": {
+        "ru": "— Кто там?",
+        "es": "- ¿Quién está ahí?"
+      }
+    },
+    {
+      "from": 24.74,
+      "to": 25.66,
+      "text": "- Buddha.",
+      "tr": {
+        "ru": "- Будда.",
+        "es": "- Buda."
+      }
+    },
+    {
+      "from": 25.66,
+      "to": 26.5,
+      "text": "- Buddha who?",
+      "tr": {
+        "ru": "— Будда кто?",
+        "es": "- ¿Buda quién?"
+      }
+    },
+    {
+      "from": 26.5,
+      "to": 27.5,
+      "text": "- Buddha that's bred for every--",
+      "tr": {
+        "ru": "- Будда, созданный для всех...",
+        "es": "- Buda que se cría para todos--"
+      }
+    },
+    {
+      "from": 31.18,
+      "to": 32.18,
+      "text": "- Great.",
+      "tr": {
+        "ru": "- Большой.",
+        "es": "- Excelente."
+      }
+    },
+    {
+      "from": 32.18,
+      "to": 34.14,
+      "text": "- I need something to wipe my hand.",
+      "tr": {
+        "ru": "— Мне нужно чем-нибудь вытереть руки.",
+        "es": "- Necesito algo para limpiarme la mano."
+      }
+    },
+    {
+      "from": 34.14,
+      "to": 35.38,
+      "text": "- No, there's butter on my nose.",
+      "tr": {
+        "ru": "— Нет, у меня на носу масло.",
+        "es": "- No, tengo mantequilla en la nariz."
+      }
+    },
+    {
+      "from": 35.38,
+      "to": 36.42,
+      "text": "- That was melting.",
+      "tr": {
+        "ru": "— Оно таяло.",
+        "es": "- Eso se estaba derritiendo."
+      }
+    },
+    {
+      "from": 36.42,
+      "to": 37.26,
+      "text": "- It was a classic.",
+      "tr": {
+        "ru": "— Это была классика.",
+        "es": "- Fue un clásico."
+      }
+    },
+    {
+      "from": 37.26,
+      "to": 38.38,
+      "text": "- I got a knock, knock joke.",
+      "tr": {
+        "ru": "— У меня есть шутка про стук в дверь.",
+        "es": "- Tengo un chiste de \"toc, toc\"."
+      }
+    },
+    {
+      "from": 38.38,
+      "to": 39.22,
+      "text": "- No.",
+      "tr": {
+        "ru": "- Нет.",
+        "es": "- No."
+      }
+    },
+    {
+      "from": 39.22,
+      "to": 40.06,
+      "text": "- Okay, God.",
+      "tr": {
+        "ru": "— Хорошо, Боже.",
+        "es": "- Está bien, Dios."
+      }
+    },
+    {
+      "from": 40.06,
+      "to": 41.7,
+      "text": "- Michael, please, please, please, please.",
+      "tr": {
+        "ru": "— Майкл, пожалуйста, пожалуйста, пожалуйста, пожалуйста.",
+        "es": "- Michael, por favor, por favor, por favor, por favor."
+      }
+    },
+    {
+      "from": 41.7,
+      "to": 42.54,
+      "text": "Please let me.",
+      "tr": {
+        "ru": "Пожалуйста, позвольте мне.",
+        "es": "Por favor, déjame."
+      }
+    },
+    {
+      "from": 42.54,
+      "to": 43.74,
+      "text": "- All right.",
+      "tr": {
+        "ru": "- Все в порядке.",
+        "es": "- Está bien."
+      }
+    },
+    {
+      "from": 43.74,
+      "to": 44.58,
+      "text": "- Knock, knock.",
+      "tr": {
+        "ru": "— Тук-тук.",
+        "es": "- Toc, toc."
+      }
+    },
+    {
+      "from": 44.58,
+      "to": 45.42,
+      "text": "- Who's there?",
+      "tr": {
+        "ru": "— Кто там?",
+        "es": "- ¿Quién está ahí?"
+      }
+    },
+    {
+      "from": 45.42,
+      "to": 46.26,
+      "text": "- KGB.",
+      "tr": {
+        "ru": "- КГБ.",
+        "es": "- KGB."
+      }
+    },
+    {
+      "from": 46.26,
+      "to": 47.1,
+      "text": "- KGB.",
+      "tr": {
+        "ru": "- КГБ.",
+        "es": "- KGB."
+      }
+    },
+    {
+      "from": 47.1,
+      "to": 48.58,
+      "text": "- We've asked the questions.",
+      "tr": {
+        "ru": "— Мы задали вопросы.",
+        "es": "- Ya hemos hecho las preguntas."
+      }
+    },
+    {
+      "from": 48.58,
+      "to": 49.58,
+      "text": "- What the hell was that?",
+      "tr": {
+        "ru": "— Что это, чёрт возьми, было?",
+        "es": "- ¿Qué demonios fue eso?"
+      }
+    },
+    {
+      "from": 49.58,
+      "to": 50.42,
+      "text": "- What are you doing?",
+      "tr": {
+        "ru": "- Что ты делаешь?",
+        "es": "- ¿Qué estás haciendo?"
+      }
+    },
+    {
+      "from": 50.42,
+      "to": 51.26,
+      "text": "- What are you doing?",
+      "tr": {
+        "ru": "- Что ты делаешь?",
+        "es": "- ¿Qué estás haciendo?"
+      }
+    },
+    {
+      "from": 51.26,
+      "to": 52.1,
+      "text": "- Hey, hey, hey.",
+      "tr": {
+        "ru": "— Эй, эй, эй.",
+        "es": "- Oye, oye, oye."
+      }
+    },
+    {
+      "from": 52.1,
+      "to": 52.94,
+      "text": "- You like that?",
+      "tr": {
+        "ru": "— Тебе это нравится?",
+        "es": "- ¿Te gusta eso?"
+      }
+    },
+    {
+      "from": 52.94,
+      "to": 53.78,
+      "text": "- Stop it, stop it.",
+      "tr": {
+        "ru": "— Прекратите, прекратите.",
+        "es": "- ¡Basta, basta!"
+      }
+    },
+    {
+      "from": 53.78,
+      "to": 54.6,
+      "text": "- You like that?",
+      "tr": {
+        "ru": "— Тебе это нравится?",
+        "es": "- ¿Te gusta eso?"
+      }
+    },
+    {
+      "from": 54.6,
+      "to": 55.44,
+      "text": "- Hey, come on.",
+      "tr": {
+        "ru": "— Эй, ну же.",
+        "es": "- Oye, vamos."
+      }
+    },
+    {
+      "from": 55.44,
+      "to": 56.28,
+      "text": "What are you doing, man?",
+      "tr": {
+        "ru": "Что ты делаешь, чувак?",
+        "es": "¿Qué estás haciendo, hombre?"
+      }
+    },
+    {
+      "from": 56.28,
+      "to": 57.12,
+      "text": "That's part of a hilarious job.",
+      "tr": {
+        "ru": "Это часть забавной работы.",
+        "es": "Eso forma parte de un trabajo divertidísimo."
+      }
+    },
+    {
+      "from": 57.12,
+      "to": 57.96,
+      "text": "- What are you doing?",
+      "tr": {
+        "ru": "- Что ты делаешь?",
+        "es": "- ¿Qué estás haciendo?"
+      }
+    },
+    {
+      "from": 57.96,
+      "to": 59.34,
+      "text": "No more knock, knock jokes.",
+      "tr": {
+        "ru": "Больше никаких шуток типа «тук-тук».",
+        "es": "Se acabaron los chistes de toc, toc."
+      }
+    },
+    {
+      "from": 59.34,
+      "to": 60.18,
+      "text": "That's it.",
+      "tr": {
+        "ru": "Вот и все.",
+        "es": "Eso es todo."
+      }
+    },
+    {
+      "from": 60.18,
+      "to": 61.58,
+      "text": "- Ding dong.",
+      "tr": {
+        "ru": "- Дин-дон.",
+        "es": "-Ding dong."
+      }
+    },
+    {
+      "from": 61.58,
+      "to": 62.42,
+      "text": "- Who's there?",
+      "tr": {
+        "ru": "— Кто там?",
+        "es": "- ¿Quién está ahí?"
+      }
+    },
+    {
+      "from": 62.42,
+      "to": 63.26,
+      "text": "- KGB.",
+      "tr": {
+        "ru": "- КГБ.",
+        "es": "- KGB."
+      }
+    },
+    {
+      "from": 63.26,
+      "to": 65.02,
+      "text": "- Try to get the door.",
+      "tr": {
+        "ru": "— Попробуйте открыть дверь.",
+        "es": "- Intenta abrir la puerta."
+      }
+    },
+    {
+      "from": 65.02,
+      "to": 65.86,
+      "text": "I'm not answering the door.",
+      "tr": {
+        "ru": "Я не буду открывать дверь.",
+        "es": "No voy a abrir la puerta."
+      }
+    },
+    {
+      "from": 65.86,
+      "to": 66.68,
+      "text": "- Answer the door.",
+      "tr": {
+        "ru": "— Откройте дверь.",
+        "es": "- Abre la puerta."
+      }
+    },
+    {
+      "from": 66.68,
+      "to": 67.52,
+      "text": "- Ding dong.",
+      "tr": {
+        "ru": "- Дин-дон.",
+        "es": "-Ding dong."
+      }
+    },
+    {
+      "from": 67.52,
+      "to": 68.36,
+      "text": "- No way, it's the KGB.",
+      "tr": {
+        "ru": "— Нет, это же КГБ.",
+        "es": "- De ninguna manera, es la KGB."
+      }
+    },
+    {
+      "from": 68.36,
+      "to": 69.2,
+      "text": "- Ding dong.",
+      "tr": {
+        "ru": "- Дин-дон.",
+        "es": "-Ding dong."
+      }
+    },
+    {
+      "from": 69.2,
+      "to": 70.04,
+      "text": "- I'm not answering that.",
+      "tr": {
+        "ru": "— Я на это отвечать не буду.",
+        "es": "- No voy a responder a eso."
+      }
+    },
+    {
+      "from": 70.04,
+      "to": 70.88,
+      "text": "- Yes, you're going to answer it.",
+      "tr": {
+        "ru": "— Да, вы ответите.",
+        "es": "- Sí, vas a responderla."
+      }
+    },
+    {
+      "from": 70.88,
+      "to": 71.72,
+      "text": "- I'm not gonna answer it.",
+      "tr": {
+        "ru": "— Я не буду отвечать.",
+        "es": "- No voy a contestar."
+      }
+    },
+    {
+      "from": 71.72,
+      "to": 72.56,
+      "text": "- I'm not gonna answer it.",
+      "tr": {
+        "ru": "— Я не буду отвечать.",
+        "es": "- No voy a contestar."
+      }
+    },
+    {
+      "from": 72.56,
+      "to": 73.4,
+      "text": "It's the KGB.",
+      "tr": {
+        "ru": "Это КГБ.",
+        "es": "Es la KGB."
+      }
+    },
+    {
+      "from": 73.4,
+      "to": 74.48,
+      "text": "- The KGB will fit for no one.",
+      "tr": {
+        "ru": "— КГБ никому не подойдёт.",
+        "es": "- La KGB no es adecuada para nadie."
+      }
+    },
+    {
+      "from": 76.74,
+      "to": 78.78,
+      "text": "- It's true.",
+      "tr": {
+        "ru": "- Это правда.",
+        "es": "- Es cierto."
+      }
+    }
+  ]
+}

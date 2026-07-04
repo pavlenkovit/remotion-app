@@ -12,3 +12,6 @@ public/mockups
 
 # Whisper.cpp install + model (downloaded by npm run transcribe)
 whisper.cpp
+
+# Personal local Claude Code permissions
+.claude/settings.local.json

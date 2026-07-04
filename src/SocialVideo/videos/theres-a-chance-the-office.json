@@ -1,0 +1,165 @@
+{
+  "slug": "theres-a-chance-the-office",
+  "clip": "clips/theres-a-chance-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "a-lot-of-attitude",
+      "atSec": 13.96
+    },
+    {
+      "slug": "but-youre-saying-theres-a-chance",
+      "atSec": 20.2
+    },
+    {
+      "slug": "safest-part-of-a-car",
+      "atSec": 26.08
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 1.44,
+      "text": "- Well, I manage my department,",
+      "tr": {
+        "ru": "— Ну, я руковожу своим отделом,",
+        "es": "- Bueno, yo dirijo mi departamento,"
+      }
+    },
+    {
+      "from": 1.44,
+      "to": 4.12,
+      "text": "and I've been doing that for several years now.",
+      "tr": {
+        "ru": "И я занимаюсь этим уже несколько лет.",
+        "es": "Y llevo haciéndolo varios años."
+      }
+    },
+    {
+      "from": 4.12,
+      "to": 7.96,
+      "text": "And God, I've learned a lot of life lessons along the way.",
+      "tr": {
+        "ru": "Боже, я многому научился за это время.",
+        "es": "Y Dios mío, he aprendido muchas lecciones de vida por el camino."
+      }
+    },
+    {
+      "from": 7.96,
+      "to": 9.68,
+      "text": "- Your department's just you, right?",
+      "tr": {
+        "ru": "— В вашем отделе только вы, верно?",
+        "es": "- En tu departamento solo estás tú, ¿verdad?"
+      }
+    },
+    {
+      "from": 9.68,
+      "to": 12.04,
+      "text": "- Yes, Jim, but I am not easy to manage.",
+      "tr": {
+        "ru": "— Да, Джим, но со мной непросто справиться.",
+        "es": "—Sí, Jim, pero no soy fácil de manejar."
+      }
+    },
+    {
+      "from": 12.04,
+      "to": 13.96,
+      "text": "- You know, your partner's got a lot of attitude,",
+      "tr": {
+        "ru": "— Знаешь, у твоего партнера очень высокомерный характер.",
+        "es": "- Sabes, tu pareja tiene mucha actitud,"
+      }
+    },
+    {
+      "from": 13.96,
+      "to": 15.36,
+      "text": "but I like that.",
+      "tr": {
+        "ru": "Но мне это нравится.",
+        "es": "Pero eso me gusta."
+      }
+    },
+    {
+      "from": 15.36,
+      "to": 16.74,
+      "text": "How long you guys been dating?",
+      "tr": {
+        "ru": "Как давно вы встречаетесь?",
+        "es": "¿Cuánto tiempo llevan saliendo?"
+      }
+    },
+    {
+      "from": 16.74,
+      "to": 18.72,
+      "text": "- Jim couldn't land me in a thousand years.",
+      "tr": {
+        "ru": "— Джим ни за что на свете не смог бы меня заполучить.",
+        "es": "Jim no podría conquistarme ni en mil años."
+      }
+    },
+    {
+      "from": 18.72,
+      "to": 20.2,
+      "text": "- But you're saying there's a chance.",
+      "tr": {
+        "ru": "— Но вы же говорите, что есть шанс.",
+        "es": "- Pero dices que hay una posibilidad."
+      }
+    },
+    {
+      "from": 20.2,
+      "to": 21.04,
+      "text": "- Shut up.",
+      "tr": {
+        "ru": "- Замолчи.",
+        "es": "- Callarse la boca."
+      }
+    },
+    {
+      "from": 21.04,
+      "to": 23.54,
+      "text": "- Seriously, we're gonna sit in the back.",
+      "tr": {
+        "ru": "— Серьёзно, мы сядем сзади.",
+        "es": "- En serio, nos vamos a sentar atrás."
+      }
+    },
+    {
+      "from": 23.54,
+      "to": 26.08,
+      "text": "- Yeah, that's the safest part of a car.",
+      "tr": {
+        "ru": "— Да, это самая безопасная часть автомобиля.",
+        "es": "- Sí, esa es la parte más segura de un coche."
+      }
+    },
+    {
+      "from": 26.08,
+      "to": 27.04,
+      "text": "In the event of a crash,",
+      "tr": {
+        "ru": "В случае аварии,",
+        "es": "En caso de accidente,"
+      }
+    },
+    {
+      "from": 27.04,
+      "to": 29.12,
+      "text": "driver always protects his side first.",
+      "tr": {
+        "ru": "Водитель всегда в первую очередь защищает свою сторону.",
+        "es": "El conductor siempre protege primero su lado."
+      }
+    },
+    {
+      "from": 32.54,
+      "to": 36,
+      "text": "- Yeah, that's no problem.",
+      "tr": {
+        "ru": "— Да, это не проблема.",
+        "es": "- Sí, no hay problema."
+      }
+    }
+  ]
+}

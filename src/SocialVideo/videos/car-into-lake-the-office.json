@@ -1,0 +1,219 @@
+{
+  "slug": "car-into-lake-the-office",
+  "clip": "clips/car-into-lake-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "remain-calm",
+      "atSec": 15
+    },
+    {
+      "slug": "make-a-u-turn-if-possible",
+      "atSec": 19
+    },
+    {
+      "slug": "i-got-you",
+      "atSec": 29
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 3.16,
+      "text": "Well, guess what? I just drove my car into a lake.",
+      "tr": {
+        "ru": "Ну и знаете что? Я только что въехал на своей машине в озеро.",
+        "es": "¿Adivina qué? Acabo de estrellar mi coche contra un lago."
+      }
+    },
+    {
+      "from": 3.16,
+      "to": 5,
+      "text": "- Is it what? - This is my lake!",
+      "tr": {
+        "ru": "— Что это? — Это моё озеро!",
+        "es": "- ¿Qué es eso? - ¡Este es mi lago!"
+      }
+    },
+    {
+      "from": 5,
+      "to": 7,
+      "text": "- Stop yelling at me! - No, it's not your lake!",
+      "tr": {
+        "ru": "— Прекрати на меня кричать! — Нет, это не твоё озеро!",
+        "es": "- ¡Deja de gritarme! - ¡No, no es tu lago!"
+      }
+    },
+    {
+      "from": 7,
+      "to": 10,
+      "text": "- There's no way! - Here!",
+      "tr": {
+        "ru": "— Ни за что! — Вот!",
+        "es": "- ¡De ninguna manera! - ¡Aquí!"
+      }
+    },
+    {
+      "from": 10,
+      "to": 15,
+      "text": "Remain calm. I have trained for this. Okay.",
+      "tr": {
+        "ru": "Сохраняйте спокойствие. Я к этому готовился. Хорошо.",
+        "es": "Mantén la calma. Me he preparado para esto. De acuerdo."
+      }
+    },
+    {
+      "from": 15,
+      "to": 17,
+      "text": "Exit the window. Here we go.",
+      "tr": {
+        "ru": "Вылезаем из окна. Поехали.",
+        "es": "Sal por la ventana. Allá vamos."
+      }
+    },
+    {
+      "from": 17,
+      "to": 19,
+      "text": "Make a U-turn, if possible.",
+      "tr": {
+        "ru": "По возможности развернитесь.",
+        "es": "Si es posible, dé la vuelta en U."
+      }
+    },
+    {
+      "from": 19,
+      "to": 21,
+      "text": "Look out for leeches!",
+      "tr": {
+        "ru": "Остерегайтесь пиявок!",
+        "es": "¡Cuidado con las sanguijuelas!"
+      }
+    },
+    {
+      "from": 21,
+      "to": 24,
+      "text": "Right up! Are you okay?",
+      "tr": {
+        "ru": "Вставай! Ты в порядке?",
+        "es": "¡Arriba! ¿Estás bien?"
+      }
+    },
+    {
+      "from": 24,
+      "to": 26,
+      "text": "Swim for it!",
+      "tr": {
+        "ru": "Плывите к нему!",
+        "es": "¡Nada para conseguirlo!"
+      }
+    },
+    {
+      "from": 26,
+      "to": 29,
+      "text": "I got you! I got you!",
+      "tr": {
+        "ru": "Я тебя поймал! Я тебя поймал!",
+        "es": "¡Te tengo! ¡Te tengo!"
+      }
+    },
+    {
+      "from": 29,
+      "to": 31,
+      "text": "Get out of the way.",
+      "tr": {
+        "ru": "Уступите дорогу.",
+        "es": "Apártate del camino."
+      }
+    },
+    {
+      "from": 31,
+      "to": 33,
+      "text": "Michael! Michael!",
+      "tr": {
+        "ru": "Майкл! Майкл!",
+        "es": "¡Michael! ¡Michael!"
+      }
+    },
+    {
+      "from": 33,
+      "to": 36,
+      "text": "- Kill Michael! - Come on, Michael!",
+      "tr": {
+        "ru": "— Убей Майкла! — Давай, Майкл!",
+        "es": "- ¡Mata a Michael! - ¡Vamos, Michael!"
+      }
+    },
+    {
+      "from": 36,
+      "to": 38,
+      "text": "Come on!",
+      "tr": {
+        "ru": "Ну давай же!",
+        "es": "¡Vamos!"
+      }
+    },
+    {
+      "from": 38,
+      "to": 40,
+      "text": "I got you!",
+      "tr": {
+        "ru": "Понял тебя!",
+        "es": "¡Te entendí!"
+      }
+    },
+    {
+      "from": 40,
+      "to": 42,
+      "text": "I got you!",
+      "tr": {
+        "ru": "Понял тебя!",
+        "es": "¡Te entendí!"
+      }
+    },
+    {
+      "from": 42,
+      "to": 44,
+      "text": "Come on!",
+      "tr": {
+        "ru": "Ну давай же!",
+        "es": "¡Vamos!"
+      }
+    },
+    {
+      "from": 44,
+      "to": 46,
+      "text": "Come on!",
+      "tr": {
+        "ru": "Ну давай же!",
+        "es": "¡Vamos!"
+      }
+    },
+    {
+      "from": 46,
+      "to": 48,
+      "text": "Come on!",
+      "tr": {
+        "ru": "Ну давай же!",
+        "es": "¡Vamos!"
+      }
+    },
+    {
+      "from": 48,
+      "to": 50,
+      "text": "Get out of the way.",
+      "tr": {
+        "ru": "Уступите дорогу.",
+        "es": "Apártate del camino."
+      }
+    },
+    {
+      "from": 50,
+      "to": 66,
+      "text": "I drove my car into a f***ing lake.",
+      "tr": {
+        "ru": "Я въехал на своей машине в чертово озеро.",
+        "es": "Conduje mi coche hasta un maldito lago."
+      }
+    }
+  ]
+}

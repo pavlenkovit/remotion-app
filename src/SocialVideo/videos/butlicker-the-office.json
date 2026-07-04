@@ -1,0 +1,408 @@
+{
+  "slug": "butlicker-the-office",
+  "clip": "clips/butlicker-the-office.mp4",
+  "film": "The Office",
+  "highlights": [
+    {
+      "slug": "limited-time-offer",
+      "atSec": 13.3
+    },
+    {
+      "slug": "hard-of-hearing",
+      "atSec": 58.4
+    },
+    {
+      "slug": "prices-have-never-been-lower",
+      "atSec": 64
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 2.3,
+      "text": "-Alright, fine.",
+      "tr": {
+        "ru": "—Хорошо, ладно.",
+        "es": "-De acuerdo, está bien."
+      }
+    },
+    {
+      "from": 2.3,
+      "to": 4.7,
+      "text": "Bring. Bring.",
+      "tr": {
+        "ru": "Принесите. Принесите.",
+        "es": "Trae. Trae."
+      }
+    },
+    {
+      "from": 4.7,
+      "to": 6.4,
+      "text": "Hello? -Hello, this is Dwight Schrute",
+      "tr": {
+        "ru": "Здравствуйте? — Здравствуйте, это Дуайт Шрут.",
+        "es": "¿Hola? -Hola, soy Dwight Schrute."
+      }
+    },
+    {
+      "from": 6.4,
+      "to": 8.1,
+      "text": "from the Dunder Mifflin Paper Company.",
+      "tr": {
+        "ru": "от компании Dunder Mifflin Paper Company.",
+        "es": "de la compañía papelera Dunder Mifflin."
+      }
+    },
+    {
+      "from": 8.1,
+      "to": 10.3,
+      "text": "-Well, that's great, 'cause I need paper.",
+      "tr": {
+        "ru": "— Ну, это здорово, потому что мне нужна бумага.",
+        "es": "-Bueno, eso es genial, porque necesito papel."
+      }
+    },
+    {
+      "from": 10.3,
+      "to": 11.3,
+      "text": "-Excellent, then you are in luck,",
+      "tr": {
+        "ru": "— Отлично, вам повезло!",
+        "es": "-Excelente, entonces tienes suerte,"
+      }
+    },
+    {
+      "from": 11.3,
+      "to": 13.3,
+      "text": "because we are having a limited-time offer",
+      "tr": {
+        "ru": "Потому что у нас действует ограниченное по времени предложение.",
+        "es": "porque tenemos una oferta por tiempo limitado"
+      }
+    },
+    {
+      "from": 13.3,
+      "to": 14.9,
+      "text": "only on everything.",
+      "tr": {
+        "ru": "Только на всём.",
+        "es": "Solo en todo."
+      }
+    },
+    {
+      "from": 14.9,
+      "to": 17.1,
+      "text": "-Wow, this is my lucky day. -Ask him his name.",
+      "tr": {
+        "ru": "— Ух ты, сегодня мой счастливый день. — Спроси его, как его зовут.",
+        "es": "—¡Guau, hoy es mi día de suerte! —Pregúntale su nombre."
+      }
+    },
+    {
+      "from": 17.1,
+      "to": 18.4,
+      "text": "-What is your name, sir?",
+      "tr": {
+        "ru": "— Как вас зовут, сэр?",
+        "es": "—¿Cuál es su nombre, señor?"
+      }
+    },
+    {
+      "from": 18.4,
+      "to": 21.1,
+      "text": "-I am Bill Butler.",
+      "tr": {
+        "ru": "— Меня зовут Билл Батлер.",
+        "es": "—Soy Bill Butler."
+      }
+    },
+    {
+      "from": 21.1,
+      "to": 22.9,
+      "text": "-Really, that's your real name?",
+      "tr": {
+        "ru": "—Правда? Это ваше настоящее имя?",
+        "es": "—¿De verdad ese es tu nombre real?"
+      }
+    },
+    {
+      "from": 22.9,
+      "to": 24.9,
+      "text": "-How dare you?",
+      "tr": {
+        "ru": "— Как ты смеешь?",
+        "es": "-¿Cómo te atreves?"
+      }
+    },
+    {
+      "from": 24.9,
+      "to": 27,
+      "text": "My family built this country, by the way.",
+      "tr": {
+        "ru": "Кстати, эту страну построила моя семья.",
+        "es": "Por cierto, mi familia construyó este país."
+      }
+    },
+    {
+      "from": 27,
+      "to": 29.1,
+      "text": "-Be respectful, Dwight, please. -Oh, yes, Michael.",
+      "tr": {
+        "ru": "— Проявите уважение, Дуайт, пожалуйста. — О, да, Майкл.",
+        "es": "—Sé respetuoso, Dwight, por favor. —Oh, sí, Michael."
+      }
+    },
+    {
+      "from": 29.1,
+      "to": 30.6,
+      "text": "-Could you hold on one second? That's my other line.",
+      "tr": {
+        "ru": "— Подождите секунду. Это моя вторая фраза.",
+        "es": "¿Podrías esperar un segundo? Esa es mi otra frase."
+      }
+    },
+    {
+      "from": 30.6,
+      "to": 32,
+      "text": "-What? -No, but I --",
+      "tr": {
+        "ru": "— Что? — Нет, но я…",
+        "es": "-¿Qué? -No, pero yo..."
+      }
+    },
+    {
+      "from": 32,
+      "to": 34.8,
+      "text": "-Hello? -Yeah.",
+      "tr": {
+        "ru": "—Здравствуйте? —Да.",
+        "es": "-¿Hola? -Sí."
+      }
+    },
+    {
+      "from": 34.8,
+      "to": 37,
+      "text": "-No, I'm just on the phone with this stupid salesman.",
+      "tr": {
+        "ru": "— Нет, я просто разговариваю по телефону с этим дурацким продавцом.",
+        "es": "-No, solo estoy hablando por teléfono con este estúpido vendedor."
+      }
+    },
+    {
+      "from": 37,
+      "to": 38.8,
+      "text": "He's so dumb.",
+      "tr": {
+        "ru": "Он такой тупица.",
+        "es": "Es tan tonto."
+      }
+    },
+    {
+      "from": 38.8,
+      "to": 40.7,
+      "text": "Probably just gonna keep him on the line forever",
+      "tr": {
+        "ru": "Наверное, просто буду держать его на связи вечно.",
+        "es": "Probablemente lo mantendrán en la línea para siempre."
+      }
+    },
+    {
+      "from": 40.7,
+      "to": 43.2,
+      "text": "and not buy anything.",
+      "tr": {
+        "ru": "и ничего не покупать.",
+        "es": "y no comprar nada."
+      }
+    },
+    {
+      "from": 43.2,
+      "to": 45.8,
+      "text": "Okay. -It's up to you to change his mind.",
+      "tr": {
+        "ru": "Хорошо. — Теперь тебе предстоит изменить его мнение.",
+        "es": "De acuerdo. -Depende de ti hacerle cambiar de opinión."
+      }
+    },
+    {
+      "from": 45.8,
+      "to": 48.3,
+      "text": "-Sorry. That was a family emergency.",
+      "tr": {
+        "ru": "—Извините. Это была семейная чрезвычайная ситуация.",
+        "es": "—Lo siento. Fue una emergencia familiar."
+      }
+    },
+    {
+      "from": 48.3,
+      "to": 50,
+      "text": "-Oh, no. What's wrong? -You know what?",
+      "tr": {
+        "ru": "— О нет. Что случилось? — Знаешь что?",
+        "es": "-Oh, no. ¿Qué pasa? -¿Sabes qué?"
+      }
+    },
+    {
+      "from": 50,
+      "to": 52.7,
+      "text": "That's private. -Boundaries, Dwight. Come on.",
+      "tr": {
+        "ru": "Это личное. — Границы, Дуайт. Ну же.",
+        "es": "Eso es privado. -Límites, Dwight. Vamos."
+      }
+    },
+    {
+      "from": 52.7,
+      "to": 55.5,
+      "text": "-I'm sorry, Mr. Butler. As I was saying,",
+      "tr": {
+        "ru": "— Прошу прощения, мистер Батлер. Как я уже говорил,",
+        "es": "-Lo siento, señor Butler. Como decía,"
+      }
+    },
+    {
+      "from": 55.5,
+      "to": 57.2,
+      "text": "we are having a limited -- -A little bit louder.",
+      "tr": {
+        "ru": "У нас будет ограниченное количество людей, поэтому будет немного громче.",
+        "es": "Estamos teniendo un aforo limitado... Un poco más alto."
+      }
+    },
+    {
+      "from": 57.2,
+      "to": 58.4,
+      "text": "I'm hard of hearing. -He's hard of --",
+      "tr": {
+        "ru": "У меня проблемы со слухом. — У него проблемы со слухом.",
+        "es": "Soy sordo. -Él es sordo-"
+      }
+    },
+    {
+      "from": 58.4,
+      "to": 59.7,
+      "text": "He's an old man. -Okay.",
+      "tr": {
+        "ru": "Он старик. — Хорошо.",
+        "es": "Es un hombre mayor. -De acuerdo."
+      }
+    },
+    {
+      "from": 59.7,
+      "to": 61.2,
+      "text": "As I was saying, right now, we are having --",
+      "tr": {
+        "ru": "Как я уже говорил, прямо сейчас у нас происходит...",
+        "es": "Como decía, ahora mismo estamos teniendo..."
+      }
+    },
+    {
+      "from": 61.2,
+      "to": 62.7,
+      "text": "-Yeah, talk louder. -Okay.",
+      "tr": {
+        "ru": "— Да, говори громче. — Хорошо.",
+        "es": "-Sí, habla más alto. -De acuerdo."
+      }
+    },
+    {
+      "from": 62.7,
+      "to": 64,
+      "text": "Our prices have never been lower.",
+      "tr": {
+        "ru": "Наши цены как никогда низкие.",
+        "es": "Nuestros precios nunca han sido tan bajos."
+      }
+    },
+    {
+      "from": 64,
+      "to": 66.1,
+      "text": "-Son, you have to talk louder. -Never been lower.",
+      "tr": {
+        "ru": "— Сынок, ты должен говорить громче. — Никогда не был так низко.",
+        "es": "-Hijo, tienes que hablar más alto. -Nunca he estado más bajo."
+      }
+    },
+    {
+      "from": 66.1,
+      "to": 68,
+      "text": "-Louder, son! -Butnaker!",
+      "tr": {
+        "ru": "—Громче, сынок! —Бутнакер!",
+        "es": "¡Más fuerte, hijo! ¡Butnaker!"
+      }
+    },
+    {
+      "from": 68,
+      "to": 69.8,
+      "text": "Our prices have never been lower!",
+      "tr": {
+        "ru": "Наши цены никогда не были такими низкими!",
+        "es": "¡Nuestros precios nunca han sido tan bajos!"
+      }
+    },
+    {
+      "from": 69.8,
+      "to": 72.6,
+      "text": "-Okay, stop it. -He --",
+      "tr": {
+        "ru": "— Ладно, прекрати. — Он…",
+        "es": "-Vale, para. -Él--"
+      }
+    },
+    {
+      "from": 72.6,
+      "to": 74.9,
+      "text": "-That is totally inappropriate.",
+      "tr": {
+        "ru": "— Это совершенно неуместно.",
+        "es": "-Eso es totalmente inapropiado."
+      }
+    },
+    {
+      "from": 74.9,
+      "to": 76.2,
+      "text": "You never yell at the client.",
+      "tr": {
+        "ru": "Никогда не кричите на клиента.",
+        "es": "Nunca le grites al cliente."
+      }
+    },
+    {
+      "from": 76.2,
+      "to": 77.9,
+      "text": "You never yell at the client. -Now, you listen to me, sir.",
+      "tr": {
+        "ru": "Вы никогда не кричите на клиента. — А теперь послушайте меня, сэр.",
+        "es": "Nunca le grites al cliente. -Ahora, escúchame, señor."
+      }
+    },
+    {
+      "from": 77.9,
+      "to": 78.9,
+      "text": "-Here we go.",
+      "tr": {
+        "ru": "-Вот так.",
+        "es": "-Aquí vamos."
+      }
+    },
+    {
+      "from": 78.9,
+      "to": 80.9,
+      "text": "-The three words I would describe you as",
+      "tr": {
+        "ru": "— Три слова, которыми я бы вас описал.",
+        "es": "-Las tres palabras con las que te describiría son:"
+      }
+    },
+    {
+      "from": 80.9,
+      "to": 84.3,
+      "text": "is aggressive, hostile, and definitely difficult.",
+      "tr": {
+        "ru": "Он агрессивен, враждебен и, безусловно, с ним трудно справиться.",
+        "es": "Es agresivo, hostil y definitivamente difícil."
+      }
+    }
+  ]
+}
