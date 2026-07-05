@@ -29,7 +29,7 @@ type Strings = {
 
 export const STRINGS: Record<NativeLang, Strings> = {
   ru: {
-    header: "Добавляем полезные слова и фразы из фильмов",
+    header: "Изучаем полезные слова и фразы из фильмов",
     tagline: "Учим английский язык",
     cancel: "Отмена",
     addToDict: "Добавить в словарь",
@@ -51,7 +51,7 @@ export const STRINGS: Record<NativeLang, Strings> = {
     },
   },
   es: {
-    header: "Añadimos palabras y frases útiles de las películas",
+    header: "Aprendemos palabras y frases útiles de las películas",
     tagline: "Aprende inglés",
     cancel: "Cancelar",
     addToDict: "Añadir al diccionario",
