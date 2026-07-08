@@ -34,7 +34,9 @@
     "render:mockups": "node scripts/render-mockups.mjs",
     "render:preview": "node scripts/render-preview.mjs",
     "stage-clip": "node scripts/stage-clip.mjs",
-    "transcribe": "node scripts/transcribe.mjs"
+    "transcribe": "node scripts/transcribe.mjs",
+    "transcribe-full": "node scripts/transcribe-full.mjs",
+    "cut-scene": "node scripts/cut-scene.mjs"
   },
   "sideEffects": [
     "*.css"

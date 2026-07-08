@@ -92,4 +92,7 @@ slow — if a foreground call times out, run the download in the background and 
 
 This project turns movie/show clips into vocabulary social videos. If the user next wants to
 cut the download into scenes and make subtitled videos with phrase mockups, that's the
-**`social-video`** skill — don't do it as part of "скачай это видео" unless they ask.
+**`social-video`** skill (its "From a long video → scenes" flow: `transcribe-full` →
+`cut-scene` per scene → per-scene pipeline). Don't do it as part of "скачай это видео" unless
+they ask — but if the user gave a link **and** asked for the videos in one go, chain straight
+into `social-video` after the download.

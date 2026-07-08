@@ -1,6 +1,6 @@
 ---
 name: social-video
-description: Build a social-media video (Remotion) from a movie-scene clip — play it with English subtitles, pausing on highlighted phrases to show a phone mockup of adding that phrase to the dictionary. Use when the user asks to make a social/reels video from a film clip.
+description: Build social-media videos (Remotion) that teach English — play a scene with subtitles, pausing on useful phrases to show a phone mockup of adding them to the dictionary. Accepts either a single pre-trimmed clip OR a long video / YouTube link, which it downloads and cuts into several ≤40s scenes first. Use when the user asks to make social/reels videos from a film clip or from a long video/URL.
 ---
 
 # Social Video
@@ -11,6 +11,53 @@ pauses on chosen phrases to demo adding them to the dictionary app.
 
 This is a Remotion project — read `.claude/skills/remotion-best-practices` and the existing
 `src/Dictionary` composition for the house style (colors, springs, `interpolate`, `staticFile`).
+
+## Two entry points
+
+1. **A long video or a YouTube link** (the common case now). The user drops **only a URL**
+   (or a path to a long video) and expects the whole thing end to end: download → cut into
+   several short scenes → for each scene run the per-scene pipeline below → finished videos +
+   descriptions. Do it all yourself, no confirmations. Start at **"From a long video → scenes"**.
+2. **A single pre-trimmed clip** (a path to one short scene). Skip straight to the per-scene
+   pipeline in **"Inputs — the user just drops an original clip"**.
+
+## From a long video → scenes (do this when given a URL / long video)
+
+Goal: turn one long video into **several standalone short scenes**, each ≤40s (shorter is
+fine), each starting and ending on a **complete thought** — never mid-sentence. Then run the
+normal per-scene pipeline for every scene.
+
+1. **Download** (if given a URL). Use the **`youtube-download`** skill to fetch the full video
+   in the best quality (default `~/Downloads`). For a local long file, skip this.
+2. **Transcribe the whole thing** to get timestamped segments to cut on:
+   ```
+   npm run transcribe-full -- /abs/path/to/full-video.mp4
+   ```
+   This writes `out/<name>.transcript.json` — a list of `{ text, from, to }` segments for the
+   entire video. Read it; this is your map for finding scene boundaries.
+3. **Pick scene boundaries** from the transcript. A good scene:
+   - is a **self-contained bit** — a joke, an exchange, one gag — with a **logical start**
+     (beginning of a sentence/beat, not the tail of a prior line) and a **logical end** (the
+     line lands; end on the punchy beat, not on trailing dead air or the next scene's setup).
+   - is **≤40s** (aim 15–35s). If a good bit runs long, tighten the in/out points; if it can't
+     fit without chopping a phrase, prefer a shorter self-contained sub-beat.
+   - **stands alone** — it should make sense to a viewer who hasn't seen the rest.
+   - Skip filler stretches (intros, logos, low-content chatter). You don't have to use the
+     whole video — pick the segments that actually contain **useful, reusable English**.
+4. **Cut each scene** into `public/clips/` with a frame-accurate re-encode:
+   ```
+   npm run cut-scene -- /abs/path/to/full-video.mp4 <startSec> <endSec> <slug>
+   ```
+   Choose a descriptive `<slug>` per scene (`<memorable-line>-<film>`, e.g.
+   `turtles-the-office`). This writes `public/clips/<slug>.mp4`. Set the start/end from the
+   transcript segment edges (a hair of lead-in/-out is fine; a chopped word is not).
+5. **For each scene, run the per-scene pipeline below** (identify film, create JSON pointing at
+   `clips/<slug>.mp4`, pick 2–3 highlights, transcribe the scene, mockups, render, describe).
+   Scenes are independent — you can do them one after another.
+
+> The per-scene `stage-clip` step is only for entry point 2 (a pre-trimmed clip). When you cut
+> with `cut-scene`, the clip is already in `public/clips/` — don't stage it again. Likewise the
+> per-scene "trim trailing dead air" step is unnecessary if you chose a clean out-point here.
 
 ## Inputs — the user just drops an original clip; do the rest yourself
 
@@ -32,7 +79,7 @@ Given just the clip, do this in order (details in the sections below):
    over the staged copy. End on a punchy beat, not dead air.
 4. **Create the video JSON** (`src/SocialVideo/videos/<slug>.json`) with `slug`, `clip`,
    `film`, `highlights: []`, `subtitles: []`, and register it in `schema.ts`.
-5. **Pick 3–4 highlights yourself** (see "Choosing highlights" below), add them to the JSON.
+5. **Pick 2–3 highlights yourself** (see "Choosing highlights" below), add them to the JSON.
 6. **Transcribe** (`npm run transcribe -- <slug>`) to fill subtitles + set each `atSec`, then
    **delete any trailing hallucinated lines** (whisper invents "Thank you." / "[silence]" over
    panting/quiet tails — remove them so subtitles stop with the last real line).
@@ -43,18 +90,26 @@ Given just the clip, do this in order (details in the sections below):
 
 ### Choosing highlights (you pick them)
 
-Pick **3–4** phrases from the transcribed dialogue that make good teaching material AND drive
-engagement. Good mix: **1–2 genuinely useful idioms/expressions** (e.g. "goes belly up",
-"clue you in") + **the iconic/quotable lines** of the scene (e.g. "I am the danger", "I am the
-one who knocks"). Rules:
+Pick **2–3** highlights per scene — **2 for a short scene (~15–25s), 3 for a longer one
+(~25–40s)**. A highlight can be a **phrase/idiom OR a single word** — whatever is genuinely
+worth learning.
+
+**The one criterion that matters: is it useful in real life?** Choose things the viewer could
+actually reuse in everyday English — practical idioms, common expressions, useful words
+("give it back", "to be fair", "way to go", "call us a cab"). That is the primary filter, above
+"iconic" or "funny". A memorable/quotable line is a bonus **only if it's also reusable**; skip
+lines that are famous but useless in real conversation, and skip filler ("yeah", "okay", proper
+nouns, scene-specific nonsense).
+
+Rules:
 
 - Each highlight's **`slug` must be the spoken words hyphenated** (e.g. `goes-belly-up`) —
   `transcribe` locates it by collapsing the slug to `[a-z0-9]` and finding the segment whose
   text contains it, then sets `atSec` to that segment's end. If a phrase can't be matched this
   way, pick a different chunk.
 - **Space them out** across the clip so pauses don't bunch up (each mockup adds ~5s).
-- Prefer phrases that are real, reusable English — not filler. Iconic lines are fine because
-  they're memorable, but include at least one broadly-useful expression.
+- If a scene has fewer than 2 genuinely useful items, it's a weak scene — prefer to pick a
+  different segment of the source video rather than pad with filler highlights.
 
 **Stage the clip into `public/clips/`** (Remotion can only read files under `public/`):
 
