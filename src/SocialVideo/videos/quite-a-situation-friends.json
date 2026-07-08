@@ -1,0 +1,116 @@
+{
+  "slug": "quite-a-situation-friends",
+  "clip": "clips/quite-a-situation-friends.mp4",
+  "film": "Friends",
+  "highlights": [
+    {
+      "slug": "i-need-some-help",
+      "atSec": 2
+    },
+    {
+      "slug": "that-is-quite-a-situation",
+      "atSec": 32.08
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 2,
+      "text": "Joey, it's Ross. I need some help.",
+      "tr": {
+        "ru": "Джои, это Росс. Мне нужна помощь.",
+        "es": "Joey, soy Ross. Necesito ayuda."
+      }
+    },
+    {
+      "from": 2,
+      "to": 4.84,
+      "text": "Chandler's not here.",
+      "tr": {
+        "ru": "Чандлера здесь нет.",
+        "es": "Chandler no está aquí."
+      }
+    },
+    {
+      "from": 4.84,
+      "to": 6.34,
+      "text": "Well, you can help me.",
+      "tr": {
+        "ru": "Ну, вы можете мне помочь.",
+        "es": "Bueno, puedes ayudarme."
+      }
+    },
+    {
+      "from": 6.34,
+      "to": 9.02,
+      "text": "Okay.",
+      "tr": {
+        "ru": "Хорошо.",
+        "es": "Bueno."
+      }
+    },
+    {
+      "from": 9.02,
+      "to": 11.82,
+      "text": "Listen, I'm in Elizabeth's bathroom.",
+      "tr": {
+        "ru": "Слушай, я в ванной Элизабет.",
+        "es": "Escucha, estoy en el baño de Elizabeth."
+      }
+    },
+    {
+      "from": 11.82,
+      "to": 13.1,
+      "text": "Nice.",
+      "tr": {
+        "ru": "Хороший.",
+        "es": "Lindo."
+      }
+    },
+    {
+      "from": 13.1,
+      "to": 18.24,
+      "text": "No, I got really hot in my leather pants, so I took them off.",
+      "tr": {
+        "ru": "Нет, мне стало очень жарко в кожаных штанах, поэтому я их снял.",
+        "es": "No, tenía mucho calor con mis pantalones de cuero, así que me los quité."
+      }
+    },
+    {
+      "from": 18.24,
+      "to": 20.08,
+      "text": "But they must have shrunk from there.",
+      "tr": {
+        "ru": "Но с тех пор они, должно быть, уменьшились в размерах.",
+        "es": "Pero a partir de ahí debieron de haberse encogido."
+      }
+    },
+    {
+      "from": 20.08,
+      "to": 24.2,
+      "text": "The sweat or something, or my legs expanded from the heat.",
+      "tr": {
+        "ru": "Пот или что-то еще, или мои ноги раздулись от жары.",
+        "es": "El sudor o algo así, o mis piernas se hincharon por el calor."
+      }
+    },
+    {
+      "from": 24.2,
+      "to": 28.58,
+      "text": "But I can't get them back on, Joey. I can't.",
+      "tr": {
+        "ru": "Но я не могу их снова надеть, Джои. Не могу.",
+        "es": "Pero no puedo volver a ponérmelas, Joey. No puedo."
+      }
+    },
+    {
+      "from": 29.58,
+      "to": 32.08,
+      "text": "Oh, that is quite a situation.",
+      "tr": {
+        "ru": "О, это довольно странная ситуация.",
+        "es": "Oh, vaya situación."
+      }
+    }
+  ]
+}

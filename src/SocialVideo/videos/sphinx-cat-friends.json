@@ -1,0 +1,143 @@
+{
+  "slug": "sphinx-cat-friends",
+  "clip": "clips/sphinx-cat-friends.mp4",
+  "film": "Friends",
+  "highlights": [
+    {
+      "slug": "what-the-hell-is-that",
+      "atSec": 5.22
+    },
+    {
+      "slug": "how-much-did-you-pay-for-that",
+      "atSec": 26.76
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 2.28,
+      "to": 3.72,
+      "text": "- Oh my God, what is--",
+      "tr": {
+        "ru": "— О боже, что это?..",
+        "es": "- ¡Oh, Dios mío, qué es...!"
+      }
+    },
+    {
+      "from": 3.72,
+      "to": 5.22,
+      "text": "- What the hell is that?",
+      "tr": {
+        "ru": "— Что это, чёрт возьми, такое?",
+        "es": "- ¿Qué demonios es eso?"
+      }
+    },
+    {
+      "from": 7.32,
+      "to": 8.68,
+      "text": "- It's a cat.",
+      "tr": {
+        "ru": "— Это кошка.",
+        "es": "- Es un gato."
+      }
+    },
+    {
+      "from": 8.68,
+      "to": 10.1,
+      "text": "- That is not a cat.",
+      "tr": {
+        "ru": "— Это не кошка.",
+        "es": "- Eso no es un gato."
+      }
+    },
+    {
+      "from": 11.52,
+      "to": 12.96,
+      "text": "- Yes, it is.",
+      "tr": {
+        "ru": "- Да, это.",
+        "es": "- Sí, lo es."
+      }
+    },
+    {
+      "from": 12.96,
+      "to": 14.64,
+      "text": "- Why is it inside out?",
+      "tr": {
+        "ru": "— Почему оно вывернуто наизнанку?",
+        "es": "- ¿Por qué está del revés?"
+      }
+    },
+    {
+      "from": 17.64,
+      "to": 22.36,
+      "text": "- Excuse me, but this is a purebred,",
+      "tr": {
+        "ru": "— Извините, но это чистокровная,",
+        "es": "- Disculpe, pero este es un pura sangre,"
+      }
+    },
+    {
+      "from": 22.36,
+      "to": 25.24,
+      "text": "show quality Sphinx cat.",
+      "tr": {
+        "ru": "Кошка породы сфинкс выставочного качества.",
+        "es": "Gato esfinge de calidad de exposición."
+      }
+    },
+    {
+      "from": 25.24,
+      "to": 26.76,
+      "text": "- How much did you pay for that?",
+      "tr": {
+        "ru": "— Сколько вы за это заплатили?",
+        "es": "- ¿Cuánto pagaste por eso?"
+      }
+    },
+    {
+      "from": 27.8,
+      "to": 29.16,
+      "text": "- Well, it was a little extravagant,",
+      "tr": {
+        "ru": "— Ну, это было немного расточительно,",
+        "es": "- Bueno, fue un poco extravagante,"
+      }
+    },
+    {
+      "from": 29.16,
+      "to": 30.72,
+      "text": "but I got a pretty good deal.",
+      "tr": {
+        "ru": "Но мне удалось заключить довольно выгодную сделку.",
+        "es": "pero conseguí una muy buena oferta."
+      }
+    },
+    {
+      "from": 30.72,
+      "to": 31.56,
+      "text": "- How much?",
+      "tr": {
+        "ru": "- Сколько?",
+        "es": "- ¿Cuánto cuesta?"
+      }
+    },
+    {
+      "from": 31.56,
+      "to": 32.54,
+      "text": "- A thousand bucks.",
+      "tr": {
+        "ru": "— Тысяча долларов.",
+        "es": "- Mil dólares."
+      }
+    },
+    {
+      "from": 34.42,
+      "to": 35.66,
+      "text": "- On a cat?",
+      "tr": {
+        "ru": "— На кошке?",
+        "es": "- ¿En un gato?"
+      }
+    }
+  ]
+}

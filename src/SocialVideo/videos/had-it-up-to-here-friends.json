@@ -1,0 +1,98 @@
+{
+  "slug": "had-it-up-to-here-friends",
+  "clip": "clips/had-it-up-to-here-friends.mp4",
+  "film": "Friends",
+  "highlights": [
+    {
+      "slug": "had-it-up-to-here",
+      "atSec": 15.32
+    },
+    {
+      "slug": "way-to-ruin-it",
+      "atSec": 22.22
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 3.84,
+      "text": "- Yeah, whew, I'll tell ya, it's hot with all this stuff on.",
+      "tr": {
+        "ru": "— Да, фух, скажу вам честно, в такой одежде жарко.",
+        "es": "- Sí, uf, te digo que hace calor con todo esto puesto."
+      }
+    },
+    {
+      "from": 3.84,
+      "to": 7.04,
+      "text": "I better not do any, I don't know, lunges.",
+      "tr": {
+        "ru": "Лучше мне не делать никаких, не знаю, выпадов.",
+        "es": "Será mejor que no haga, no sé, ninguna estocada."
+      }
+    },
+    {
+      "from": 9.88,
+      "to": 12.48,
+      "text": "- Okay, okay, enough, but not for the lunges.",
+      "tr": {
+        "ru": "— Ладно, ладно, хватит, но не для выпадов.",
+        "es": "- Vale, vale, suficiente, pero no para las estocadas."
+      }
+    },
+    {
+      "from": 12.48,
+      "to": 13.84,
+      "text": "No, I'm sick of this, okay?",
+      "tr": {
+        "ru": "Нет, мне это уже надоело, понятно?",
+        "es": "No, estoy harto de esto, ¿de acuerdo?"
+      }
+    },
+    {
+      "from": 13.84,
+      "to": 15.32,
+      "text": "I've had it up to here with you two.",
+      "tr": {
+        "ru": "С меня хватит вас двоих.",
+        "es": "Estoy harta de ustedes dos."
+      }
+    },
+    {
+      "from": 15.32,
+      "to": 17.22,
+      "text": "Neither of you can come to the party.",
+      "tr": {
+        "ru": "Никто из вас не сможет прийти на вечеринку.",
+        "es": "Ninguno de los dos puede venir a la fiesta."
+      }
+    },
+    {
+      "from": 17.22,
+      "to": 19.58,
+      "text": "- Jeez, what a baby.",
+      "tr": {
+        "ru": "— Боже, какой же он ребенок.",
+        "es": "- Dios mío, qué bebé."
+      }
+    },
+    {
+      "from": 19.58,
+      "to": 22.22,
+      "text": "- Yeah, Ross, way to ruin it.",
+      "tr": {
+        "ru": "— Да, Росс, ты всё испортил.",
+        "es": "- Sí, Ross, ¡qué manera de arruinarlo!"
+      }
+    },
+    {
+      "from": 22.22,
+      "to": 23.46,
+      "text": "I was just gonna go get dressed.",
+      "tr": {
+        "ru": "Я как раз собиралась пойти одеться.",
+        "es": "Iba a ir a vestirme."
+      }
+    }
+  ]
+}

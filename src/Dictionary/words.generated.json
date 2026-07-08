@@ -300,420 +300,6 @@
       ]
     },
     {
-      "slug": "limited-time-offer",
-      "lang": "ru",
-      "word": "Limited time offer",
-      "phonetic": "[lɪmɪtɪd taɪm ˈɔfər]",
-      "partOfSpeech": "noun",
-      "translation": "Предложение ограничено по времени",
-      "image": "words/limited-time-offer.jpg",
-      "examples": [
-        {
-          "original": "Don't miss out on this limited time offer!",
-          "translation": "Не упустите это предложение ограничено по времени!"
-        },
-        {
-          "original": "We're running a limited time offer for our new subscribers.",
-          "translation": "Мы проводим предложение ограничено по времени для наших новых подписчиков."
-        },
-        {
-          "original": "This limited time offer ends at midnight, so act fast!",
-          "translation": "Это предложение ограничено по времени заканчивается в полночь, так что действуйте быстро!"
-        }
-      ]
-    },
-    {
-      "slug": "hard-of-hearing",
-      "lang": "ru",
-      "word": "Hard of hearing",
-      "phonetic": "[hɑrd ʌv ˈhɪrɪŋ]",
-      "partOfSpeech": "adjective",
-      "translation": "Тугоухий",
-      "image": "words/hard-of-hearing.jpg",
-      "examples": [
-        {
-          "original": "My grandfather is hard of hearing, so we have to speak loudly.",
-          "translation": "Мой дедушка тугоухий, поэтому нам нужно говорить громко."
-        },
-        {
-          "original": "The community center offers special services for those who are hard of hearing.",
-          "translation": "Центр общественных услуг предлагает специальные услуги для тех, кто тугоухий."
-        },
-        {
-          "original": "She uses a hearing aid because she is hard of hearing.",
-          "translation": "Она использует слуховой аппарат, потому что она тугоухая."
-        }
-      ]
-    },
-    {
-      "slug": "prices-have-never-been-lower",
-      "lang": "ru",
-      "word": "Prices have never been lower",
-      "phonetic": "[praɪsɪz hæv ˈnɛvər bɪn ˈloʊər]",
-      "partOfSpeech": "phrase",
-      "translation": "Цены никогда не были такими низкими.",
-      "image": "words/prices-have-never-been-lower.jpg",
-      "examples": [
-        {
-          "original": "Prices have never been lower for concert tickets.",
-          "translation": "Цены никогда не были такими низкими на билеты на концерт."
-        },
-        {
-          "original": "With the current sale, prices have never been lower for electronics.",
-          "translation": "С текущей распродажей цены никогда не были такими низкими на электронику."
-        },
-        {
-          "original": "During the clearance event, prices have never been lower at this store.",
-          "translation": "Во время распродажи цены никогда не были такими низкими в этом магазине."
-        }
-      ]
-    },
-    {
-      "slug": "remain-calm",
-      "lang": "ru",
-      "word": "Remain calm",
-      "phonetic": "[rɪˈmeɪn kɑm]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Сохраняйте спокойствие",
-      "image": "words/remain-calm.jpg",
-      "examples": [
-        {
-          "original": "Even in tough situations, it’s important to remain calm.",
-          "translation": "Даже в сложных ситуациях важно сохранять спокойствие."
-        },
-        {
-          "original": "If you remain calm during the test, you will perform better.",
-          "translation": "Если вы сохраняете спокойствие во время экзамена, вы справитесь лучше."
-        },
-        {
-          "original": "The instructor advised us to remain calm when facing unexpected challenges.",
-          "translation": "Инструктор посоветовал нам сохранять спокойствие, сталкиваясь с непредвиденными трудностями."
-        }
-      ]
-    },
-    {
-      "slug": "make-a-u-turn-if-possible",
-      "lang": "ru",
-      "word": "Make a u turn if possible",
-      "phonetic": "[meɪk ə juː tɜrn ɪf ˈpɑsəbl]",
-      "partOfSpeech": "phrase",
-      "translation": "По возможности развернитесь.",
-      "image": "words/make-a-u-turn-if-possible.jpg",
-      "examples": [
-        {
-          "original": "Make a U-turn if possible at the next intersection.",
-          "translation": "По возможности развернитесь на next intersection."
-        },
-        {
-          "original": "If you miss the turn, make a U-turn if possible.",
-          "translation": "Если вы пропустили поворот, по возможности развернитесь."
-        },
-        {
-          "original": "I need you to make a U-turn if possible to get back on track.",
-          "translation": "Мне нужно, чтобы вы по возможности развернулись и вернулись на маршрут."
-        }
-      ]
-    },
-    {
-      "slug": "i-got-you",
-      "lang": "ru",
-      "word": "I got you",
-      "phonetic": "[aɪ ɡɑt ju]",
-      "partOfSpeech": "expression",
-      "translation": "Понял тебя",
-      "image": "words/i-got-you.jpg",
-      "examples": [
-        {
-          "original": "I got you a great gift for your birthday.",
-          "translation": "Я купил тебе отличный подарок на день рождения."
-        },
-        {
-          "original": "I got you covered if you need help with your project.",
-          "translation": "Я тебя поддержу, если тебе нужна помощь с проектом."
-        },
-        {
-          "original": "Don't worry, I got you when it comes to the finances.",
-          "translation": "Не переживай, я тебя поддержу в финансовых вопросах."
-        }
-      ]
-    },
-    {
-      "slug": "a-lot-of-attitude",
-      "lang": "ru",
-      "word": "A lot of attitude",
-      "phonetic": "[ə lɒt əv ˈætɪtjuːd]",
-      "partOfSpeech": "phrase",
-      "translation": "Много высокомерия",
-      "image": "words/a-lot-of-attitude.jpg",
-      "examples": [
-        {
-          "original": "She walked into the room with a lot of attitude.",
-          "translation": "Она вошла в комнату с большим высокомерием."
-        },
-        {
-          "original": "His comments reflected a lot of attitude towards the project.",
-          "translation": "Его комментарии отражали много высокомерия по отношению к проекту."
-        },
-        {
-          "original": "Having a lot of attitude can sometimes be off-putting.",
-          "translation": "Иногда много высокомерия может быть несимпатичным."
-        }
-      ]
-    },
-    {
-      "slug": "but-youre-saying-theres-a-chance",
-      "lang": "ru",
-      "word": "But youre saying theres a chance",
-      "phonetic": "[bʌt jʊər seɪɪŋ ðɛrz ə ʧæns]",
-      "partOfSpeech": "phrase",
-      "translation": "Но вы же говорите, что есть шанс?",
-      "image": "words/but-youre-saying-theres-a-chance.jpg",
-      "examples": [
-        {
-          "original": "But you're saying there's a chance we could win?",
-          "translation": "Но вы же говорите, что есть шанс, что мы можем выиграть?"
-        },
-        {
-          "original": "I can't believe you're saying there's a chance for us to make it work.",
-          "translation": "Я не могу поверить, что вы говорите, что есть шанс, что у нас все получится."
-        },
-        {
-          "original": "Are you really saying there's a chance I'll get the job?",
-          "translation": "Вы серьезно говорите, что есть шанс, что я получу эту работу?"
-        }
-      ]
-    },
-    {
-      "slug": "safest-part-of-a-car",
-      "lang": "ru",
-      "word": "Safest part of a car",
-      "phonetic": "[seɪfɪst pɑrt ʌv ə kɑr]",
-      "partOfSpeech": "noun",
-      "translation": "Самая безопасная часть автомобиля",
-      "image": "words/safest-part-of-a-car.jpg",
-      "examples": [
-        {
-          "original": "The safest part of a car during a crash is usually the passenger compartment.",
-          "translation": "Самая безопасная часть автомобиля во время аварии обычно — это пассажирский отсек."
-        },
-        {
-          "original": "When buying a new car, it's important to know which is the safest part of a car for your family.",
-          "translation": "При покупке нового автомобиля важно знать, какая часть автомобиля самая безопасная для вашей семьи."
-        },
-        {
-          "original": "The seatbelt is considered the safest part of a car for protecting passengers.",
-          "translation": "Ремень безопасности считается самой безопасной частью автомобиля для защиты пассажиров."
-        }
-      ]
-    },
-    {
-      "slug": "fax-it-over",
-      "lang": "ru",
-      "word": "Fax it over",
-      "phonetic": "[faks ɪt ˈoʊvər]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Отправьте по факсу",
-      "image": "words/fax-it-over.jpg",
-      "examples": [
-        {
-          "original": "Can you fax it over by noon?",
-          "translation": "Можешь отправить по факсу к полудню?"
-        },
-        {
-          "original": "Please fax it over to my office as soon as possible.",
-          "translation": "Пожалуйста, отправьте по факсу в мой офис как можно скорее."
-        },
-        {
-          "original": "I will fax it over for your records.",
-          "translation": "Я отправлю это по факсу для ваших документов."
-        }
-      ]
-    },
-    {
-      "slug": "i-got-a-knock-knock-joke",
-      "lang": "ru",
-      "word": "I got a knock knock joke",
-      "phonetic": "[aɪ gɒt ə nɒk nɒk dʒoʊk]",
-      "partOfSpeech": "phrase",
-      "translation": "У меня есть шутка \"Тук-тук\".",
-      "image": "words/i-got-a-knock-knock-joke.jpg",
-      "examples": [
-        {
-          "original": "I got a knock knock joke that will make you laugh.",
-          "translation": "У меня есть шутка \"Тук-тук\", которая заставит тебя смеяться."
-        },
-        {
-          "original": "Can I tell you a knock knock joke?",
-          "translation": "Могу я рассказать тебе шутку \"Тук-тук\"?"
-        },
-        {
-          "original": "I heard a funny knock knock joke at the party last night.",
-          "translation": "Я слышал забавную шутку \"Тук-тук\" на вечеринке прошлой ночью."
-        }
-      ]
-    },
-    {
-      "slug": "no-more-knock-knock-jokes",
-      "lang": "ru",
-      "word": "No more knock knock jokes",
-      "phonetic": "[no mɔr nɑk nɑk dʒoʊks]",
-      "partOfSpeech": "phrase",
-      "translation": "Больше никаких шуток \"тук-тук\"",
-      "image": "words/no-more-knock-knock-jokes.jpg",
-      "examples": [
-        {
-          "original": "I can't stand knock knock jokes anymore.",
-          "translation": "Я больше не выношу шутки 'тук-тук'."
-        },
-        {
-          "original": "Let's agree to stop telling knock knock jokes.",
-          "translation": "Давай договоримся больше не рассказывать шутки 'тук-тук'."
-        },
-        {
-          "original": "I used to love knock knock jokes, but not anymore.",
-          "translation": "Раньше мне нравились шутки 'тук-тук', но теперь нет."
-        }
-      ]
-    },
-    {
-      "slug": "give-it-back",
-      "lang": "ru",
-      "word": "Give it back",
-      "phonetic": "[gɪv ɪt bæk]",
-      "partOfSpeech": "phrase",
-      "translation": "Верните это",
-      "image": "words/give-it-back.jpg",
-      "examples": [
-        {
-          "original": "Please give it back to me when you're done.",
-          "translation": "Пожалуйста, верните это мне, когда закончите."
-        },
-        {
-          "original": "I want you to give it back without any arguments.",
-          "translation": "Я хочу, чтобы вы вернули это без каких-либо споров."
-        },
-        {
-          "original": "He forgot to give it back after borrowing it.",
-          "translation": "Он забыл вернуть это после того, как занял."
-        }
-      ]
-    },
-    {
-      "slug": "call-us-a-cab",
-      "lang": "ru",
-      "word": "Call us a cab",
-      "phonetic": "[kɔl ʌs ə kæb]",
-      "partOfSpeech": "phrase",
-      "translation": "Вызвать нам такси",
-      "image": "words/call-us-a-cab.jpg",
-      "examples": [
-        {
-          "original": "Can you call us a cab for the airport?",
-          "translation": "Вы можете вызвать нам такси в аэропорт?"
-        },
-        {
-          "original": "After dinner, we should call us a cab to get home.",
-          "translation": "После ужина нам стоит вызвать такси, чтобы доехать домой."
-        },
-        {
-          "original": "If it's late, I will call us a cab to avoid walking.",
-          "translation": "Если будет поздно, я вызову нам такси, чтобы избежать прогулки."
-        }
-      ]
-    },
-    {
-      "slug": "where-are-the-turtles",
-      "lang": "ru",
-      "word": "Where are the turtles",
-      "phonetic": "[wɛr ɑr ðə tɜrtlz]",
-      "partOfSpeech": "phrase",
-      "translation": "Где черепахи?",
-      "image": "words/where-are-the-turtles.jpg",
-      "examples": [
-        {
-          "original": "Where are the turtles hiding?",
-          "translation": "Где прячутся черепахи?"
-        },
-        {
-          "original": "I wonder where the turtles go during winter.",
-          "translation": "Мне интересно, куда уходят черепахи зимой."
-        },
-        {
-          "original": "Have you seen where the turtles are swimming?",
-          "translation": "Ты видел, где плавают черепахи?"
-        }
-      ]
-    },
-    {
-      "slug": "right-back-at-you",
-      "lang": "ru",
-      "word": "Right back at you",
-      "phonetic": "[raɪt bæk æt ju]",
-      "partOfSpeech": "phrase",
-      "translation": "И тебе того же",
-      "image": "words/right-back-at-you.jpg",
-      "examples": [
-        {
-          "original": "When you send me a compliment, I say, right back at you!",
-          "translation": "Когда ты говоришь мне комплимент, я отвечаю: и тебе того же!"
-        },
-        {
-          "original": "Thanks for the birthday wishes, and right back at you for your special day!",
-          "translation": "Спасибо за пожелания ко дню рождения, и тебе того же в твой особенный день!"
-        },
-        {
-          "original": "If you believe in me, then right back at you for always supporting me.",
-          "translation": "Если ты веришь в меня, то и тебе того же за то, что всегда поддерживаешь меня."
-        }
-      ]
-    },
-    {
-      "slug": "whats-your-daughters-name-again",
-      "lang": "ru",
-      "word": "Whats your daughters name again",
-      "phonetic": "[wʌts jʊr ˈdɔtərz neɪm əˈɡɛn]",
-      "partOfSpeech": "phrase",
-      "translation": "Как зовут вашу дочь?",
-      "image": "words/whats-your-daughters-name-again.jpg",
-      "examples": [
-        {
-          "original": "What's your daughter's name again? I keep forgetting.",
-          "translation": "Как зовут вашу дочь снова? Я все время забываю."
-        },
-        {
-          "original": "Could you remind me what your daughter's name is again?",
-          "translation": "Не могли бы вы напомнить, как зовут вашу дочь?"
-        },
-        {
-          "original": "I met your daughter last week, but I can't recall her name right now.",
-          "translation": "Я встретил вашу дочь на прошлой неделе, но сейчас не могу вспомнить, как ее зовут."
-        }
-      ]
-    },
-    {
-      "slug": "to-be-fair",
-      "lang": "ru",
-      "word": "To be fair",
-      "phonetic": "[tə bi fɛr]",
-      "partOfSpeech": "phrase",
-      "translation": "Справедливости ради",
-      "image": "words/to-be-fair.jpg",
-      "examples": [
-        {
-          "original": "To be fair, everyone makes mistakes sometimes.",
-          "translation": "Справедливости ради, все иногда совершают ошибки."
-        },
-        {
-          "original": "To be fair, he did try his best in the project.",
-          "translation": "Справедливости ради, он действительно старался в проекте."
-        },
-        {
-          "original": "To be fair, the weather was unpredictable during our trip.",
-          "translation": "Справедливости ради, погода была непредсказуемой во время нашей поездки."
-        }
-      ]
-    },
-    {
       "slug": "way-to-go",
       "lang": "ru",
       "word": "Way to go",
@@ -779,6 +365,190 @@
         {
           "original": "I reported the hate crime to the authorities as soon as it happened.",
           "translation": "Я сообщила о преступлении на почве ненависти в власти, как только это произошло."
+        }
+      ]
+    },
+    {
+      "slug": "had-it-up-to-here",
+      "lang": "ru",
+      "word": "Had it up to here",
+      "phonetic": "[hæd ɪt ʌp tu hɪr]",
+      "partOfSpeech": "idiom",
+      "translation": "До этого уже было.",
+      "image": "words/had-it-up-to-here.jpg",
+      "examples": [
+        {
+          "original": "I've had it up to here with all the noise in this office.",
+          "translation": "С меня хватит этого шума в этом офисе."
+        },
+        {
+          "original": "She said she's had it up to here with his excuses.",
+          "translation": "Она сказала, что с него хватит этих отговорок."
+        },
+        {
+          "original": "After the third delay, I really had it up to here with their service.",
+          "translation": "После третьей задержки я действительно был с ними вот в таком положении по поводу их обслуживания."
+        }
+      ]
+    },
+    {
+      "slug": "way-to-ruin-it",
+      "lang": "ru",
+      "word": "Way to ruin it",
+      "phonetic": "[weɪ tu ruːɪn ɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "Вот так всё испортить!",
+      "image": "words/way-to-ruin-it.jpg",
+      "examples": [
+        {
+          "original": "That was such a great party, but you found a way to ruin it.",
+          "translation": "Это была такая классная вечеринка, но ты нашёл способ всё испортить."
+        },
+        {
+          "original": "I can't believe you had a way to ruin the surprise we planned for her.",
+          "translation": "Не могу поверить, что у тебя нашёлся способ испортить сюрприз, который мы для неё подготовили."
+        },
+        {
+          "original": "He always has a way to ruin the fun whenever we go out.",
+          "translation": "У него всегда есть способ испортить веселье, когда мы выходим."
+        }
+      ]
+    },
+    {
+      "slug": "i-need-some-help",
+      "lang": "ru",
+      "word": "I need some help",
+      "phonetic": "[aɪ nid səm hɛlp]",
+      "partOfSpeech": "phrase",
+      "translation": "Мне нужна помощь.",
+      "image": "words/i-need-some-help.jpg",
+      "examples": [
+        {
+          "original": "I need some help with my homework.",
+          "translation": "Мне нужна помощь с домашним заданием."
+        },
+        {
+          "original": "Do you think you could offer me some help?",
+          "translation": "Ты думаешь, что сможешь помочь мне?"
+        },
+        {
+          "original": "I'm not afraid to ask for help when I need it.",
+          "translation": "Я не боюсь попросить о помощи, когда мне это нужно."
+        }
+      ]
+    },
+    {
+      "slug": "that-is-quite-a-situation",
+      "lang": "ru",
+      "word": "That is quite a situation",
+      "phonetic": "[ðæt ɪz kwaɪt ə sɪtʃueɪʃən]",
+      "partOfSpeech": "phrase",
+      "translation": "Это довольно неприятная ситуация.",
+      "image": "words/that-is-quite-a-situation.jpg",
+      "examples": [
+        {
+          "original": "It seems that is quite a situation for everyone involved.",
+          "translation": "Похоже, что это довольно неприятная ситуация для всех вовлеченных."
+        },
+        {
+          "original": "I must say, that is quite a situation to find yourself in.",
+          "translation": "Должен сказать, что это довольно неприятная ситуация, в которой ты оказался."
+        },
+        {
+          "original": "When I heard the news, I realized that is quite a situation.",
+          "translation": "Когда я услышал новости, я понял, что это довольно неприятная ситуация."
+        }
+      ]
+    },
+    {
+      "slug": "what-the-hell-is-that",
+      "lang": "ru",
+      "word": "What the hell is that",
+      "phonetic": "[wɒt ðə hɛl ɪz ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "Что это, чёрт возьми?",
+      "image": "words/what-the-hell-is-that.jpg",
+      "examples": [
+        {
+          "original": "What the hell is that noise coming from the basement?",
+          "translation": "Что это, чёрт возьми, за шум из подвала?"
+        },
+        {
+          "original": "I just found out he got fired, and I'm like, what the hell is that all about?",
+          "translation": "Я только что узнал, что его уволили, и я думаю: что это, чёрт возьми, такое?"
+        },
+        {
+          "original": "When I saw the price of the concert tickets, I couldn't help but say, what the hell is that?",
+          "translation": "Когда я увидел цену на билеты на концерт, я не мог не сказать: что это, чёрт возьми, такое?"
+        }
+      ]
+    },
+    {
+      "slug": "how-much-did-you-pay-for-that",
+      "lang": "ru",
+      "word": "How much did you pay for that",
+      "phonetic": "[haʊ mʌtʃ dɪd ju peɪ fɔr ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "Сколько вы за это заплатили?",
+      "image": "words/how-much-did-you-pay-for-that.jpg",
+      "examples": [
+        {
+          "original": "How much did you pay for that concert ticket?",
+          "translation": "Сколько вы заплатили за этот билет на концерт?"
+        },
+        {
+          "original": "I'm curious, how much did you pay for your new bike?",
+          "translation": "Мне любопытно, сколько вы заплатили за свой новый велосипед?"
+        },
+        {
+          "original": "She asked me how much I paid for the vintage shirt.",
+          "translation": "Она спросила меня, сколько я заплатил за винтажную футболку."
+        }
+      ]
+    },
+    {
+      "slug": "kick-my-ass",
+      "lang": "ru",
+      "word": "Kick my ass",
+      "phonetic": "[kɪk maɪ æs]",
+      "partOfSpeech": "phrase",
+      "translation": "Надрать мне задницу",
+      "image": "words/kick-my-ass.jpg",
+      "examples": [
+        {
+          "original": "If you keep challenging me, I'm going to kick your ass.",
+          "translation": "Если ты продолжишь бросать мне вызов, я надру тебе задницу."
+        },
+        {
+          "original": "He said he can kick my ass in a fight.",
+          "translation": "Он сказал, что может надрать мне задницу в бою."
+        },
+        {
+          "original": "Don't mess with her; she can really kick your ass!",
+          "translation": "Не связывайся с ней; она действительно может надрать тебе задницу!"
+        }
+      ]
+    },
+    {
+      "slug": "make-my-point",
+      "lang": "ru",
+      "word": "Make my point",
+      "phonetic": "[meɪk maɪ pɔɪnt]",
+      "partOfSpeech": "phrase",
+      "translation": "Изложить свою точку зрения",
+      "image": "words/make-my-point.jpg",
+      "examples": [
+        {
+          "original": "During the meeting, I tried to make my point clearly to everyone.",
+          "translation": "Во время встречи я пытался четко изложить свою точку зрения всем."
+        },
+        {
+          "original": "It's important to make my point without being too aggressive.",
+          "translation": "Важно изложить свою точку зрения, не будучи слишком агрессивным."
+        },
+        {
+          "original": "I wrote an essay to make my point about climate change.",
+          "translation": "Я написал эссе, чтобы изложить свою точку зрения по поводу изменения климата."
         }
       ]
     }
@@ -1084,420 +854,6 @@
       ]
     },
     {
-      "slug": "limited-time-offer",
-      "lang": "es",
-      "word": "Limited time offer",
-      "phonetic": "[ˈlɪmɪtɪd taɪm ˈɔfər]",
-      "partOfSpeech": "noun",
-      "translation": "Oferta por tiempo limitado",
-      "image": "words/limited-time-offer.jpg",
-      "examples": [
-        {
-          "original": "Don't miss out on our limited time offer for 50% off!",
-          "translation": "¡No te pierdas nuestra oferta por tiempo limitado del 50% de descuento!"
-        },
-        {
-          "original": "This limited time offer is valid until the end of the month.",
-          "translation": "Esta oferta por tiempo limitado es válida hasta fin de mes."
-        },
-        {
-          "original": "Sign up today to take advantage of this limited time offer.",
-          "translation": "Regístrate hoy para aprovechar esta oferta por tiempo limitado."
-        }
-      ]
-    },
-    {
-      "slug": "hard-of-hearing",
-      "lang": "es",
-      "word": "Hard of hearing",
-      "phonetic": "[hɑrd əv ˈhɪərɪŋ]",
-      "partOfSpeech": "adjective",
-      "translation": "Dificultad auditiva",
-      "image": "words/hard-of-hearing.jpg",
-      "examples": [
-        {
-          "original": "My grandfather is hard of hearing, so we have to speak loudly around him.",
-          "translation": "Mi abuelo tiene dificultad auditiva, así que tenemos que hablar en voz alta cerca de él."
-        },
-        {
-          "original": "There are special devices that can help those who are hard of hearing.",
-          "translation": "Hay dispositivos especiales que pueden ayudar a aquellos que tienen dificultad auditiva."
-        },
-        {
-          "original": "Many organizations offer resources for people who are hard of hearing.",
-          "translation": "Muchas organizaciones ofrecen recursos para personas que tienen dificultad auditiva."
-        }
-      ]
-    },
-    {
-      "slug": "prices-have-never-been-lower",
-      "lang": "es",
-      "word": "Prices have never been lower",
-      "phonetic": "[praɪsɪz hæv ˈnɛvər bɪn ˈloʊər]",
-      "partOfSpeech": "phrase",
-      "translation": "Los precios nunca han sido más bajos",
-      "image": "words/prices-have-never-been-lower.jpg",
-      "examples": [
-        {
-          "original": "During the sale, prices have never been lower.",
-          "translation": "Durante la venta, los precios nunca han sido más bajos."
-        },
-        {
-          "original": "With these discounts, prices have never been lower.",
-          "translation": "Con estos descuentos, los precios nunca han sido más bajos."
-        },
-        {
-          "original": "For a limited time, prices have never been lower than this.",
-          "translation": "Por un tiempo limitado, los precios nunca han sido más bajos que esto."
-        }
-      ]
-    },
-    {
-      "slug": "remain-calm",
-      "lang": "es",
-      "word": "Remain calm",
-      "phonetic": "[rɪˈmeɪn kɑm]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Mantén la calma",
-      "image": "words/remain-calm.jpg",
-      "examples": [
-        {
-          "original": "During the meeting, it's important to remain calm even when discussions get heated.",
-          "translation": "Durante la reunión, es importante mantener la calma incluso cuando las discusiones se calientan."
-        },
-        {
-          "original": "If you encounter a problem while driving, try to remain calm and assess the situation.",
-          "translation": "Si encuentras un problema mientras conduces, intenta mantener la calma y evaluar la situación."
-        },
-        {
-          "original": "Teachers often advise students to remain calm before taking an exam.",
-          "translation": "Los profesores a menudo aconsejan a los estudiantes que mantengan la calma antes de hacer un examen."
-        }
-      ]
-    },
-    {
-      "slug": "make-a-u-turn-if-possible",
-      "lang": "es",
-      "word": "Make a u turn if possible",
-      "phonetic": "[meɪk ə ju tɜrn ɪf ˈpɑsəbl]",
-      "partOfSpeech": "phrase",
-      "translation": "Si es posible, haga un giro en U.",
-      "image": "words/make-a-u-turn-if-possible.jpg",
-      "examples": [
-        {
-          "original": "You should make a U-turn if you missed your exit.",
-          "translation": "Deberías hacer un giro en U si perdiste tu salida."
-        },
-        {
-          "original": "If you can't find the address, make a U-turn and start over.",
-          "translation": "Si no puedes encontrar la dirección, haz un giro en U y comienza de nuevo."
-        },
-        {
-          "original": "Make a U-turn at the next traffic light to get to the park.",
-          "translation": "Haz un giro en U en el próximo semáforo para llegar al parque."
-        }
-      ]
-    },
-    {
-      "slug": "i-got-you",
-      "lang": "es",
-      "word": "I got you",
-      "phonetic": "[aɪ ɡɒt ju]",
-      "partOfSpeech": "phrase",
-      "translation": "Te entendí",
-      "image": "words/i-got-you.jpg",
-      "examples": [
-        {
-          "original": "I got you, don't worry about a thing.",
-          "translation": "Te entendí, no te preocupes por nada."
-        },
-        {
-          "original": "When you explained it, I finally got you.",
-          "translation": "Cuando lo explicaste, finalmente te entendí."
-        },
-        {
-          "original": "I got you covered if you need help.",
-          "translation": "Te entendí, estoy aquí si necesitas ayuda."
-        }
-      ]
-    },
-    {
-      "slug": "a-lot-of-attitude",
-      "lang": "es",
-      "word": "A lot of attitude",
-      "phonetic": "[ə lɒt əv ætɪtjuːd]",
-      "partOfSpeech": "phrase",
-      "translation": "Mucha actitud",
-      "image": "words/a-lot-of-attitude.jpg",
-      "examples": [
-        {
-          "original": "She walked into the room with a lot of attitude.",
-          "translation": "Ella entró en la habitación con mucha actitud."
-        },
-        {
-          "original": "I love his style; he always has a lot of attitude.",
-          "translation": "Me encanta su estilo; siempre tiene mucha actitud."
-        },
-        {
-          "original": "The singer performed with a lot of attitude, captivating the audience.",
-          "translation": "La cantante actuó con mucha actitud, cautivando al público."
-        }
-      ]
-    },
-    {
-      "slug": "but-youre-saying-theres-a-chance",
-      "lang": "es",
-      "word": "But youre saying theres a chance",
-      "phonetic": "[bʌt jʊər seɪɪŋ ðɛrz ə tʃæns]",
-      "partOfSpeech": "phrase",
-      "translation": "Pero dices que hay una posibilidad",
-      "image": "words/but-youre-saying-theres-a-chance.jpg",
-      "examples": [
-        {
-          "original": "I know you're saying there's a chance, but I'm not sure about it.",
-          "translation": "Sé que dices que hay una posibilidad, pero no estoy seguro de eso."
-        },
-        {
-          "original": "Even though you're saying there's a chance, I'm still worried about the outcome.",
-          "translation": "A pesar de que dices que hay una posibilidad, todavía estoy preocupado por el resultado."
-        },
-        {
-          "original": "If you're saying there's a chance, then we should definitely go for it.",
-          "translation": "Si dices que hay una posibilidad, entonces definitivamente deberíamos intentarlo."
-        }
-      ]
-    },
-    {
-      "slug": "safest-part-of-a-car",
-      "lang": "es",
-      "word": "Safest part of a car",
-      "phonetic": "[seɪfɪst pɑrt ʌv ə kɑr]",
-      "partOfSpeech": "noun",
-      "translation": "La parte más segura de un coche",
-      "image": "words/safest-part-of-a-car.jpg",
-      "examples": [
-        {
-          "original": "The safest part of a car is usually the area around the passenger compartment.",
-          "translation": "La parte más segura de un coche suele ser el área alrededor del compartimento de pasajeros."
-        },
-        {
-          "original": "Always make sure to sit in the safest part of a car during a crash.",
-          "translation": "Siempre asegúrate de sentarte en la parte más segura de un coche durante un accidente."
-        },
-        {
-          "original": "The safest part of a car provides the best protection in an accident.",
-          "translation": "La parte más segura de un coche ofrece la mejor protección en un accidente."
-        }
-      ]
-    },
-    {
-      "slug": "fax-it-over",
-      "lang": "es",
-      "word": "Fax it over",
-      "phonetic": "[fæks ɪt ˈoʊvər]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Enviarlo por fax",
-      "image": "words/fax-it-over.jpg",
-      "examples": [
-        {
-          "original": "Could you fax it over to me by noon?",
-          "translation": "¿Podrías enviarlo por fax antes del mediodía?"
-        },
-        {
-          "original": "Please fax it over, so I can review it before the meeting.",
-          "translation": "Por favor, envíalo por fax para que pueda revisarlo antes de la reunión."
-        },
-        {
-          "original": "I will fax it over as soon as I finish the document.",
-          "translation": "Lo enviaré por fax tan pronto como termine el documento."
-        }
-      ]
-    },
-    {
-      "slug": "i-got-a-knock-knock-joke",
-      "lang": "es",
-      "word": "I got a knock knock joke",
-      "phonetic": "[aɪ ɡɑt ə nɑk nɑk dʒoʊk]",
-      "partOfSpeech": "noun",
-      "translation": "Tengo un chiste de toc toc",
-      "image": "words/i-got-a-knock-knock-joke.jpg",
-      "examples": [
-        {
-          "original": "I got a knock knock joke that will make you laugh.",
-          "translation": "Tengo un chiste de toc toc que te hará reír."
-        },
-        {
-          "original": "Let me tell you a knock knock joke I heard yesterday.",
-          "translation": "Déjame contarte un chiste de toc toc que escuché ayer."
-        },
-        {
-          "original": "Do you want to hear a knock knock joke?",
-          "translation": "¿Quieres escuchar un chiste de toc toc?"
-        }
-      ]
-    },
-    {
-      "slug": "no-more-knock-knock-jokes",
-      "lang": "es",
-      "word": "No more knock knock jokes",
-      "phonetic": "[no mɔr nɑk nɑk dʒoʊks]",
-      "partOfSpeech": "phrase",
-      "translation": "No más chistes de toc toc",
-      "image": "words/no-more-knock-knock-jokes.jpg",
-      "examples": [
-        {
-          "original": "I think we've heard enough knock knock jokes for one day.",
-          "translation": "Creo que hemos escuchado suficientes chistes de toc toc por un día."
-        },
-        {
-          "original": "My friend loves to tell knock knock jokes, but they get old quickly.",
-          "translation": "A mi amigo le encanta contar chistes de toc toc, pero se vuelven aburridos rápidamente."
-        },
-        {
-          "original": "Can we please move on from knock knock jokes? They're not funny anymore.",
-          "translation": "¿Podemos por favor pasar de los chistes de toc toc? Ya no son graciosos."
-        }
-      ]
-    },
-    {
-      "slug": "give-it-back",
-      "lang": "es",
-      "word": "Give it back",
-      "phonetic": "[gɪv ɪt bæk]",
-      "partOfSpeech": "phrase",
-      "translation": "Devuélvelo",
-      "image": "words/give-it-back.jpg",
-      "examples": [
-        {
-          "original": "Please give it back to me when you're done.",
-          "translation": "Por favor, devuélvelo cuando termines."
-        },
-        {
-          "original": "I want you to give it back right now.",
-          "translation": "Quiero que me lo devuelvas ahora mismo."
-        },
-        {
-          "original": "If you take something, you should give it back.",
-          "translation": "Si tomas algo, debes devolverlo."
-        }
-      ]
-    },
-    {
-      "slug": "call-us-a-cab",
-      "lang": "es",
-      "word": "Call us a cab",
-      "phonetic": "[kɔl ʌs ə kæb]",
-      "partOfSpeech": "phrase",
-      "translation": "Llámenos y pida un taxi.",
-      "image": "words/call-us-a-cab.jpg",
-      "examples": [
-        {
-          "original": "You should call us a cab when you're ready to leave.",
-          "translation": "Deberías llámanos un taxi cuando estés listo para irte."
-        },
-        {
-          "original": "If you need a ride, just call us a cab.",
-          "translation": "Si necesitas un viaje, solo llámanos un taxi."
-        },
-        {
-          "original": "She decided to call us a cab after the meeting.",
-          "translation": "Ella decidió llamarnos un taxi después de la reunión."
-        }
-      ]
-    },
-    {
-      "slug": "where-are-the-turtles",
-      "lang": "es",
-      "word": "Where are the turtles",
-      "phonetic": "[wɛr ɑr ðə tɜrtlz]",
-      "partOfSpeech": "phrase",
-      "translation": "¿Dónde están las tortugas?",
-      "image": "words/where-are-the-turtles.jpg",
-      "examples": [
-        {
-          "original": "Where are the turtles usually found?",
-          "translation": "¿Dónde se suelen encontrar las tortugas?"
-        },
-        {
-          "original": "I wonder where the turtles go during the winter.",
-          "translation": "Me pregunto dónde van las tortugas durante el invierno."
-        },
-        {
-          "original": "Can you tell me where the turtles are located in the museum?",
-          "translation": "¿Puedes decirme dónde están las tortugas en el museo?"
-        }
-      ]
-    },
-    {
-      "slug": "right-back-at-you",
-      "lang": "es",
-      "word": "Right back at you",
-      "phonetic": "[raɪt bæk æt ju]",
-      "partOfSpeech": "phrase",
-      "translation": "Te lo devuelvo",
-      "image": "words/right-back-at-you.jpg",
-      "examples": [
-        {
-          "original": "When someone compliments you, a great response is to say, 'Right back at you!'",
-          "translation": "Cuando alguien te hace un cumplido, una gran respuesta es decir: '¡Te lo devuelvo!'"
-        },
-        {
-          "original": "She smiled and said, 'Right back at you!' after he wished her good luck.",
-          "translation": "Ella sonrió y dijo: '¡Te lo devuelvo!' después de que él le deseó buena suerte."
-        },
-        {
-          "original": "If your friend gives you a gift, don't forget to say, 'Right back at you!'",
-          "translation": "Si tu amigo te da un regalo, no olvides decir: '¡Te lo devuelvo!'"
-        }
-      ]
-    },
-    {
-      "slug": "whats-your-daughters-name-again",
-      "lang": "es",
-      "word": "Whats your daughters name again",
-      "phonetic": "[wɑts jʊər ˈdɔtərz neɪm əˈɡɛn]",
-      "partOfSpeech": "phrase",
-      "translation": "¿Cómo se llama tu hija otra vez?",
-      "image": "words/whats-your-daughters-name-again.jpg",
-      "examples": [
-        {
-          "original": "What's your daughter's name again? I forgot.",
-          "translation": "¿Cómo se llama tu hija otra vez? Olvidé."
-        },
-        {
-          "original": "Could you remind me what your daughter's name is again?",
-          "translation": "¿Podrías recordarme cómo se llama tu hija otra vez?"
-        },
-        {
-          "original": "I met your daughter last week, but what's her name again?",
-          "translation": "Conocí a tu hija la semana pasada, pero ¿cómo se llama otra vez?"
-        }
-      ]
-    },
-    {
-      "slug": "to-be-fair",
-      "lang": "es",
-      "word": "To be fair",
-      "phonetic": "[tə bi fɛr]",
-      "partOfSpeech": "phrase",
-      "translation": "Para ser justos",
-      "image": "words/to-be-fair.jpg",
-      "examples": [
-        {
-          "original": "To be fair, I think they did a good job.",
-          "translation": "Para ser justos, creo que hicieron un buen trabajo."
-        },
-        {
-          "original": "To be fair, we all have our strengths and weaknesses.",
-          "translation": "Para ser justos, todos tenemos nuestras fortalezas y debilidades."
-        },
-        {
-          "original": "To be fair, she had a lot on her plate at that time.",
-          "translation": "Para ser justos, ella tenía muchas cosas que manejar en ese momento."
-        }
-      ]
-    },
-    {
       "slug": "way-to-go",
       "lang": "es",
       "word": "Way to go",
@@ -1563,6 +919,190 @@
         {
           "original": "As a victim of a hate crime, I believe it's important to speak out against discrimination.",
           "translation": "Como víctima de un delito de odio, creo que es importante alzar la voz contra la discriminación."
+        }
+      ]
+    },
+    {
+      "slug": "had-it-up-to-here",
+      "lang": "es",
+      "word": "Had it up to here",
+      "phonetic": "[hæd ɪt ʌp tu hɪr]",
+      "partOfSpeech": "phrase",
+      "translation": "Lo tenía hasta aquí",
+      "image": "words/had-it-up-to-here.jpg",
+      "examples": [
+        {
+          "original": "I've had it up to here with all the excuses.",
+          "translation": "Lo tenía hasta aquí con todas las excusas."
+        },
+        {
+          "original": "She said she's had it up to here with the noise from the construction.",
+          "translation": "Ella dijo que lo tenía hasta aquí con el ruido de la construcción."
+        },
+        {
+          "original": "After the third time they canceled, I finally had it up to here.",
+          "translation": "Después de la tercera vez que cancelaron, finalmente lo tenía hasta aquí."
+        }
+      ]
+    },
+    {
+      "slug": "way-to-ruin-it",
+      "lang": "es",
+      "word": "Way to ruin it",
+      "phonetic": "[weɪ tu ruːɪn ɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "Forma de arruinarlo",
+      "image": "words/way-to-ruin-it.jpg",
+      "examples": [
+        {
+          "original": "That's a sure way to ruin it for everyone.",
+          "translation": "Esa es una forma segura de arruinarlo para todos."
+        },
+        {
+          "original": "Don't be so negative; that's only a way to ruin it.",
+          "translation": "No seas tan negativo; eso es solo una forma de arruinarlo."
+        },
+        {
+          "original": "He found a way to ruin it without even trying.",
+          "translation": "Él encontró una forma de arruinarlo sin siquiera intentarlo."
+        }
+      ]
+    },
+    {
+      "slug": "i-need-some-help",
+      "lang": "es",
+      "word": "I need some help",
+      "phonetic": "[aɪ nid sʌm hɛlp]",
+      "partOfSpeech": "phrase",
+      "translation": "Necesito ayuda",
+      "image": "words/i-need-some-help.jpg",
+      "examples": [
+        {
+          "original": "I need some help with my homework.",
+          "translation": "Necesito ayuda con mi tarea."
+        },
+        {
+          "original": "If you need some help, just ask me.",
+          "translation": "Si necesitas ayuda, solo pregúntame."
+        },
+        {
+          "original": "I need some help to fix my computer.",
+          "translation": "Necesito ayuda para reparar mi computadora."
+        }
+      ]
+    },
+    {
+      "slug": "that-is-quite-a-situation",
+      "lang": "es",
+      "word": "That is quite a situation",
+      "phonetic": "[ðæt ɪz kwaɪt ə sɪtʃuˈeɪʃən]",
+      "partOfSpeech": "phrase",
+      "translation": "Esa es una situación bastante peculiar.",
+      "image": "words/that-is-quite-a-situation.jpg",
+      "examples": [
+        {
+          "original": "It was quite a situation when the power went out during the event.",
+          "translation": "Fue una situación bastante peculiar cuando se fue la luz durante el evento."
+        },
+        {
+          "original": "Finding out she had won the award was quite a situation for him.",
+          "translation": "Descubrir que ella había ganado el premio fue una situación bastante peculiar para él."
+        },
+        {
+          "original": "That is quite a situation to deal with, especially on such short notice.",
+          "translation": "Esa es una situación bastante peculiar para manejar, especialmente con tan poco aviso."
+        }
+      ]
+    },
+    {
+      "slug": "what-the-hell-is-that",
+      "lang": "es",
+      "word": "What the hell is that",
+      "phonetic": "[wɑt ðə hɛl ɪz ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Qué demonios es eso?",
+      "image": "words/what-the-hell-is-that.jpg",
+      "examples": [
+        {
+          "original": "What the hell is that noise coming from the basement?",
+          "translation": "¿Qué demonios es ese ruido que viene del sótano?"
+        },
+        {
+          "original": "I can't believe what the hell is that on your plate!",
+          "translation": "¡No puedo creer qué demonios es eso en tu plato!"
+        },
+        {
+          "original": "What the hell is that smell? It’s awful!",
+          "translation": "¿Qué demonios es ese olor? ¡Es horrible!"
+        }
+      ]
+    },
+    {
+      "slug": "how-much-did-you-pay-for-that",
+      "lang": "es",
+      "word": "How much did you pay for that",
+      "phonetic": "[haʊ mʌtʃ dɪd ju peɪ fɔr ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Cuánto pagaste por eso?",
+      "image": "words/how-much-did-you-pay-for-that.jpg",
+      "examples": [
+        {
+          "original": "How much did you pay for that shirt?",
+          "translation": "¿Cuánto pagaste por esa camisa?"
+        },
+        {
+          "original": "I'm curious, how much did you pay for that car?",
+          "translation": "Tengo curiosidad, ¿cuánto pagaste por ese coche?"
+        },
+        {
+          "original": "How much did you pay for that amazing meal?",
+          "translation": "¿Cuánto pagaste por esa comida increíble?"
+        }
+      ]
+    },
+    {
+      "slug": "kick-my-ass",
+      "lang": "es",
+      "word": "Kick my ass",
+      "phonetic": "[kɪk maɪ æs]",
+      "partOfSpeech": "verb phrase",
+      "translation": "Patearme el culo",
+      "image": "words/kick-my-ass.jpg",
+      "examples": [
+        {
+          "original": "If you keep teasing me, I'm going to kick your ass.",
+          "translation": "Si sigues burlándote de mí, te voy a patear el culo."
+        },
+        {
+          "original": "He challenged me to a race, and I told him I'd kick his ass.",
+          "translation": "Él me retó a una carrera, y le dije que le patearía el culo."
+        },
+        {
+          "original": "After work, I plan to hit the gym and kick my ass with a tough workout.",
+          "translation": "Después del trabajo, planeo ir al gimnasio y patearme el culo con un entrenamiento duro."
+        }
+      ]
+    },
+    {
+      "slug": "make-my-point",
+      "lang": "es",
+      "word": "Make my point",
+      "phonetic": "[meɪk maɪ pɔɪnt]",
+      "partOfSpeech": "phrase",
+      "translation": "Para exponer mi punto",
+      "image": "words/make-my-point.jpg",
+      "examples": [
+        {
+          "original": "I just want to make my point clearly during the meeting.",
+          "translation": "Solo quiero exponer mi punto claramente durante la reunión."
+        },
+        {
+          "original": "She took a moment to gather her thoughts and then tried to make her point.",
+          "translation": "Ella se tomó un momento para organizar sus pensamientos y luego intentó exponer su punto."
+        },
+        {
+          "original": "It's important to make my point without being too aggressive.",
+          "translation": "Es importante exponer mi punto sin ser demasiado agresivo."
         }
       ]
     }

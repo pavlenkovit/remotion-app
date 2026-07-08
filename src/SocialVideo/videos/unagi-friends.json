@@ -1,0 +1,98 @@
+{
+  "slug": "unagi-friends",
+  "clip": "clips/unagi-friends.mp4",
+  "film": "Friends",
+  "highlights": [
+    {
+      "slug": "kick-my-ass",
+      "atSec": 18.42
+    },
+    {
+      "slug": "make-my-point",
+      "atSec": 29.02
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 3.6,
+      "text": "A lesson in the importance of unagi.",
+      "tr": {
+        "ru": "Урок о важности угря.",
+        "es": "Una lección sobre la importancia del unagi."
+      }
+    },
+    {
+      "from": 3.6,
+      "to": 8.04,
+      "text": "Oh, you're a freak.",
+      "tr": {
+        "ru": "О, ты урод.",
+        "es": "Oh, eres un bicho raro."
+      }
+    },
+    {
+      "from": 8.04,
+      "to": 10.74,
+      "text": "Perhaps.",
+      "tr": {
+        "ru": "Возможно.",
+        "es": "Tal vez."
+      }
+    },
+    {
+      "from": 10.74,
+      "to": 16.18,
+      "text": "Now, I'm curious, at what point during those girlish screams",
+      "tr": {
+        "ru": "Мне любопытно, в какой именно момент этих девичьих криков...",
+        "es": "Ahora tengo curiosidad, ¿en qué momento durante esos gritos de niña?"
+      }
+    },
+    {
+      "from": 16.18,
+      "to": 18.42,
+      "text": "would you have begun to kick my ass?",
+      "tr": {
+        "ru": "Ты бы начал избивать меня?",
+        "es": "¿Habrías empezado a patearme el trasero?"
+      }
+    },
+    {
+      "from": 18.42,
+      "to": 23.86,
+      "text": "All right, so we weren't prepared.",
+      "tr": {
+        "ru": "Хорошо, значит, мы были не готовы.",
+        "es": "Bueno, pues no estábamos preparados."
+      }
+    },
+    {
+      "from": 23.86,
+      "to": 29.02,
+      "text": "I'm sorry. I had to take such drastic measures to make my point,",
+      "tr": {
+        "ru": "Прошу прощения. Мне пришлось пойти на такие радикальные меры, чтобы донести свою точку зрения.",
+        "es": "Lo siento. Tuve que tomar medidas tan drásticas para dejar claro mi punto de vista."
+      }
+    },
+    {
+      "from": 29.1,
+      "to": 31.22,
+      "text": "But I look I just want you guys to be safe",
+      "tr": {
+        "ru": "Но я просто хочу, чтобы вы были в безопасности.",
+        "es": "Pero miren, solo quiero que estén a salvo."
+      }
+    },
+    {
+      "from": 31.22,
+      "to": 33.22,
+      "text": "DANGER!",
+      "tr": {
+        "ru": "ОПАСНОСТЬ!",
+        "es": "¡PELIGRO!"
+      }
+    }
+  ]
+}

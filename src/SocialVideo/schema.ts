@@ -64,11 +64,19 @@ export type SocialVideoData = z.infer<typeof socialVideoSchema>;
 import sayMyName from "./videos/say-my-name-breaking-bad.json";
 import iAmTheDanger from "./videos/i-am-the-danger-breaking-bad.json";
 import bushiestBeaver from "./videos/bushiest-beaver-the-office.json";
+import haditUpToHere from "./videos/had-it-up-to-here-friends.json";
+import quiteASituation from "./videos/quite-a-situation-friends.json";
+import sphinxCat from "./videos/sphinx-cat-friends.json";
+import unagi from "./videos/unagi-friends.json";
 
 const sources: unknown[] = [
   sayMyName,
   iAmTheDanger,
   bushiestBeaver,
+  haditUpToHere,
+  quiteASituation,
+  sphinxCat,
+  unagi,
 ];
 
 export const videos: SocialVideoData[] = sources.map((v) => socialVideoSchema.parse(v));
