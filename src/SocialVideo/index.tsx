@@ -2,6 +2,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Freeze,
+  Html5Audio,
   Img,
   interpolate,
   OffthreadVideo,
@@ -22,6 +23,23 @@ import { STRINGS, VARIANTS, type NativeLang, type LangVariant } from "../i18n";
 // ============================================================================
 
 const DEFAULT_OUTRO_SEC = 2; // vibeling.png held at the end
+
+// Soft music bed played during each mockup pause. Gain is PRE-BAKED into this
+// file (Html5Audio ignores `volume` at render — regenerate with
+// `node scripts/soften-audio.mjs <src> public/sounds/inspiring-dreams-soft.wav <gain>`).
+const MOCKUP_MUSIC = "sounds/inspiring-dreams-soft.wav";
+// Start the music slightly BEFORE the clip freezes so it's already playing (past
+// its soft ramp-up) by the time the pause visually begins — feels less "late".
+const MUSIC_LEAD_SEC = 0.5;
+
+// Whisper ends each segment ~a syllable early, so the raw `to`/`atSec` time lands
+// a hair before the word actually finishes. Using it verbatim as a hard boundary
+// clips the last syllable — the mockup pauses the clip mid-word, and the subtitle
+// vanishes mid-word. Hold every such boundary this many seconds longer so the
+// phrase always finishes speaking first. Applied to BOTH the freeze/pause frame
+// (getSocialTiming) and the subtitle disappearance (Subtitles), never past the
+// next boundary. ~0.35s ≈ one trailing syllable at conversational pace.
+const PHRASE_LEAD_OUT_SEC = 0.35;
 
 // ----------------------------------------------------------------------------
 // House rules — identical for EVERY social video (keep in sync with the skill).
@@ -77,11 +95,15 @@ export const getSocialTiming = (
   // 1× regardless, so their length is unaffected.
   const { speed } = VARIANTS[lang];
 
+  // Pause a beat AFTER the phrase's transcribed end so the last syllable finishes
+  // before the clip freezes for the mockup (whisper ends segments early — see
+  // PHRASE_LEAD_OUT_SEC). Never past the clip's last frame.
+  const leadOut = Math.round(PHRASE_LEAD_OUT_SEC * fps);
   const highlights = config.highlights
     .map((h) => ({
       ...h,
       mockup: `mockups/${lang}/${h.slug}.mp4`,
-      localFrame: Math.round(h.atSec * fps),
+      localFrame: Math.min(Math.round(h.atSec * fps) + leadOut, clipLen),
       mockupLen: mockupFrames(h.slug, lang),
     }))
     .sort((a, b) => a.localFrame - b.localFrame);
@@ -232,7 +254,14 @@ const Subtitles: React.FC<{
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sec = (clipOffset + frame * speed) / fps;
-  const cue = subtitles.find((c) => sec >= c.from && sec < c.to);
+  // Hold each cue a beat past its transcribed end so the trailing syllable stays
+  // subtitled (whisper ends segments early — see PHRASE_LEAD_OUT_SEC), but never
+  // into the next cue's start.
+  const cue = subtitles.find((c, i) => {
+    const next = subtitles[i + 1];
+    const end = Math.min(c.to + PHRASE_LEAD_OUT_SEC, next ? next.from : Infinity);
+    return sec >= c.from && sec < end;
+  });
   if (!cue) return null;
 
   const translation = cue.tr?.[lang];
@@ -420,6 +449,24 @@ export const SocialVideo: React.FC<{
           </Sequence>
         ),
       )}
+
+      {/* Soft music bed for each mockup pause. Rendered as its own Sequence that
+          starts MUSIC_LEAD_SEC BEFORE the freeze (overlapping the tail of the
+          preceding play segment) so the music is already going when the pause
+          hits, and ends with the mockup. The frozen clip under the mockup is
+          muted, so during the pause this bed (+ the mockup's baked click) is the
+          only audio. Gain pre-baked (Html5Audio ignores `volume`); `loop` guards
+          a mockup longer than the track. */}
+      {t.segs
+        .filter((s) => s.type === "mockup")
+        .map((s, i) => {
+          const lead = Math.min(s.from, Math.round(MUSIC_LEAD_SEC * fps));
+          return (
+            <Sequence key={`music-${i}`} from={s.from - lead} durationInFrames={s.duration + lead}>
+              <Html5Audio src={staticFile(MOCKUP_MUSIC)} loop />
+            </Sequence>
+          );
+        })}
 
       {/* Outro — vibeling.png for 2s */}
       <Sequence from={t.outroFrom} durationInFrames={t.durationInFrames - t.outroFrom}>

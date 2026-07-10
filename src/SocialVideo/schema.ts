@@ -57,36 +57,27 @@ export type Subtitle = z.infer<typeof subtitleSchema>;
 export type SocialVideoData = z.infer<typeof socialVideoSchema>;
 
 // ---------------------------------------------------------------------------
-// Registry of all videos. To add one: drop a JSON in ./videos/, import it
-// here, and add it to `sources`. Each is validated at load (errors show in
-// Studio immediately) and gets a `Social-<slug>` composition via Root.tsx.
+// Registry of all videos — auto-discovered from ./videos/*.json. `videos/` is
+// the single source of truth: DROP a JSON in and it appears; DELETE one and it
+// disappears — no manual import/registration, nothing to keep in sync. Each is
+// validated at load (errors show in Studio immediately) and gets a
+// `Social-<slug>` composition via Root.tsx.
 // ---------------------------------------------------------------------------
-import sayMyName from "./videos/say-my-name-breaking-bad.json";
-import iAmTheDanger from "./videos/i-am-the-danger-breaking-bad.json";
-import bushiestBeaver from "./videos/bushiest-beaver-the-office.json";
-import haditUpToHere from "./videos/had-it-up-to-here-friends.json";
-import quiteASituation from "./videos/quite-a-situation-friends.json";
-import sphinxCat from "./videos/sphinx-cat-friends.json";
-import unagi from "./videos/unagi-friends.json";
-import treadLightly from "./videos/tread-lightly-breaking-bad.json";
-import blowfish from "./videos/blowfish-breaking-bad.json";
-import loadOffMyMind from "./videos/load-off-my-mind-breaking-bad.json";
-import frozenLasagna from "./videos/frozen-lasagna-breaking-bad.json";
-import quiteAGuy from "./videos/quite-a-guy-breaking-bad.json";
 
-const sources: unknown[] = [
-  sayMyName,
-  iAmTheDanger,
-  bushiestBeaver,
-  haditUpToHere,
-  quiteASituation,
-  sphinxCat,
-  unagi,
-  treadLightly,
-  blowfish,
-  loadOffMyMind,
-  frozenLasagna,
-  quiteAGuy,
-];
+// webpack injects `require.context`; @types/node types `require` but not this.
+declare global {
+  namespace NodeJS {
+    interface Require {
+      context(
+        dir: string,
+        useSubdirs: boolean,
+        regExp: RegExp,
+      ): { keys(): string[]; (id: string): unknown };
+    }
+  }
+}
+
+const ctx = require.context("./videos", false, /\.json$/);
+const sources: unknown[] = ctx.keys().map((k) => ctx(k));
 
 export const videos: SocialVideoData[] = sources.map((v) => socialVideoSchema.parse(v));

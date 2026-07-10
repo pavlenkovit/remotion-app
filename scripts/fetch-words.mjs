@@ -1,7 +1,11 @@
 // Fetches word data from the real vibeling backend API and generates the data
 // the Dictionary video reads — for EVERY target (native) language, so we can
-// render one video per audience. The only thing you edit by hand is the English
-// slug list in src/Dictionary/words.json (e.g. "freedom", "say-my-name").
+// render one video per audience.
+//
+// The slug list is DERIVED from the highlights in src/SocialVideo/videos/*.json
+// (videos/ is the single source of truth) — nothing to hand-maintain. Words for
+// deleted videos are pruned: words.generated.json only holds current slugs and
+// stale illustrations in public/words/ are removed.
 //
 // For each slug × language it:
 //   1. POST /translate  (en -> lang)   → the native translation of the phrase
@@ -11,16 +15,39 @@
 //
 // Run with:  npm run fetch-words
 
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { readFile, writeFile, mkdir, readdir, unlink } from "node:fs/promises";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const SLUGS_FILE = join(ROOT, "src/Dictionary/words.json");
+const VIDEOS_DIR = join(ROOT, "src/SocialVideo/videos");
 const OUT_FILE = join(ROOT, "src/Dictionary/words.generated.json");
 const IMG_DIR = join(ROOT, "public/words");
+
+// Union of highlight slugs across all current videos — the single source of truth.
+const slugsFromVideos = () => [
+  ...new Set(
+    readdirSync(VIDEOS_DIR)
+      .filter((f) => f.endsWith(".json"))
+      .flatMap((f) => JSON.parse(readFileSync(join(VIDEOS_DIR, f), "utf8")).highlights ?? [])
+      .map((h) => h.slug),
+  ),
+];
+
+// Delete illustrations in public/words/ whose slug is no longer used by any video.
+const pruneImages = async (keepSlugs) => {
+  if (!existsSync(IMG_DIR)) return;
+  const keep = new Set(keepSlugs);
+  for (const f of await readdir(IMG_DIR)) {
+    const slug = f.replace(/\.(jpg|jpeg|png|webp)$/i, "");
+    if (!keep.has(slug)) {
+      await unlink(join(IMG_DIR, f));
+      console.log(`  pruned stale illustration public/words/${f}`);
+    }
+  }
+};
 
 // Native languages to generate. Keep in sync with NATIVE_LANGS in src/i18n.ts.
 const TARGET_LANGS = ["ru", "es"];
@@ -56,7 +83,7 @@ const downloadImage = async (url, slug) => {
 };
 
 const main = async () => {
-  const slugs = JSON.parse(await readFile(SLUGS_FILE, "utf-8"));
+  const slugs = slugsFromVideos();
   await mkdir(IMG_DIR, { recursive: true });
 
   const byLang = Object.fromEntries(TARGET_LANGS.map((l) => [l, []]));
@@ -109,6 +136,9 @@ const main = async () => {
   await writeFile(OUT_FILE, JSON.stringify(byLang, null, 2) + "\n");
   const counts = TARGET_LANGS.map((l) => `${l}:${byLang[l].length}`).join(", ");
   console.log(`\nWrote ${OUT_FILE.replace(ROOT + "/", "")} (${counts})`);
+
+  // Drop illustrations for words no longer referenced by any video.
+  await pruneImages(slugs);
 };
 
 main().catch((e) => {

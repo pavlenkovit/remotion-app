@@ -50,7 +50,9 @@ normal per-scene pipeline for every scene.
    ```
    Choose a descriptive `<slug>` per scene (`<memorable-line>-<film>`, e.g.
    `turtles-the-office`). This writes `public/clips/<slug>.mp4`. Set the start/end from the
-   transcript segment edges (a hair of lead-in/-out is fine; a chopped word is not).
+   transcript segment edges — but **whisper's `to` ends ~a syllable early, so add ~0.4s past
+   the last word's `to` for `<endSec>`** (and don't start exactly on a `from`). A chopped
+   final word makes the whole video end abruptly mid-word; a short trailing beat does not.
 5. **For each scene, run the per-scene pipeline below** (identify film, create JSON pointing at
    `clips/<slug>.mp4`, pick 2–3 highlights, transcribe the scene, mockups, render, describe).
    Scenes are independent — you can do them one after another.
@@ -76,15 +78,18 @@ Given just the clip, do this in order (details in the sections below):
 3. **Trim trailing dead air.** Clips often have several seconds of silence / reaction shots /
    panting at the end. Extract tail frames, find where the meaningful audio ends, and
    re-encode a tight cut (`ffmpeg -t <sec> -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac`)
-   over the staged copy. End on a punchy beat, not dead air.
+   over the staged copy. End on a punchy beat, not dead air — but leave a **short trailing
+   beat (~0.4s) after the last word finishes**, never cut right on it, or the video ends
+   abruptly mid-syllable.
 4. **Create the video JSON** (`src/SocialVideo/videos/<slug>.json`) with `slug`, `clip`,
-   `film`, `highlights: []`, `subtitles: []`, and register it in `schema.ts`.
+   `film`, `highlights: []`, `subtitles: []`. It's auto-discovered — no `schema.ts` edit.
 5. **Pick 2–3 highlights yourself** (see "Choosing highlights" below), add them to the JSON.
 6. **Transcribe** (`npm run transcribe -- <slug>`) to fill subtitles + set each `atSec`, then
    **delete any trailing hallucinated lines** (whisper invents "Thank you." / "[silence]" over
    panting/quiet tails — remove them so subtitles stop with the last real line).
-7. **Generate the mockups:** add the slugs to `src/Dictionary/words.json`, `npm run
-   fetch-words`, `npm run render:mockups`.
+7. **Generate the mockups:** `npm run fetch-words` (word data is derived
+   automatically from the video highlights — no list to hand-edit), then `npm run
+   render:mockups`.
 8. **Render finals:** `npm run render:final -- <slug>`.
 9. **Write the descriptions:** run the `video-description` skill for the slug.
 
@@ -163,15 +168,17 @@ distinct `VARIANTS` entry.
 The phone-mockup "adding the phrase" videos are **rendered from this project's `Dictionary`
 composition** — one per (highlighted phrase × language). Generate them:
 
-1. **Add slugs to the config.** Append each phrase's English slug to
-   `src/Dictionary/words.json` (lowercase, hyphenated, e.g. `say my name` → `say-my-name`).
-2. **Pull the data from the real backend API.** Run `npm run fetch-words`. For every slug ×
+1. **Pull the data from the real backend API.** Run `npm run fetch-words`. The slug list is
+   **derived automatically** from the highlights in `src/SocialVideo/videos/*.json` (there is
+   no hand-maintained word list — `videos/` is the single source of truth). For every slug ×
    language it calls the vibeling API (`POST https://api.vibeling.app/translate` then `/word`
    with header `X-App-Secret`), downloads the illustration into `public/words/`, and writes
-   `src/Dictionary/words.generated.json` as `{ [lang]: WordData[] }`. (No more HTML scraping.)
-   Each entry becomes a `Dictionary-<lang>-<slug>` composition.
-3. **Render the mockups:** `npm run render:mockups` — renders every highlight × language into
-   `public/mockups/<lang>/<slug>.mp4` (the files the social video plays inside the phone frame).
+   `src/Dictionary/words.generated.json` as `{ [lang]: WordData[] }`. Each entry becomes a
+   `Dictionary-<lang>-<slug>` composition. It also **prunes** `public/words/` illustrations
+   whose slug is no longer used by any video.
+2. **Render the mockups:** `npm run render:mockups` — renders every highlight × language into
+   `public/mockups/<lang>/<slug>.mp4` (the files the social video plays inside the phone frame),
+   and **prunes** mockups for phrases no longer used by any video.
 
 ## Subtitles & highlight timing — transcribe, don't guess
 
@@ -217,7 +224,11 @@ NOT "out" artifacts — they belong in `public/mockups/<lang>/<slug>.mp4` (see b
 `remotion.config.ts` already forces an in-memory webpack cache (`cache: { type: "memory" }`)
 to stop it recurring. If you still hit it (e.g. a stale on-disk cache), clear it once with
 `rm -rf node_modules/.cache/webpack`. A one-off transient failure on a single mockup usually
-just needs a retry.
+just needs a retry — so `render:final` and `render:mockups` now **auto-retry each render up to
+3×**, clearing `node_modules/.cache/webpack` between attempts. ⚠️ When rendering in a shell
+loop by hand, always check each render's exit status and retry: a crashed bundle prints only
+`Node.js v…` and exits non-zero, and if you mask that (e.g. `... | tail -1; echo done`) the
+batch looks green while the output files are silently left stale (old or missing).
 
 ## Scenario (sequence of the produced video)
 
@@ -247,12 +258,20 @@ The component is the reusable recipe; each video is just data:
   are `{ from, to, text }` in clip seconds. **No `cut`/duration** — the clip is played
   in full and its length is read from the file. The JSON is language-agnostic; the
   per-language strings come from `src/i18n.ts`.
-- **Registry:** `src/SocialVideo/schema.ts` validates each JSON (zod) and exports `videos`.
+- **Registry:** `src/SocialVideo/schema.ts` **auto-discovers** every `./videos/*.json`
+  (via `require.context`), validates each (zod) and exports `videos` — no manual imports.
   `src/Root.tsx` maps `videos × NATIVE_LANGS` → a `Social-<lang>-<slug>` composition each,
   reading the clip's length in `calculateMetadata` (via `parseMedia`) for the total duration.
 
-**To add a new video:** drop a `videos/<slug>.json`, import it in `schema.ts` and add it
-to `sources`. That's it — no component changes, no new file per video.
+**`videos/` is the single source of truth — no accumulating garbage.** Add a video by just
+dropping a `videos/<slug>.json` (no `schema.ts` edit). **Delete** a video by deleting its
+JSON: on the next full run the derived artifacts are pruned automatically —
+`npm run render:final` removes its `out/final/<slug>-<lang>.mp4`, `npm run render:mockups`
+removes its `public/mockups/<lang>/<slug>.mp4`, and `npm run fetch-words` drops any
+`public/words/` illustration and `words.generated.json` entry no longer referenced by a
+highlight. (Prune happens on a full run — i.e. `render:final`/`render:mockups` with no
+`<slug>`/`<lang>` filter.) The staged clip in `public/clips/` is git-ignored; delete it by hand
+if you want the bytes gone.
 
 ## Look & feel — house rules (identical for EVERY video)
 
@@ -279,6 +298,16 @@ Reference format: "Английский по фильмам" shorts
 - **Sounds** (`public/sounds/`): `click.wav` (`click-soft.wav`) is **baked into each Dictionary
   mockup** at the button tap (see below), so it plays in sync when the social video shows that
   mockup. Use `<Html5Audio>` (not `<Audio>`).
+- **Mockup music bed.** While the clip is paused on a mockup (frozen + muted), a soft music
+  bed plays (`sounds/inspiring-dreams-soft.wav`, added in the mockup `<Sequence>` of
+  `src/SocialVideo/index.tsx` via `MOCKUP_MUSIC`). It restarts each pause and stops when the
+  clip resumes. Its level is **pre-baked** (Html5Audio ignores `volume` at render) — to change
+  the volume or track, regenerate with `node scripts/soften-audio.mjs <src> public/sounds/inspiring-dreams-soft.wav <gain>`
+  (current gain 0.256, source trimmed to 15s from the start — no intro trim). Rather than
+  cutting the track's soft ramp-up, the music **starts `MUSIC_LEAD_SEC` (~0.5s) before the
+  freeze** (its Sequence overlaps the tail of the preceding play segment) so it's already
+  playing when the pause hits. The clip is muted during the pause, so the music is the sole
+  audio; keep it clearly audible but not overpowering. Re-render the finals after any change.
   ⚠️ **`Html5Audio`'s `volume` prop is IGNORED during render**, and this project's bundled
   ffmpeg has no working `volume`/`volumedetect` filter. To set a sound's level, **pre-bake the
   gain into the file** with `node scripts/soften-audio.mjs <in> <out.wav> <gain>` (it decodes to
@@ -301,6 +330,16 @@ Reference format: "Английский по фильмам" shorts
   under `public/clips/` (copied via `stage-clip`); `calculateMetadata` reads its length so there is no
   `cut` window or duration to configure. (`OffthreadVideo` `trimBefore`/`trimAfter` is
   still used internally to split the clip at each highlight.)
+- **Lead-out pad (don't clip the last syllable):** whisper ends each segment ~a syllable
+  early, so a phrase's `to`/`atSec` lands a hair before the word actually finishes. Using it
+  verbatim as a hard boundary cuts the last syllable. `PHRASE_LEAD_OUT_SEC` (~0.35s, in
+  `src/SocialVideo/index.tsx`) is added to **both** the freeze/pause frame (so the mockup
+  pops up only after the phrase finishes) and the subtitle disappearance (so the cue stays up
+  through the trailing syllable), capped so it never runs into the next boundary. This is
+  automatic — don't hand-pad `atSec` in the JSON. The clip's own **audio always plays in
+  full** (the last play `<Sequence>` runs to the file's end; `calculateMetadata` uses
+  `Math.ceil` on the clip length so the tail is never shaved). If a finished video still ends
+  mid-word, the **source clip file itself was cut too tight** — see the cut/trim steps below.
 - **Highlight pauses:** the subtitled clip is split into `<Sequence>`s; at each highlight a
   `<Freeze>`d source frame sits under a dimmed overlay while the mockup `<OffthreadVideo>`
   slides up inside a **CSS phone frame** (no asset). Mockup length comes from

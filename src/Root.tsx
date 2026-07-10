@@ -36,7 +36,11 @@ export const RemotionRoot: React.FC = () => {
                 fields: { slowDurationInSeconds: true, dimensions: true },
                 acknowledgeRemotionLicense: true,
               });
-              const clipDurationInFrames = Math.round(slowDurationInSeconds * FPS);
+              // ceil, not round: rounding down can shave up to ~half a frame off
+              // the clip's tail and end the video a hair early (mid-word on a
+              // tightly-cut clip). ceil always plays through the last frame;
+              // OffthreadVideo clamps a 1-frame overshoot to the final frame.
+              const clipDurationInFrames = Math.ceil(slowDurationInSeconds * FPS);
               const clipAspect = dimensions ? dimensions.width / dimensions.height : undefined;
               const { durationInFrames } = getSocialTiming(FPS, props.config, clipDurationInFrames, props.lang);
               return { durationInFrames, fps: FPS, props: { ...props, clipDurationInFrames, clipAspect } };
@@ -46,7 +50,8 @@ export const RemotionRoot: React.FC = () => {
       )}
 
       {/* One composition per (word × language) — content from the vibeling API.
-          Add a slug to src/Dictionary/words.json, then run `npm run fetch-words`. */}
+          Slugs are derived from the highlights in src/SocialVideo/videos/*.json;
+          run `npm run fetch-words` to (re)generate their data. */}
       {words.map((word) => (
         <Composition
           key={`${word.lang}-${word.slug}`}
