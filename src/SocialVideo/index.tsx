@@ -41,6 +41,13 @@ const MUSIC_LEAD_SEC = 0.5;
 // next boundary. ~0.35s ≈ one trailing syllable at conversational pace.
 const PHRASE_LEAD_OUT_SEC = 0.35;
 
+// When the clip RESUMES after a mockup pause, rewind it slightly so playback
+// picks up a hair BEFORE where it froze (replaying the last ~0.3s) rather than
+// jumping straight forward — this re-establishes context after the interruption
+// and avoids feeling like a hard cut. Only affects the resume point (the freeze
+// still happens exactly at the phrase's end).
+const RESUME_REWIND_SEC = 0.3;
+
 // ----------------------------------------------------------------------------
 // House rules — identical for EVERY social video (keep in sync with the skill).
 // ----------------------------------------------------------------------------
@@ -99,6 +106,7 @@ export const getSocialTiming = (
   // before the clip freezes for the mockup (whisper ends segments early — see
   // PHRASE_LEAD_OUT_SEC). Never past the clip's last frame.
   const leadOut = Math.round(PHRASE_LEAD_OUT_SEC * fps);
+  const rewind = Math.round(RESUME_REWIND_SEC * fps);
   const highlights = config.highlights
     .map((h) => ({
       ...h,
@@ -133,7 +141,8 @@ export const getSocialTiming = (
       slug: h.slug,
     });
     cursor += h.mockupLen;
-    prevLocal = h.localFrame;
+    // Resume the clip a touch BEFORE the freeze point (replay ~RESUME_REWIND_SEC).
+    prevLocal = Math.max(h.localFrame - rewind, 0);
   }
   const lastClipFrames = clipLen - prevLocal;
   if (lastClipFrames > 0) {
