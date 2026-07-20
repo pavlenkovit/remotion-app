@@ -1,0 +1,74 @@
+{
+  "slug": "frozen-lasagna-breaking-bad",
+  "clip": "clips/frozen-lasagna-breaking-bad.mp4",
+  "film": "Breaking Bad",
+  "highlights": [
+    { "slug": "stoked", "atSec": 11.3 },
+    { "slug": "nuke-it", "atSec": 12.9 }
+  ],
+  "subtitles": [
+    {
+      "from": 0.09,
+      "to": 2.79,
+      "text": "I, uh, I eat a lot of frozen stuff.",
+      "tr": {
+        "ru": "Я, э-э, ем много замороженной еды.",
+        "es": "Yo, eh, como mucha comida congelada."
+      }
+    },
+    {
+      "from": 2.79,
+      "to": 5.71,
+      "text": "It's usually pretty bad.",
+      "tr": {
+        "ru": "Обычно она так себе.",
+        "es": "Suele ser bastante mala."
+      }
+    },
+    {
+      "from": 5.71,
+      "to": 8.4,
+      "text": "I mean, the pictures are always so awesome, you know?",
+      "tr": {
+        "ru": "В смысле, на фото всегда всё так аппетитно, понимаешь?",
+        "es": "O sea, las fotos siempre se ven geniales, ¿sabes?"
+      }
+    },
+    {
+      "from": 8.4,
+      "to": 11.3,
+      "text": "It's like, \"Hell yeah, I'm stoked for this lasagna,\"",
+      "tr": {
+        "ru": "Типа: «О да, я в предвкушении этой лазаньи»,",
+        "es": "Es como: «¡Claro que sí, me muero por esta lasaña!»,"
+      }
+    },
+    {
+      "from": 11.3,
+      "to": 12.9,
+      "text": "and then you nuke it,",
+      "tr": {
+        "ru": "а потом суёшь её в микроволновку,",
+        "es": "y luego la metes al microondas,"
+      }
+    },
+    {
+      "from": 12.9,
+      "to": 15.6,
+      "text": "and the cheese gets all scabby on top,",
+      "tr": {
+        "ru": "и сыр сверху покрывается коркой,",
+        "es": "y el queso se pone todo costroso por encima,"
+      }
+    },
+    {
+      "from": 15.6,
+      "to": 17.5,
+      "text": "and it's like you're eating a scab.",
+      "tr": {
+        "ru": "и как будто ешь болячку.",
+        "es": "y es como comerse una costra."
+      }
+    }
+  ]
+}

@@ -551,6 +551,259 @@
           "translation": "Я написал эссе, чтобы изложить свою точку зрения по поводу изменения климата."
         }
       ]
+    },
+    {
+      "slug": "the-way-youre-looking-at-me",
+      "lang": "ru",
+      "word": "The way youre looking at me",
+      "phonetic": "[ðə weɪ jʊr lʊkɪŋ æt mi]",
+      "partOfSpeech": "phrase",
+      "translation": "То, как ты на меня смотришь",
+      "image": "words/the-way-youre-looking-at-me.jpg",
+      "examples": [
+        {
+          "original": "I can feel the way you're looking at me.",
+          "translation": "Я могу почувствовать, как ты на меня смотришь."
+        },
+        {
+          "original": "It's strange how the way you're looking at me makes me nervous.",
+          "translation": "Странно, как то, как ты на меня смотришь, заставляет меня нервничать."
+        },
+        {
+          "original": "The way you're looking at me gives me confidence.",
+          "translation": "То, как ты на меня смотришь, придаёт мне уверенности."
+        }
+      ]
+    },
+    {
+      "slug": "tread-lightly",
+      "lang": "ru",
+      "word": "Tread lightly",
+      "phonetic": "[trɛd ˈlaɪtli]",
+      "partOfSpeech": "phrase",
+      "translation": "Действуйте осторожно",
+      "image": "words/tread-lightly.jpg",
+      "examples": [
+        {
+          "original": "When discussing sensitive topics, it's important to tread lightly.",
+          "translation": "Когда речь идет о деликатных темах, важно действовать осторожно."
+        },
+        {
+          "original": "She decided to tread lightly around her friend's feelings after the breakup.",
+          "translation": "Она решила действовать осторожно по отношению к чувствам подруги после расставания."
+        },
+        {
+          "original": "In negotiations, one must often tread lightly to maintain a good relationship.",
+          "translation": "На переговорах иногда нужно действовать осторожно, чтобы сохранить хорошие отношения."
+        }
+      ]
+    },
+    {
+      "slug": "intimidating",
+      "lang": "ru",
+      "word": "Intimidating",
+      "phonetic": "[ɪnˈtɪmɪˌdeɪtɪŋ]",
+      "partOfSpeech": "adjective",
+      "translation": "Пугающий",
+      "image": "words/intimidating.jpg",
+      "examples": [
+        {
+          "original": "The tall building was quite intimidating to visitors.",
+          "translation": "Высокое здание было довольно пугающим для посетителей."
+        },
+        {
+          "original": "She found his intense gaze a bit intimidating.",
+          "translation": "Она нашла его интенсивный взгляд немного пугающим."
+        },
+        {
+          "original": "The thought of public speaking can be intimidating for many people.",
+          "translation": "Мысль о публичном выступлении может быть пугающей для многих людей."
+        }
+      ]
+    },
+    {
+      "slug": "scared-off",
+      "lang": "ru",
+      "word": "Scared off",
+      "phonetic": "[skɛrd ɔf]",
+      "partOfSpeech": "verb",
+      "translation": "отпугнуть",
+      "image": "words/scared-off.jpg",
+      "examples": [
+        {
+          "original": "The loud noise scared off the birds from the tree.",
+          "translation": "Громкий звук испугал птиц и заставил их улететь с дерева."
+        },
+        {
+          "original": "She scared off the intruder with her loud scream.",
+          "translation": "Она испугала злоумышленника своим громким криком."
+        },
+        {
+          "original": "The dog scared off the raccoons trying to get into the trash.",
+          "translation": "Собака испугала енотов, пытавшихся залезть в мусор."
+        }
+      ]
+    },
+    {
+      "slug": "say-it-like-you-mean-it",
+      "lang": "ru",
+      "word": "Say it like you mean it",
+      "phonetic": "[seɪ ɪt laɪk ju min ɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "Скажи это так, как будто ты действительно так думаешь.",
+      "image": "words/say-it-like-you-mean-it.jpg",
+      "examples": [
+        {
+          "original": "When you give a compliment, say it like you mean it.",
+          "translation": "Когда ты делаешь комплимент, скажи это так, как будто ты действительно так думаешь."
+        },
+        {
+          "original": "In a presentation, make sure to say it like you mean it to engage your audience.",
+          "translation": "На презентации убедись, что ты говоришь это так, как будто действительно так думаешь, чтобы заинтересовать свою аудиторию."
+        },
+        {
+          "original": "If you want to persuade someone, you need to say it like you mean it.",
+          "translation": "Если ты хочешь кого-то убедить, тебе нужно сказать это так, как будто ты действительно так думаешь."
+        }
+      ]
+    },
+    {
+      "slug": "i-get-that-completely",
+      "lang": "ru",
+      "word": "I get that completely",
+      "phonetic": "[aɪ gɛt ðæt kəmˈpliːtli]",
+      "partOfSpeech": "phrase",
+      "translation": "Я это прекрасно понимаю.",
+      "image": "words/i-get-that-completely.jpg",
+      "examples": [
+        {
+          "original": "I get that completely; it's very clear to me.",
+          "translation": "Я это прекрасно понимаю; мне это очень ясно."
+        },
+        {
+          "original": "After hearing your explanation, I get that completely now.",
+          "translation": "После того, как я услышал твоё объяснение, я это теперь прекрасно понимаю."
+        },
+        {
+          "original": "I get that completely and I agree with your point of view.",
+          "translation": "Я это прекрасно понимаю и согласен с твоей точкой зрения."
+        }
+      ]
+    },
+    {
+      "slug": "a-load-off-my-mind",
+      "lang": "ru",
+      "word": "A load off my mind",
+      "phonetic": "[ə loʊd ɔf maɪ maɪnd]",
+      "partOfSpeech": "idiom",
+      "translation": "С меня свалился груз.",
+      "image": "words/a-load-off-my-mind.jpg",
+      "examples": [
+        {
+          "original": "Finishing that project was a load off my mind.",
+          "translation": "Завершение этого проекта свалило с меня груз."
+        },
+        {
+          "original": "After talking to my friend, I felt a load off my mind.",
+          "translation": "После разговора с другом я почувствовал, что с меня свалился груз."
+        },
+        {
+          "original": "Getting the results early was a load off my mind.",
+          "translation": "Получение результатов заранее свалило с меня груз."
+        }
+      ]
+    },
+    {
+      "slug": "stoked",
+      "lang": "ru",
+      "word": "Stoked",
+      "phonetic": "[stoʊkt]",
+      "partOfSpeech": "adjective",
+      "translation": "Взволнованный",
+      "image": "words/stoked.jpg",
+      "examples": [
+        {
+          "original": "I am so stoked about the concert this weekend!",
+          "translation": "Я так взволнован из-за концерта в эти выходные!"
+        },
+        {
+          "original": "She's stoked to finally go on vacation after a long year of work.",
+          "translation": "Она взволнована, что наконец-то уезжает в отпуск после долгого года работы."
+        },
+        {
+          "original": "They were stoked when they found out they won the competition.",
+          "translation": "Они были взволнованы, когда узнали, что выиграли соревнование."
+        }
+      ]
+    },
+    {
+      "slug": "nuke-it",
+      "lang": "ru",
+      "word": "Nuke it",
+      "phonetic": "[nuːk ɪt]",
+      "partOfSpeech": "verb",
+      "translation": "разогреть в микроволновке",
+      "image": "words/nuke-it.jpg",
+      "examples": [
+        {
+          "original": "Just nuke it for two minutes and it's ready.",
+          "translation": "Просто разогрей это в микроволновке пару минут — и готово."
+        },
+        {
+          "original": "The soup is cold — nuke it for a bit.",
+          "translation": "Суп остыл — закинь его в микроволновку ненадолго."
+        },
+        {
+          "original": "I'll just nuke it instead of using the oven.",
+          "translation": "Я просто разогрею это в микроволновке, а не в духовке."
+        }
+      ]
+    },
+    {
+      "slug": "quite-a-guy",
+      "lang": "ru",
+      "word": "Quite a guy",
+      "phonetic": "[kwaɪt ə ɡaɪ]",
+      "partOfSpeech": "phrase",
+      "translation": "Отличный парень",
+      "image": "words/quite-a-guy.jpg",
+      "examples": [
+        {
+          "original": "He's quite a guy; everyone loves his sense of humor.",
+          "translation": "Он отличный парень; все любят его чувство юмора."
+        },
+        {
+          "original": "You should meet him; he's quite a guy with a lot of interesting stories.",
+          "translation": "Тебе стоит встретиться с ним; он отличный парень с множеством интересных историй."
+        },
+        {
+          "original": "In my opinion, he's quite a guy who always helps others.",
+          "translation": "На мой взгляд, он отличный парень, который всегда помогает другим."
+        }
+      ]
+    },
+    {
+      "slug": "always-there-for-you",
+      "lang": "ru",
+      "word": "Always there for you",
+      "phonetic": "[ˈɔlweɪz ðɛr fɔr ju]",
+      "partOfSpeech": "phrase",
+      "translation": "Всегда рядом с тобой",
+      "image": "words/always-there-for-you.jpg",
+      "examples": [
+        {
+          "original": "My friend is always there for you when you need support.",
+          "translation": "Мой друг всегда рядом с тобой, когда тебе нужна поддержка."
+        },
+        {
+          "original": "It's comforting to know that your family will always be there for you.",
+          "translation": "Убеждать, что твоя семья всегда рядом с тобой, очень приятно."
+        },
+        {
+          "original": "When times are tough, remember that your true friends are always there for you.",
+          "translation": "В трудные времена помни, что настоящие друзья всегда рядом с тобой."
+        }
+      ]
     }
   ],
   "es": [
@@ -1103,6 +1356,259 @@
         {
           "original": "It's important to make my point without being too aggressive.",
           "translation": "Es importante exponer mi punto sin ser demasiado agresivo."
+        }
+      ]
+    },
+    {
+      "slug": "the-way-youre-looking-at-me",
+      "lang": "es",
+      "word": "The way youre looking at me",
+      "phonetic": "[ðə weɪ jʊr lʊkɪŋ æt mi]",
+      "partOfSpeech": "phrase",
+      "translation": "La forma en que me miras",
+      "image": "words/the-way-youre-looking-at-me.jpg",
+      "examples": [
+        {
+          "original": "I can't help but notice the way you're looking at me.",
+          "translation": "No puedo evitar notar la forma en que me miras."
+        },
+        {
+          "original": "The way you're looking at me makes me feel special.",
+          "translation": "La forma en que me miras me hace sentir especial."
+        },
+        {
+          "original": "Have you ever thought about the way you're looking at me right now?",
+          "translation": "¿Alguna vez has pensado en la forma en que me miras ahora mismo?"
+        }
+      ]
+    },
+    {
+      "slug": "tread-lightly",
+      "lang": "es",
+      "word": "Tread lightly",
+      "phonetic": "[trɛd ˈlaɪtli]",
+      "partOfSpeech": "verb phrase",
+      "translation": "Caminar con cuidado",
+      "image": "words/tread-lightly.jpg",
+      "examples": [
+        {
+          "original": "When walking through the forest, it's important to tread lightly to avoid disturbing the wildlife.",
+          "translation": "Al caminar por el bosque, es importante caminar con cuidado para no perturbar la vida salvaje."
+        },
+        {
+          "original": "She advised him to tread lightly when discussing sensitive topics.",
+          "translation": "Ella le aconsejó que caminara con cuidado al discutir temas sensibles."
+        },
+        {
+          "original": "In negotiations, it's wise to tread lightly to maintain a good relationship with the other party.",
+          "translation": "En las negociaciones, es prudente caminar con cuidado para mantener una buena relación con la otra parte."
+        }
+      ]
+    },
+    {
+      "slug": "intimidating",
+      "lang": "es",
+      "word": "Intimidating",
+      "phonetic": "[ɪnˈtɪmɪˌdeɪtɪŋ]",
+      "partOfSpeech": "adjective",
+      "translation": "Intimidante",
+      "image": "words/intimidating.jpg",
+      "examples": [
+        {
+          "original": "The teacher's intimidating presence made the students nervous.",
+          "translation": "La presencia intimidante del profesor puso nerviosos a los estudiantes."
+        },
+        {
+          "original": "I found the interview process to be quite intimidating.",
+          "translation": "Encontré que el proceso de la entrevista era bastante intimidante."
+        },
+        {
+          "original": "She has an intimidating level of expertise in her field.",
+          "translation": "Ella tiene un nivel de experiencia intimidante en su campo."
+        }
+      ]
+    },
+    {
+      "slug": "scared-off",
+      "lang": "es",
+      "word": "Scared off",
+      "phonetic": "[skɛrd ɔf]",
+      "partOfSpeech": "verb",
+      "translation": "ahuyentar",
+      "image": "words/scared-off.jpg",
+      "examples": [
+        {
+          "original": "The loud noise scared off all the birds from the tree.",
+          "translation": "El ruido fuerte asustó a todos los pájaros del árbol."
+        },
+        {
+          "original": "He was scared off by the aggressive dog barking at him.",
+          "translation": "Se asustó del perro agresivo que le ladraba."
+        },
+        {
+          "original": "The sudden storm scared off the hikers from the trail.",
+          "translation": "La repentina tormenta asustó a los excursionistas del sendero."
+        }
+      ]
+    },
+    {
+      "slug": "say-it-like-you-mean-it",
+      "lang": "es",
+      "word": "Say it like you mean it",
+      "phonetic": "[seɪ ɪt laɪk ju min ɪt]",
+      "partOfSpeech": "phrase",
+      "translation": "Dilo como si lo sintieras de verdad.",
+      "image": "words/say-it-like-you-mean-it.jpg",
+      "examples": [
+        {
+          "original": "When you apologize, say it like you mean it.",
+          "translation": "Cuando te disculpes, dilo como si lo sintieras de verdad."
+        },
+        {
+          "original": "In acting, it's important to say your lines like you mean it.",
+          "translation": "En la actuación, es importante decir tus líneas como si lo sintieras de verdad."
+        },
+        {
+          "original": "If you want to convince them, you have to say it like you mean it.",
+          "translation": "Si quieres convencerlos, tienes que decirlo como si lo sintieras de verdad."
+        }
+      ]
+    },
+    {
+      "slug": "i-get-that-completely",
+      "lang": "es",
+      "word": "I get that completely",
+      "phonetic": "[aɪ gɛt ðæt kəmˈplitli]",
+      "partOfSpeech": "phrase",
+      "translation": "Lo entiendo perfectamente",
+      "image": "words/i-get-that-completely.jpg",
+      "examples": [
+        {
+          "original": "I get that completely; it makes total sense.",
+          "translation": "Lo entiendo perfectamente; tiene todo el sentido."
+        },
+        {
+          "original": "When you explain it that way, I get that completely.",
+          "translation": "Cuando lo explicas así, lo entiendo perfectamente."
+        },
+        {
+          "original": "I get that completely, and I appreciate your honesty.",
+          "translation": "Lo entiendo perfectamente y aprecio tu honestidad."
+        }
+      ]
+    },
+    {
+      "slug": "a-load-off-my-mind",
+      "lang": "es",
+      "word": "A load off my mind",
+      "phonetic": "[e loʊd ɔf maɪ maɪnd]",
+      "partOfSpeech": "phrase",
+      "translation": "Un peso menos en mi mente",
+      "image": "words/a-load-off-my-mind.jpg",
+      "examples": [
+        {
+          "original": "After I finished my exams, it felt like a load off my mind.",
+          "translation": "Después de terminar mis exámenes, se sintió como un peso menos en mi mente."
+        },
+        {
+          "original": "Getting that promotion was such a load off my mind; now I can finally relax.",
+          "translation": "Conseguir esa promoción fue un peso menos en mi mente; ahora finalmente puedo relajarme."
+        },
+        {
+          "original": "Knowing that the project is complete is a load off my mind.",
+          "translation": "Saber que el proyecto está completo es un peso menos en mi mente."
+        }
+      ]
+    },
+    {
+      "slug": "stoked",
+      "lang": "es",
+      "word": "Stoked",
+      "phonetic": "[stoʊkt]",
+      "partOfSpeech": "adjective",
+      "translation": "Emocionado",
+      "image": "words/stoked.jpg",
+      "examples": [
+        {
+          "original": "I am so stoked about the concert this weekend!",
+          "translation": "¡Estoy tan emocionado por el concierto de este fin de semana!"
+        },
+        {
+          "original": "He was stoked to hear that he got the job.",
+          "translation": "Estaba emocionado de saber que consiguió el trabajo."
+        },
+        {
+          "original": "We're all stoked to start our vacation next week.",
+          "translation": "Todos estamos emocionados de empezar nuestras vacaciones la próxima semana."
+        }
+      ]
+    },
+    {
+      "slug": "nuke-it",
+      "lang": "es",
+      "word": "Nuke it",
+      "phonetic": "[nuːk ɪt]",
+      "partOfSpeech": "verb",
+      "translation": "calentar en el microondas",
+      "image": "words/nuke-it.jpg",
+      "examples": [
+        {
+          "original": "Just nuke it for two minutes and it's ready.",
+          "translation": "Solo caliéntalo en el microondas dos minutos y está listo."
+        },
+        {
+          "original": "The soup is cold — nuke it for a bit.",
+          "translation": "La sopa está fría, métela un rato al microondas."
+        },
+        {
+          "original": "I'll just nuke it instead of using the oven.",
+          "translation": "Lo caliento en el microondas en vez de usar el horno."
+        }
+      ]
+    },
+    {
+      "slug": "quite-a-guy",
+      "lang": "es",
+      "word": "Quite a guy",
+      "phonetic": "[kwaɪt ə ɡaɪ]",
+      "partOfSpeech": "phrase",
+      "translation": "Todo un tipo",
+      "image": "words/quite-a-guy.jpg",
+      "examples": [
+        {
+          "original": "He's quite a guy; always helps his friends.",
+          "translation": "Es todo un tipo; siempre ayuda a sus amigos."
+        },
+        {
+          "original": "I had a great time with him; he's quite a guy.",
+          "translation": "Lo pasé genial con él; es todo un tipo."
+        },
+        {
+          "original": "When you get to know him, you'll see he's quite a guy.",
+          "translation": "Cuando lo conozcas, verás que es todo un tipo."
+        }
+      ]
+    },
+    {
+      "slug": "always-there-for-you",
+      "lang": "es",
+      "word": "Always there for you",
+      "phonetic": "[ɔːlweɪz ðɛr fɔr ju]",
+      "partOfSpeech": "phrase",
+      "translation": "Siempre estaré ahí para ti",
+      "image": "words/always-there-for-you.jpg",
+      "examples": [
+        {
+          "original": "I'll always be there for you when you need support.",
+          "translation": "Siempre estaré ahí para ti cuando necesites apoyo."
+        },
+        {
+          "original": "No matter what happens, I'm always there for you.",
+          "translation": "No importa lo que pase, siempre estaré ahí para ti."
+        },
+        {
+          "original": "Friends are those who are always there for you, through thick and thin.",
+          "translation": "Los amigos son aquellos que siempre están ahí para ti, en las buenas y en las malas."
         }
       ]
     }

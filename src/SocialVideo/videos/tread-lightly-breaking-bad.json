@@ -1,0 +1,65 @@
+{
+  "slug": "tread-lightly-breaking-bad",
+  "clip": "clips/tread-lightly-breaking-bad.mp4",
+  "film": "Breaking Bad",
+  "highlights": [
+    { "slug": "the-way-youre-looking-at-me", "atSec": 6 },
+    { "slug": "tread-lightly", "atSec": 29 }
+  ],
+  "subtitles": [
+    {
+      "from": 0.48,
+      "to": 1.48,
+      "text": "You okay?",
+      "tr": {
+        "ru": "Ты в порядке?",
+        "es": "¿Estás bien?"
+      }
+    },
+    {
+      "from": 1.48,
+      "to": 6,
+      "text": "Gotta say, I don't like the way you're looking at me right now.",
+      "tr": {
+        "ru": "Должен сказать, мне не нравится, как ты сейчас на меня смотришь.",
+        "es": "Tengo que decir que no me gusta cómo me estás mirando ahora mismo."
+      }
+    },
+    {
+      "from": 6,
+      "to": 18.1,
+      "text": "If you don't know who I am...",
+      "tr": {
+        "ru": "Если вы не знаете, кто я...",
+        "es": "Si no sabes quién soy..."
+      }
+    },
+    {
+      "from": 18.1,
+      "to": 21.8,
+      "text": "Then...",
+      "tr": {
+        "ru": "Тогда...",
+        "es": "Entonces..."
+      }
+    },
+    {
+      "from": 21.8,
+      "to": 25.54,
+      "text": "Maybe your best course...",
+      "tr": {
+        "ru": "Возможно, это будет ваш лучший вариант...",
+        "es": "Quizás tu mejor opción..."
+      }
+    },
+    {
+      "from": 25.54,
+      "to": 29.3,
+      "text": "Would be to tread lightly.",
+      "tr": {
+        "ru": "Это означало бы действовать осторожно.",
+        "es": "Sería actuar con cautela."
+      }
+    }
+  ]
+}

@@ -68,6 +68,11 @@ import haditUpToHere from "./videos/had-it-up-to-here-friends.json";
 import quiteASituation from "./videos/quite-a-situation-friends.json";
 import sphinxCat from "./videos/sphinx-cat-friends.json";
 import unagi from "./videos/unagi-friends.json";
+import treadLightly from "./videos/tread-lightly-breaking-bad.json";
+import blowfish from "./videos/blowfish-breaking-bad.json";
+import loadOffMyMind from "./videos/load-off-my-mind-breaking-bad.json";
+import frozenLasagna from "./videos/frozen-lasagna-breaking-bad.json";
+import quiteAGuy from "./videos/quite-a-guy-breaking-bad.json";
 
 const sources: unknown[] = [
   sayMyName,
@@ -77,6 +82,11 @@ const sources: unknown[] = [
   quiteASituation,
   sphinxCat,
   unagi,
+  treadLightly,
+  blowfish,
+  loadOffMyMind,
+  frozenLasagna,
+  quiteAGuy,
 ];
 
 export const videos: SocialVideoData[] = sources.map((v) => socialVideoSchema.parse(v));

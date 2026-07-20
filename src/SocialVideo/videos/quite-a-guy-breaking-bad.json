@@ -1,0 +1,92 @@
+{
+  "slug": "quite-a-guy-breaking-bad",
+  "clip": "clips/quite-a-guy-breaking-bad.mp4",
+  "film": "Breaking Bad",
+  "highlights": [
+    { "slug": "quite-a-guy", "atSec": 4.4 },
+    { "slug": "always-there-for-you", "atSec": 18 }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 4.4,
+      "text": "And judging from the things you and other folks have written about him, your dad must be quite a guy.",
+      "tr": {
+        "ru": "Судя по тому, что вы и другие люди написали о нем, ваш отец, должно быть, замечательный человек.",
+        "es": "Y a juzgar por lo que tú y otras personas habéis escrito sobre él, tu padre debe de ser un tipo estupendo."
+      }
+    },
+    {
+      "from": 4.4,
+      "to": 6.8,
+      "text": "Yeah, he is.",
+      "tr": {
+        "ru": "Да, это он.",
+        "es": "Sí, lo es."
+      }
+    },
+    {
+      "from": 6.8,
+      "to": 8.1,
+      "text": "He's the best.",
+      "tr": {
+        "ru": "Он лучший.",
+        "es": "Él es el mejor."
+      }
+    },
+    {
+      "from": 8.1,
+      "to": 10.4,
+      "text": "He's a great father, a great teacher.",
+      "tr": {
+        "ru": "Он замечательный отец, замечательный учитель.",
+        "es": "Es un gran padre, un gran maestro."
+      }
+    },
+    {
+      "from": 10.4,
+      "to": 13.9,
+      "text": "He knows, like, everything there is to know about chemistry.",
+      "tr": {
+        "ru": "Он знает, кажется, всё, что нужно знать о химии.",
+        "es": "Él sabe absolutamente todo lo que hay que saber sobre química."
+      }
+    },
+    {
+      "from": 13.9,
+      "to": 15.9,
+      "text": "He's patient with you.",
+      "tr": {
+        "ru": "Он терпелив с вами.",
+        "es": "Él es paciente contigo."
+      }
+    },
+    {
+      "from": 15.9,
+      "to": 18,
+      "text": "He's always there for you.",
+      "tr": {
+        "ru": "Он всегда рядом с тобой.",
+        "es": "Él siempre está ahí para ti."
+      }
+    },
+    {
+      "from": 18,
+      "to": 19.93,
+      "text": "He's just...",
+      "tr": {
+        "ru": "Он просто...",
+        "es": "Él es simplemente..."
+      }
+    },
+    {
+      "from": 19.93,
+      "to": 22,
+      "text": "decent.",
+      "tr": {
+        "ru": "приличный.",
+        "es": "decente."
+      }
+    }
+  ]
+}

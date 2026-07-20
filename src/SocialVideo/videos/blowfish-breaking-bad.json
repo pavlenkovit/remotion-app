@@ -1,0 +1,156 @@
+{
+  "slug": "blowfish-breaking-bad",
+  "clip": "clips/blowfish-breaking-bad.mp4",
+  "film": "Breaking Bad",
+  "highlights": [
+    { "slug": "intimidating", "atSec": 20.9 },
+    { "slug": "scared-off", "atSec": 26.58 },
+    { "slug": "say-it-like-you-mean-it", "atSec": 35.24 }
+  ],
+  "subtitles": [
+    {
+      "from": 0.01,
+      "to": 16.68,
+      "text": "[LAUGHTER] The blowfish puffs himself up four or five times larger than normal.",
+      "tr": {
+        "ru": "[СМЕХ] Рыба-фугу раздувается в четыре-пять раз больше обычного размера.",
+        "es": "[RISAS] El pez globo se infla hasta alcanzar un tamaño cuatro o cinco veces mayor de lo normal."
+      }
+    },
+    {
+      "from": 16.68,
+      "to": 17.58,
+      "text": "And why?",
+      "tr": {
+        "ru": "И почему?",
+        "es": "¿Y por qué?"
+      }
+    },
+    {
+      "from": 17.58,
+      "to": 19.14,
+      "text": "Why does he do that?",
+      "tr": {
+        "ru": "Зачем он это делает?",
+        "es": "¿Por qué hace eso?"
+      }
+    },
+    {
+      "from": 19.14,
+      "to": 20.9,
+      "text": "So that it makes him intimidating.",
+      "tr": {
+        "ru": "Поэтому он внушает страх.",
+        "es": "Para que resulte intimidante."
+      }
+    },
+    {
+      "from": 20.9,
+      "to": 21.94,
+      "text": "That's why.",
+      "tr": {
+        "ru": "Вот почему.",
+        "es": "Es por eso."
+      }
+    },
+    {
+      "from": 21.94,
+      "to": 23.22,
+      "text": "Intimidating.",
+      "tr": {
+        "ru": "Пугающий.",
+        "es": "Intimidante."
+      }
+    },
+    {
+      "from": 23.22,
+      "to": 26.58,
+      "text": "So that the other scarier fish are scared off.",
+      "tr": {
+        "ru": "Чтобы отпугнуть других, более страшных рыб.",
+        "es": "Para que los otros peces más temibles se ahuyenten."
+      }
+    },
+    {
+      "from": 26.58,
+      "to": 27.46,
+      "text": "And that's you.",
+      "tr": {
+        "ru": "И это вы.",
+        "es": "Y ese eres tú."
+      }
+    },
+    {
+      "from": 27.46,
+      "to": 28.9,
+      "text": "You are a blowfish.",
+      "tr": {
+        "ru": "Ты — рыба-фугу.",
+        "es": "Eres un pez globo."
+      }
+    },
+    {
+      "from": 28.9,
+      "to": 29.92,
+      "text": "I'm a blowfish.",
+      "tr": {
+        "ru": "Я — рыба-фугу.",
+        "es": "Soy un pez globo."
+      }
+    },
+    {
+      "from": 29.92,
+      "to": 32.16,
+      "text": "You are a blowfish.",
+      "tr": {
+        "ru": "Ты — рыба-фугу.",
+        "es": "Eres un pez globo."
+      }
+    },
+    {
+      "from": 32.16,
+      "to": 33.06,
+      "text": "Say it again.",
+      "tr": {
+        "ru": "Повторите ещё раз.",
+        "es": "Dilo otra vez."
+      }
+    },
+    {
+      "from": 33.06,
+      "to": 33.96,
+      "text": "I'm a blowfish.",
+      "tr": {
+        "ru": "Я — рыба-фугу.",
+        "es": "Soy un pez globo."
+      }
+    },
+    {
+      "from": 33.96,
+      "to": 35.24,
+      "text": "Say it like you mean it.",
+      "tr": {
+        "ru": "Скажите это так, как будто вы действительно так думаете.",
+        "es": "Dilo como si lo sintieras de verdad."
+      }
+    },
+    {
+      "from": 35.24,
+      "to": 36.22,
+      "text": "I'm a blowfish.",
+      "tr": {
+        "ru": "Я — рыба-фугу.",
+        "es": "Soy un pez globo."
+      }
+    },
+    {
+      "from": 36.22,
+      "to": 37.12,
+      "text": "You're a blowfish.",
+      "tr": {
+        "ru": "Ты — рыба-фугу.",
+        "es": "Eres un pez globo."
+      }
+    }
+  ]
+}

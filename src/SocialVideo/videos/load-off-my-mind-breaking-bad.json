@@ -1,0 +1,47 @@
+{
+  "slug": "load-off-my-mind-breaking-bad",
+  "clip": "clips/load-off-my-mind-breaking-bad.mp4",
+  "film": "Breaking Bad",
+  "highlights": [
+    { "slug": "i-get-that-completely", "atSec": 12.08 },
+    { "slug": "a-load-off-my-mind", "atSec": 17.0 }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 9.08,
+      "text": "I appreciate that when you were going to kill me, you were simply following orders.",
+      "tr": {
+        "ru": "Я ценю то, что, когда вы собирались меня убить, вы просто выполняли приказ.",
+        "es": "Agradezco que, cuando ibas a matarme, simplemente estuvieras siguiendo órdenes."
+      }
+    },
+    {
+      "from": 9.08,
+      "to": 12.08,
+      "text": "I get that completely.",
+      "tr": {
+        "ru": "Я это прекрасно понимаю.",
+        "es": "Lo entiendo perfectamente."
+      }
+    },
+    {
+      "from": 12.08,
+      "to": 14.24,
+      "text": "And I harbor no ill will.",
+      "tr": {
+        "ru": "И я не питаю никакой неприязни.",
+        "es": "Y no guardo rencor."
+      }
+    },
+    {
+      "from": 14.24,
+      "to": 17.2,
+      "text": "There's a load off my mind.",
+      "tr": {
+        "ru": "С меня словно груз свалился.",
+        "es": "Me he quitado un peso de encima."
+      }
+    }
+  ]
+}
