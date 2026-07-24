@@ -8,19 +8,26 @@ export type NativeLang = "ru" | "es";
 export const NATIVE_LANGS: NativeLang[] = ["ru", "es"];
 
 type Strings = {
-  /** Top banner headline shown above the clip on every social video. */
+  /** FALLBACK top-banner headline. Every video should instead ship its own
+      attention-grabbing, scene-specific `hook` in videos/<slug>.json (see the
+      social-video skill); this generic line is only used when it's missing. */
   header: string;
+  /** Countdown chip above the clip: "<nextPhraseIn> 3 <secShort>". */
+  nextPhraseIn: string;
+  secShort: string;
+  /** Outro recap: title line above the list of what was learned. */
+  recapTitle: string;
+  /** Outro recap: call to action under the list, next to the logo. */
+  recapCta: string;
   /** Tagline shown next to the "VibeLing" pill in the app mockup. */
   tagline: string;
   /** Search bar "cancel" affordance. */
   cancel: string;
   /** "Add to dictionary" button. */
   addToDict: string;
-  /** Toast line 1 for a phrase / single word. */
-  addedPhrase: string;
-  addedWord: string;
-  /** Toast line 2. */
-  forLearning: string;
+  /** The same button AFTER the tap — it turns green with a check mark. There is
+      no confirmation modal; the button itself is the confirmation. */
+  added: string;
   /** Examples section header. */
   examples: string;
   /** Part-of-speech labels (API returns them in English). */
@@ -30,15 +37,20 @@ type Strings = {
 export const STRINGS: Record<NativeLang, Strings> = {
   ru: {
     header: "Изучаем полезные слова и фразы из фильмов",
+    nextPhraseIn: "Новая фраза через",
+    secShort: "с",
+    recapTitle: "Сегодня выучили",
+    recapCta: "Учи их в VibeLing",
     tagline: "Учим английский язык",
     cancel: "Отмена",
     addToDict: "Добавить в словарь",
-    addedPhrase: "Фраза добавлена",
-    addedWord: "Слово добавлено",
-    forLearning: "для изучения",
+    added: "Добавлено",
     examples: "ПРИМЕРЫ",
     pos: {
       phrase: "фраза",
+      "verb phrase": "глагольная фраза",
+      "noun phrase": "именная группа",
+      "phrasal verb": "фразовый глагол",
       idiom: "идиома",
       expression: "выражение",
       noun: "существительное",
@@ -52,15 +64,20 @@ export const STRINGS: Record<NativeLang, Strings> = {
   },
   es: {
     header: "Aprendemos palabras y frases útiles de las películas",
+    nextPhraseIn: "Nueva frase en",
+    secShort: "s",
+    recapTitle: "Hoy aprendimos",
+    recapCta: "Apréndelas en VibeLing",
     tagline: "Aprende inglés",
     cancel: "Cancelar",
     addToDict: "Añadir al diccionario",
-    addedPhrase: "Frase añadida",
-    addedWord: "Palabra añadida",
-    forLearning: "para aprender",
+    added: "Añadido",
     examples: "EJEMPLOS",
     pos: {
       phrase: "frase",
+      "verb phrase": "frase verbal",
+      "noun phrase": "frase nominal",
+      "phrasal verb": "verbo compuesto",
       idiom: "modismo",
       expression: "expresión",
       noun: "sustantivo",
@@ -77,6 +94,21 @@ export const STRINGS: Record<NativeLang, Strings> = {
 /** Localize a part-of-speech value from the API (English), falling back to raw. */
 export const localizePos = (lang: NativeLang, pos: string): string =>
   STRINGS[lang].pos[pos.toLowerCase().trim()] ?? pos;
+
+/** "3 новых выражения" / "3 nuevas expresiones" — the outro recap's headline
+    count. Russian needs the 1 / 2–4 / 5+ plural forms, so this is a function. */
+export const phrasesLearned = (lang: NativeLang, n: number): string => {
+  if (lang === "es") return `${n} ${n === 1 ? "nueva expresión" : "nuevas expresiones"}`;
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  const noun =
+    mod10 === 1 && mod100 !== 11
+      ? "новое выражение"
+      : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+        ? "новых выражения"
+        : "новых выражений";
+  return `${n} ${noun}`;
+};
 
 // ---------------------------------------------------------------------------
 // Per-language variant — makes each language's render visually/audibly distinct
@@ -98,21 +130,41 @@ export type LangVariant = {
     color: string;
     trFontSize: number;
     trColor: string;
+    /** Colour of the UPCOMING highlight phrase inside the English subtitle line
+        (it's marked before it's spoken so the viewer knows what's coming). */
+    hlColor: string;
+    /** "r,g,b" of the pulsing chip drawn behind that phrase. */
+    hlRgb: string;
   };
 };
 
 export const VARIANTS: Record<NativeLang, LangVariant> = {
-  // ru = clean baseline: no flip, normal speed, white English + cool-grey translation.
+  // ru = clean baseline: no flip, normal speed, white English + cool-grey
+  // translation, violet highlight chip.
   ru: {
     flip: false,
     speed: 1,
-    subtitle: { fontSize: 58, color: "#ffffff", trFontSize: 44, trColor: "#aeb8c8" },
+    subtitle: {
+      fontSize: 58,
+      color: "#ffffff",
+      trFontSize: 44,
+      trColor: "#aeb8c8",
+      hlColor: "#ffffff",
+      hlRgb: "139,92,246",
+    },
   },
   // es = differentiated: mirrored footage, +2% speed, warm yellow English +
-  // warm-pale translation, slightly smaller.
+  // warm-pale translation, slightly smaller, pink highlight chip.
   es: {
     flip: true,
     speed: 1.02,
-    subtitle: { fontSize: 52, color: "#f2d06b", trFontSize: 40, trColor: "#e7d7ac" },
+    subtitle: {
+      fontSize: 52,
+      color: "#f2d06b",
+      trFontSize: 40,
+      trColor: "#e7d7ac",
+      hlColor: "#ffffff",
+      hlRgb: "236,72,153",
+    },
   },
 };

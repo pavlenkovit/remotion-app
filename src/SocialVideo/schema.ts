@@ -10,6 +10,11 @@ export const highlightSchema = z.object({
   slug: z.string(),
   /** Clip seconds (0 = clip start) where the phrase finishes being spoken. */
   atSec: z.number(),
+  /** The phrase EXACTLY as spoken, with apostrophes and casing — "you're", not
+      the slug's "youre". Filled automatically by `transcribe` (lifted out of the
+      matching subtitle line); `fetch-words` sends this to the API so the card
+      and the outro recap show real English. Falls back to the de-hyphenated slug. */
+  text: z.string().optional(),
 });
 
 export const subtitleSchema = z.object({
@@ -32,6 +37,11 @@ export const socialVideoSchema = z.object({
   /** The film/show the scene is from, e.g. "Breaking Bad". Used by the
       video-description skill to put the title in the caption/name. */
   film: z.string().optional(),
+  /** Attention-grabbing top-banner headline, one per native language
+      ({ ru, es }) — SPECIFIC to this scene/show/phrases, e.g.
+      "Самый неловкий момент в The Office". Written per video (see the
+      social-video skill); falls back to STRINGS[lang].header when absent. */
+  hook: z.record(z.string(), z.string()).optional(),
   /** Phrases to pause on during the subtitled pass, in order. */
   highlights: z.array(highlightSchema),
   /** English subtitles overlaid on the clip. */

@@ -2,9 +2,21 @@
   "slug": "tread-lightly-breaking-bad",
   "clip": "clips/tread-lightly-breaking-bad.mp4",
   "film": "Breaking Bad",
+  "hook": {
+    "ru": "Фраза из Breaking Bad, от которой мороз по коже",
+    "es": "La frase de Breaking Bad que te hiela la sangre"
+  },
   "highlights": [
-    { "slug": "the-way-youre-looking-at-me", "atSec": 6 },
-    { "slug": "tread-lightly", "atSec": 29 }
+    {
+      "slug": "the-way-youre-looking-at-me",
+      "atSec": 6,
+      "text": "the way you're looking at me"
+    },
+    {
+      "slug": "tread-lightly",
+      "atSec": 29.3,
+      "text": "tread lightly"
+    }
   ],
   "subtitles": [
     {
@@ -30,7 +42,7 @@
       "to": 18.1,
       "text": "If you don't know who I am...",
       "tr": {
-        "ru": "Если вы не знаете, кто я...",
+        "ru": "Если ты не знаешь, кто я...",
         "es": "Si no sabes quién soy..."
       }
     },
@@ -48,7 +60,7 @@
       "to": 25.54,
       "text": "Maybe your best course...",
       "tr": {
-        "ru": "Возможно, это будет ваш лучший вариант...",
+        "ru": "Возможно, твой лучший вариант...",
         "es": "Quizás tu mejor opción..."
       }
     },

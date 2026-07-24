@@ -29,7 +29,7 @@ export const Brand: React.FC<{ lang: NativeLang }> = ({ lang }) => {
       >
         VibeLing
       </div>
-      <span style={{ color: COLORS.muted, fontSize: 34, fontWeight: 500 }}>
+      <span style={{ color: COLORS.muted, fontSize: 42, fontWeight: 500 }}>
         {STRINGS[lang].tagline}
       </span>
     </div>

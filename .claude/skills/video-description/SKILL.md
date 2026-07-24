@@ -22,6 +22,8 @@ Invoked with a video **slug** (or "all"). For each slug:
      slug's trailing words or ASK the user; never omit it from the title.
    - **`highlights[].slug`** — the phrases taught (English), e.g. `say-my-name`, `goddamn-right`.
    - **`subtitles[].text`** — the scene's English dialogue (context for the hook).
+   - **`hook[lang]`** — the banner headline burned into the video for that language. Use it as
+     the angle for the caption (don't just copy it verbatim — the caption should extend it).
 2. Languages: the keys of `src/Dictionary/words.generated.json` (currently `ru`, `es`) — same
    set as `NATIVE_LANGS` in `src/i18n.ts`. Write copy in each audience language.
 3. The native translations of each phrase live in `words.generated.json`
@@ -50,16 +52,47 @@ sentences broken across a few lines>
 
 <hashtags on their own line>
 
+## Instagram Reels
+<caption text>
+
+<hashtags>
+
 ## YouTube Shorts
 <caption text; end the copy with #Shorts>
 
 <hashtags>
 
-## Instagram Reels
-<caption text>
+## Дзен            ← ru only, always last
+<описание, СТРОГО ≤200 символов с пробелами>
 
-<hashtags>
+<ключ, ключ, ключ, … — через запятую, без #>
 ```
+
+### Platform order (it's the posting order)
+
+The sections appear in the order the user posts them, so the file is read top to bottom while
+publishing — **TikTok, Instagram Reels, YouTube Shorts**, in every language. `ru` then gets
+**Дзен last**; other languages stop after YouTube Shorts (Дзен is a Russian-language
+platform). Same copy rules everywhere; only that last ru-only section differs.
+
+### Дзен (ru only)
+
+Дзен has **two separate input fields**, so this section is the one place with two blocks
+instead of one:
+
+1. **Описание — hard limit 200 characters including spaces.** Count them; if it's over,
+   cut, don't hope. Same content as elsewhere (film + phrase + translation + a nudge to the
+   app), just compressed to the essentials. No hashtags here — Дзен doesn't use them.
+2. **Ключи — a comma-separated line of EXACTLY 5** (Дзен's limit), lowercase, **no `#`**,
+   plain search phrases rather than tags. Five slots is nothing, so spend them on **reach,
+   not precision** — pick what the most people actually search:
+   - the film's **Russian** title first (`во все тяжкие` — far bigger demand than the English
+     one), then the English title;
+   - one "how they'd find us" phrase matching the source (`английский по сериалам` for a
+     series, `английский по фильмам` for a film);
+   - one or two broad learner queries (`разговорный английский`, `учить английский`).
+   - **Drop the brand** (`vibeling`) and the phrase itself (`tread lightly`) — nobody searches
+     them; at 10 keys they were free, at 5 they cost a real slot.
 
 ## Copy rules
 

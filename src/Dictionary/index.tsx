@@ -27,16 +27,26 @@ export const MOCKUP_HEIGHT = 2160;
 const MAX_EXAMPLES = 2;
 
 // ---------- Timing (derived from the word so any word fits the scenario) ----------
+//
+// SNAPPY BY DESIGN: this mockup interrupts the film scene, so the whole "search →
+// card → added" beat must land in ~2–2.5s and hand the viewer straight back to
+// the show. Everything below is tuned for that budget — typing is a fast flourish
+// (sub-second even for a long phrase), the keyboard/spinner exit immediately, and
+// the card only has to read as "the phrase is in my dictionary now". If you
+// lengthen anything here, the pause starts to feel like an ad break.
 
-const TYPE_START = 4;
-const PER_CHAR = 1.5;
-const WORD_SCENE_DURATION = 120;
+const TYPE_START = 2;
+/** Frames per typed character (<1 = several chars per frame). */
+const PER_CHAR = 0.45;
+/** Frames between the end of typing and the cut to the word card. */
+const SEARCH_TAIL = 8;
+const WORD_SCENE_DURATION = 56;
 /** Scene-2 local frame where the "Добавить в словарь" button is tapped. */
-const PRESS_AT = 62;
+const PRESS_AT = 20;
 
 export const getDictionaryTiming = (word: WordData) => {
   const typingEnd = Math.ceil(TYPE_START + word.word.length * PER_CHAR);
-  const transitionAt = typingEnd + 16;
+  const transitionAt = typingEnd + SEARCH_TAIL;
   return {
     typeStart: TYPE_START,
     perChar: PER_CHAR,
@@ -109,7 +119,7 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
 
   const spinnerOpacity = interpolate(
     frame,
-    [typingEnd + 4, typingEnd + 12],
+    [typingEnd + 1, typingEnd + 4],
     [0, 1],
     {
       extrapolateLeft: "clamp",
@@ -117,9 +127,9 @@ const SearchScene: React.FC<{ word: WordData; timing: Timing }> = ({
     },
   );
 
-  // keyboard slides away once typing is done
+  // keyboard slides away once typing is done — fast, it must be gone by the cut
   const kbOffset = doneTyping
-    ? interpolate(frame, [typingEnd + 5, typingEnd + 20], [0, 900], {
+    ? interpolate(frame, [typingEnd + 1, typingEnd + SEARCH_TAIL], [0, 900], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
         easing: Easing.in(Easing.cubic),
@@ -195,7 +205,7 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
     frame: localFrame,
     fps,
     config: { damping: 200 },
-    durationInFrames: 10,
+    durationInFrames: 8,
   });
   const headerY = interpolate(headerSpring, [0, 1], [50, 0]);
 
@@ -203,12 +213,8 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
   const titleSize =
     word.word.length > 16 ? 66 : word.word.length > 10 ? 80 : 98;
 
-  // Multi-word entries are phrases; single words are words.
-  const isPhrase = word.word.trim().includes(" ");
-  const addedLabel = isPhrase ? s.addedPhrase : s.addedWord;
-
   // The search input fades out quickly so it doesn't linger over the image.
-  const searchHide = interpolate(localFrame, [1, 5], [0, 1], {
+  const searchHide = interpolate(localFrame, [0, 4], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.inOut(Easing.cubic),
@@ -226,25 +232,14 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
     },
   );
 
-  // Toast pops in right after the press with a punchy overshoot.
-  const toastStart = pressStart + 6;
-  const toastSpring = spring({
-    frame: localFrame - toastStart,
-    fps,
-    config: { damping: 10, stiffness: 200 },
+  // Confirmation IS the button: right after the tap it flips to green + a check
+  // mark + "Добавлено". No modal — a modal covers the card the viewer is reading
+  // and costs a second we don't have in a ~2s mockup.
+  const doneAt = pressStart + 4;
+  const done = interpolate(localFrame, [doneAt, doneAt + 5], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
   });
-  const toastVisible = localFrame > toastStart - 2;
-  // Let the spring overshoot past 1 for an energetic pop.
-  const toastScale = 0.5 + 0.5 * toastSpring;
-  const overlayOpacity = interpolate(
-    localFrame,
-    [toastStart, toastStart + 7],
-    [0, 0.55],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
@@ -357,11 +352,13 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
 
       <div style={{ padding: "0 60px" }}>
         {word.examples.slice(0, MAX_EXAMPLES).map((ex, i) => (
-          <Example key={i} original={ex.original} translation={ex.translation} delay={5 + i * 4} />
+          <Example key={i} original={ex.original} translation={ex.translation} delay={3 + i * 3} />
         ))}
       </div>
 
-      {/* Add to dictionary button */}
+      {/* The "add to dictionary" button — and, after the tap, the confirmation:
+          it cross-fades to green with a check mark and "Добавлено". Both states
+          are stacked so the pill's size never jumps mid-swap. */}
       <div
         style={{
           position: "absolute",
@@ -371,94 +368,57 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
           transform: `scale(${press})`,
         }}
       >
-        <div
-          style={{
-            height: 120,
-            borderRadius: 999,
-            background: `linear-gradient(135deg, ${COLORS.accent}, #6d28d9)`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 20,
-            boxShadow: `0 10px 40px rgba(139,92,246,0.45)`,
-          }}
-        >
-          <svg width="46" height="46" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 5v14M5 12h14"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-          <span style={{ color: "white", fontSize: 50, fontWeight: 600 }}>
-            {s.addToDict}
-          </span>
-        </div>
-      </div>
-
-      {/* Toast overlay */}
-      {toastVisible && (
-        <AbsoluteFill
-          style={{
-            backgroundColor: `rgba(0,0,0,${overlayOpacity})`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              transform: `scale(${toastScale})`,
-              opacity: toastSpring,
-              backgroundColor: COLORS.card,
-              borderRadius: 40,
-              padding: "60px 70px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 32,
-              boxShadow: "0 20px 80px rgba(0,0,0,0.6)",
-              maxWidth: 760,
-            }}
-          >
-            <div
-              style={{
-                width: 150,
-                height: 150,
-                borderRadius: 75,
-                background: `linear-gradient(135deg, ${COLORS.accent}, #6d28d9)`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <svg width="86" height="86" viewBox="0 0 24 24" fill="none">
+        <div style={{ position: "relative", height: 120 }}>
+          {[
+            {
+              key: "add",
+              opacity: 1 - done,
+              gradient: `linear-gradient(135deg, ${COLORS.accent}, #6d28d9)`,
+              glow: "0 10px 40px rgba(139,92,246,0.45)",
+              icon: <path d="M12 5v14M5 12h14" stroke="white" strokeWidth="3" strokeLinecap="round" />,
+              label: s.addToDict,
+            },
+            {
+              key: "done",
+              opacity: done,
+              gradient: "linear-gradient(135deg, #22c55e, #15803d)",
+              glow: "0 10px 40px rgba(34,197,94,0.45)",
+              icon: (
                 <path
                   d="M5 13l4 4L19 7"
                   stroke="white"
-                  strokeWidth="3"
+                  strokeWidth="3.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg>
-            </div>
+              ),
+              label: s.added,
+            },
+          ].map((state) => (
             <div
+              key={state.key}
               style={{
-                color: "white",
-                fontSize: 58,
-                fontWeight: 600,
-                textAlign: "center",
-                lineHeight: 1.3,
+                position: "absolute",
+                inset: 0,
+                opacity: state.opacity,
+                height: 120,
+                borderRadius: 999,
+                background: state.gradient,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 20,
+                boxShadow: state.glow,
               }}
             >
-              {addedLabel}
-              <br />
-              {s.forLearning}
+              <svg width="46" height="46" viewBox="0 0 24 24" fill="none">
+                {state.icon}
+              </svg>
+              <span style={{ color: "white", fontSize: 50, fontWeight: 600 }}>{state.label}</span>
             </div>
-          </div>
-        </AbsoluteFill>
-      )}
+          ))}
+        </div>
+      </div>
     </AbsoluteFill>
   );
 };
@@ -472,7 +432,7 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
 
   const scene1Opacity = interpolate(
     frame,
-    [transitionAt - 5, transitionAt + 3],
+    [transitionAt - 4, transitionAt + 1],
     [1, 0],
     {
       extrapolateLeft: "clamp",
@@ -481,7 +441,7 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
   );
   const scene2Opacity = interpolate(
     frame,
-    [transitionAt - 2, transitionAt + 6],
+    [transitionAt - 2, transitionAt + 3],
     [0, 1],
     {
       extrapolateLeft: "clamp",
@@ -491,12 +451,12 @@ export const Dictionary: React.FC<{ word: WordData }> = ({ word }) => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
-      {frame >= transitionAt - 6 && (
+      {frame >= transitionAt - 3 && (
         <AbsoluteFill style={{ opacity: scene2Opacity }}>
           <WordScene word={word} localFrame={frame - transitionAt} />
         </AbsoluteFill>
       )}
-      {frame < transitionAt + 5 && (
+      {frame < transitionAt + 2 && (
         <AbsoluteFill style={{ opacity: scene1Opacity }}>
           <SearchScene word={word} timing={timing} />
         </AbsoluteFill>

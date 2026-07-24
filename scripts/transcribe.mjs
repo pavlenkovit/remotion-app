@@ -12,6 +12,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { installWhisperCpp, downloadWhisperModel, transcribe, toCaptions } from "@remotion/install-whisper-cpp";
+import { reportFormal } from "./formal-you.mjs";
 
 const WHISPER_VERSION = "1.5.5";
 const MODEL = "small.en"; // accurate enough for clear movie dialogue
@@ -117,14 +118,41 @@ flush();
 
 video.subtitles = segments;
 
-// Best-effort: locate each highlight phrase and set its atSec to the spoken end.
+// Best-effort: locate each highlight phrase, set its atSec to the spoken end and
+// lift the phrase's REAL spelling out of the line.
 const collapse = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+/**
+ * The substring of `text` that spells `needle` (already collapsed), with the
+ * original apostrophes/casing — "you're looking at me", not "youre looking at me".
+ * Matching ignores everything but letters/digits, so an index map carries the hit
+ * back to offsets in the original string. Null when the phrase isn't in the line.
+ */
+const spellingOf = (text, needle) => {
+  const map = [];
+  let norm = "";
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i].toLowerCase();
+    if (/[a-z0-9]/.test(c)) {
+      norm += c;
+      map.push(i);
+    }
+  }
+  const at = norm.indexOf(needle);
+  if (at < 0) return null;
+  return text.slice(map[at], map[at + needle.length - 1] + 1);
+};
+
 for (const h of video.highlights ?? []) {
   const phrase = collapse(h.slug.replace(/-/g, " "));
   const seg = segments.find((s) => collapse(s.text).includes(phrase));
   if (seg) {
     h.atSec = seg.to;
-    console.log(`  highlight "${h.slug}" -> atSec ${seg.to} ("${seg.text}")`);
+    // A slug can't hold an apostrophe, so without this the dictionary card and
+    // the outro recap would read "The way youre looking at me".
+    const spoken = spellingOf(seg.text, phrase);
+    if (spoken) h.text = spoken;
+    console.log(`  highlight "${h.slug}" -> atSec ${seg.to}, text "${spoken ?? "?"}" ("${seg.text}")`);
   } else {
     console.warn(`  highlight "${h.slug}" NOT found in transcript — kept atSec ${h.atSec}`);
   }
@@ -142,6 +170,12 @@ if (segments.length) {
         s.tr[lang] = translations[i] ?? "";
       });
       console.log(`  translated ${translations.length} lines -> ${lang}`);
+      // The API translates each line blind and defaults to the polite form; film
+      // dialogue is almost always informal. Flag those lines for a rewrite.
+      reportFormal(
+        segments.map((s, i) => ({ label: `${lang} #${i + 1}`, text: s.tr[lang] ?? "" })),
+        lang,
+      );
     } catch (err) {
       console.warn(`  translation to ${lang} failed (${err.message}) — subtitles kept English-only`);
     }

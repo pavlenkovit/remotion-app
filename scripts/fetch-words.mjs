@@ -19,6 +19,7 @@ import { readFile, writeFile, mkdir, readdir, unlink } from "node:fs/promises";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { reportFormal } from "./formal-you.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -26,15 +27,23 @@ const VIDEOS_DIR = join(ROOT, "src/SocialVideo/videos");
 const OUT_FILE = join(ROOT, "src/Dictionary/words.generated.json");
 const IMG_DIR = join(ROOT, "public/words");
 
-// Union of highlight slugs across all current videos — the single source of truth.
-const slugsFromVideos = () => [
-  ...new Set(
-    readdirSync(VIDEOS_DIR)
-      .filter((f) => f.endsWith(".json"))
-      .flatMap((f) => JSON.parse(readFileSync(join(VIDEOS_DIR, f), "utf8")).highlights ?? [])
-      .map((h) => h.slug),
-  ),
-];
+// Every highlight across all current videos — the single source of truth. Each
+// entry is { slug, phrase }, where `phrase` is what we look up in the API: the
+// highlight's `text` (the real spelling, apostrophes and all, filled in by
+// `transcribe`) or, failing that, the de-hyphenated slug. A slug can't hold an
+// apostrophe, so using it would put "The way youre looking at me" on the card.
+const highlightsFromVideos = () => {
+  const bySlug = new Map();
+  for (const f of readdirSync(VIDEOS_DIR).filter((n) => n.endsWith(".json"))) {
+    for (const h of JSON.parse(readFileSync(join(VIDEOS_DIR, f), "utf8")).highlights ?? []) {
+      const phrase = h.text?.trim() || phraseFromSlug(h.slug);
+      // First definition wins, but a real spelling always beats a slug fallback.
+      const prev = bySlug.get(h.slug);
+      if (!prev || (!prev.fromText && h.text)) bySlug.set(h.slug, { slug: h.slug, phrase, fromText: !!h.text });
+    }
+  }
+  return [...bySlug.values()];
+};
 
 // Delete illustrations in public/words/ whose slug is no longer used by any video.
 const pruneImages = async (keepSlugs) => {
@@ -83,13 +92,13 @@ const downloadImage = async (url, slug) => {
 };
 
 const main = async () => {
-  const slugs = slugsFromVideos();
+  const highlights = highlightsFromVideos();
+  const slugs = highlights.map((h) => h.slug);
   await mkdir(IMG_DIR, { recursive: true });
 
   const byLang = Object.fromEntries(TARGET_LANGS.map((l) => [l, []]));
 
-  for (const slug of slugs) {
-    const enPhrase = phraseFromSlug(slug);
+  for (const { slug, phrase: enPhrase } of highlights) {
     let image = "";
     for (const lang of TARGET_LANGS) {
       process.stdout.write(`• ${slug} [${lang}] … `);
@@ -136,6 +145,19 @@ const main = async () => {
   await writeFile(OUT_FILE, JSON.stringify(byLang, null, 2) + "\n");
   const counts = TARGET_LANGS.map((l) => `${l}:${byLang[l].length}`).join(", ");
   console.log(`\nWrote ${OUT_FILE.replace(ROOT + "/", "")} (${counts})`);
+
+  // The API writes card copy in the polite form by default; the mockups read as
+  // a chat with a friend, so flag those lines for a rewrite (see the "ты, not вы"
+  // rule in the social-video skill).
+  for (const lang of TARGET_LANGS) {
+    reportFormal(
+      byLang[lang].flatMap((w) => [
+        { label: `${w.slug} · translation`, text: w.translation },
+        ...w.examples.map((e, i) => ({ label: `${w.slug} · example ${i + 1}`, text: e.translation })),
+      ]),
+      lang,
+    );
+  }
 
   // Drop illustrations for words no longer referenced by any video.
   await pruneImages(slugs);
