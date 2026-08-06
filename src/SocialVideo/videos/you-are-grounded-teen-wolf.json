@@ -1,0 +1,176 @@
+{
+  "slug": "you-are-grounded-teen-wolf",
+  "clip": "clips/you-are-grounded-teen-wolf.mov",
+  "film": "Teen Wolf",
+  "hook": {
+    "ru": "Как тебя наказывают по-английски",
+    "es": "Cómo te castigan en inglés: Teen Wolf"
+  },
+  "highlights": [
+    {
+      "slug": "you-are-grounded",
+      "atSec": 3.3,
+      "text": "You are grounded"
+    },
+    {
+      "slug": "give-me-your-keys",
+      "atSec": 23.34,
+      "text": "Give me your keys"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0.38,
+      "to": 1.12,
+      "text": "I have to ground you.",
+      "tr": {
+        "ru": "Мне придётся тебя наказать.",
+        "es": "Tengo que castigarte."
+      }
+    },
+    {
+      "from": 1.16,
+      "to": 1.84,
+      "text": "I am grounding you.",
+      "tr": {
+        "ru": "Я тебя наказываю.",
+        "es": "Te estoy castigando."
+      }
+    },
+    {
+      "from": 1.94,
+      "to": 3.3,
+      "text": "You are grounded.",
+      "tr": {
+        "ru": "Ты под домашним арестом.",
+        "es": "Estás castigado."
+      }
+    },
+    {
+      "from": 3.48,
+      "to": 4.38,
+      "text": "What about work?",
+      "tr": {
+        "ru": "А что насчет работы?",
+        "es": "¿Y el trabajo?"
+      }
+    },
+    {
+      "from": 4.72,
+      "to": 5.16,
+      "text": "Fine.",
+      "tr": {
+        "ru": "Ладно.",
+        "es": "Bien."
+      }
+    },
+    {
+      "from": 5.9,
+      "to": 6.86,
+      "text": "Other than work.",
+      "tr": {
+        "ru": "Помимо работы.",
+        "es": "Aparte del trabajo."
+      }
+    },
+    {
+      "from": 7.32,
+      "to": 8.04,
+      "text": "And no TV.",
+      "tr": {
+        "ru": "И никакого телевизора.",
+        "es": "Y sin televisión."
+      }
+    },
+    {
+      "from": 9,
+      "to": 10.06,
+      "text": "My TV's broken.",
+      "tr": {
+        "ru": "Мой телевизор сломался.",
+        "es": "Mi televisor está roto."
+      }
+    },
+    {
+      "from": 10.5,
+      "to": 11.72,
+      "text": "Then no computer.",
+      "tr": {
+        "ru": "Тогда никакого компьютера.",
+        "es": "Entonces no hay computadora."
+      }
+    },
+    {
+      "from": 11.94,
+      "to": 13.32,
+      "text": "I need the computer for school.",
+      "tr": {
+        "ru": "Мне нужен компьютер для учёбы.",
+        "es": "Necesito el ordenador para la escuela."
+      }
+    },
+    {
+      "from": 13.52,
+      "to": 15,
+      "text": "Then no, uh...",
+      "tr": {
+        "ru": "Нет, э-э...",
+        "es": "Entonces no, eh..."
+      }
+    },
+    {
+      "from": 16.22,
+      "to": 17.18,
+      "text": "No Stiles.",
+      "tr": {
+        "ru": "Никакого Стайлза.",
+        "es": "Nada de Stiles."
+      }
+    },
+    {
+      "from": 17.5,
+      "to": 17.58,
+      "text": "What?",
+      "tr": {
+        "ru": "Что?",
+        "es": "¿Qué?"
+      }
+    },
+    {
+      "from": 17.66,
+      "to": 18.08,
+      "text": "No Stiles?",
+      "tr": {
+        "ru": "Никакого Стайлза?",
+        "es": "¿Nada de Stiles?"
+      }
+    },
+    {
+      "from": 18.32,
+      "to": 19.26,
+      "text": "No Stiles!",
+      "tr": {
+        "ru": "Никакого Стайлза!",
+        "es": "¡Nada de Stiles!"
+      }
+    },
+    {
+      "from": 20.64,
+      "to": 22.12,
+      "text": "And no more car privileges?",
+      "tr": {
+        "ru": "И машину больше нельзя?",
+        "es": "¿Y ya no hay privilegios para usar el coche?"
+      }
+    },
+    {
+      "from": 22.34,
+      "to": 23.34,
+      "text": "Give me your keys.",
+      "tr": {
+        "ru": "Дай мне свои ключи.",
+        "es": "Dame tus llaves."
+      }
+    }
+  ]
+}

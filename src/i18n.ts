@@ -17,9 +17,9 @@ type Strings = {
   secShort: string;
   /** Outro recap: title line above the list of what was learned. */
   recapTitle: string;
-  /** Outro recap: call to action under the list, next to the logo. */
+  /** Outro recap: closing call to action under the list. */
   recapCta: string;
-  /** Tagline shown next to the "VibeLing" pill in the app mockup. */
+  /** Tagline shown next to the "VibeLing" wordmark in the app mockup. */
   tagline: string;
   /** Search bar "cancel" affordance. */
   cancel: string;
@@ -40,8 +40,8 @@ export const STRINGS: Record<NativeLang, Strings> = {
     nextPhraseIn: "Новая фраза через",
     secShort: "с",
     recapTitle: "Сегодня выучили",
-    recapCta: "Учи их в VibeLing",
-    tagline: "Учим английский язык",
+    recapCta: "Учи их в мобильном приложении VibeLing",
+    tagline: "Учи английский язык",
     cancel: "Отмена",
     addToDict: "Добавить в словарь",
     added: "Добавлено",
@@ -67,7 +67,7 @@ export const STRINGS: Record<NativeLang, Strings> = {
     nextPhraseIn: "Nueva frase en",
     secShort: "s",
     recapTitle: "Hoy aprendimos",
-    recapCta: "Apréndelas en VibeLing",
+    recapCta: "Apréndelas en la app móvil VibeLing",
     tagline: "Aprende inglés",
     cancel: "Cancelar",
     addToDict: "Añadir al diccionario",

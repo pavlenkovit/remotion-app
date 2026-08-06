@@ -1,6 +1,6 @@
 ---
 name: video-description
-description: Generate upload-ready captions (TikTok / YouTube Shorts / Instagram Reels) for a rendered social-video — one file per language, each a single continuous copy-paste block (no title/description/hashtags split) with the FILM NAME in the copy. Use when the user wants descriptions/captions for the videos produced by the social-video skill.
+description: Generate upload-ready captions (TikTok / YouTube Shorts / Instagram Reels) for a rendered social-video — ONE file per video holding every language (ru first, then es), each caption a single continuous copy-paste block (no title/description/hashtags split). Use when the user wants descriptions/captions for the videos produced by the social-video skill.
 ---
 
 # Video Description
@@ -18,8 +18,11 @@ You (the model) write the copy directly — there is no API for it. Follow the r
 Invoked with a video **slug** (or "all"). For each slug:
 
 1. Read `src/SocialVideo/videos/<slug>.json`:
-   - **`film`** — the movie/show name (e.g. "Breaking Bad"). If missing, infer it from the
-     slug's trailing words or ASK the user; never omit it from the title.
+   - **`film`** — the movie/show name (e.g. "Breaking Bad"), when the video declares one.
+     A video with NO `film` field is deliberately unattributed (the source couldn't be
+     identified with confidence) — then name no film anywhere: no title mention, no
+     `#BreakingBad`-style tag, no character names. Write the copy from the dialogue context
+     instead ("мама возмущается, что дочь…"). Never guess a film to fill the gap.
    - **`highlights[].slug`** — the phrases taught (English), e.g. `say-my-name`, `goddamn-right`.
    - **`subtitles[].text`** — the scene's English dialogue (context for the hook).
    - **`hook[lang]`** — the banner headline burned into the video for that language. Use it as
@@ -31,47 +34,57 @@ Invoked with a video **slug** (or "all"). For each slug:
 
 ## Output
 
-One markdown file per (video × language), next to the rendered mp4:
+**ONE markdown file per video** — all languages in it, next to the rendered mp4s:
 
 ```
-out/final/<slug>-<lang>.md      (mp4 is out/final/<slug>-<lang>.mp4)
+out/final/<slug>.md        (mp4s are out/final/<slug>-<lang>.mp4, one per language)
 ```
+
+Languages are `##` sections in `NATIVE_LANGS` order — **Russian first, then Spanish** —
+and the platforms are `###` sections inside each.
 
 **Do NOT split into "Title / Description / Hashtags" fields.** Each platform section
 is ONE continuous, copy-paste-ready block of text separated by line breaks — exactly
 what you'd paste into the post box: the caption text, then the hashtags on their own
-line(s). No `**Title:**` / `**Caption:**` / `**Hashtags:**` labels. Structure each file
-like this (in the audience's language):
+line(s). No `**Title:**` / `**Caption:**` / `**Hashtags:**` labels. Structure the file
+like this (each caption in its own audience language):
 
 ```md
-# <Film> — <phrase(s)>  ·  <lang>
+# <Film> — <phrase(s)>
 
-## TikTok
+## 🇷🇺 Русский
+
+### TikTok
 <caption text — film name + phrase(s) + translation + hook + CTA, as flowing
 sentences broken across a few lines>
 
 <hashtags on their own line>
 
-## Instagram Reels
+### Instagram Reels
 <caption text>
 
 <hashtags>
 
-## YouTube Shorts
+### YouTube Shorts
 <caption text; end the copy with #Shorts>
 
 <hashtags>
 
-## Дзен            ← ru only, always last
+### Дзен            ← ru only, always last in the ru section
 <описание, СТРОГО ≤200 символов с пробелами>
 
 <ключ, ключ, ключ, … — через запятую, без #>
+
+## 🇪🇸 Español
+
+### TikTok
+…                    ← same platforms, no Дзен
 ```
 
 ### Platform order (it's the posting order)
 
-The sections appear in the order the user posts them, so the file is read top to bottom while
-publishing — **TikTok, Instagram Reels, YouTube Shorts**, in every language. `ru` then gets
+Inside each language the sections appear in the order the user posts them, so the file is read
+top to bottom while publishing — **TikTok, Instagram Reels, YouTube Shorts**. `ru` then gets
 **Дзен last**; other languages stop after YouTube Shorts (Дзен is a Russian-language
 platform). Same copy rules everywhere; only that last ru-only section differs.
 
@@ -101,14 +114,19 @@ instead of one:
   as a single caption you can paste straight into the post box.
 - **The film name always appears in the copy** (ideally in the first line), e.g. lead with
   `The Office: «…»` / `Breaking Bad: «…»`. It replaces the old "title" — just fold it into the
-  opening sentence.
+  opening sentence. For a video with no `film` (see Inputs), open with the situation from the
+  dialogue instead and keep every film reference out.
 - **Language:** write in the audience's native language (ru/es). Keep the English phrase(s) in
   quotes, and include the native translation somewhere in the text.
 - **Hook:** lead with curiosity/relatability ("Знаешь, как сказать …?" / "¿Sabes decir …?").
 - **What they learn:** name the phrase(s) and that it's real movie English.
 - **CTA:** promote the app — "Учи английский по фильмам в VibeLing" / "Aprende inglés con
   películas en VibeLing". Mention it's free / on the App Store & Google Play when it fits.
-- **Hashtags (8–15)** on their own line at the end of the block, a mix of
+- **Hashtags** on their own line at the end of the block. Count is per platform:
+  **Instagram Reels — EXACTLY 5, that's the hard cap Instagram enforces**; TikTok and
+  YouTube Shorts — 8–15. With only 5 slots on Instagram, spend them on reach, not
+  precision: one film tag, one brand tag (`#VibeLing`), two broad learning tags, one
+  platform tag (`#reels` / `#parati`) — and drop the niche synonyms. A mix of
   - learning: `#английскийпофильмам #учуанглийский` / `#aprenderinglés #inglésconpelículas`
   - the film: `#BreakingBad` (+ actor/character if famous)
   - platform: `#reels #shorts #fyp #рекомендации` / `#parati`

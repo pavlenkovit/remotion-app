@@ -4,7 +4,6 @@ import {
   Easing,
   Freeze,
   Html5Audio,
-  Img,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -593,8 +592,8 @@ const NextPhraseCountdown: React.FC<{ lang: NativeLang; pauseAtFrame: number | n
 };
 
 /** Fixed top banner shown above the letterboxed clip on every video: the video's
-    own attention hook, the app logo + "VibeLing", and the countdown to the next
-    phrase. Sits centered in the top black bar so it never covers the footage.
+    own attention hook and the countdown to the next phrase (the branding lives in
+    the app mockup). Sits centered in the top black bar so it never covers the footage.
     `hook` is this video's scene-specific headline (config.hook[lang]); without
     one it falls back to the generic STRINGS[lang].header. */
 const TopHeader: React.FC<{
@@ -613,12 +612,12 @@ const TopHeader: React.FC<{
       height: videoTopY(aspect),
       paddingLeft: 70,
       paddingRight: 70,
-      paddingBottom: 18,
+      paddingBottom: 46,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "flex-end",
-      gap: 14,
+      gap: 34,
       textAlign: "center",
     }}
   >
@@ -626,7 +625,7 @@ const TopHeader: React.FC<{
       style={{
         color: "#ffffff",
         fontFamily: FONT,
-        fontSize: 46,
+        fontSize: 54,
         fontWeight: 800,
         lineHeight: 1.16,
         textWrap: "balance",
@@ -636,23 +635,6 @@ const TopHeader: React.FC<{
     >
       {hook || STRINGS[lang].header}
     </span>
-    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-      <Img
-        src={staticFile("video/app-icon.png")}
-        style={{ width: 64, height: 64, borderRadius: 15, display: "block" }}
-      />
-      <span
-        style={{
-          color: "#ffffff",
-          fontFamily: FONT,
-          fontSize: 52,
-          fontWeight: 800,
-          letterSpacing: 0.5,
-        }}
-      >
-        VibeLing
-      </span>
-    </div>
     <NextPhraseCountdown lang={lang} pauseAtFrame={pauseAtFrame} />
   </div>
 );
@@ -779,31 +761,20 @@ const Outro: React.FC<{ lang: NativeLang; slugs: string[] }> = ({ lang, slugs })
         ))}
       </div>
 
-      {/* CTA + logo */}
+      {/* CTA — the line itself names the app, so no logo/wordmark under it. */}
       <div
         style={{
           opacity: ctaAppear,
           transform: `scale(${interpolate(ctaAppear, [0, 1], [0.86, 1])})`,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 26,
+          color: "#ffffff",
+          fontFamily: FONT,
+          fontSize: 58,
+          fontWeight: 700,
+          lineHeight: 1.2,
+          textWrap: "balance",
         }}
       >
-        <div style={{ color: "#ffffff", fontFamily: FONT, fontSize: 58, fontWeight: 700 }}>
-          {STRINGS[lang].recapCta}
-        </div>
-        {/* Logo + wordmark only — the CTA line above already says VibeLing, so a
-            tagline here would be a third repetition of the same brand. */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <Img
-            src={staticFile("video/app-icon.png")}
-            style={{ width: 108, height: 108, borderRadius: 26, display: "block" }}
-          />
-          <div style={{ color: "#ffffff", fontFamily: FONT, fontSize: 66, fontWeight: 800, letterSpacing: 0.5 }}>
-            VibeLing
-          </div>
-        </div>
+        {STRINGS[lang].recapCta}
       </div>
     </AbsoluteFill>
   );

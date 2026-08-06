@@ -1,0 +1,230 @@
+{
+  "slug": "repeat-after-me-friends",
+  "clip": "clips/repeat-after-me-friends.mov",
+  "film": "Friends",
+  "hook": {
+    "ru": "«Друзья»: урок, который пошёл не так",
+    "es": "Friends: la clase que salió fatal"
+  },
+  "highlights": [
+    {
+      "slug": "repeat-after-me",
+      "atSec": 5.32,
+      "text": "repeat after me"
+    },
+    {
+      "slug": "i-cant-teach-you",
+      "atSec": 21.4,
+      "text": "I can't teach you"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0.88,
+      "to": 3.56,
+      "text": "OK, let's just-- let's try it one syllable at a time.",
+      "tr": {
+        "ru": "Так, давай просто... давай по одному слогу за раз.",
+        "es": "Vale, vamos a intentarlo sílaba por sílaba."
+      }
+    },
+    {
+      "from": 3.8,
+      "to": 5.32,
+      "text": "OK, so repeat after me.",
+      "tr": {
+        "ru": "Так, повторяй за мной.",
+        "es": "Vale, repite después de mí."
+      }
+    },
+    {
+      "from": 6,
+      "to": 6.32,
+      "text": "Je.",
+      "tr": {
+        "ru": "Дже.",
+        "es": "Je."
+      }
+    },
+    {
+      "from": 6.84,
+      "to": 7.16,
+      "text": "Je.",
+      "tr": {
+        "ru": "Дже.",
+        "es": "Je."
+      }
+    },
+    {
+      "from": 7.44,
+      "to": 7.76,
+      "text": "Ma.",
+      "tr": {
+        "ru": "Ма.",
+        "es": "Ma."
+      }
+    },
+    {
+      "from": 8.08,
+      "to": 8.4,
+      "text": "Ma.",
+      "tr": {
+        "ru": "Ма.",
+        "es": "Ma."
+      }
+    },
+    {
+      "from": 8.68,
+      "to": 9.02,
+      "text": "Pel.",
+      "tr": {
+        "ru": "Пель.",
+        "es": "Pel."
+      }
+    },
+    {
+      "from": 9.22,
+      "to": 9.6,
+      "text": "Pel.",
+      "tr": {
+        "ru": "Пель.",
+        "es": "Pel."
+      }
+    },
+    {
+      "from": 9.98,
+      "to": 10.26,
+      "text": "Great.",
+      "tr": {
+        "ru": "Отлично.",
+        "es": "Excelente."
+      }
+    },
+    {
+      "from": 10.5,
+      "to": 11.32,
+      "text": "OK, faster.",
+      "tr": {
+        "ru": "Хорошо, быстрее.",
+        "es": "Vale, más rápido."
+      }
+    },
+    {
+      "from": 11.44,
+      "to": 11.62,
+      "text": "Je.",
+      "tr": {
+        "ru": "Дже.",
+        "es": "Je."
+      }
+    },
+    {
+      "from": 11.82,
+      "to": 12.12,
+      "text": "Je.",
+      "tr": {
+        "ru": "Дже.",
+        "es": "Je."
+      }
+    },
+    {
+      "from": 12.32,
+      "to": 12.64,
+      "text": "Ma.",
+      "tr": {
+        "ru": "Ма.",
+        "es": "Ma."
+      }
+    },
+    {
+      "from": 12.8,
+      "to": 13.18,
+      "text": "Pel.",
+      "tr": {
+        "ru": "Пель.",
+        "es": "Pel."
+      }
+    },
+    {
+      "from": 13.78,
+      "to": 14.42,
+      "text": "Je, ma, pel.",
+      "tr": {
+        "ru": "Je, ma, pel.",
+        "es": "Je, ma, pel."
+      }
+    },
+    {
+      "from": 19.5,
+      "to": 20.34,
+      "text": "It's too hard.",
+      "tr": {
+        "ru": "Это слишком сложно.",
+        "es": "Es demasiado difícil."
+      }
+    },
+    {
+      "from": 20.44,
+      "to": 21.4,
+      "text": "I can't teach you.",
+      "tr": {
+        "ru": "Я не могу тебя научить.",
+        "es": "No puedo enseñarte."
+      }
+    },
+    {
+      "from": 21.54,
+      "to": 22.08,
+      "text": "What are you doing?",
+      "tr": {
+        "ru": "Что ты делаешь?",
+        "es": "¿Qué estás haciendo?"
+      }
+    },
+    {
+      "from": 22.2,
+      "to": 24.62,
+      "text": "I have to go before I put your head through a wall.",
+      "tr": {
+        "ru": "Мне нужно уйти, прежде чем я проломлю тебе голову о стену.",
+        "es": "Tengo que irme antes de que te estampe la cabeza contra la pared."
+      }
+    },
+    {
+      "from": 24.62,
+      "to": 25.32,
+      "text": "Don't go.",
+      "tr": {
+        "ru": "Не уходи.",
+        "es": "No te vayas."
+      }
+    },
+    {
+      "from": 25.68,
+      "to": 26.18,
+      "text": "Don't go.",
+      "tr": {
+        "ru": "Не уходи.",
+        "es": "No te vayas."
+      }
+    },
+    {
+      "from": 26.26,
+      "to": 27.08,
+      "text": "I need you.",
+      "tr": {
+        "ru": "Ты мне нужна.",
+        "es": "Te necesito."
+      }
+    },
+    {
+      "from": 27.12,
+      "to": 38.2,
+      "text": "My audition is tomorrow.",
+      "tr": {
+        "ru": "У меня завтра прослушивание.",
+        "es": "Mañana tengo la audición."
+      }
+    }
+  ]
+}

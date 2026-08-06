@@ -1,4 +1,5 @@
 import React from "react";
+import { Img, staticFile } from "remotion";
 import { STRINGS, type NativeLang } from "../i18n";
 
 export const COLORS = {
@@ -13,23 +14,32 @@ export const COLORS = {
 
 export const Brand: React.FC<{ lang: NativeLang }> = ({ lang }) => {
   return (
-    <div style={{ padding: "44px 56px 0", display: "flex", alignItems: "center", gap: 24 }}>
-      <div
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          backgroundColor: COLORS.accent,
-          color: "white",
-          fontSize: 40,
-          fontWeight: 700,
-          letterSpacing: 0.5,
-          padding: "16px 32px",
-          borderRadius: 999,
-        }}
-      >
-        VibeLing
+    <div
+      style={{
+        padding: "44px 56px 0",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 40,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <Img
+          src={staticFile("video/app-icon.png")}
+          style={{ width: 76, height: 76, borderRadius: 18, display: "block" }}
+        />
+        <div
+          style={{
+            color: "white",
+            fontSize: 52,
+            fontWeight: 700,
+            letterSpacing: 0.5,
+          }}
+        >
+          VibeLing
+        </div>
       </div>
-      <span style={{ color: COLORS.muted, fontSize: 42, fontWeight: 500 }}>
+      <span style={{ color: COLORS.muted, fontSize: 48, fontWeight: 500 }}>
         {STRINGS[lang].tagline}
       </span>
     </div>

@@ -47,7 +47,8 @@ const { captions } = toCaptions({ whisperCppOutput: out });
 // Group word-level captions into sentence-ish segments: break on sentence
 // punctuation or a >0.8s gap between words.
 const words = captions
-  .map((c) => ({ text: (c.text ?? "").trim(), from: c.startInSeconds, to: c.endInSeconds }))
+  // toCaptions gives millisecond offsets (`startMs`/`endMs`); this file works in seconds.
+  .map((c) => ({ text: (c.text ?? "").trim(), from: c.startMs / 1000, to: c.endMs / 1000 }))
   .filter((w) => w.text);
 
 const segments = [];

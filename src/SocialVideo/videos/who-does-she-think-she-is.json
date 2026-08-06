@@ -1,0 +1,53 @@
+{
+  "slug": "who-does-she-think-she-is",
+  "clip": "clips/who-does-she-think-she-is.mov",
+  "hook": {
+    "ru": "Ответ, после которого нечего сказать",
+    "es": "La respuesta que te deja sin palabras"
+  },
+  "highlights": [
+    {
+      "slug": "who-does-she-think-she-is",
+      "atSec": 11.6,
+      "text": "Who does she think she is"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 3.52,
+      "to": 5.26,
+      "text": "Oh my god, is that Danielle?",
+      "tr": {
+        "ru": "Боже, это что, Даниэль?",
+        "es": "¡Dios mío! ¿Es Danielle?"
+      }
+    },
+    {
+      "from": 8.08,
+      "to": 10.26,
+      "text": "I expressly forbid her from coming tonight.",
+      "tr": {
+        "ru": "Я категорически запрещаю ей приходить сегодня вечером.",
+        "es": "Le prohíbo expresamente que venga esta noche."
+      }
+    },
+    {
+      "from": 10.28,
+      "to": 11.6,
+      "text": "Who does she think she is?",
+      "tr": {
+        "ru": "Кем она себя возомнила?",
+        "es": "¿Quién se cree que es?"
+      }
+    },
+    {
+      "from": 14.22,
+      "to": 16.46,
+      "text": "Apparently you.",
+      "tr": {
+        "ru": "Похоже, тобой.",
+        "es": "Aparentemente, tú."
+      }
+    }
+  ]
+}

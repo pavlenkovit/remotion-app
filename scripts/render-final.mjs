@@ -50,11 +50,13 @@ const outDir = join(root, "out/final");
 mkdirSync(outDir, { recursive: true });
 
 // videos/ is the source of truth: on a full render (no slug filter), drop any
-// out/final artifact (rendered .mp4 or its .md description) that no longer maps
-// to a current video × language — so deleting a video's JSON makes its finished
-// render + description disappear on the next render.
+// out/final artifact that no longer maps to a current video — so deleting a
+// video's JSON makes its finished render + description disappear on the next
+// render. Renders are per language (`<slug>-<lang>.mp4`); the description is one
+// file per video holding every language (`<slug>.md`, see the video-description
+// skill), so both name shapes are valid.
 if (!slugArg) {
-  const validBases = new Set(slugs.flatMap((s) => LANGS.map((l) => `${s}-${l}`)));
+  const validBases = new Set([...slugs, ...slugs.flatMap((s) => LANGS.map((l) => `${s}-${l}`))]);
   for (const f of readdirSync(outDir)) {
     const base = f.replace(/\.(mp4|md)$/, "");
     if (base !== f && !validBases.has(base)) {

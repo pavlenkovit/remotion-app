@@ -1,0 +1,136 @@
+{
+  "slug": "too-afraid-to-even-ask-the-drama",
+  "clip": "clips/too-afraid-to-even-ask-the-drama.mov",
+  "film": "The Drama",
+  "hook": {
+    "ru": "Признание, которое она не расслышала",
+    "es": "La declaración que ella no llegó a oír"
+  },
+  "highlights": [
+    {
+      "slug": "i-cant-be-without-you",
+      "atSec": 8.28,
+      "text": "I can't be without you"
+    },
+    {
+      "slug": "too-afraid-to-even-ask",
+      "atSec": 19.24,
+      "text": "too afraid to even ask"
+    },
+    {
+      "slug": "thats-not-even-a-thing",
+      "atSec": 36.98,
+      "text": "That's not even a thing"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0.58,
+      "to": 8.28,
+      "text": "I love you so much, I can't be without you.",
+      "tr": {
+        "ru": "Я тебя очень люблю, я не могу без тебя.",
+        "es": "Te quiero muchísimo, no puedo estar sin ti."
+      }
+    },
+    {
+      "from": 8.28,
+      "to": 10.78,
+      "text": "It's scary,'cause I'm kind of married.",
+      "tr": {
+        "ru": "Это страшно, потому что я вроде как женат.",
+        "es": "Da miedo, porque estoy casada, en cierto modo."
+      }
+    },
+    {
+      "from": 16.46,
+      "to": 19.24,
+      "text": "I want to marry you, but I'm too afraid to even ask.",
+      "tr": {
+        "ru": "Я хочу выйти за тебя замуж, но боюсь даже спросить.",
+        "es": "Quiero casarme contigo, pero tengo demasiado miedo incluso para pedírtelo."
+      }
+    },
+    {
+      "from": 23.32,
+      "to": 24.52,
+      "text": "I think I caught that.",
+      "tr": {
+        "ru": "Кажется, я расслышала.",
+        "es": "Creo que lo entendí."
+      }
+    },
+    {
+      "from": 26,
+      "to": 26.54,
+      "text": "You did?",
+      "tr": {
+        "ru": "Правда?",
+        "es": "¿Lo hiciste?"
+      }
+    },
+    {
+      "from": 27.98,
+      "to": 27.98,
+      "text": "A hairy knife.",
+      "tr": {
+        "ru": "Волосатый нож.",
+        "es": "Un cuchillo peludo."
+      }
+    },
+    {
+      "from": 29.1,
+      "to": 30.58,
+      "text": "A what?",
+      "tr": {
+        "ru": "Что?",
+        "es": "¿Un qué?"
+      }
+    },
+    {
+      "from": 30.58,
+      "to": 32.62,
+      "text": "Did you say something about like a hairy knife?",
+      "tr": {
+        "ru": "Ты сказал что-то про волосатый нож?",
+        "es": "¿Dijiste algo sobre un cuchillo peludo?"
+      }
+    },
+    {
+      "from": 34.04,
+      "to": 34.36,
+      "text": "No.",
+      "tr": {
+        "ru": "Нет.",
+        "es": "No."
+      }
+    },
+    {
+      "from": 34.84,
+      "to": 35.16,
+      "text": "No?",
+      "tr": {
+        "ru": "Нет?",
+        "es": "¿No?"
+      }
+    },
+    {
+      "from": 36.56,
+      "to": 36.98,
+      "text": "That's not even a thing.",
+      "tr": {
+        "ru": "Такого даже не существует.",
+        "es": "Eso ni siquiera existe."
+      }
+    },
+    {
+      "from": 37.14,
+      "to": 37.82,
+      "text": "I'm gonna sing.",
+      "tr": {
+        "ru": "Я буду петь.",
+        "es": "Voy a cantar."
+      }
+    }
+  ]
+}

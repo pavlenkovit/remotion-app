@@ -1,0 +1,199 @@
+{
+  "slug": "youre-not-speaking-french-friends",
+  "clip": "clips/youre-not-speaking-french-friends.mp4",
+  "film": "Friends",
+  "hook": {
+    "ru": "Джоуи уверен, что выучил французский",
+    "es": "Joey está seguro de que habla francés"
+  },
+  "highlights": [
+    {
+      "slug": "i-feel-really-badly-about-yesterday",
+      "atSec": 4.38,
+      "text": "I feel really badly about yesterday"
+    },
+    {
+      "slug": "lets-try-it-again",
+      "atSec": 8.9,
+      "text": "let's try it again"
+    },
+    {
+      "slug": "i-worked-on-it-myself",
+      "atSec": 13.76,
+      "text": "I worked on it myself"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 0,
+      "to": 0.38,
+      "text": "Hey.",
+      "tr": {
+        "ru": "Привет.",
+        "es": "Ey."
+      }
+    },
+    {
+      "from": 1.74,
+      "to": 4.38,
+      "text": "Listen, I feel really badly about yesterday.",
+      "tr": {
+        "ru": "Послушай, мне очень жаль из-за вчерашнего дня.",
+        "es": "Escucha, me siento muy mal por lo de ayer."
+      }
+    },
+    {
+      "from": 4.4,
+      "to": 5.54,
+      "text": "And I thought about it a lot.",
+      "tr": {
+        "ru": "И я много об этом думал.",
+        "es": "Y pensé mucho en ello."
+      }
+    },
+    {
+      "from": 5.72,
+      "to": 7.62,
+      "text": "No, I was too impatient.",
+      "tr": {
+        "ru": "Нет, я был слишком нетерпелив.",
+        "es": "No, fui demasiado impaciente."
+      }
+    },
+    {
+      "from": 7.76,
+      "to": 8.9,
+      "text": "So, let's try it again.",
+      "tr": {
+        "ru": "Так, давай попробуем ещё раз.",
+        "es": "Así que, intentémoslo de nuevo."
+      }
+    },
+    {
+      "from": 9.06,
+      "to": 10.06,
+      "text": "Oh, no, that's okay.",
+      "tr": {
+        "ru": "О нет, всё в порядке.",
+        "es": "Oh, no, está bien."
+      }
+    },
+    {
+      "from": 10.22,
+      "to": 11,
+      "text": "I don't need your help.",
+      "tr": {
+        "ru": "Мне твоя помощь не нужна.",
+        "es": "No necesito tu ayuda."
+      }
+    },
+    {
+      "from": 11.06,
+      "to": 13.76,
+      "text": "I worked on it myself, and I gotta say, I am pretty good.",
+      "tr": {
+        "ru": "Я сам над этим работал, и должен сказать, у меня неплохо получается.",
+        "es": "Lo hice yo mismo y debo decir que soy bastante bueno."
+      }
+    },
+    {
+      "from": 15.18,
+      "to": 15.28,
+      "text": "Really?",
+      "tr": {
+        "ru": "Правда?",
+        "es": "¿En realidad?"
+      }
+    },
+    {
+      "from": 15.38,
+      "to": 16.48,
+      "text": "Can I hear some of it?",
+      "tr": {
+        "ru": "Можно мне послушать фрагмент?",
+        "es": "¿Puedo escuchar algo?"
+      }
+    },
+    {
+      "from": 16.82,
+      "to": 17.7,
+      "text": "Sure, sure.",
+      "tr": {
+        "ru": "Конечно, конечно.",
+        "es": "Claro, claro."
+      }
+    },
+    {
+      "from": 19.92,
+      "to": 20.36,
+      "text": "Okay.",
+      "tr": {
+        "ru": "Хорошо.",
+        "es": "Bueno."
+      }
+    },
+    {
+      "from": 23.9,
+      "to": 26.02,
+      "text": "Bleh de la bleh de blah blah bleh.",
+      "tr": {
+        "ru": "Бле-де-ла-бла-де-бла-бла-бла.",
+        "es": "Bleh de la bleh de bla, bla, bla."
+      }
+    },
+    {
+      "from": 29.2,
+      "to": 29.58,
+      "text": "See?",
+      "tr": {
+        "ru": "Видишь?",
+        "es": "¿Ves?"
+      }
+    },
+    {
+      "from": 31.48,
+      "to": 31.84,
+      "text": "No problem.",
+      "tr": {
+        "ru": "Без проблем.",
+        "es": "Ningún problema."
+      }
+    },
+    {
+      "from": 31.84,
+      "to": 32.44,
+      "text": "You're not...",
+      "tr": {
+        "ru": "Ты не...",
+        "es": "Tú no..."
+      }
+    },
+    {
+      "from": 33.92,
+      "to": 34.28,
+      "text": "You're not...",
+      "tr": {
+        "ru": "Ты не...",
+        "es": "Tú no..."
+      }
+    },
+    {
+      "from": 34.28,
+      "to": 34.64,
+      "text": "You're...",
+      "tr": {
+        "ru": "Ты...",
+        "es": "Estás..."
+      }
+    },
+    {
+      "from": 35.7,
+      "to": 37.68,
+      "text": "Again, you're not speaking French!",
+      "tr": {
+        "ru": "Повторяю, ты не говоришь по-французски!",
+        "es": "¡De nuevo, no estás hablando francés!"
+      }
+    }
+  ]
+}

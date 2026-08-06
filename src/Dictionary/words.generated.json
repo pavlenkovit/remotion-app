@@ -1,96 +1,1108 @@
 {
   "ru": [
     {
-      "slug": "the-way-youre-looking-at-me",
+      "slug": "its-off-the-resume",
       "lang": "ru",
-      "word": "The way you're looking at me",
-      "phonetic": "[ðə weɪ jʊr ˈlʊkɪŋ æt mi]",
+      "word": "It's off the resume",
+      "phonetic": "[ɪts ɒf ðə ˈrɛzəmeɪ]",
       "partOfSpeech": "phrase",
-      "translation": "То, как ты на меня смотришь",
-      "image": "words/the-way-youre-looking-at-me.jpg",
+      "translation": "Это вычеркнуто из резюме.",
+      "image": "words/its-off-the-resume.jpg",
       "examples": [
         {
-          "original": "I can tell the way you're looking at me that you're interested.",
-          "translation": "Я вижу по тому, как ты на меня смотришь, что ты заинтересован."
+          "original": "You should take that experience off the resume.",
+          "translation": "Тебе стоит убрать этот опыт из резюме."
         },
         {
-          "original": "The way you're looking at me makes me feel special.",
-          "translation": "То, как ты на меня смотришь, заставляет меня чувствовать себя особенным."
+          "original": "Anything irrelevant should be off the resume.",
+          "translation": "Все неуместное должно быть убрано из резюме."
         },
         {
-          "original": "Sometimes, the way you're looking at me says more than words ever could.",
-          "translation": "Иногда то, как ты на меня смотришь, говорит больше, чем слова."
+          "original": "Make sure to keep personal details off the resume.",
+          "translation": "Убедись, что личные данные не включены в резюме."
         }
       ]
     },
     {
-      "slug": "tread-lightly",
+      "slug": "that-i-can-do",
       "lang": "ru",
-      "word": "Tread lightly",
-      "phonetic": "[trɛd ˈlaɪtli]",
+      "word": "That I can do",
+      "phonetic": "[ðæt aɪ kæn du]",
       "partOfSpeech": "phrase",
-      "translation": "Действуй осторожно",
-      "image": "words/tread-lightly.jpg",
+      "translation": "Это я могу сделать",
+      "image": "words/that-i-can-do.jpg",
       "examples": [
         {
-          "original": "When discussing sensitive topics, it's important to tread lightly.",
-          "translation": "Когда речь идет о деликатных темах, важно действовать осторожно."
+          "original": "If you need help, that I can do.",
+          "translation": "Если тебе нужна помощь, это я могу сделать."
         },
         {
-          "original": "She decided to tread lightly around her friend's feelings after the breakup.",
-          "translation": "Она решила действовать осторожно по отношению к чувствам подруги после расставания."
+          "original": "I promise that I can do my best.",
+          "translation": "Я обещаю, что могу сделать всё возможное."
         },
         {
-          "original": "In negotiations, one must often tread lightly to maintain a good relationship.",
-          "translation": "На переговорах иногда нужно действовать осторожно, чтобы сохранить хорошие отношения."
+          "original": "Trust me, that I can do without any trouble.",
+          "translation": "Доверься мне, это я могу сделать без проблем."
+        }
+      ]
+    },
+    {
+      "slug": "you-time-me",
+      "lang": "ru",
+      "word": "You time me",
+      "phonetic": "[ju taɪm mi]",
+      "partOfSpeech": "verb phrase",
+      "translation": "Засеки мне время",
+      "image": "words/you-time-me.jpg",
+      "examples": [
+        {
+          "original": "Could you time me while I run this marathon?",
+          "translation": "Не мог бы ты засечь время, пока я бегу этот марафон?"
+        },
+        {
+          "original": "I want to see how fast you can solve this puzzle, so time me.",
+          "translation": "Я хочу увидеть, как быстро ты сможешь решить эту головоломку, так что засечь время."
+        },
+        {
+          "original": "Please time me for my next presentation to keep me on track.",
+          "translation": "Пожалуйста, засеките время на мою следующую презентацию, чтобы я не сбивался с графика."
+        }
+      ]
+    },
+    {
+      "slug": "repeat-after-me",
+      "lang": "ru",
+      "word": "Repeat after me",
+      "phonetic": "[rəˈpit ˈæf.tər mi]",
+      "partOfSpeech": "phrase",
+      "translation": "Повторяй за мной",
+      "image": "words/repeat-after-me.jpg",
+      "examples": [
+        {
+          "original": "During the lesson, the teacher asked the students to repeat after her.",
+          "translation": "Во время урока учитель попросил учеников повторять за ней."
+        },
+        {
+          "original": "When learning a new language, it's helpful to repeat after the audio recordings.",
+          "translation": "При изучении нового языка полезно повторять за аудиозаписями."
+        },
+        {
+          "original": "Please repeat after me to practice your pronunciation.",
+          "translation": "Пожалуйста, повторите за мной, чтобы попрактиковать свое произношение."
+        }
+      ]
+    },
+    {
+      "slug": "i-cant-teach-you",
+      "lang": "ru",
+      "word": "I can't teach you",
+      "phonetic": "[aɪ kænt tiːtʃ juː]",
+      "partOfSpeech": "phrase",
+      "translation": "Я не могу тебя научить",
+      "image": "words/i-cant-teach-you.jpg",
+      "examples": [
+        {
+          "original": "I can't teach you how to ride a bike.",
+          "translation": "Я не могу тебя научить, как кататься на велосипеде."
+        },
+        {
+          "original": "I can't teach you the rules of the game today.",
+          "translation": "Я не могу тебя научить правилам игры сегодня."
+        },
+        {
+          "original": "I can't teach you to play the guitar right now.",
+          "translation": "Я не могу тебя научить играть на гитаре прямо сейчас."
+        }
+      ]
+    },
+    {
+      "slug": "everything-is-gonna-be-fine",
+      "lang": "ru",
+      "word": "Everything is gonna be fine",
+      "phonetic": "[ˈɛvriθɪŋ ɪz ˈɡɒnə bi faɪn]",
+      "partOfSpeech": "phrase",
+      "translation": "Всё будет хорошо.",
+      "image": "words/everything-is-gonna-be-fine.jpg",
+      "examples": [
+        {
+          "original": "Don't worry, everything is gonna be fine.",
+          "translation": "Не волнуйся, всё будет хорошо."
+        },
+        {
+          "original": "I promise you, everything is gonna be fine in the end.",
+          "translation": "Я обещаю тебе, в конце концов всё будет хорошо."
+        },
+        {
+          "original": "Even if things seem tough now, everything is gonna be fine.",
+          "translation": "Даже если сейчас все кажется трудным, всё будет хорошо."
+        }
+      ]
+    },
+    {
+      "slug": "what-if-there-are-complications",
+      "lang": "ru",
+      "word": "What if there are complications",
+      "phonetic": "[wɒt ɪf ðɛr ɑr ˌkɒmplɪˈkeɪʃənz]",
+      "partOfSpeech": "phrase",
+      "translation": "Что если возникнут осложнения?",
+      "image": "words/what-if-there-are-complications.jpg",
+      "examples": [
+        {
+          "original": "What if there are complications during the surgery?",
+          "translation": "Что если возникнут осложнения во время операции?"
+        },
+        {
+          "original": "We should prepare for what if there are complications in the project.",
+          "translation": "Нам следует подготовиться к тому, что могут возникнуть осложнения в проекте."
+        },
+        {
+          "original": "I'm concerned about what if there are complications with the plan.",
+          "translation": "Меня беспокоит, что может возникнуть осложнение с планом."
+        }
+      ]
+    },
+    {
+      "slug": "its-a-beautiful-selection",
+      "lang": "ru",
+      "word": "It's a beautiful selection",
+      "phonetic": "[ɪts ə bjuːtəfəl sɪlɛkʃən]",
+      "partOfSpeech": "phrase",
+      "translation": "Это прекрасный выбор.",
+      "image": "words/its-a-beautiful-selection.jpg",
+      "examples": [
+        {
+          "original": "It's a beautiful selection of flowers for the wedding.",
+          "translation": "Это прекрасный выбор цветов для свадьбы."
+        },
+        {
+          "original": "I think it's a beautiful selection of books on the shelf.",
+          "translation": "Я думаю, что это прекрасный выбор книг на полке."
+        },
+        {
+          "original": "The restaurant has a beautiful selection of dishes to choose from.",
+          "translation": "В ресторане есть прекрасный выбор блюд на любой вкус."
+        }
+      ]
+    },
+    {
+      "slug": "getting-down-on-one-knee",
+      "lang": "ru",
+      "word": "Getting down on one knee",
+      "phonetic": "[ˈɡɛtɪŋ daʊn ɒn wʌn ni]",
+      "partOfSpeech": "phrase",
+      "translation": "Встать на одно колено",
+      "image": "words/getting-down-on-one-knee.jpg",
+      "examples": [
+        {
+          "original": "He surprised her by getting down on one knee and proposing.",
+          "translation": "Он удивил её, встанув на одно колено и сделав предложение."
+        },
+        {
+          "original": "Getting down on one knee is a classic way to propose marriage.",
+          "translation": "Встать на одно колено - это классический способ сделать предложение."
+        },
+        {
+          "original": "During the ceremony, the groom got down on one knee to present the ring.",
+          "translation": "Во время церемонии жених встал на одно колено, чтобы вручить кольцо."
+        }
+      ]
+    },
+    {
+      "slug": "im-gonna-stick-with-the-ring",
+      "lang": "ru",
+      "word": "I'm gonna stick with the ring",
+      "phonetic": "[aɪm ˈgʌnə stɪk wɪð ðə rɪŋ]",
+      "partOfSpeech": "phrase",
+      "translation": "Я всё-таки остановлюсь на кольце.",
+      "image": "words/im-gonna-stick-with-the-ring.jpg",
+      "examples": [
+        {
+          "original": "I'm going to stick with the ring because it holds special memories.",
+          "translation": "Я останусь верен кольцу, потому что оно хранит особые воспоминания."
+        },
+        {
+          "original": "Even though I have other options, I'm gonna stick with the ring I chose first.",
+          "translation": "Хотя у меня есть другие варианты, я останусь верен кольцу, которое выбрал первым."
+        },
+        {
+          "original": "For this season, I'm going to stick with the ring that matches my outfit.",
+          "translation": "В этом сезоне я останусь верен кольцу, которое подходит к моему наряду."
+        }
+      ]
+    },
+    {
+      "slug": "i-cant-be-without-you",
+      "lang": "ru",
+      "word": "I can't be without you",
+      "phonetic": "[aɪ kæn bi wɪðaʊt ju]",
+      "partOfSpeech": "phrase",
+      "translation": "Я не могу без тебя.",
+      "image": "words/i-cant-be-without-you.jpg",
+      "examples": [
+        {
+          "original": "I can't be without you, you complete me.",
+          "translation": "Я не могу без тебя, ты дополняешь меня."
+        },
+        {
+          "original": "Every day feels empty; I can't be without you.",
+          "translation": "Каждый день кажется пустым; я не могу без тебя."
+        },
+        {
+          "original": "I realized I can't be without you in my life.",
+          "translation": "Я понял, что не могу без тебя в своей жизни."
+        }
+      ]
+    },
+    {
+      "slug": "too-afraid-to-even-ask",
+      "lang": "ru",
+      "word": "Too afraid to even ask",
+      "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
+      "partOfSpeech": "phrase",
+      "translation": "Слишком боюсь даже спросить",
+      "image": "words/too-afraid-to-even-ask.jpg",
+      "examples": [
+        {
+          "original": "She was too afraid to even ask for help.",
+          "translation": "Она была слишком боится даже спросить о помощи."
+        },
+        {
+          "original": "He was too afraid to even ask her out on a date.",
+          "translation": "Он был слишком боится даже пригласить её на свидание."
+        },
+        {
+          "original": "They are too afraid to even ask questions in class.",
+          "translation": "Они слишком боятся даже задавать вопросы на уроке."
+        }
+      ]
+    },
+    {
+      "slug": "thats-not-even-a-thing",
+      "lang": "ru",
+      "word": "That's not even a thing",
+      "phonetic": "[ðæts nɑt ivən ə θɪŋ]",
+      "partOfSpeech": "phrase",
+      "translation": "Этого даже не существует.",
+      "image": "words/thats-not-even-a-thing.jpg",
+      "examples": [
+        {
+          "original": "That's not even a thing in our culture.",
+          "translation": "Этого даже не существует в нашей культуре."
+        },
+        {
+          "original": "I can't believe that's not even a thing anymore.",
+          "translation": "Не могу поверить, что этого даже не существует больше."
+        },
+        {
+          "original": "People say it's a trend, but that's not even a thing.",
+          "translation": "Люди говорят, что это тренд, но этого даже не существует."
+        }
+      ]
+    },
+    {
+      "slug": "id-also-like-to-try-on",
+      "lang": "ru",
+      "word": "I'd also like to try on",
+      "phonetic": "[aɪd ˈɔlsoʊ laɪk tə traɪ ɑn]",
+      "partOfSpeech": "phrase",
+      "translation": "Я бы также хотела примерить",
+      "image": "words/id-also-like-to-try-on.jpg",
+      "examples": [
+        {
+          "original": "I'd also like to try on that dress in the window.",
+          "translation": "Я бы также хотела примерить то платье у витрины."
+        },
+        {
+          "original": "Before making a final decision, I'd also like to try on a few pairs of shoes.",
+          "translation": "Перед тем как принять окончательное решение, я бы также хотела примерить несколько пар обуви."
+        },
+        {
+          "original": "I think I'll ask the sales clerk if I could also try on this jacket.",
+          "translation": "Я думаю, я спрошу продавца, могу ли я также примерить этот пиджак."
+        }
+      ]
+    },
+    {
+      "slug": "take-the-tiara-back",
+      "lang": "ru",
+      "word": "Take the tiara back",
+      "phonetic": "[teɪk ðə tiˈɑːrə bæk]",
+      "partOfSpeech": "verb phrase",
+      "translation": "Забери диадему обратно",
+      "image": "words/take-the-tiara-back.jpg",
+      "examples": [
+        {
+          "original": "Can you take the tiara back to the jewelry store?",
+          "translation": "Можешь вернуть диадему в ювелирный магазин?"
+        },
+        {
+          "original": "I forgot to take the tiara back after the party.",
+          "translation": "Я забыл вернуть диадему после вечеринки."
+        },
+        {
+          "original": "Please make sure to take the tiara back before the wedding.",
+          "translation": "Пожалуйста, убедитесь, что вернули диадему до свадьбы."
+        }
+      ]
+    },
+    {
+      "slug": "who-does-she-think-she-is",
+      "lang": "ru",
+      "word": "Who does she think she is",
+      "phonetic": "[hu dʌz ʃi θɪŋk ʃi ɪz]",
+      "partOfSpeech": "phrase",
+      "translation": "Кем она себя возомнила?",
+      "image": "words/who-does-she-think-she-is.jpg",
+      "examples": [
+        {
+          "original": "Who does she think she is to criticize my work?",
+          "translation": "Кем она себя возомнила, чтобы критиковать мою работу?"
+        },
+        {
+          "original": "I can't believe she said that; who does she think she is?",
+          "translation": "Я не могу поверить, что она это сказала; кем она себя возомнила?"
+        },
+        {
+          "original": "Who does she think she is, acting like the boss?",
+          "translation": "Кем она себя возомнила, ведя себя как босс?"
+        }
+      ]
+    },
+    {
+      "slug": "why-are-you-looking-at-me-like-that",
+      "lang": "ru",
+      "word": "Why are you looking at me like that",
+      "phonetic": "[waɪ ɑr ju ˈlʊkɪŋ æt mi laɪk ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "Почему ты так на меня смотришь?",
+      "image": "words/why-are-you-looking-at-me-like-that.jpg",
+      "examples": [
+        {
+          "original": "Why are you looking at me like that? Did I say something wrong?",
+          "translation": "Почему ты так на меня смотришь? Я что-то не так сказал?"
+        },
+        {
+          "original": "She was confused by his expression, asking, 'Why are you looking at me like that?'",
+          "translation": "Она была в недоумении от его выражения и спросила: 'Почему ты так на меня смотришь?'"
+        },
+        {
+          "original": "I could feel her gaze on me, and I finally asked, 'Why are you looking at me like that?'",
+          "translation": "Я чувствовал ее взгляд на себе и, наконец, спросил: 'Почему ты так на меня смотришь?'"
+        }
+      ]
+    },
+    {
+      "slug": "it-was-a-reflex",
+      "lang": "ru",
+      "word": "It was a reflex",
+      "phonetic": "[ɪt wəz ə rɪflɛks]",
+      "partOfSpeech": "noun",
+      "translation": "Это был рефлекс.",
+      "image": "words/it-was-a-reflex.jpg",
+      "examples": [
+        {
+          "original": "His reaction was purely a reflex when he caught the ball.",
+          "translation": "Его реакция была чисто рефлексом, когда он поймал мяч."
+        },
+        {
+          "original": "When the loud noise occurred, her reflex was to cover her ears.",
+          "translation": "Когда раздался громкий шум, её рефлексом было закрыть уши."
+        },
+        {
+          "original": "Reflex actions help us respond quickly to danger.",
+          "translation": "Рефлексивные действия помогают нам быстро реагировать на опасность."
+        }
+      ]
+    },
+    {
+      "slug": "of-course-not",
+      "lang": "ru",
+      "word": "Of course not",
+      "phonetic": "[əv kɔrs nɑt]",
+      "partOfSpeech": "phrase",
+      "translation": "Конечно, нет",
+      "image": "words/of-course-not.jpg",
+      "examples": [
+        {
+          "original": "Are you going to the party tonight?",
+          "translation": "Ты сегодня идешь на вечеринку?"
+        },
+        {
+          "original": "Do you think he'll agree to that?",
+          "translation": "Ты думаешь, он согласится на это?"
+        },
+        {
+          "original": "Is it true that you lost your wallet?",
+          "translation": "Это правда, что ты потерял свой кошелек?"
+        }
+      ]
+    },
+    {
+      "slug": "you-are-grounded",
+      "lang": "ru",
+      "word": "You are grounded",
+      "phonetic": "[ju aɹ ˈɡɹaʊndɪd]",
+      "partOfSpeech": "phrase",
+      "translation": "Ты наказан.",
+      "image": "words/you-are-grounded.jpg",
+      "examples": [
+        {
+          "original": "You are grounded for breaking the rules.",
+          "translation": "Ты наказан за нарушение правил."
+        },
+        {
+          "original": "I can't go out tonight because I'm grounded.",
+          "translation": "Я не могу выйти сегодня вечером, потому что я наказан."
+        },
+        {
+          "original": "Being grounded means no phone or video games for a week.",
+          "translation": "Наказание означает, что нельзя пользоваться телефоном или играть в видеоигры в течение недели."
+        }
+      ]
+    },
+    {
+      "slug": "give-me-your-keys",
+      "lang": "ru",
+      "word": "Give me your keys",
+      "phonetic": "[gɪv mi jʊər kiz]",
+      "partOfSpeech": "phrase",
+      "translation": "Дай мне свои ключи",
+      "image": "words/give-me-your-keys.jpg",
+      "examples": [
+        {
+          "original": "Can you give me your keys before you leave?",
+          "translation": "Можешь дать мне свои ключи перед тем, как уйдёшь?"
+        },
+        {
+          "original": "Please give me your keys if you're not using them.",
+          "translation": "Пожалуйста, дай мне свои ключи, если ты их не используешь."
+        },
+        {
+          "original": "I forgot my keys; can you give me yours for now?",
+          "translation": "Я забыл свои ключи; можешь дать мне свои на время?"
+        }
+      ]
+    },
+    {
+      "slug": "i-feel-really-badly-about-yesterday",
+      "lang": "ru",
+      "word": "I feel really badly about yesterday",
+      "phonetic": "[aɪ fiːl ˈrɪli ˈbædli əˈbaʊt ˈjɛstərdeɪ]",
+      "partOfSpeech": "verb",
+      "translation": "Мне очень жаль из-за вчерашнего дня.",
+      "image": "words/i-feel-really-badly-about-yesterday.jpg",
+      "examples": [
+        {
+          "original": "I feel really bad about yesterday.",
+          "translation": "Мне очень жаль из-за вчерашнего дня."
+        },
+        {
+          "original": "She feels bad for missing the meeting.",
+          "translation": "Ей жаль, что она пропустила встречу."
+        },
+        {
+          "original": "They felt bad after the argument.",
+          "translation": "Им было плохо после ссоры."
+        }
+      ]
+    },
+    {
+      "slug": "lets-try-it-again",
+      "lang": "ru",
+      "word": "Let's try it again",
+      "phonetic": "[lɛts traɪ ɪt əˈɡɛn]",
+      "partOfSpeech": "phrase",
+      "translation": "Давай попробуем ещё раз.",
+      "image": "words/lets-try-it-again.jpg",
+      "examples": [
+        {
+          "original": "I'm confident that if we work together, we can try it again.",
+          "translation": "Я уверен, что если мы будем работать вместе, мы сможем попробовать ещё раз."
+        },
+        {
+          "original": "After reviewing our mistakes, let's try it again with a fresh perspective.",
+          "translation": "После анализа наших ошибок, давай попробуем ещё раз с новой точки зрения."
+        },
+        {
+          "original": "If at first, we don't succeed, let's try it again until we do.",
+          "translation": "Если сначала у нас не получится, давай попробуем ещё раз, пока не получится."
+        }
+      ]
+    },
+    {
+      "slug": "i-worked-on-it-myself",
+      "lang": "ru",
+      "word": "I worked on it myself",
+      "phonetic": "[aɪ wɜrkt ɑn ɪt maɪˈsɛlf]",
+      "partOfSpeech": "phrase",
+      "translation": "Я сам над этим работал.",
+      "image": "words/i-worked-on-it-myself.jpg",
+      "examples": [
+        {
+          "original": "I worked on it myself to ensure everything was perfect.",
+          "translation": "Я сам над этим работал, чтобы убедиться, что всё идеально."
+        },
+        {
+          "original": "When no one else was available, I worked on it myself.",
+          "translation": "Когда никого не было, я сам над этим работал."
+        },
+        {
+          "original": "I took the initiative and worked on it myself without asking for help.",
+          "translation": "Я проявил инициативу и сам над этим работал, не прося помощи."
         }
       ]
     }
   ],
   "es": [
     {
-      "slug": "the-way-youre-looking-at-me",
+      "slug": "its-off-the-resume",
       "lang": "es",
-      "word": "The way you're looking at me",
-      "phonetic": "[ðə weɪ jʊr ˈlʊkɪŋ æt mi]",
+      "word": "It's off the resume",
+      "phonetic": "[ɪts ɔf ði ˈrɛzjʊmeɪ]",
       "partOfSpeech": "phrase",
-      "translation": "La forma en que me miras",
-      "image": "words/the-way-youre-looking-at-me.jpg",
+      "translation": "Ya no está en el currículum.",
+      "image": "words/its-off-the-resume.jpg",
       "examples": [
         {
-          "original": "The way you're looking at me makes me feel special.",
-          "translation": "La forma en que me miras me hace sentir especial."
+          "original": "She decided to remove that job from her resume.",
+          "translation": "Decidió eliminar ese trabajo de su currículum."
         },
         {
-          "original": "I can tell by the way you're looking at me that you're interested.",
-          "translation": "Puedo notar por la forma en que me miras que estás interesado."
+          "original": "He realized that his skills weren't adequately listed on his resume.",
+          "translation": "Se dio cuenta de que sus habilidades no estaban adecuadamente listadas en su currículum."
         },
         {
-          "original": "I love the way you're looking at me right now.",
-          "translation": "Me encanta la forma en que me miras ahora mismo."
+          "original": "They suggested he take off the less relevant experiences from his resume.",
+          "translation": "Sugerieron que eliminara las experiencias menos relevantes de su currículum."
         }
       ]
     },
     {
-      "slug": "tread-lightly",
+      "slug": "that-i-can-do",
       "lang": "es",
-      "word": "Tread lightly",
-      "phonetic": "[trɛd ˈlaɪtli]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Caminar con cuidado",
-      "image": "words/tread-lightly.jpg",
+      "word": "That I can do",
+      "phonetic": "[ðæt aɪ kæn du]",
+      "partOfSpeech": "phrase",
+      "translation": "Eso puedo hacerlo",
+      "image": "words/that-i-can-do.jpg",
       "examples": [
         {
-          "original": "When walking through the forest, it's important to tread lightly to avoid disturbing the wildlife.",
-          "translation": "Al caminar por el bosque, es importante caminar con cuidado para no perturbar la vida salvaje."
+          "original": "That I can do at any time.",
+          "translation": "Eso puedo hacerlo en cualquier momento."
         },
         {
-          "original": "She advised him to tread lightly when discussing sensitive topics.",
-          "translation": "Ella le aconsejó que caminara con cuidado al discutir temas sensibles."
+          "original": "I'm sure that I can do this task successfully.",
+          "translation": "Estoy seguro de que puedo hacer esta tarea con éxito."
         },
         {
-          "original": "In negotiations, it's wise to tread lightly to maintain a good relationship with the other party.",
-          "translation": "En las negociaciones, es prudente caminar con cuidado para mantener una buena relación con la otra parte."
+          "original": "If you need help, that I can do without a problem.",
+          "translation": "Si necesitas ayuda, eso puedo hacerlo sin problema."
+        }
+      ]
+    },
+    {
+      "slug": "you-time-me",
+      "lang": "es",
+      "word": "You time me",
+      "phonetic": "[ju taɪm mi]",
+      "partOfSpeech": "verb",
+      "translation": "Tú me cronometras",
+      "image": "words/you-time-me.jpg",
+      "examples": [
+        {
+          "original": "Can you time me while I run this lap?",
+          "translation": "¿Puedes cronometrarme mientras corro esta vuelta?"
+        },
+        {
+          "original": "I need you to time me during the test.",
+          "translation": "Necesito que me cronometres durante el examen."
+        },
+        {
+          "original": "Please time me so I know how long it takes to cook.",
+          "translation": "Por favor, crónometra el tiempo que me lleva cocinar."
+        }
+      ]
+    },
+    {
+      "slug": "repeat-after-me",
+      "lang": "es",
+      "word": "Repeat after me",
+      "phonetic": "[rɪˈpit ˈæftər mi]",
+      "partOfSpeech": "phrase",
+      "translation": "Repite después de mí",
+      "image": "words/repeat-after-me.jpg",
+      "examples": [
+        {
+          "original": "Can you repeat after me what I just said?",
+          "translation": "¿Puedes repetir después de mí lo que acabo de decir?"
+        },
+        {
+          "original": "In class, the teacher asked us to repeat after her.",
+          "translation": "En clase, la maestra nos pidió que repitiéramos después de ella."
+        },
+        {
+          "original": "I want you to repeat after me during the exercise.",
+          "translation": "Quiero que repitas después de mí durante el ejercicio."
+        }
+      ]
+    },
+    {
+      "slug": "i-cant-teach-you",
+      "lang": "es",
+      "word": "I can't teach you",
+      "phonetic": "[aɪ kænt tiːtʃ juː]",
+      "partOfSpeech": "phrase",
+      "translation": "No puedo enseñarte",
+      "image": "words/i-cant-teach-you.jpg",
+      "examples": [
+        {
+          "original": "I can't teach you how to ride a bike.",
+          "translation": "No puedo enseñarte a montar en bicicleta."
+        },
+        {
+          "original": "I can't teach you all the rules of the game in one day.",
+          "translation": "No puedo enseñarte todas las reglas del juego en un día."
+        },
+        {
+          "original": "I can't teach you this concept right now, but I can try later.",
+          "translation": "No puedo enseñarte este concepto ahora mismo, pero puedo intentarlo más tarde."
+        }
+      ]
+    },
+    {
+      "slug": "everything-is-gonna-be-fine",
+      "lang": "es",
+      "word": "Everything is gonna be fine",
+      "phonetic": "[ˈɛvriˌθɪŋ ɪz ˈgənə bi faɪn]",
+      "partOfSpeech": "phrase",
+      "translation": "Todo va a estar bien",
+      "image": "words/everything-is-gonna-be-fine.jpg",
+      "examples": [
+        {
+          "original": "Don't worry, everything is gonna be fine in the end.",
+          "translation": "No te preocupes, todo va a estar bien al final."
+        },
+        {
+          "original": "She assured him that everything is gonna be fine after the meeting.",
+          "translation": "Ella le aseguró que todo va a estar bien después de la reunión."
+        },
+        {
+          "original": "No matter what happens, remember that everything is gonna be fine.",
+          "translation": "No importa lo que pase, recuerda que todo va a estar bien."
+        }
+      ]
+    },
+    {
+      "slug": "what-if-there-are-complications",
+      "lang": "es",
+      "word": "What if there are complications",
+      "phonetic": "[wɒt ɪf ðɛr ɑr ˌkɒmplɪˈkeɪʃənz]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Qué ocurre si hay complicaciones?",
+      "image": "words/what-if-there-are-complications.jpg",
+      "examples": [
+        {
+          "original": "What if there are complications during the surgery?",
+          "translation": "¿Qué ocurre si hay complicaciones durante la cirugía?"
+        },
+        {
+          "original": "What if there are complications with the delivery?",
+          "translation": "¿Qué ocurre si hay complicaciones con la entrega?"
+        },
+        {
+          "original": "What if there are complications in the project timeline?",
+          "translation": "¿Qué ocurre si hay complicaciones en el cronograma del proyecto?"
+        }
+      ]
+    },
+    {
+      "slug": "its-a-beautiful-selection",
+      "lang": "es",
+      "word": "It's a beautiful selection",
+      "phonetic": "[ɪts ə bjuːtəfəl sɪˈlɛkʃən]",
+      "partOfSpeech": "phrase",
+      "translation": "Es una selección preciosa",
+      "image": "words/its-a-beautiful-selection.jpg",
+      "examples": [
+        {
+          "original": "This is a beautiful selection of flowers for the wedding.",
+          "translation": "Esta es una selección preciosa de flores para la boda."
+        },
+        {
+          "original": "The store has a beautiful selection of books on display.",
+          "translation": "La tienda tiene una selección preciosa de libros en exhibición."
+        },
+        {
+          "original": "I appreciate your beautiful selection of music for the party.",
+          "translation": "Aprecio tu selección preciosa de música para la fiesta."
+        }
+      ]
+    },
+    {
+      "slug": "getting-down-on-one-knee",
+      "lang": "es",
+      "word": "Getting down on one knee",
+      "phonetic": "[ˈɡɛtɪŋ daʊn ɒn wʌn ni]",
+      "partOfSpeech": "phrase",
+      "translation": "Arrodillarse",
+      "image": "words/getting-down-on-one-knee.jpg",
+      "examples": [
+        {
+          "original": "He proposed to her by getting down on one knee.",
+          "translation": "Él le propuso matrimonio arrodillándose."
+        },
+        {
+          "original": "The athlete got down on one knee to tie his shoelaces.",
+          "translation": "El atleta se arrodilló para atarse los zapatos."
+        },
+        {
+          "original": "During the ceremony, the knight got down on one knee to show his loyalty.",
+          "translation": "Durante la ceremonia, el caballero se arrodilló para demostrar su lealtad."
+        }
+      ]
+    },
+    {
+      "slug": "im-gonna-stick-with-the-ring",
+      "lang": "es",
+      "word": "I'm gonna stick with the ring",
+      "phonetic": "[aɪm ˈgʌnə stɪk wɪð ðə rɪŋ]",
+      "partOfSpeech": "phrase",
+      "translation": "Voy a quedarme con el anillo.",
+      "image": "words/im-gonna-stick-with-the-ring.jpg",
+      "examples": [
+        {
+          "original": "I'm gonna stick with the ring because it has sentimental value.",
+          "translation": "Voy a quedarme con el anillo porque tiene valor sentimental."
+        },
+        {
+          "original": "Even though there are other options, I'm gonna stick with the ring I chose.",
+          "translation": "Aunque hay otras opciones, voy a quedarme con el anillo que elegí."
+        },
+        {
+          "original": "I'm gonna stick with the ring; it's been a part of my journey for years.",
+          "translation": "Voy a quedarme con el anillo; ha sido parte de mi viaje durante años."
+        }
+      ]
+    },
+    {
+      "slug": "i-cant-be-without-you",
+      "lang": "es",
+      "word": "I can't be without you",
+      "phonetic": "[aɪ kænt bi wɪˈðaʊt ju]",
+      "partOfSpeech": "phrase",
+      "translation": "No puedo estar sin ti",
+      "image": "words/i-cant-be-without-you.jpg",
+      "examples": [
+        {
+          "original": "I can't be without you; you complete me.",
+          "translation": "No puedo estar sin ti; me completas."
+        },
+        {
+          "original": "Every day feels empty; I can't be without you.",
+          "translation": "Cada día se siente vacío; no puedo estar sin ti."
+        },
+        {
+          "original": "In times of trouble, I realize I can't be without you.",
+          "translation": "En tiempos de trouble, me doy cuenta de que no puedo estar sin ti."
+        }
+      ]
+    },
+    {
+      "slug": "too-afraid-to-even-ask",
+      "lang": "es",
+      "word": "Too afraid to even ask",
+      "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
+      "partOfSpeech": "phrase",
+      "translation": "Demasiado asustado para siquiera preguntar",
+      "image": "words/too-afraid-to-even-ask.jpg",
+      "examples": [
+        {
+          "original": "She was too afraid to even ask for help.",
+          "translation": "Ella estaba demasiado asustada incluso para pedir ayuda."
+        },
+        {
+          "original": "They felt too afraid to even ask questions during the meeting.",
+          "translation": "Se sintieron demasiado asustados incluso para hacer preguntas durante la reunión."
+        },
+        {
+          "original": "He was too afraid to even ask her out on a date.",
+          "translation": "Él estaba demasiado asustado incluso para invitarla a una cita."
+        }
+      ]
+    },
+    {
+      "slug": "thats-not-even-a-thing",
+      "lang": "es",
+      "word": "That's not even a thing",
+      "phonetic": "[ðæts nɑt ivɪn ə θɪŋ]",
+      "partOfSpeech": "phrase",
+      "translation": "Eso ni siquiera existe.",
+      "image": "words/thats-not-even-a-thing.jpg",
+      "examples": [
+        {
+          "original": "People often say that's not even a thing when they aren't familiar with a concept.",
+          "translation": "La gente a menudo dice que eso ni siquiera existe cuando no están familiarizados con un concepto."
+        },
+        {
+          "original": "I can't believe you think that's not even a thing; it's actually quite popular.",
+          "translation": "No puedo creer que pienses que eso ni siquiera existe; en realidad es bastante popular."
+        },
+        {
+          "original": "When she told me about her idea, I thought, that's not even a thing.",
+          "translation": "Cuando me habló de su idea, pensé, eso ni siquiera existe."
+        }
+      ]
+    },
+    {
+      "slug": "id-also-like-to-try-on",
+      "lang": "es",
+      "word": "I'd also like to try on",
+      "phonetic": "[aɪd ɔlsoʊ laɪk tə traɪ ɑn]",
+      "partOfSpeech": "phrase",
+      "translation": "También me gustaría probarme",
+      "image": "words/id-also-like-to-try-on.jpg",
+      "examples": [
+        {
+          "original": "I'd also like to try on that dress before I buy it.",
+          "translation": "También me gustaría probarme ese vestido antes de comprarlo."
+        },
+        {
+          "original": "Before making a decision, I'd also like to try on a few pairs of shoes.",
+          "translation": "Antes de tomar una decisión, también me gustaría probarme un par de zapatos."
+        },
+        {
+          "original": "I'd also like to try on different sizes to see which fits best.",
+          "translation": "También me gustaría probarme diferentes tallas para ver cuál me queda mejor."
+        }
+      ]
+    },
+    {
+      "slug": "take-the-tiara-back",
+      "lang": "es",
+      "word": "Take the tiara back",
+      "phonetic": "[teɪk ðə tiˈɑrə bæk]",
+      "partOfSpeech": "phrase",
+      "translation": "Devuelve la tiara",
+      "image": "words/take-the-tiara-back.jpg",
+      "examples": [
+        {
+          "original": "We need to take the tiara back to the museum.",
+          "translation": "Necesitamos devolver la tiara al museo."
+        },
+        {
+          "original": "After the party, I plan to take the tiara back to her.",
+          "translation": "Después de la fiesta, planeo devolverle la tiara."
+        },
+        {
+          "original": "They decided to take the tiara back where it belongs.",
+          "translation": "Decidieron devolver la tiara a donde pertenece."
+        }
+      ]
+    },
+    {
+      "slug": "who-does-she-think-she-is",
+      "lang": "es",
+      "word": "Who does she think she is",
+      "phonetic": "[hu dʌz ʃi θɪŋk ʃi ɪz]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Quién se cree que es?",
+      "image": "words/who-does-she-think-she-is.jpg",
+      "examples": [
+        {
+          "original": "Who does she think she is to tell me what to do?",
+          "translation": "¿Quién se cree que es para decirme qué hacer?"
+        },
+        {
+          "original": "I can't believe who she thinks she is after everything that happened.",
+          "translation": "No puedo creer quién se cree que es después de todo lo que pasó."
+        },
+        {
+          "original": "Who does she think she is, acting like she owns the place?",
+          "translation": "¿Quién se cree que es, actuando como si fuera la dueña del lugar?"
+        }
+      ]
+    },
+    {
+      "slug": "why-are-you-looking-at-me-like-that",
+      "lang": "es",
+      "word": "Why are you looking at me like that",
+      "phonetic": "[waɪ ɑr ju ˈlʊkɪŋ æt mi laɪk ðæt]",
+      "partOfSpeech": "phrase",
+      "translation": "¿Por qué me miras así?",
+      "image": "words/why-are-you-looking-at-me-like-that.jpg",
+      "examples": [
+        {
+          "original": "Why are you looking at me like that in the meeting?",
+          "translation": "¿Por qué me miras así en la reunión?"
+        },
+        {
+          "original": "I noticed you were looking at me like that during the movie.",
+          "translation": "Me di cuenta de que me mirabas así durante la película."
+        },
+        {
+          "original": "Why are you looking at me like that? Did I say something wrong?",
+          "translation": "¿Por qué me miras así? ¿Dije algo mal?"
+        }
+      ]
+    },
+    {
+      "slug": "it-was-a-reflex",
+      "lang": "es",
+      "word": "It was a reflex",
+      "phonetic": "[ɪt wəz ə ˈriːflɛks]",
+      "partOfSpeech": "phrase",
+      "translation": "Fue un reflejo.",
+      "image": "words/it-was-a-reflex.jpg",
+      "examples": [
+        {
+          "original": "His reaction was just a reflex to the loud noise.",
+          "translation": "Su reacción fue solo un reflejo al ruido fuerte."
+        },
+        {
+          "original": "She quickly covered her eyes; it was a reflex from years of training.",
+          "translation": "Ella rápidamente cubrió sus ojos; fue un reflejo de años de entrenamiento."
+        },
+        {
+          "original": "I didn't even think about it, it was purely a reflex action.",
+          "translation": "No lo pensé siquiera, fue puramente una acción refleja."
+        }
+      ]
+    },
+    {
+      "slug": "of-course-not",
+      "lang": "es",
+      "word": "Of course not",
+      "phonetic": "[əv kɔrs nɑt]",
+      "partOfSpeech": "phrase",
+      "translation": "Por supuesto que no",
+      "image": "words/of-course-not.jpg",
+      "examples": [
+        {
+          "original": "Are you coming to the party tonight?",
+          "translation": "¿Vas a venir a la fiesta esta noche?"
+        },
+        {
+          "original": "Do you think I will forget your birthday?",
+          "translation": "¿Crees que olvidaré tu cumpleaños?"
+        },
+        {
+          "original": "Is it possible for us to finish this on time?",
+          "translation": "¿Es posible que podamos terminar esto a tiempo?"
+        }
+      ]
+    },
+    {
+      "slug": "you-are-grounded",
+      "lang": "es",
+      "word": "You are grounded",
+      "phonetic": "[ju aɹ ˈɡɹaʊndɪd]",
+      "partOfSpeech": "phrase",
+      "translation": "Estás castigado",
+      "image": "words/you-are-grounded.jpg",
+      "examples": [
+        {
+          "original": "After breaking the rules, you are grounded for a week.",
+          "translation": "Después de romper las reglas, estás castigado por una semana."
+        },
+        {
+          "original": "I can't go to the party because I'm grounded.",
+          "translation": "No puedo ir a la fiesta porque estoy castigado."
+        },
+        {
+          "original": "When a child is misbehaving, the punishment may be that they are grounded.",
+          "translation": "Cuando un niño se comporta mal, el castigo puede ser que esté castigado."
+        }
+      ]
+    },
+    {
+      "slug": "give-me-your-keys",
+      "lang": "es",
+      "word": "Give me your keys",
+      "phonetic": "[gɪv mi jɔr kiz]",
+      "partOfSpeech": "phrase",
+      "translation": "Dame tus llaves",
+      "image": "words/give-me-your-keys.jpg",
+      "examples": [
+        {
+          "original": "Could you give me your keys before you leave?",
+          "translation": "¿Podrías darme tus llaves antes de irte?"
+        },
+        {
+          "original": "I forgot my keys at home, can you give me yours?",
+          "translation": "Olvidé mis llaves en casa, ¿me puedes dar las tuyas?"
+        },
+        {
+          "original": "Please give me your keys so I can take the car.",
+          "translation": "Por favor, dame tus llaves para que pueda llevarme el coche."
+        }
+      ]
+    },
+    {
+      "slug": "i-feel-really-badly-about-yesterday",
+      "lang": "es",
+      "word": "I feel really badly about yesterday",
+      "phonetic": "[aɪ fɪl ˈrɪli ˈbædli əˈbaʊt ˈjɛstərdeɪ]",
+      "partOfSpeech": "verb",
+      "translation": "Me siento muy mal por lo de ayer.",
+      "image": "words/i-feel-really-badly-about-yesterday.jpg",
+      "examples": [
+        {
+          "original": "I feel really bad about yesterday's events.",
+          "translation": "Me siento muy mal por los eventos de ayer."
+        },
+        {
+          "original": "She feels bad that she couldn't attend the meeting yesterday.",
+          "translation": "Ella se siente mal por no haber podido asistir a la reunión de ayer."
+        },
+        {
+          "original": "He felt bad after forgetting his friend's birthday yesterday.",
+          "translation": "Se sintió mal después de olvidar el cumpleaños de su amigo ayer."
+        }
+      ]
+    },
+    {
+      "slug": "lets-try-it-again",
+      "lang": "es",
+      "word": "Let's try it again",
+      "phonetic": "[lɛts traɪ ɪt əˈɡɛn]",
+      "partOfSpeech": "phrase",
+      "translation": "Intentémoslo de nuevo",
+      "image": "words/lets-try-it-again.jpg",
+      "examples": [
+        {
+          "original": "After failing the first time, let's try it again.",
+          "translation": "Después de fallar la primera vez, intentémoslo de nuevo."
+        },
+        {
+          "original": "If you didn't succeed, let's try it again and see what happens.",
+          "translation": "Si no tuviste éxito, intentémoslo de nuevo y veamos qué pasa."
+        },
+        {
+          "original": "I'm sure we can improve our performance; let's try it again later.",
+          "translation": "Estoy seguro de que podemos mejorar nuestro rendimiento; intentémoslo de nuevo más tarde."
+        }
+      ]
+    },
+    {
+      "slug": "i-worked-on-it-myself",
+      "lang": "es",
+      "word": "I worked on it myself",
+      "phonetic": "[aɪ wɜrkt ɒn ɪt maɪˈsɛlf]",
+      "partOfSpeech": "phrase",
+      "translation": "Lo hice yo mismo",
+      "image": "words/i-worked-on-it-myself.jpg",
+      "examples": [
+        {
+          "original": "I worked on it myself to ensure its quality.",
+          "translation": "Lo hice yo mismo para asegurar su calidad."
+        },
+        {
+          "original": "I worked on it myself, so I know every detail.",
+          "translation": "Lo hice yo mismo, así que conozco cada detalle."
+        },
+        {
+          "original": "I worked on it myself because I wanted to learn.",
+          "translation": "Lo hice yo mismo porque quería aprender."
         }
       ]
     }

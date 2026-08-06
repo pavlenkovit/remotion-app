@@ -1,0 +1,145 @@
+{
+  "slug": "why-are-you-looking-at-me-the-drama",
+  "clip": "clips/why-are-you-looking-at-me-the-drama.mov",
+  "film": "The Drama",
+  "hook": {
+    "ru": "Зендея, нож и смузи — фильм «Драма»",
+    "es": "Zendaya, un cuchillo y un batido: The Drama"
+  },
+  "highlights": [
+    {
+      "slug": "why-are-you-looking-at-me-like-that",
+      "atSec": 13.3,
+      "text": "Why are you looking at me like that"
+    },
+    {
+      "slug": "it-was-a-reflex",
+      "atSec": 19.8,
+      "text": "It was a reflex"
+    },
+    {
+      "slug": "of-course-not",
+      "atSec": 27.78,
+      "text": "Of course not"
+    }
+  ],
+  "subtitles": [
+    {
+      "from": 3.3,
+      "to": 4.08,
+      "text": "Hey, Charlie, did you...",
+      "tr": {
+        "ru": "Эй, Чарли, ты...",
+        "es": "Oye, Charlie, ¿tú...?"
+      }
+    },
+    {
+      "from": 4.08,
+      "to": 7.46,
+      "text": "Oh, Jesus, you scared me.",
+      "tr": {
+        "ru": "О боже, ты меня напугала.",
+        "es": "¡Ay, Jesús, me asustaste!"
+      }
+    },
+    {
+      "from": 8.14,
+      "to": 9.5,
+      "text": "I was making a smoothie.",
+      "tr": {
+        "ru": "Я делала смузи.",
+        "es": "Estaba preparando un batido."
+      }
+    },
+    {
+      "from": 11.94,
+      "to": 13.3,
+      "text": "Why are you looking at me like that?",
+      "tr": {
+        "ru": "Почему ты так на меня смотришь?",
+        "es": "¿Por qué me miras así?"
+      }
+    },
+    {
+      "from": 13.76,
+      "to": 14.44,
+      "text": "Like what?",
+      "tr": {
+        "ru": "Как что?",
+        "es": "¿Cómo qué?"
+      }
+    },
+    {
+      "from": 15.94,
+      "to": 17.32,
+      "text": "Like you're scared of me.",
+      "tr": {
+        "ru": "Как будто ты меня боишься.",
+        "es": "Como si me tuvieras miedo."
+      }
+    },
+    {
+      "from": 17.92,
+      "to": 18.54,
+      "text": "I was just like a...",
+      "tr": {
+        "ru": "Я просто...",
+        "es": "Yo era como un..."
+      }
+    },
+    {
+      "from": 18.66,
+      "to": 19.8,
+      "text": "It was a reflex.",
+      "tr": {
+        "ru": "Это был рефлекс.",
+        "es": "Fue un acto reflejo."
+      }
+    },
+    {
+      "from": 20.7,
+      "to": 23.8,
+      "text": "Do you think I came up here to stab you?",
+      "tr": {
+        "ru": "Думаешь, я пришла сюда, чтобы тебя зарезать?",
+        "es": "¿Crees que he venido aquí para apuñalarte?"
+      }
+    },
+    {
+      "from": 26.02,
+      "to": 26.34,
+      "text": "No.",
+      "tr": {
+        "ru": "Нет.",
+        "es": "No."
+      }
+    },
+    {
+      "from": 26.9,
+      "to": 27.78,
+      "text": "Of course not.",
+      "tr": {
+        "ru": "Конечно, нет.",
+        "es": "Por supuesto que no."
+      }
+    },
+    {
+      "from": 28.58,
+      "to": 28.98,
+      "text": "What was the question?",
+      "tr": {
+        "ru": "В чём заключался вопрос?",
+        "es": "¿Cuál era la pregunta?"
+      }
+    },
+    {
+      "from": 29.54,
+      "to": 30.58,
+      "text": "What was the question?",
+      "tr": {
+        "ru": "В чём заключался вопрос?",
+        "es": "¿Cuál era la pregunta?"
+      }
+    }
+  ]
+}

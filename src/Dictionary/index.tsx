@@ -14,7 +14,7 @@ import {
 import { Brand, COLORS, SearchBar } from "./ui";
 import { Keyboard } from "./Keyboard";
 import { words, type WordData } from "./schema";
-import { STRINGS, localizePos } from "../i18n";
+import { STRINGS } from "../i18n";
 
 // Mockup canvas size. Taller-than-16:9 so the phone frame in the social video
 // reads like a real phone (slimmer). Shared with Root.tsx (composition size) and
@@ -322,10 +322,6 @@ const WordScene: React.FC<{ word: WordData; localFrame: number }> = ({
             </svg>
           </div>
         </div>
-        <div style={{ color: COLORS.muted, fontSize: 40, marginTop: 8 }}>
-          {localizePos(word.lang, word.partOfSpeech)}
-        </div>
-
         <div
           style={{
             color: "white",
