@@ -70,52 +70,6 @@
       ]
     },
     {
-      "slug": "repeat-after-me",
-      "lang": "ru",
-      "word": "Repeat after me",
-      "phonetic": "[rəˈpit ˈæf.tər mi]",
-      "partOfSpeech": "phrase",
-      "translation": "Повторяй за мной",
-      "image": "words/repeat-after-me.jpg",
-      "examples": [
-        {
-          "original": "During the lesson, the teacher asked the students to repeat after her.",
-          "translation": "Во время урока учитель попросил учеников повторять за ней."
-        },
-        {
-          "original": "When learning a new language, it's helpful to repeat after the audio recordings.",
-          "translation": "При изучении нового языка полезно повторять за аудиозаписями."
-        },
-        {
-          "original": "Please repeat after me to practice your pronunciation.",
-          "translation": "Пожалуйста, повторите за мной, чтобы попрактиковать свое произношение."
-        }
-      ]
-    },
-    {
-      "slug": "i-cant-teach-you",
-      "lang": "ru",
-      "word": "I can't teach you",
-      "phonetic": "[aɪ kænt tiːtʃ juː]",
-      "partOfSpeech": "phrase",
-      "translation": "Я не могу тебя научить",
-      "image": "words/i-cant-teach-you.jpg",
-      "examples": [
-        {
-          "original": "I can't teach you how to ride a bike.",
-          "translation": "Я не могу тебя научить, как кататься на велосипеде."
-        },
-        {
-          "original": "I can't teach you the rules of the game today.",
-          "translation": "Я не могу тебя научить правилам игры сегодня."
-        },
-        {
-          "original": "I can't teach you to play the guitar right now.",
-          "translation": "Я не могу тебя научить играть на гитаре прямо сейчас."
-        }
-      ]
-    },
-    {
       "slug": "everything-is-gonna-be-fine",
       "lang": "ru",
       "word": "Everything is gonna be fine",
@@ -620,52 +574,6 @@
         {
           "original": "Please time me so I know how long it takes to cook.",
           "translation": "Por favor, crónometra el tiempo que me lleva cocinar."
-        }
-      ]
-    },
-    {
-      "slug": "repeat-after-me",
-      "lang": "es",
-      "word": "Repeat after me",
-      "phonetic": "[rɪˈpit ˈæftər mi]",
-      "partOfSpeech": "phrase",
-      "translation": "Repite después de mí",
-      "image": "words/repeat-after-me.jpg",
-      "examples": [
-        {
-          "original": "Can you repeat after me what I just said?",
-          "translation": "¿Puedes repetir después de mí lo que acabo de decir?"
-        },
-        {
-          "original": "In class, the teacher asked us to repeat after her.",
-          "translation": "En clase, la maestra nos pidió que repitiéramos después de ella."
-        },
-        {
-          "original": "I want you to repeat after me during the exercise.",
-          "translation": "Quiero que repitas después de mí durante el ejercicio."
-        }
-      ]
-    },
-    {
-      "slug": "i-cant-teach-you",
-      "lang": "es",
-      "word": "I can't teach you",
-      "phonetic": "[aɪ kænt tiːtʃ juː]",
-      "partOfSpeech": "phrase",
-      "translation": "No puedo enseñarte",
-      "image": "words/i-cant-teach-you.jpg",
-      "examples": [
-        {
-          "original": "I can't teach you how to ride a bike.",
-          "translation": "No puedo enseñarte a montar en bicicleta."
-        },
-        {
-          "original": "I can't teach you all the rules of the game in one day.",
-          "translation": "No puedo enseñarte todas las reglas del juego en un día."
-        },
-        {
-          "original": "I can't teach you this concept right now, but I can try later.",
-          "translation": "No puedo enseñarte este concepto ahora mismo, pero puedo intentarlo más tarde."
         }
       ]
     },

@@ -25,6 +25,15 @@
   ],
   "subtitles": [
     {
+      "from": 0.26,
+      "to": 1.4,
+      "text": "Tap dance?",
+      "tr": {
+        "ru": "Чечётка?",
+        "es": "¿Claqué?"
+      }
+    },
+    {
       "from": 1.72,
       "to": 2.04,
       "text": "No.",
