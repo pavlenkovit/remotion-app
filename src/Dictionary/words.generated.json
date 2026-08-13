@@ -1,52 +1,6 @@
 {
   "ru": [
     {
-      "slug": "everything-is-gonna-be-fine",
-      "lang": "ru",
-      "word": "Everything is gonna be fine",
-      "phonetic": "[ˈɛvriθɪŋ ɪz ˈɡɒnə bi faɪn]",
-      "partOfSpeech": "phrase",
-      "translation": "Всё будет хорошо.",
-      "image": "words/everything-is-gonna-be-fine.jpg",
-      "examples": [
-        {
-          "original": "Don't worry, everything is gonna be fine.",
-          "translation": "Не волнуйся, всё будет хорошо."
-        },
-        {
-          "original": "I promise you, everything is gonna be fine in the end.",
-          "translation": "Я обещаю тебе, в конце концов всё будет хорошо."
-        },
-        {
-          "original": "Even if things seem tough now, everything is gonna be fine.",
-          "translation": "Даже если сейчас все кажется трудным, всё будет хорошо."
-        }
-      ]
-    },
-    {
-      "slug": "what-if-there-are-complications",
-      "lang": "ru",
-      "word": "What if there are complications",
-      "phonetic": "[wɒt ɪf ðɛr ɑr ˌkɒmplɪˈkeɪʃənz]",
-      "partOfSpeech": "phrase",
-      "translation": "Что если возникнут осложнения?",
-      "image": "words/what-if-there-are-complications.jpg",
-      "examples": [
-        {
-          "original": "What if there are complications during the surgery?",
-          "translation": "Что если возникнут осложнения во время операции?"
-        },
-        {
-          "original": "We should prepare for what if there are complications in the project.",
-          "translation": "Нам следует подготовиться к тому, что могут возникнуть осложнения в проекте."
-        },
-        {
-          "original": "I'm concerned about what if there are complications with the plan.",
-          "translation": "Меня беспокоит, что может возникнуть осложнение с планом."
-        }
-      ]
-    },
-    {
       "slug": "i-cant-be-without-you",
       "lang": "ru",
       "word": "I can't be without you",
@@ -75,7 +29,7 @@
       "word": "Too afraid to even ask",
       "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
       "partOfSpeech": "phrase",
-      "translation": "Слишком боюсь даже спросить",
+      "translation": "Слишком боится даже спросить",
       "image": "words/too-afraid-to-even-ask.jpg",
       "examples": [
         {
@@ -139,25 +93,48 @@
       ]
     },
     {
-      "slug": "take-the-tiara-back",
+      "slug": "too-much",
       "lang": "ru",
-      "word": "Take the tiara back",
-      "phonetic": "[teɪk ðə tiˈɑːrə bæk]",
-      "partOfSpeech": "verb phrase",
-      "translation": "Забери диадему обратно",
-      "image": "words/take-the-tiara-back.jpg",
+      "word": "Too much",
+      "phonetic": "[tu mʌtʃ]",
+      "partOfSpeech": "adverb",
+      "translation": "Слишком",
+      "image": "words/too-much.jpg",
       "examples": [
         {
-          "original": "Can you take the tiara back to the jewelry store?",
-          "translation": "Можешь вернуть диадему в ювелирный магазин?"
+          "original": "He spent too much time on his phone instead of studying.",
+          "translation": "Он слишком много времени проводил за телефоном вместо учебы."
         },
         {
-          "original": "I forgot to take the tiara back after the party.",
-          "translation": "Я забыл вернуть диадему после вечеринки."
+          "original": "I think I added too much salt to the soup.",
+          "translation": "Я думаю, что добавил слишком много соли в суп."
         },
         {
-          "original": "Please make sure to take the tiara back before the wedding.",
-          "translation": "Пожалуйста, убедитесь, что вернули диадему до свадьбы."
+          "original": "There can be too much of a good thing, like chocolate.",
+          "translation": "Слишком много хорошего тоже бывает, например, шоколада."
+        }
+      ]
+    },
+    {
+      "slug": "i-expressly-forbid",
+      "lang": "ru",
+      "word": "I expressly forbid",
+      "phonetic": "[aɪ ɪkˈsprɛsli fərˈbɪd]",
+      "partOfSpeech": "phrase",
+      "translation": "Я категорически запрещаю",
+      "image": "words/i-expressly-forbid.webp",
+      "examples": [
+        {
+          "original": "I expressly forbid you from entering this room without permission.",
+          "translation": "Я категорически запрещаю тебе входить в эту комнату без разрешения."
+        },
+        {
+          "original": "My mother expressly forbids us from staying out late on weekdays.",
+          "translation": "Моя мама категорически запрещает нам засиживаться допоздна по будням."
+        },
+        {
+          "original": "The teacher expressly forbids the use of phones during the exam.",
+          "translation": "Учитель категорически запрещает пользоваться телефонами во время экзамена."
         }
       ]
     },
@@ -328,7 +305,7 @@
       "word": "Let's try it again",
       "phonetic": "[lɛts traɪ ɪt əˈɡɛn]",
       "partOfSpeech": "phrase",
-      "translation": "Давай попробуем ещё раз.",
+      "translation": "Давайте попробуем ещё раз.",
       "image": "words/lets-try-it-again.jpg",
       "examples": [
         {
@@ -337,11 +314,11 @@
         },
         {
           "original": "After reviewing our mistakes, let's try it again with a fresh perspective.",
-          "translation": "После анализа наших ошибок, давай попробуем ещё раз с новой точки зрения."
+          "translation": "После анализа наших ошибок, давайте попробуем ещё раз с новой точки зрения."
         },
         {
           "original": "If at first, we don't succeed, let's try it again until we do.",
-          "translation": "Если сначала у нас не получится, давай попробуем ещё раз, пока не получится."
+          "translation": "Если сначала у нас не получится, давайте попробуем ещё раз, пока не получится."
         }
       ]
     },
@@ -371,52 +348,6 @@
   ],
   "es": [
     {
-      "slug": "everything-is-gonna-be-fine",
-      "lang": "es",
-      "word": "Everything is gonna be fine",
-      "phonetic": "[ˈɛvriˌθɪŋ ɪz ˈgənə bi faɪn]",
-      "partOfSpeech": "phrase",
-      "translation": "Todo va a estar bien",
-      "image": "words/everything-is-gonna-be-fine.jpg",
-      "examples": [
-        {
-          "original": "Don't worry, everything is gonna be fine in the end.",
-          "translation": "No te preocupes, todo va a estar bien al final."
-        },
-        {
-          "original": "She assured him that everything is gonna be fine after the meeting.",
-          "translation": "Ella le aseguró que todo va a estar bien después de la reunión."
-        },
-        {
-          "original": "No matter what happens, remember that everything is gonna be fine.",
-          "translation": "No importa lo que pase, recuerda que todo va a estar bien."
-        }
-      ]
-    },
-    {
-      "slug": "what-if-there-are-complications",
-      "lang": "es",
-      "word": "What if there are complications",
-      "phonetic": "[wɒt ɪf ðɛr ɑr ˌkɒmplɪˈkeɪʃənz]",
-      "partOfSpeech": "phrase",
-      "translation": "¿Qué ocurre si hay complicaciones?",
-      "image": "words/what-if-there-are-complications.jpg",
-      "examples": [
-        {
-          "original": "What if there are complications during the surgery?",
-          "translation": "¿Qué ocurre si hay complicaciones durante la cirugía?"
-        },
-        {
-          "original": "What if there are complications with the delivery?",
-          "translation": "¿Qué ocurre si hay complicaciones con la entrega?"
-        },
-        {
-          "original": "What if there are complications in the project timeline?",
-          "translation": "¿Qué ocurre si hay complicaciones en el cronograma del proyecto?"
-        }
-      ]
-    },
-    {
       "slug": "i-cant-be-without-you",
       "lang": "es",
       "word": "I can't be without you",
@@ -445,7 +376,7 @@
       "word": "Too afraid to even ask",
       "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
       "partOfSpeech": "phrase",
-      "translation": "Demasiado asustado para siquiera preguntar",
+      "translation": "Demasiado asustados incluso para preguntar",
       "image": "words/too-afraid-to-even-ask.jpg",
       "examples": [
         {
@@ -509,25 +440,48 @@
       ]
     },
     {
-      "slug": "take-the-tiara-back",
+      "slug": "too-much",
       "lang": "es",
-      "word": "Take the tiara back",
-      "phonetic": "[teɪk ðə tiˈɑrə bæk]",
-      "partOfSpeech": "phrase",
-      "translation": "Devuelve la tiara",
-      "image": "words/take-the-tiara-back.jpg",
+      "word": "Too much",
+      "phonetic": "[tu mʌtʃ]",
+      "partOfSpeech": "adverb",
+      "translation": "Demasiado",
+      "image": "words/too-much.jpg",
       "examples": [
         {
-          "original": "We need to take the tiara back to the museum.",
-          "translation": "Necesitamos devolver la tiara al museo."
+          "original": "I think you added too much salt to the soup.",
+          "translation": "Creo que agregaste demasiado sal a la sopa."
         },
         {
-          "original": "After the party, I plan to take the tiara back to her.",
-          "translation": "Después de la fiesta, planeo devolverle la tiara."
+          "original": "She spent too much money on her new dress.",
+          "translation": "Ella gastó demasiado dinero en su nuevo vestido."
         },
         {
-          "original": "They decided to take the tiara back where it belongs.",
-          "translation": "Decidieron devolver la tiara a donde pertenece."
+          "original": "There was too much noise outside for me to concentrate.",
+          "translation": "Había demasiado ruido afuera para que pudiera concentrarme."
+        }
+      ]
+    },
+    {
+      "slug": "i-expressly-forbid",
+      "lang": "es",
+      "word": "I expressly forbid",
+      "phonetic": "[aɪ ɪkˈsprɛsli fɔːˈbɪd]",
+      "partOfSpeech": "phrase",
+      "translation": "Lo prohíbo expresamente",
+      "image": "words/i-expressly-forbid.webp",
+      "examples": [
+        {
+          "original": "I expressly forbid any kind of cheating in my classroom.",
+          "translation": "Prohíbo expresamente cualquier tipo de trampa en mi aula."
+        },
+        {
+          "original": "He expressly forbids anyone from entering his property without permission.",
+          "translation": "Él prohíbe expresamente a cualquier persona entrar en su propiedad sin permiso."
+        },
+        {
+          "original": "The rules expressly forbid the use of mobile phones during the exam.",
+          "translation": "Las reglas prohíben expresamente el uso de teléfonos móviles durante el examen."
         }
       ]
     },
