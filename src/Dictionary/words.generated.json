@@ -24,29 +24,6 @@
       ]
     },
     {
-      "slug": "too-afraid-to-even-ask",
-      "lang": "ru",
-      "word": "Too afraid to even ask",
-      "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
-      "partOfSpeech": "phrase",
-      "translation": "Слишком боится даже спросить",
-      "image": "words/too-afraid-to-even-ask.jpg",
-      "examples": [
-        {
-          "original": "She was too afraid to even ask for help.",
-          "translation": "Она была слишком боится даже спросить о помощи."
-        },
-        {
-          "original": "He was too afraid to even ask her out on a date.",
-          "translation": "Он был слишком боится даже пригласить её на свидание."
-        },
-        {
-          "original": "They are too afraid to even ask questions in class.",
-          "translation": "Они слишком боятся даже задавать вопросы на уроке."
-        }
-      ]
-    },
-    {
       "slug": "thats-not-even-a-thing",
       "lang": "ru",
       "word": "That's not even a thing",
@@ -66,52 +43,6 @@
         {
           "original": "People say it's a trend, but that's not even a thing.",
           "translation": "Люди говорят, что это тренд, но этого даже не существует."
-        }
-      ]
-    },
-    {
-      "slug": "id-also-like-to-try-on",
-      "lang": "ru",
-      "word": "I'd also like to try on",
-      "phonetic": "[aɪd ˈɔlsoʊ laɪk tə traɪ ɑn]",
-      "partOfSpeech": "phrase",
-      "translation": "Я бы также хотела примерить",
-      "image": "words/id-also-like-to-try-on.jpg",
-      "examples": [
-        {
-          "original": "I'd also like to try on that dress in the window.",
-          "translation": "Я бы также хотела примерить то платье у витрины."
-        },
-        {
-          "original": "Before making a final decision, I'd also like to try on a few pairs of shoes.",
-          "translation": "Перед тем как принять окончательное решение, я бы также хотела примерить несколько пар обуви."
-        },
-        {
-          "original": "I think I'll ask the sales clerk if I could also try on this jacket.",
-          "translation": "Я думаю, я спрошу продавца, могу ли я также примерить этот пиджак."
-        }
-      ]
-    },
-    {
-      "slug": "too-much",
-      "lang": "ru",
-      "word": "Too much",
-      "phonetic": "[tu mʌtʃ]",
-      "partOfSpeech": "adverb",
-      "translation": "Слишком",
-      "image": "words/too-much.jpg",
-      "examples": [
-        {
-          "original": "He spent too much time on his phone instead of studying.",
-          "translation": "Он слишком много времени проводил за телефоном вместо учебы."
-        },
-        {
-          "original": "I think I added too much salt to the soup.",
-          "translation": "Я думаю, что добавил слишком много соли в суп."
-        },
-        {
-          "original": "There can be too much of a good thing, like chocolate.",
-          "translation": "Слишком много хорошего тоже бывает, например, шоколада."
         }
       ]
     },
@@ -371,29 +302,6 @@
       ]
     },
     {
-      "slug": "too-afraid-to-even-ask",
-      "lang": "es",
-      "word": "Too afraid to even ask",
-      "phonetic": "[tu əˈfreɪd tu ˈivən æsk]",
-      "partOfSpeech": "phrase",
-      "translation": "Demasiado asustados incluso para preguntar",
-      "image": "words/too-afraid-to-even-ask.jpg",
-      "examples": [
-        {
-          "original": "She was too afraid to even ask for help.",
-          "translation": "Ella estaba demasiado asustada incluso para pedir ayuda."
-        },
-        {
-          "original": "They felt too afraid to even ask questions during the meeting.",
-          "translation": "Se sintieron demasiado asustados incluso para hacer preguntas durante la reunión."
-        },
-        {
-          "original": "He was too afraid to even ask her out on a date.",
-          "translation": "Él estaba demasiado asustado incluso para invitarla a una cita."
-        }
-      ]
-    },
-    {
       "slug": "thats-not-even-a-thing",
       "lang": "es",
       "word": "That's not even a thing",
@@ -413,52 +321,6 @@
         {
           "original": "When she told me about her idea, I thought, that's not even a thing.",
           "translation": "Cuando me habló de su idea, pensé, eso ni siquiera existe."
-        }
-      ]
-    },
-    {
-      "slug": "id-also-like-to-try-on",
-      "lang": "es",
-      "word": "I'd also like to try on",
-      "phonetic": "[aɪd ɔlsoʊ laɪk tə traɪ ɑn]",
-      "partOfSpeech": "phrase",
-      "translation": "También me gustaría probarme",
-      "image": "words/id-also-like-to-try-on.jpg",
-      "examples": [
-        {
-          "original": "I'd also like to try on that dress before I buy it.",
-          "translation": "También me gustaría probarme ese vestido antes de comprarlo."
-        },
-        {
-          "original": "Before making a decision, I'd also like to try on a few pairs of shoes.",
-          "translation": "Antes de tomar una decisión, también me gustaría probarme un par de zapatos."
-        },
-        {
-          "original": "I'd also like to try on different sizes to see which fits best.",
-          "translation": "También me gustaría probarme diferentes tallas para ver cuál me queda mejor."
-        }
-      ]
-    },
-    {
-      "slug": "too-much",
-      "lang": "es",
-      "word": "Too much",
-      "phonetic": "[tu mʌtʃ]",
-      "partOfSpeech": "adverb",
-      "translation": "Demasiado",
-      "image": "words/too-much.jpg",
-      "examples": [
-        {
-          "original": "I think you added too much salt to the soup.",
-          "translation": "Creo que agregaste demasiado sal a la sopa."
-        },
-        {
-          "original": "She spent too much money on her new dress.",
-          "translation": "Ella gastó demasiado dinero en su nuevo vestido."
-        },
-        {
-          "original": "There was too much noise outside for me to concentrate.",
-          "translation": "Había demasiado ruido afuera para que pudiera concentrarme."
         }
       ]
     },
